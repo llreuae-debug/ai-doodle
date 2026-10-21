@@ -1,0 +1,33 @@
+{
+  "currentBatch": 1,
+  "totalBatches": 8,
+  "batchSize": 20,
+  "itemsInBatch": 20,
+  "totalProcessed": 20,
+  "totalAvailable": 150,
+  "lastProcessedCategory": "business",
+  "lastBatchFile": "/Users/dilnawaz/antigravity/Ai Doodle/assets/library/_review/business-batch-01.png",
+  "completedBatchIds": [
+    "bz-bar-chart",
+    "bz-briefcase",
+    "bz-coins",
+    "bz-target",
+    "bz-pie-chart",
+    "ch-man-kameez",
+    "ch-woman-kameez",
+    "ch-elder-topi",
+    "ch-teacher-hijab",
+    "ch-doctor",
+    "ch-businessman",
+    "ch-student",
+    "ch-girl",
+    "ed-open-book",
+    "ed-grad-cap",
+    "ed-pencil",
+    "ed-globe",
+    "ed-backpack",
+    "ch-extra-1",
+    "ch-extra-2"
+  ],
+  "timestamp": "2026-10-21T19:21:16.045Z"
+}

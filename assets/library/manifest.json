@@ -1,0 +1,311 @@
+[
+ {
+  "id": "bz-bar-chart",
+  "cat": "business",
+  "name": "Rising bar chart",
+  "tags": [
+   "business",
+   "growth",
+   "chart",
+   "money"
+  ],
+  "file": "/library/business/bz-bar-chart.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/business/bz-bar-chart.svg",
+  "thumbColor": "/library/business/bz-bar-chart.color.svg"
+ },
+ {
+  "id": "bz-briefcase",
+  "cat": "business",
+  "name": "Briefcase",
+  "tags": [
+   "business",
+   "work",
+   "office",
+   "job"
+  ],
+  "file": "/library/business/bz-briefcase.json",
+  "strokeCount": 9,
+  "premium": false,
+  "thumb": "/library/business/bz-briefcase.svg",
+  "thumbColor": "/library/business/bz-briefcase.color.svg"
+ },
+ {
+  "id": "bz-coins",
+  "cat": "business",
+  "name": "Stacks of coins",
+  "tags": [
+   "business",
+   "money",
+   "savings",
+   "finance"
+  ],
+  "file": "/library/business/bz-coins.json",
+  "strokeCount": 12,
+  "premium": false,
+  "thumb": "/library/business/bz-coins.svg",
+  "thumbColor": "/library/business/bz-coins.color.svg"
+ },
+ {
+  "id": "bz-target",
+  "cat": "business",
+  "name": "Target and arrow",
+  "tags": [
+   "business",
+   "goal",
+   "aim",
+   "strategy"
+  ],
+  "file": "/library/business/bz-target.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-target.svg",
+  "thumbColor": "/library/business/bz-target.color.svg"
+ },
+ {
+  "id": "bz-pie-chart",
+  "cat": "business",
+  "name": "Pie chart",
+  "tags": [
+   "business",
+   "chart",
+   "report",
+   "data"
+  ],
+  "file": "/library/business/bz-pie-chart.json",
+  "strokeCount": 9,
+  "premium": false,
+  "thumb": "/library/business/bz-pie-chart.svg",
+  "thumbColor": "/library/business/bz-pie-chart.color.svg"
+ },
+ {
+  "id": "ch-man-kameez",
+  "cat": "characters",
+  "name": "Man – shalwar kameez",
+  "tags": [
+   "people",
+   "south asian",
+   "everyday"
+  ],
+  "file": "/library/characters/ch-man-kameez.json",
+  "strokeCount": 24,
+  "premium": false,
+  "thumb": "/library/characters/ch-man-kameez.svg",
+  "thumbColor": "/library/characters/ch-man-kameez.color.svg"
+ },
+ {
+  "id": "ch-woman-kameez",
+  "cat": "characters",
+  "name": "Woman – shalwar kameez",
+  "tags": [
+   "people",
+   "south asian",
+   "everyday"
+  ],
+  "file": "/library/characters/ch-woman-kameez.json",
+  "strokeCount": 23,
+  "premium": false,
+  "thumb": "/library/characters/ch-woman-kameez.svg",
+  "thumbColor": "/library/characters/ch-woman-kameez.color.svg"
+ },
+ {
+  "id": "ch-elder-topi",
+  "cat": "characters",
+  "name": "Elder with cane",
+  "tags": [
+   "people",
+   "south asian",
+   "family",
+   "faith"
+  ],
+  "file": "/library/characters/ch-elder-topi.json",
+  "strokeCount": 26,
+  "premium": false,
+  "thumb": "/library/characters/ch-elder-topi.svg",
+  "thumbColor": "/library/characters/ch-elder-topi.color.svg"
+ },
+ {
+  "id": "ch-teacher-hijab",
+  "cat": "characters",
+  "name": "Teacher with book",
+  "tags": [
+   "people",
+   "education",
+   "faith"
+  ],
+  "file": "/library/characters/ch-teacher-hijab.json",
+  "strokeCount": 26,
+  "premium": false,
+  "thumb": "/library/characters/ch-teacher-hijab.svg",
+  "thumbColor": "/library/characters/ch-teacher-hijab.color.svg"
+ },
+ {
+  "id": "ch-doctor",
+  "cat": "characters",
+  "name": "Doctor",
+  "tags": [
+   "people",
+   "health"
+  ],
+  "file": "/library/characters/ch-doctor.json",
+  "strokeCount": 21,
+  "premium": false,
+  "thumb": "/library/characters/ch-doctor.svg",
+  "thumbColor": "/library/characters/ch-doctor.color.svg"
+ },
+ {
+  "id": "ch-businessman",
+  "cat": "characters",
+  "name": "Businessman",
+  "tags": [
+   "people",
+   "business"
+  ],
+  "file": "/library/characters/ch-businessman.json",
+  "strokeCount": 22,
+  "premium": false,
+  "thumb": "/library/characters/ch-businessman.svg",
+  "thumbColor": "/library/characters/ch-businessman.color.svg"
+ },
+ {
+  "id": "ch-student",
+  "cat": "characters",
+  "name": "Student waving",
+  "tags": [
+   "people",
+   "education",
+   "kids"
+  ],
+  "file": "/library/characters/ch-student.json",
+  "strokeCount": 20,
+  "premium": false,
+  "thumb": "/library/characters/ch-student.svg",
+  "thumbColor": "/library/characters/ch-student.color.svg"
+ },
+ {
+  "id": "ch-girl",
+  "cat": "characters",
+  "name": "Girl in frock",
+  "tags": [
+   "people",
+   "kids",
+   "family"
+  ],
+  "file": "/library/characters/ch-girl.json",
+  "strokeCount": 21,
+  "premium": false,
+  "thumb": "/library/characters/ch-girl.svg",
+  "thumbColor": "/library/characters/ch-girl.color.svg"
+ },
+ {
+  "id": "ed-open-book",
+  "cat": "education",
+  "name": "Open book",
+  "tags": [
+   "education",
+   "reading",
+   "study",
+   "school"
+  ],
+  "file": "/library/education/ed-open-book.json",
+  "strokeCount": 13,
+  "premium": false,
+  "thumb": "/library/education/ed-open-book.svg",
+  "thumbColor": "/library/education/ed-open-book.color.svg"
+ },
+ {
+  "id": "ed-grad-cap",
+  "cat": "education",
+  "name": "Graduation cap",
+  "tags": [
+   "education",
+   "graduation",
+   "university",
+   "success"
+  ],
+  "file": "/library/education/ed-grad-cap.json",
+  "strokeCount": 8,
+  "premium": false,
+  "thumb": "/library/education/ed-grad-cap.svg",
+  "thumbColor": "/library/education/ed-grad-cap.color.svg"
+ },
+ {
+  "id": "ed-pencil",
+  "cat": "education",
+  "name": "Pencil",
+  "tags": [
+   "education",
+   "writing",
+   "school",
+   "draw"
+  ],
+  "file": "/library/education/ed-pencil.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/education/ed-pencil.svg",
+  "thumbColor": "/library/education/ed-pencil.color.svg"
+ },
+ {
+  "id": "ed-globe",
+  "cat": "education",
+  "name": "Globe",
+  "tags": [
+   "education",
+   "geography",
+   "world",
+   "school"
+  ],
+  "file": "/library/education/ed-globe.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/education/ed-globe.svg",
+  "thumbColor": "/library/education/ed-globe.color.svg"
+ },
+ {
+  "id": "ed-backpack",
+  "cat": "education",
+  "name": "School bag",
+  "tags": [
+   "education",
+   "school",
+   "kids",
+   "study"
+  ],
+  "file": "/library/education/ed-backpack.json",
+  "strokeCount": 8,
+  "premium": false,
+  "thumb": "/library/education/ed-backpack.svg",
+  "thumbColor": "/library/education/ed-backpack.color.svg"
+ },
+ {
+  "id": "ch-extra-1",
+  "cat": "characters",
+  "name": "Artist",
+  "tags": [
+   "people",
+   "character",
+   "artist"
+  ],
+  "file": "/library/characters/ch-extra-1.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-1.svg",
+  "thumbColor": "/library/characters/ch-extra-1.color.svg"
+ },
+ {
+  "id": "ch-extra-2",
+  "cat": "characters",
+  "name": "Chef",
+  "tags": [
+   "people",
+   "character",
+   "chef"
+  ],
+  "file": "/library/characters/ch-extra-2.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-2.svg",
+  "thumbColor": "/library/characters/ch-extra-2.color.svg"
+ }
+]

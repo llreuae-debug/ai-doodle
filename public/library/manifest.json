@@ -1,5 +1,85 @@
 [
  {
+  "id": "bz-bar-chart",
+  "cat": "business",
+  "name": "Rising bar chart",
+  "tags": [
+   "business",
+   "growth",
+   "chart",
+   "money"
+  ],
+  "file": "/library/business/bz-bar-chart.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/business/bz-bar-chart.svg",
+  "thumbColor": "/library/business/bz-bar-chart.color.svg"
+ },
+ {
+  "id": "bz-briefcase",
+  "cat": "business",
+  "name": "Briefcase",
+  "tags": [
+   "business",
+   "work",
+   "office",
+   "job"
+  ],
+  "file": "/library/business/bz-briefcase.json",
+  "strokeCount": 9,
+  "premium": false,
+  "thumb": "/library/business/bz-briefcase.svg",
+  "thumbColor": "/library/business/bz-briefcase.color.svg"
+ },
+ {
+  "id": "bz-coins",
+  "cat": "business",
+  "name": "Stacks of coins",
+  "tags": [
+   "business",
+   "money",
+   "savings",
+   "finance"
+  ],
+  "file": "/library/business/bz-coins.json",
+  "strokeCount": 12,
+  "premium": false,
+  "thumb": "/library/business/bz-coins.svg",
+  "thumbColor": "/library/business/bz-coins.color.svg"
+ },
+ {
+  "id": "bz-target",
+  "cat": "business",
+  "name": "Target and arrow",
+  "tags": [
+   "business",
+   "goal",
+   "aim",
+   "strategy"
+  ],
+  "file": "/library/business/bz-target.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-target.svg",
+  "thumbColor": "/library/business/bz-target.color.svg"
+ },
+ {
+  "id": "bz-pie-chart",
+  "cat": "business",
+  "name": "Pie chart",
+  "tags": [
+   "business",
+   "chart",
+   "report",
+   "data"
+  ],
+  "file": "/library/business/bz-pie-chart.json",
+  "strokeCount": 9,
+  "premium": false,
+  "thumb": "/library/business/bz-pie-chart.svg",
+  "thumbColor": "/library/business/bz-pie-chart.color.svg"
+ },
+ {
   "id": "ch-man-kameez",
   "cat": "characters",
   "name": "Man – shalwar kameez",
@@ -9,6 +89,8 @@
    "everyday"
   ],
   "file": "/library/characters/ch-man-kameez.json",
+  "strokeCount": 24,
+  "premium": false,
   "thumb": "/library/characters/ch-man-kameez.svg",
   "thumbColor": "/library/characters/ch-man-kameez.color.svg"
  },
@@ -22,6 +104,8 @@
    "everyday"
   ],
   "file": "/library/characters/ch-woman-kameez.json",
+  "strokeCount": 23,
+  "premium": false,
   "thumb": "/library/characters/ch-woman-kameez.svg",
   "thumbColor": "/library/characters/ch-woman-kameez.color.svg"
  },
@@ -36,6 +120,8 @@
    "faith"
   ],
   "file": "/library/characters/ch-elder-topi.json",
+  "strokeCount": 26,
+  "premium": false,
   "thumb": "/library/characters/ch-elder-topi.svg",
   "thumbColor": "/library/characters/ch-elder-topi.color.svg"
  },
@@ -49,6 +135,8 @@
    "faith"
   ],
   "file": "/library/characters/ch-teacher-hijab.json",
+  "strokeCount": 26,
+  "premium": false,
   "thumb": "/library/characters/ch-teacher-hijab.svg",
   "thumbColor": "/library/characters/ch-teacher-hijab.color.svg"
  },
@@ -61,6 +149,8 @@
    "health"
   ],
   "file": "/library/characters/ch-doctor.json",
+  "strokeCount": 21,
+  "premium": false,
   "thumb": "/library/characters/ch-doctor.svg",
   "thumbColor": "/library/characters/ch-doctor.color.svg"
  },
@@ -73,6 +163,8 @@
    "business"
   ],
   "file": "/library/characters/ch-businessman.json",
+  "strokeCount": 22,
+  "premium": false,
   "thumb": "/library/characters/ch-businessman.svg",
   "thumbColor": "/library/characters/ch-businessman.color.svg"
  },
@@ -86,6 +178,8 @@
    "kids"
   ],
   "file": "/library/characters/ch-student.json",
+  "strokeCount": 20,
+  "premium": false,
   "thumb": "/library/characters/ch-student.svg",
   "thumbColor": "/library/characters/ch-student.color.svg"
  },
@@ -99,8 +193,90 @@
    "family"
   ],
   "file": "/library/characters/ch-girl.json",
+  "strokeCount": 21,
+  "premium": false,
   "thumb": "/library/characters/ch-girl.svg",
   "thumbColor": "/library/characters/ch-girl.color.svg"
+ },
+ {
+  "id": "ed-open-book",
+  "cat": "education",
+  "name": "Open book",
+  "tags": [
+   "education",
+   "reading",
+   "study",
+   "school"
+  ],
+  "file": "/library/education/ed-open-book.json",
+  "strokeCount": 13,
+  "premium": false,
+  "thumb": "/library/education/ed-open-book.svg",
+  "thumbColor": "/library/education/ed-open-book.color.svg"
+ },
+ {
+  "id": "ed-grad-cap",
+  "cat": "education",
+  "name": "Graduation cap",
+  "tags": [
+   "education",
+   "graduation",
+   "university",
+   "success"
+  ],
+  "file": "/library/education/ed-grad-cap.json",
+  "strokeCount": 8,
+  "premium": false,
+  "thumb": "/library/education/ed-grad-cap.svg",
+  "thumbColor": "/library/education/ed-grad-cap.color.svg"
+ },
+ {
+  "id": "ed-pencil",
+  "cat": "education",
+  "name": "Pencil",
+  "tags": [
+   "education",
+   "writing",
+   "school",
+   "draw"
+  ],
+  "file": "/library/education/ed-pencil.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/education/ed-pencil.svg",
+  "thumbColor": "/library/education/ed-pencil.color.svg"
+ },
+ {
+  "id": "ed-globe",
+  "cat": "education",
+  "name": "Globe",
+  "tags": [
+   "education",
+   "geography",
+   "world",
+   "school"
+  ],
+  "file": "/library/education/ed-globe.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/education/ed-globe.svg",
+  "thumbColor": "/library/education/ed-globe.color.svg"
+ },
+ {
+  "id": "ed-backpack",
+  "cat": "education",
+  "name": "School bag",
+  "tags": [
+   "education",
+   "school",
+   "kids",
+   "study"
+  ],
+  "file": "/library/education/ed-backpack.json",
+  "strokeCount": 8,
+  "premium": false,
+  "thumb": "/library/education/ed-backpack.svg",
+  "thumbColor": "/library/education/ed-backpack.color.svg"
  },
  {
   "id": "ch-extra-1",
@@ -112,6 +288,8 @@
    "artist"
   ],
   "file": "/library/characters/ch-extra-1.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-1.svg",
   "thumbColor": "/library/characters/ch-extra-1.color.svg"
  },
@@ -125,6 +303,8 @@
    "chef"
   ],
   "file": "/library/characters/ch-extra-2.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-2.svg",
   "thumbColor": "/library/characters/ch-extra-2.color.svg"
  },
@@ -138,6 +318,8 @@
    "engineer"
   ],
   "file": "/library/characters/ch-extra-3.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-3.svg",
   "thumbColor": "/library/characters/ch-extra-3.color.svg"
  },
@@ -151,6 +333,8 @@
    "farmer"
   ],
   "file": "/library/characters/ch-extra-4.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-4.svg",
   "thumbColor": "/library/characters/ch-extra-4.color.svg"
  },
@@ -164,6 +348,8 @@
    "firefighter"
   ],
   "file": "/library/characters/ch-extra-5.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-5.svg",
   "thumbColor": "/library/characters/ch-extra-5.color.svg"
  },
@@ -177,6 +363,8 @@
    "graduate"
   ],
   "file": "/library/characters/ch-extra-6.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-6.svg",
   "thumbColor": "/library/characters/ch-extra-6.color.svg"
  },
@@ -190,6 +378,8 @@
    "musician"
   ],
   "file": "/library/characters/ch-extra-7.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-7.svg",
   "thumbColor": "/library/characters/ch-extra-7.color.svg"
  },
@@ -203,6 +393,8 @@
    "nurse"
   ],
   "file": "/library/characters/ch-extra-8.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-8.svg",
   "thumbColor": "/library/characters/ch-extra-8.color.svg"
  },
@@ -216,6 +408,8 @@
    "photographer"
   ],
   "file": "/library/characters/ch-extra-9.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-9.svg",
   "thumbColor": "/library/characters/ch-extra-9.color.svg"
  },
@@ -229,6 +423,8 @@
    "pilot"
   ],
   "file": "/library/characters/ch-extra-10.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-10.svg",
   "thumbColor": "/library/characters/ch-extra-10.color.svg"
  },
@@ -242,6 +438,8 @@
    "police officer"
   ],
   "file": "/library/characters/ch-extra-11.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-11.svg",
   "thumbColor": "/library/characters/ch-extra-11.color.svg"
  },
@@ -255,6 +453,8 @@
    "scientist"
   ],
   "file": "/library/characters/ch-extra-12.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-12.svg",
   "thumbColor": "/library/characters/ch-extra-12.color.svg"
  },
@@ -268,6 +468,8 @@
    "shopkeeper"
   ],
   "file": "/library/characters/ch-extra-13.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-13.svg",
   "thumbColor": "/library/characters/ch-extra-13.color.svg"
  },
@@ -281,6 +483,8 @@
    "athlete"
   ],
   "file": "/library/characters/ch-extra-14.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-14.svg",
   "thumbColor": "/library/characters/ch-extra-14.color.svg"
  },
@@ -294,6 +498,8 @@
    "baker"
   ],
   "file": "/library/characters/ch-extra-15.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-15.svg",
   "thumbColor": "/library/characters/ch-extra-15.color.svg"
  },
@@ -307,6 +513,8 @@
    "barista"
   ],
   "file": "/library/characters/ch-extra-16.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-16.svg",
   "thumbColor": "/library/characters/ch-extra-16.color.svg"
  },
@@ -320,6 +528,8 @@
    "builder"
   ],
   "file": "/library/characters/ch-extra-17.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-17.svg",
   "thumbColor": "/library/characters/ch-extra-17.color.svg"
  },
@@ -333,6 +543,8 @@
    "designer"
   ],
   "file": "/library/characters/ch-extra-18.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-18.svg",
   "thumbColor": "/library/characters/ch-extra-18.color.svg"
  },
@@ -346,6 +558,8 @@
    "gardener"
   ],
   "file": "/library/characters/ch-extra-19.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-19.svg",
   "thumbColor": "/library/characters/ch-extra-19.color.svg"
  },
@@ -359,6 +573,8 @@
    "journalist"
   ],
   "file": "/library/characters/ch-extra-20.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-20.svg",
   "thumbColor": "/library/characters/ch-extra-20.color.svg"
  },
@@ -372,6 +588,8 @@
    "lawyer"
   ],
   "file": "/library/characters/ch-extra-21.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-21.svg",
   "thumbColor": "/library/characters/ch-extra-21.color.svg"
  },
@@ -385,6 +603,8 @@
    "mechanic"
   ],
   "file": "/library/characters/ch-extra-22.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-22.svg",
   "thumbColor": "/library/characters/ch-extra-22.color.svg"
  },
@@ -398,6 +618,8 @@
    "painter"
   ],
   "file": "/library/characters/ch-extra-23.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-23.svg",
   "thumbColor": "/library/characters/ch-extra-23.color.svg"
  },
@@ -411,6 +633,8 @@
    "parent"
   ],
   "file": "/library/characters/ch-extra-24.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-24.svg",
   "thumbColor": "/library/characters/ch-extra-24.color.svg"
  },
@@ -424,6 +648,8 @@
    "programmer"
   ],
   "file": "/library/characters/ch-extra-25.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-25.svg",
   "thumbColor": "/library/characters/ch-extra-25.color.svg"
  },
@@ -437,6 +663,8 @@
    "receptionist"
   ],
   "file": "/library/characters/ch-extra-26.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-26.svg",
   "thumbColor": "/library/characters/ch-extra-26.color.svg"
  },
@@ -450,6 +678,8 @@
    "researcher"
   ],
   "file": "/library/characters/ch-extra-27.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-27.svg",
   "thumbColor": "/library/characters/ch-extra-27.color.svg"
  },
@@ -463,6 +693,8 @@
    "runner"
   ],
   "file": "/library/characters/ch-extra-28.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-28.svg",
   "thumbColor": "/library/characters/ch-extra-28.color.svg"
  },
@@ -476,6 +708,8 @@
    "singer"
   ],
   "file": "/library/characters/ch-extra-29.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-29.svg",
   "thumbColor": "/library/characters/ch-extra-29.color.svg"
  },
@@ -489,6 +723,8 @@
    "speaker"
   ],
   "file": "/library/characters/ch-extra-30.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-30.svg",
   "thumbColor": "/library/characters/ch-extra-30.color.svg"
  },
@@ -502,6 +738,8 @@
    "traveler"
   ],
   "file": "/library/characters/ch-extra-31.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-31.svg",
   "thumbColor": "/library/characters/ch-extra-31.color.svg"
  },
@@ -515,6 +753,8 @@
    "volunteer"
   ],
   "file": "/library/characters/ch-extra-32.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-32.svg",
   "thumbColor": "/library/characters/ch-extra-32.color.svg"
  },
@@ -528,6 +768,8 @@
    "writer"
   ],
   "file": "/library/characters/ch-extra-33.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-33.svg",
   "thumbColor": "/library/characters/ch-extra-33.color.svg"
  },
@@ -541,6 +783,8 @@
    "yoga teacher"
   ],
   "file": "/library/characters/ch-extra-34.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-34.svg",
   "thumbColor": "/library/characters/ch-extra-34.color.svg"
  },
@@ -554,6 +798,8 @@
    "delivery rider"
   ],
   "file": "/library/characters/ch-extra-35.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-35.svg",
   "thumbColor": "/library/characters/ch-extra-35.color.svg"
  },
@@ -567,6 +813,8 @@
    "entrepreneur"
   ],
   "file": "/library/characters/ch-extra-36.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-36.svg",
   "thumbColor": "/library/characters/ch-extra-36.color.svg"
  },
@@ -580,8 +828,760 @@
    "librarian"
   ],
   "file": "/library/characters/ch-extra-37.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/characters/ch-extra-37.svg",
   "thumbColor": "/library/characters/ch-extra-37.color.svg"
+ },
+ {
+  "id": "bz-extra-1",
+  "cat": "business",
+  "name": "Calendar",
+  "tags": [
+   "business",
+   "office",
+   "calendar"
+  ],
+  "file": "/library/business/bz-extra-1.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-1.svg",
+  "thumbColor": "/library/business/bz-extra-1.color.svg"
+ },
+ {
+  "id": "bz-extra-2",
+  "cat": "business",
+  "name": "Clipboard",
+  "tags": [
+   "business",
+   "office",
+   "clipboard"
+  ],
+  "file": "/library/business/bz-extra-2.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-2.svg",
+  "thumbColor": "/library/business/bz-extra-2.color.svg"
+ },
+ {
+  "id": "bz-extra-3",
+  "cat": "business",
+  "name": "Calculator",
+  "tags": [
+   "business",
+   "office",
+   "calculator"
+  ],
+  "file": "/library/business/bz-extra-3.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-3.svg",
+  "thumbColor": "/library/business/bz-extra-3.color.svg"
+ },
+ {
+  "id": "bz-extra-4",
+  "cat": "business",
+  "name": "Clock",
+  "tags": [
+   "business",
+   "office",
+   "clock"
+  ],
+  "file": "/library/business/bz-extra-4.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-4.svg",
+  "thumbColor": "/library/business/bz-extra-4.color.svg"
+ },
+ {
+  "id": "bz-extra-5",
+  "cat": "business",
+  "name": "Light bulb",
+  "tags": [
+   "business",
+   "office",
+   "light bulb"
+  ],
+  "file": "/library/business/bz-extra-5.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-5.svg",
+  "thumbColor": "/library/business/bz-extra-5.color.svg"
+ },
+ {
+  "id": "sh-extra-1",
+  "cat": "shapes",
+  "name": "Circle label",
+  "tags": [
+   "shapes",
+   "callout",
+   "circle label"
+  ],
+  "file": "/library/shapes/sh-extra-1.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-1.svg",
+  "thumbColor": "/library/shapes/sh-extra-1.color.svg"
+ },
+ {
+  "id": "sh-extra-2",
+  "cat": "shapes",
+  "name": "Oval label",
+  "tags": [
+   "shapes",
+   "callout",
+   "oval label"
+  ],
+  "file": "/library/shapes/sh-extra-2.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-2.svg",
+  "thumbColor": "/library/shapes/sh-extra-2.color.svg"
+ },
+ {
+  "id": "sh-extra-3",
+  "cat": "shapes",
+  "name": "Diamond badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "diamond badge"
+  ],
+  "file": "/library/shapes/sh-extra-3.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-3.svg",
+  "thumbColor": "/library/shapes/sh-extra-3.color.svg"
+ },
+ {
+  "id": "sh-extra-4",
+  "cat": "shapes",
+  "name": "Hexagon badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "hexagon badge"
+  ],
+  "file": "/library/shapes/sh-extra-4.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-4.svg",
+  "thumbColor": "/library/shapes/sh-extra-4.color.svg"
+ },
+ {
+  "id": "sh-extra-5",
+  "cat": "shapes",
+  "name": "Heart badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "heart badge"
+  ],
+  "file": "/library/shapes/sh-extra-5.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-5.svg",
+  "thumbColor": "/library/shapes/sh-extra-5.color.svg"
+ },
+ {
+  "id": "sh-extra-6",
+  "cat": "shapes",
+  "name": "Cloud label",
+  "tags": [
+   "shapes",
+   "callout",
+   "cloud label"
+  ],
+  "file": "/library/shapes/sh-extra-6.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-6.svg",
+  "thumbColor": "/library/shapes/sh-extra-6.color.svg"
+ },
+ {
+  "id": "sh-extra-7",
+  "cat": "shapes",
+  "name": "Sparkle badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "sparkle badge"
+  ],
+  "file": "/library/shapes/sh-extra-7.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-7.svg",
+  "thumbColor": "/library/shapes/sh-extra-7.color.svg"
+ },
+ {
+  "id": "sh-extra-8",
+  "cat": "shapes",
+  "name": "Sun badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "sun badge"
+  ],
+  "file": "/library/shapes/sh-extra-8.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-8.svg",
+  "thumbColor": "/library/shapes/sh-extra-8.color.svg"
+ },
+ {
+  "id": "sh-extra-9",
+  "cat": "shapes",
+  "name": "Seal badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "seal badge"
+  ],
+  "file": "/library/shapes/sh-extra-9.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-9.svg",
+  "thumbColor": "/library/shapes/sh-extra-9.color.svg"
+ },
+ {
+  "id": "sh-extra-10",
+  "cat": "shapes",
+  "name": "Ticket badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "ticket badge"
+  ],
+  "file": "/library/shapes/sh-extra-10.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-10.svg",
+  "thumbColor": "/library/shapes/sh-extra-10.color.svg"
+ },
+ {
+  "id": "sh-extra-11",
+  "cat": "shapes",
+  "name": "Price tag",
+  "tags": [
+   "shapes",
+   "callout",
+   "price tag"
+  ],
+  "file": "/library/shapes/sh-extra-11.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-11.svg",
+  "thumbColor": "/library/shapes/sh-extra-11.color.svg"
+ },
+ {
+  "id": "sh-extra-12",
+  "cat": "shapes",
+  "name": "Bookmark",
+  "tags": [
+   "shapes",
+   "callout",
+   "bookmark"
+  ],
+  "file": "/library/shapes/sh-extra-12.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-12.svg",
+  "thumbColor": "/library/shapes/sh-extra-12.color.svg"
+ },
+ {
+  "id": "sh-extra-13",
+  "cat": "shapes",
+  "name": "Map pin",
+  "tags": [
+   "shapes",
+   "callout",
+   "map pin"
+  ],
+  "file": "/library/shapes/sh-extra-13.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-13.svg",
+  "thumbColor": "/library/shapes/sh-extra-13.color.svg"
+ },
+ {
+  "id": "sh-extra-14",
+  "cat": "shapes",
+  "name": "Flag marker",
+  "tags": [
+   "shapes",
+   "callout",
+   "flag marker"
+  ],
+  "file": "/library/shapes/sh-extra-14.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-14.svg",
+  "thumbColor": "/library/shapes/sh-extra-14.color.svg"
+ },
+ {
+  "id": "sh-extra-15",
+  "cat": "shapes",
+  "name": "Shield badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "shield badge"
+  ],
+  "file": "/library/shapes/sh-extra-15.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-15.svg",
+  "thumbColor": "/library/shapes/sh-extra-15.color.svg"
+ },
+ {
+  "id": "sh-extra-16",
+  "cat": "shapes",
+  "name": "Round callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "round callout"
+  ],
+  "file": "/library/shapes/sh-extra-16.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-16.svg",
+  "thumbColor": "/library/shapes/sh-extra-16.color.svg"
+ },
+ {
+  "id": "sh-extra-17",
+  "cat": "shapes",
+  "name": "Square callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "square callout"
+  ],
+  "file": "/library/shapes/sh-extra-17.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-17.svg",
+  "thumbColor": "/library/shapes/sh-extra-17.color.svg"
+ },
+ {
+  "id": "sh-extra-18",
+  "cat": "shapes",
+  "name": "Note callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "note callout"
+  ],
+  "file": "/library/shapes/sh-extra-18.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-18.svg",
+  "thumbColor": "/library/shapes/sh-extra-18.color.svg"
+ },
+ {
+  "id": "sh-extra-19",
+  "cat": "shapes",
+  "name": "Quote callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "quote callout"
+  ],
+  "file": "/library/shapes/sh-extra-19.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-19.svg",
+  "thumbColor": "/library/shapes/sh-extra-19.color.svg"
+ },
+ {
+  "id": "sh-extra-20",
+  "cat": "shapes",
+  "name": "Chat bubble",
+  "tags": [
+   "shapes",
+   "callout",
+   "chat bubble"
+  ],
+  "file": "/library/shapes/sh-extra-20.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-20.svg",
+  "thumbColor": "/library/shapes/sh-extra-20.color.svg"
+ },
+ {
+  "id": "sh-extra-21",
+  "cat": "shapes",
+  "name": "Idea bubble",
+  "tags": [
+   "shapes",
+   "callout",
+   "idea bubble"
+  ],
+  "file": "/library/shapes/sh-extra-21.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-21.svg",
+  "thumbColor": "/library/shapes/sh-extra-21.color.svg"
+ },
+ {
+  "id": "sh-extra-22",
+  "cat": "shapes",
+  "name": "Warning callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "warning callout"
+  ],
+  "file": "/library/shapes/sh-extra-22.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-22.svg",
+  "thumbColor": "/library/shapes/sh-extra-22.color.svg"
+ },
+ {
+  "id": "sh-extra-23",
+  "cat": "shapes",
+  "name": "Info callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "info callout"
+  ],
+  "file": "/library/shapes/sh-extra-23.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-23.svg",
+  "thumbColor": "/library/shapes/sh-extra-23.color.svg"
+ },
+ {
+  "id": "sh-extra-24",
+  "cat": "shapes",
+  "name": "Question callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "question callout"
+  ],
+  "file": "/library/shapes/sh-extra-24.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-24.svg",
+  "thumbColor": "/library/shapes/sh-extra-24.color.svg"
+ },
+ {
+  "id": "sh-extra-25",
+  "cat": "shapes",
+  "name": "Pointer callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "pointer callout"
+  ],
+  "file": "/library/shapes/sh-extra-25.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-25.svg",
+  "thumbColor": "/library/shapes/sh-extra-25.color.svg"
+ },
+ {
+  "id": "sh-extra-26",
+  "cat": "shapes",
+  "name": "Label callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "label callout"
+  ],
+  "file": "/library/shapes/sh-extra-26.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-26.svg",
+  "thumbColor": "/library/shapes/sh-extra-26.color.svg"
+ },
+ {
+  "id": "sh-extra-27",
+  "cat": "shapes",
+  "name": "Caption callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "caption callout"
+  ],
+  "file": "/library/shapes/sh-extra-27.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-27.svg",
+  "thumbColor": "/library/shapes/sh-extra-27.color.svg"
+ },
+ {
+  "id": "sh-extra-28",
+  "cat": "shapes",
+  "name": "Sticky note",
+  "tags": [
+   "shapes",
+   "callout",
+   "sticky note"
+  ],
+  "file": "/library/shapes/sh-extra-28.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-28.svg",
+  "thumbColor": "/library/shapes/sh-extra-28.color.svg"
+ },
+ {
+  "id": "sh-extra-29",
+  "cat": "shapes",
+  "name": "Message flag",
+  "tags": [
+   "shapes",
+   "callout",
+   "message flag"
+  ],
+  "file": "/library/shapes/sh-extra-29.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-29.svg",
+  "thumbColor": "/library/shapes/sh-extra-29.color.svg"
+ },
+ {
+  "id": "sh-extra-30",
+  "cat": "shapes",
+  "name": "Speech cloud",
+  "tags": [
+   "shapes",
+   "callout",
+   "speech cloud"
+  ],
+  "file": "/library/shapes/sh-extra-30.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-30.svg",
+  "thumbColor": "/library/shapes/sh-extra-30.color.svg"
+ },
+ {
+  "id": "sh-extra-31",
+  "cat": "shapes",
+  "name": "Process arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "process arrow"
+  ],
+  "file": "/library/shapes/sh-extra-31.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-31.svg",
+  "thumbColor": "/library/shapes/sh-extra-31.color.svg"
+ },
+ {
+  "id": "sh-extra-32",
+  "cat": "shapes",
+  "name": "Loop arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "loop arrow"
+  ],
+  "file": "/library/shapes/sh-extra-32.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-32.svg",
+  "thumbColor": "/library/shapes/sh-extra-32.color.svg"
+ },
+ {
+  "id": "sh-extra-33",
+  "cat": "shapes",
+  "name": "Up arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "up arrow"
+  ],
+  "file": "/library/shapes/sh-extra-33.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-33.svg",
+  "thumbColor": "/library/shapes/sh-extra-33.color.svg"
+ },
+ {
+  "id": "sh-extra-34",
+  "cat": "shapes",
+  "name": "Down arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "down arrow"
+  ],
+  "file": "/library/shapes/sh-extra-34.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-34.svg",
+  "thumbColor": "/library/shapes/sh-extra-34.color.svg"
+ },
+ {
+  "id": "sh-extra-35",
+  "cat": "shapes",
+  "name": "Left arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "left arrow"
+  ],
+  "file": "/library/shapes/sh-extra-35.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-35.svg",
+  "thumbColor": "/library/shapes/sh-extra-35.color.svg"
+ },
+ {
+  "id": "sh-extra-36",
+  "cat": "shapes",
+  "name": "Right arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "right arrow"
+  ],
+  "file": "/library/shapes/sh-extra-36.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-36.svg",
+  "thumbColor": "/library/shapes/sh-extra-36.color.svg"
+ },
+ {
+  "id": "sh-extra-37",
+  "cat": "shapes",
+  "name": "Double arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "double arrow"
+  ],
+  "file": "/library/shapes/sh-extra-37.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-37.svg",
+  "thumbColor": "/library/shapes/sh-extra-37.color.svg"
+ },
+ {
+  "id": "sh-extra-38",
+  "cat": "shapes",
+  "name": "Flow connector",
+  "tags": [
+   "shapes",
+   "arrow",
+   "flow connector"
+  ],
+  "file": "/library/shapes/sh-extra-38.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-38.svg",
+  "thumbColor": "/library/shapes/sh-extra-38.color.svg"
+ },
+ {
+  "id": "sh-extra-39",
+  "cat": "shapes",
+  "name": "Timeline marker",
+  "tags": [
+   "shapes",
+   "arrow",
+   "timeline marker"
+  ],
+  "file": "/library/shapes/sh-extra-39.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-39.svg",
+  "thumbColor": "/library/shapes/sh-extra-39.color.svg"
+ },
+ {
+  "id": "sh-extra-40",
+  "cat": "shapes",
+  "name": "Step marker",
+  "tags": [
+   "shapes",
+   "arrow",
+   "step marker"
+  ],
+  "file": "/library/shapes/sh-extra-40.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-40.svg",
+  "thumbColor": "/library/shapes/sh-extra-40.color.svg"
+ },
+ {
+  "id": "sh-extra-41",
+  "cat": "shapes",
+  "name": "Focus frame",
+  "tags": [
+   "shapes",
+   "arrow",
+   "focus frame"
+  ],
+  "file": "/library/shapes/sh-extra-41.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-41.svg",
+  "thumbColor": "/library/shapes/sh-extra-41.color.svg"
+ },
+ {
+  "id": "sh-extra-42",
+  "cat": "shapes",
+  "name": "Dashed frame",
+  "tags": [
+   "shapes",
+   "arrow",
+   "dashed frame"
+  ],
+  "file": "/library/shapes/sh-extra-42.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-42.svg",
+  "thumbColor": "/library/shapes/sh-extra-42.color.svg"
+ },
+ {
+  "id": "sh-extra-43",
+  "cat": "shapes",
+  "name": "Corner frame",
+  "tags": [
+   "shapes",
+   "arrow",
+   "corner frame"
+  ],
+  "file": "/library/shapes/sh-extra-43.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-43.svg",
+  "thumbColor": "/library/shapes/sh-extra-43.color.svg"
+ },
+ {
+  "id": "sh-extra-44",
+  "cat": "shapes",
+  "name": "Divider",
+  "tags": [
+   "shapes",
+   "arrow",
+   "divider"
+  ],
+  "file": "/library/shapes/sh-extra-44.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-44.svg",
+  "thumbColor": "/library/shapes/sh-extra-44.color.svg"
+ },
+ {
+  "id": "sh-extra-45",
+  "cat": "shapes",
+  "name": "Highlight circle",
+  "tags": [
+   "shapes",
+   "arrow",
+   "highlight circle"
+  ],
+  "file": "/library/shapes/sh-extra-45.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-45.svg",
+  "thumbColor": "/library/shapes/sh-extra-45.color.svg"
  },
  {
   "id": "fa-happy",
@@ -594,6 +1594,8 @@
    "smile"
   ],
   "file": "/library/faces/fa-happy.json",
+  "strokeCount": 9,
+  "premium": false,
   "thumb": "/library/faces/fa-happy.svg",
   "thumbColor": "/library/faces/fa-happy.color.svg"
  },
@@ -608,6 +1610,8 @@
    "upset"
   ],
   "file": "/library/faces/fa-sad.json",
+  "strokeCount": 9,
+  "premium": false,
   "thumb": "/library/faces/fa-sad.svg",
   "thumbColor": "/library/faces/fa-sad.color.svg"
  },
@@ -623,6 +1627,8 @@
    "shock"
   ],
   "file": "/library/faces/fa-surprised.json",
+  "strokeCount": 11,
+  "premium": false,
   "thumb": "/library/faces/fa-surprised.svg",
   "thumbColor": "/library/faces/fa-surprised.color.svg"
  },
@@ -638,6 +1644,8 @@
    "question"
   ],
   "file": "/library/faces/fa-thinking.json",
+  "strokeCount": 11,
+  "premium": false,
   "thumb": "/library/faces/fa-thinking.svg",
   "thumbColor": "/library/faces/fa-thinking.color.svg"
  },
@@ -653,287 +1661,10 @@
    "fun"
   ],
   "file": "/library/faces/fa-wink.json",
+  "strokeCount": 11,
+  "premium": false,
   "thumb": "/library/faces/fa-wink.svg",
   "thumbColor": "/library/faces/fa-wink.color.svg"
- },
- {
-  "id": "bz-bar-chart",
-  "cat": "business",
-  "name": "Rising bar chart",
-  "tags": [
-   "business",
-   "growth",
-   "chart",
-   "money"
-  ],
-  "file": "/library/business/bz-bar-chart.json",
-  "thumb": "/library/business/bz-bar-chart.svg",
-  "thumbColor": "/library/business/bz-bar-chart.color.svg"
- },
- {
-  "id": "bz-briefcase",
-  "cat": "business",
-  "name": "Briefcase",
-  "tags": [
-   "business",
-   "work",
-   "office",
-   "job"
-  ],
-  "file": "/library/business/bz-briefcase.json",
-  "thumb": "/library/business/bz-briefcase.svg",
-  "thumbColor": "/library/business/bz-briefcase.color.svg"
- },
- {
-  "id": "bz-coins",
-  "cat": "business",
-  "name": "Stacks of coins",
-  "tags": [
-   "business",
-   "money",
-   "savings",
-   "finance"
-  ],
-  "file": "/library/business/bz-coins.json",
-  "thumb": "/library/business/bz-coins.svg",
-  "thumbColor": "/library/business/bz-coins.color.svg"
- },
- {
-  "id": "bz-target",
-  "cat": "business",
-  "name": "Target and arrow",
-  "tags": [
-   "business",
-   "goal",
-   "aim",
-   "strategy"
-  ],
-  "file": "/library/business/bz-target.json",
-  "thumb": "/library/business/bz-target.svg",
-  "thumbColor": "/library/business/bz-target.color.svg"
- },
- {
-  "id": "bz-pie-chart",
-  "cat": "business",
-  "name": "Pie chart",
-  "tags": [
-   "business",
-   "chart",
-   "report",
-   "data"
-  ],
-  "file": "/library/business/bz-pie-chart.json",
-  "thumb": "/library/business/bz-pie-chart.svg",
-  "thumbColor": "/library/business/bz-pie-chart.color.svg"
- },
- {
-  "id": "bz-extra-1",
-  "cat": "business",
-  "name": "Calendar",
-  "tags": [
-   "business",
-   "office",
-   "calendar"
-  ],
-  "file": "/library/business/bz-extra-1.json",
-  "thumb": "/library/business/bz-extra-1.svg",
-  "thumbColor": "/library/business/bz-extra-1.color.svg"
- },
- {
-  "id": "bz-extra-2",
-  "cat": "business",
-  "name": "Clipboard",
-  "tags": [
-   "business",
-   "office",
-   "clipboard"
-  ],
-  "file": "/library/business/bz-extra-2.json",
-  "thumb": "/library/business/bz-extra-2.svg",
-  "thumbColor": "/library/business/bz-extra-2.color.svg"
- },
- {
-  "id": "bz-extra-3",
-  "cat": "business",
-  "name": "Calculator",
-  "tags": [
-   "business",
-   "office",
-   "calculator"
-  ],
-  "file": "/library/business/bz-extra-3.json",
-  "thumb": "/library/business/bz-extra-3.svg",
-  "thumbColor": "/library/business/bz-extra-3.color.svg"
- },
- {
-  "id": "bz-extra-4",
-  "cat": "business",
-  "name": "Clock",
-  "tags": [
-   "business",
-   "office",
-   "clock"
-  ],
-  "file": "/library/business/bz-extra-4.json",
-  "thumb": "/library/business/bz-extra-4.svg",
-  "thumbColor": "/library/business/bz-extra-4.color.svg"
- },
- {
-  "id": "bz-extra-5",
-  "cat": "business",
-  "name": "Light bulb",
-  "tags": [
-   "business",
-   "office",
-   "light bulb"
-  ],
-  "file": "/library/business/bz-extra-5.json",
-  "thumb": "/library/business/bz-extra-5.svg",
-  "thumbColor": "/library/business/bz-extra-5.color.svg"
- },
- {
-  "id": "re-house",
-  "cat": "realestate",
-  "name": "House",
-  "tags": [
-   "real estate",
-   "buildings",
-   "home",
-   "property"
-  ],
-  "file": "/library/realestate/re-house.json",
-  "thumb": "/library/realestate/re-house.svg",
-  "thumbColor": "/library/realestate/re-house.color.svg"
- },
- {
-  "id": "re-apartment",
-  "cat": "realestate",
-  "name": "Apartment block",
-  "tags": [
-   "real estate",
-   "buildings",
-   "flats",
-   "city",
-   "property"
-  ],
-  "file": "/library/realestate/re-apartment.json",
-  "thumb": "/library/realestate/re-apartment.svg",
-  "thumbColor": "/library/realestate/re-apartment.color.svg"
- },
- {
-  "id": "re-key",
-  "cat": "realestate",
-  "name": "House key",
-  "tags": [
-   "real estate",
-   "buildings",
-   "keys",
-   "home",
-   "sale"
-  ],
-  "file": "/library/realestate/re-key.json",
-  "thumb": "/library/realestate/re-key.svg",
-  "thumbColor": "/library/realestate/re-key.color.svg"
- },
- {
-  "id": "re-sale-sign",
-  "cat": "realestate",
-  "name": "Sale sign",
-  "tags": [
-   "real estate",
-   "buildings",
-   "for sale",
-   "property",
-   "sign"
-  ],
-  "file": "/library/realestate/re-sale-sign.json",
-  "thumb": "/library/realestate/re-sale-sign.svg",
-  "thumbColor": "/library/realestate/re-sale-sign.color.svg"
- },
- {
-  "id": "re-front-door",
-  "cat": "realestate",
-  "name": "Front door",
-  "tags": [
-   "real estate",
-   "buildings",
-   "home",
-   "welcome",
-   "entrance"
-  ],
-  "file": "/library/realestate/re-front-door.json",
-  "thumb": "/library/realestate/re-front-door.svg",
-  "thumbColor": "/library/realestate/re-front-door.color.svg"
- },
- {
-  "id": "ed-open-book",
-  "cat": "education",
-  "name": "Open book",
-  "tags": [
-   "education",
-   "reading",
-   "study",
-   "school"
-  ],
-  "file": "/library/education/ed-open-book.json",
-  "thumb": "/library/education/ed-open-book.svg",
-  "thumbColor": "/library/education/ed-open-book.color.svg"
- },
- {
-  "id": "ed-grad-cap",
-  "cat": "education",
-  "name": "Graduation cap",
-  "tags": [
-   "education",
-   "graduation",
-   "university",
-   "success"
-  ],
-  "file": "/library/education/ed-grad-cap.json",
-  "thumb": "/library/education/ed-grad-cap.svg",
-  "thumbColor": "/library/education/ed-grad-cap.color.svg"
- },
- {
-  "id": "ed-pencil",
-  "cat": "education",
-  "name": "Pencil",
-  "tags": [
-   "education",
-   "writing",
-   "school",
-   "draw"
-  ],
-  "file": "/library/education/ed-pencil.json",
-  "thumb": "/library/education/ed-pencil.svg",
-  "thumbColor": "/library/education/ed-pencil.color.svg"
- },
- {
-  "id": "ed-globe",
-  "cat": "education",
-  "name": "Globe",
-  "tags": [
-   "education",
-   "geography",
-   "world",
-   "school"
-  ],
-  "file": "/library/education/ed-globe.json",
-  "thumb": "/library/education/ed-globe.svg",
-  "thumbColor": "/library/education/ed-globe.color.svg"
- },
- {
-  "id": "ed-backpack",
-  "cat": "education",
-  "name": "School bag",
-  "tags": [
-   "education",
-   "school",
-   "kids",
-   "study"
-  ],
-  "file": "/library/education/ed-backpack.json",
-  "thumb": "/library/education/ed-backpack.svg",
-  "thumbColor": "/library/education/ed-backpack.color.svg"
  },
  {
   "id": "fh-mosque",
@@ -946,6 +1677,8 @@
    "building"
   ],
   "file": "/library/faith/fh-mosque.json",
+  "strokeCount": 13,
+  "premium": false,
   "thumb": "/library/faith/fh-mosque.svg",
   "thumbColor": "/library/faith/fh-mosque.color.svg"
  },
@@ -960,6 +1693,8 @@
    "mat"
   ],
   "file": "/library/faith/fh-prayer-mat.json",
+  "strokeCount": 17,
+  "premium": false,
   "thumb": "/library/faith/fh-prayer-mat.svg",
   "thumbColor": "/library/faith/fh-prayer-mat.color.svg"
  },
@@ -975,6 +1710,8 @@
    "night"
   ],
   "file": "/library/faith/fh-crescent-star.json",
+  "strokeCount": 12,
+  "premium": false,
   "thumb": "/library/faith/fh-crescent-star.svg",
   "thumbColor": "/library/faith/fh-crescent-star.color.svg"
  },
@@ -989,6 +1726,8 @@
    "light"
   ],
   "file": "/library/faith/fh-lantern.json",
+  "strokeCount": 11,
+  "premium": false,
   "thumb": "/library/faith/fh-lantern.svg",
   "thumbColor": "/library/faith/fh-lantern.color.svg"
  },
@@ -1003,148 +1742,10 @@
    "dhikr"
   ],
   "file": "/library/faith/fh-prayer-beads.json",
+  "strokeCount": 21,
+  "premium": false,
   "thumb": "/library/faith/fh-prayer-beads.svg",
   "thumbColor": "/library/faith/fh-prayer-beads.color.svg"
- },
- {
-  "id": "te-laptop",
-  "cat": "tech",
-  "name": "Laptop",
-  "tags": [
-   "tech",
-   "computer",
-   "work",
-   "online"
-  ],
-  "file": "/library/tech/te-laptop.json",
-  "thumb": "/library/tech/te-laptop.svg",
-  "thumbColor": "/library/tech/te-laptop.color.svg"
- },
- {
-  "id": "te-smartphone",
-  "cat": "tech",
-  "name": "Smartphone",
-  "tags": [
-   "tech",
-   "mobile",
-   "app",
-   "phone"
-  ],
-  "file": "/library/tech/te-smartphone.json",
-  "thumb": "/library/tech/te-smartphone.svg",
-  "thumbColor": "/library/tech/te-smartphone.color.svg"
- },
- {
-  "id": "te-cloud",
-  "cat": "tech",
-  "name": "Cloud storage",
-  "tags": [
-   "tech",
-   "cloud",
-   "upload",
-   "data"
-  ],
-  "file": "/library/tech/te-cloud.json",
-  "thumb": "/library/tech/te-cloud.svg",
-  "thumbColor": "/library/tech/te-cloud.color.svg"
- },
- {
-  "id": "te-gears",
-  "cat": "tech",
-  "name": "Gears",
-  "tags": [
-   "tech",
-   "settings",
-   "process",
-   "engineering"
-  ],
-  "file": "/library/tech/te-gears.json",
-  "thumb": "/library/tech/te-gears.svg",
-  "thumbColor": "/library/tech/te-gears.color.svg"
- },
- {
-  "id": "te-robot",
-  "cat": "tech",
-  "name": "Robot",
-  "tags": [
-   "tech",
-   "ai",
-   "automation",
-   "bot"
-  ],
-  "file": "/library/tech/te-robot.json",
-  "thumb": "/library/tech/te-robot.svg",
-  "thumbColor": "/library/tech/te-robot.color.svg"
- },
- {
-  "id": "he-heart-pulse",
-  "cat": "health",
-  "name": "Heartbeat",
-  "tags": [
-   "health",
-   "heart",
-   "cardio",
-   "care"
-  ],
-  "file": "/library/health/he-heart-pulse.json",
-  "thumb": "/library/health/he-heart-pulse.svg",
-  "thumbColor": "/library/health/he-heart-pulse.color.svg"
- },
- {
-  "id": "he-pills",
-  "cat": "health",
-  "name": "Medicine",
-  "tags": [
-   "health",
-   "pills",
-   "medicine",
-   "pharmacy"
-  ],
-  "file": "/library/health/he-pills.json",
-  "thumb": "/library/health/he-pills.svg",
-  "thumbColor": "/library/health/he-pills.color.svg"
- },
- {
-  "id": "he-first-aid",
-  "cat": "health",
-  "name": "First aid kit",
-  "tags": [
-   "health",
-   "first aid",
-   "emergency",
-   "care"
-  ],
-  "file": "/library/health/he-first-aid.json",
-  "thumb": "/library/health/he-first-aid.svg",
-  "thumbColor": "/library/health/he-first-aid.color.svg"
- },
- {
-  "id": "he-stethoscope",
-  "cat": "health",
-  "name": "Stethoscope",
-  "tags": [
-   "health",
-   "doctor",
-   "checkup",
-   "clinic"
-  ],
-  "file": "/library/health/he-stethoscope.json",
-  "thumb": "/library/health/he-stethoscope.svg",
-  "thumbColor": "/library/health/he-stethoscope.color.svg"
- },
- {
-  "id": "he-tooth",
-  "cat": "health",
-  "name": "Healthy tooth",
-  "tags": [
-   "health",
-   "dental",
-   "teeth",
-   "hygiene"
-  ],
-  "file": "/library/health/he-tooth.json",
-  "thumb": "/library/health/he-tooth.svg",
-  "thumbColor": "/library/health/he-tooth.color.svg"
  },
  {
   "id": "fo-chai",
@@ -1157,6 +1758,8 @@
    "drink"
   ],
   "file": "/library/food/fo-chai.json",
+  "strokeCount": 8,
+  "premium": false,
   "thumb": "/library/food/fo-chai.svg",
   "thumbColor": "/library/food/fo-chai.color.svg"
  },
@@ -1171,6 +1774,8 @@
    "snack"
   ],
   "file": "/library/food/fo-apple.json",
+  "strokeCount": 8,
+  "premium": false,
   "thumb": "/library/food/fo-apple.svg",
   "thumbColor": "/library/food/fo-apple.color.svg"
  },
@@ -1185,6 +1790,8 @@
    "party"
   ],
   "file": "/library/food/fo-pizza.json",
+  "strokeCount": 9,
+  "premium": false,
   "thumb": "/library/food/fo-pizza.svg",
   "thumbColor": "/library/food/fo-pizza.color.svg"
  },
@@ -1199,6 +1806,8 @@
    "meal"
   ],
   "file": "/library/food/fo-rice-bowl.json",
+  "strokeCount": 10,
+  "premium": false,
   "thumb": "/library/food/fo-rice-bowl.svg",
   "thumbColor": "/library/food/fo-rice-bowl.color.svg"
  },
@@ -1213,8 +1822,90 @@
    "garden"
   ],
   "file": "/library/food/fo-carrot.json",
+  "strokeCount": 8,
+  "premium": false,
   "thumb": "/library/food/fo-carrot.svg",
   "thumbColor": "/library/food/fo-carrot.color.svg"
+ },
+ {
+  "id": "he-heart-pulse",
+  "cat": "health",
+  "name": "Heartbeat",
+  "tags": [
+   "health",
+   "heart",
+   "cardio",
+   "care"
+  ],
+  "file": "/library/health/he-heart-pulse.json",
+  "strokeCount": 8,
+  "premium": false,
+  "thumb": "/library/health/he-heart-pulse.svg",
+  "thumbColor": "/library/health/he-heart-pulse.color.svg"
+ },
+ {
+  "id": "he-pills",
+  "cat": "health",
+  "name": "Medicine",
+  "tags": [
+   "health",
+   "pills",
+   "medicine",
+   "pharmacy"
+  ],
+  "file": "/library/health/he-pills.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/health/he-pills.svg",
+  "thumbColor": "/library/health/he-pills.color.svg"
+ },
+ {
+  "id": "he-first-aid",
+  "cat": "health",
+  "name": "First aid kit",
+  "tags": [
+   "health",
+   "first aid",
+   "emergency",
+   "care"
+  ],
+  "file": "/library/health/he-first-aid.json",
+  "strokeCount": 8,
+  "premium": false,
+  "thumb": "/library/health/he-first-aid.svg",
+  "thumbColor": "/library/health/he-first-aid.color.svg"
+ },
+ {
+  "id": "he-stethoscope",
+  "cat": "health",
+  "name": "Stethoscope",
+  "tags": [
+   "health",
+   "doctor",
+   "checkup",
+   "clinic"
+  ],
+  "file": "/library/health/he-stethoscope.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/health/he-stethoscope.svg",
+  "thumbColor": "/library/health/he-stethoscope.color.svg"
+ },
+ {
+  "id": "he-tooth",
+  "cat": "health",
+  "name": "Healthy tooth",
+  "tags": [
+   "health",
+   "dental",
+   "teeth",
+   "hygiene"
+  ],
+  "file": "/library/health/he-tooth.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/health/he-tooth.svg",
+  "thumbColor": "/library/health/he-tooth.color.svg"
  },
  {
   "id": "na-tree",
@@ -1227,6 +1918,8 @@
    "growth"
   ],
   "file": "/library/nature/na-tree.json",
+  "strokeCount": 9,
+  "premium": false,
   "thumb": "/library/nature/na-tree.svg",
   "thumbColor": "/library/nature/na-tree.color.svg"
  },
@@ -1241,6 +1934,8 @@
    "weather"
   ],
   "file": "/library/nature/na-sun.json",
+  "strokeCount": 16,
+  "premium": false,
   "thumb": "/library/nature/na-sun.svg",
   "thumbColor": "/library/nature/na-sun.color.svg"
  },
@@ -1255,6 +1950,8 @@
    "storm"
   ],
   "file": "/library/nature/na-storm.json",
+  "strokeCount": 8,
+  "premium": false,
   "thumb": "/library/nature/na-storm.svg",
   "thumbColor": "/library/nature/na-storm.color.svg"
  },
@@ -1269,6 +1966,8 @@
    "garden"
   ],
   "file": "/library/nature/na-flower.json",
+  "strokeCount": 8,
+  "premium": false,
   "thumb": "/library/nature/na-flower.svg",
   "thumbColor": "/library/nature/na-flower.color.svg"
  },
@@ -1283,663 +1982,94 @@
    "landscape"
   ],
   "file": "/library/nature/na-mountains.json",
+  "strokeCount": 8,
+  "premium": false,
   "thumb": "/library/nature/na-mountains.svg",
   "thumbColor": "/library/nature/na-mountains.color.svg"
  },
  {
-  "id": "tr-car",
-  "cat": "transport",
-  "name": "Car",
+  "id": "re-house",
+  "cat": "realestate",
+  "name": "House",
   "tags": [
-   "transport",
-   "car",
-   "drive",
-   "road"
+   "real estate",
+   "buildings",
+   "home",
+   "property"
   ],
-  "file": "/library/transport/tr-car.json",
-  "thumb": "/library/transport/tr-car.svg",
-  "thumbColor": "/library/transport/tr-car.color.svg"
+  "file": "/library/realestate/re-house.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/realestate/re-house.svg",
+  "thumbColor": "/library/realestate/re-house.color.svg"
  },
  {
-  "id": "tr-bicycle",
-  "cat": "transport",
-  "name": "Bicycle",
+  "id": "re-apartment",
+  "cat": "realestate",
+  "name": "Apartment block",
   "tags": [
-   "transport",
-   "bike",
-   "cycling",
-   "fitness"
+   "real estate",
+   "buildings",
+   "flats",
+   "city",
+   "property"
   ],
-  "file": "/library/transport/tr-bicycle.json",
-  "thumb": "/library/transport/tr-bicycle.svg",
-  "thumbColor": "/library/transport/tr-bicycle.color.svg"
+  "file": "/library/realestate/re-apartment.json",
+  "strokeCount": 20,
+  "premium": false,
+  "thumb": "/library/realestate/re-apartment.svg",
+  "thumbColor": "/library/realestate/re-apartment.color.svg"
  },
  {
-  "id": "tr-bus",
-  "cat": "transport",
-  "name": "Bus",
+  "id": "re-key",
+  "cat": "realestate",
+  "name": "House key",
   "tags": [
-   "transport",
-   "bus",
-   "school bus",
-   "city"
+   "real estate",
+   "buildings",
+   "keys",
+   "home",
+   "sale"
   ],
-  "file": "/library/transport/tr-bus.json",
-  "thumb": "/library/transport/tr-bus.svg",
-  "thumbColor": "/library/transport/tr-bus.color.svg"
+  "file": "/library/realestate/re-key.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/realestate/re-key.svg",
+  "thumbColor": "/library/realestate/re-key.color.svg"
  },
  {
-  "id": "tr-airplane",
-  "cat": "transport",
-  "name": "Airplane",
+  "id": "re-sale-sign",
+  "cat": "realestate",
+  "name": "Sale sign",
   "tags": [
-   "transport",
-   "plane",
-   "travel",
-   "flight"
+   "real estate",
+   "buildings",
+   "for sale",
+   "property",
+   "sign"
   ],
-  "file": "/library/transport/tr-airplane.json",
-  "thumb": "/library/transport/tr-airplane.svg",
-  "thumbColor": "/library/transport/tr-airplane.color.svg"
+  "file": "/library/realestate/re-sale-sign.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/realestate/re-sale-sign.svg",
+  "thumbColor": "/library/realestate/re-sale-sign.color.svg"
  },
  {
-  "id": "tr-rickshaw",
-  "cat": "transport",
-  "name": "Auto rickshaw",
+  "id": "re-front-door",
+  "cat": "realestate",
+  "name": "Front door",
   "tags": [
-   "transport",
-   "rickshaw",
-   "south asian",
-   "city"
+   "real estate",
+   "buildings",
+   "home",
+   "welcome",
+   "entrance"
   ],
-  "file": "/library/transport/tr-rickshaw.json",
-  "thumb": "/library/transport/tr-rickshaw.svg",
-  "thumbColor": "/library/transport/tr-rickshaw.color.svg"
- },
- {
-  "id": "sh-extra-1",
-  "cat": "shapes",
-  "name": "Circle label",
-  "tags": [
-   "shapes",
-   "callout",
-   "circle label"
-  ],
-  "file": "/library/shapes/sh-extra-1.json",
-  "thumb": "/library/shapes/sh-extra-1.svg",
-  "thumbColor": "/library/shapes/sh-extra-1.color.svg"
- },
- {
-  "id": "sh-extra-2",
-  "cat": "shapes",
-  "name": "Oval label",
-  "tags": [
-   "shapes",
-   "callout",
-   "oval label"
-  ],
-  "file": "/library/shapes/sh-extra-2.json",
-  "thumb": "/library/shapes/sh-extra-2.svg",
-  "thumbColor": "/library/shapes/sh-extra-2.color.svg"
- },
- {
-  "id": "sh-extra-3",
-  "cat": "shapes",
-  "name": "Diamond badge",
-  "tags": [
-   "shapes",
-   "callout",
-   "diamond badge"
-  ],
-  "file": "/library/shapes/sh-extra-3.json",
-  "thumb": "/library/shapes/sh-extra-3.svg",
-  "thumbColor": "/library/shapes/sh-extra-3.color.svg"
- },
- {
-  "id": "sh-extra-4",
-  "cat": "shapes",
-  "name": "Hexagon badge",
-  "tags": [
-   "shapes",
-   "callout",
-   "hexagon badge"
-  ],
-  "file": "/library/shapes/sh-extra-4.json",
-  "thumb": "/library/shapes/sh-extra-4.svg",
-  "thumbColor": "/library/shapes/sh-extra-4.color.svg"
- },
- {
-  "id": "sh-extra-5",
-  "cat": "shapes",
-  "name": "Heart badge",
-  "tags": [
-   "shapes",
-   "callout",
-   "heart badge"
-  ],
-  "file": "/library/shapes/sh-extra-5.json",
-  "thumb": "/library/shapes/sh-extra-5.svg",
-  "thumbColor": "/library/shapes/sh-extra-5.color.svg"
- },
- {
-  "id": "sh-extra-6",
-  "cat": "shapes",
-  "name": "Cloud label",
-  "tags": [
-   "shapes",
-   "callout",
-   "cloud label"
-  ],
-  "file": "/library/shapes/sh-extra-6.json",
-  "thumb": "/library/shapes/sh-extra-6.svg",
-  "thumbColor": "/library/shapes/sh-extra-6.color.svg"
- },
- {
-  "id": "sh-extra-7",
-  "cat": "shapes",
-  "name": "Sparkle badge",
-  "tags": [
-   "shapes",
-   "callout",
-   "sparkle badge"
-  ],
-  "file": "/library/shapes/sh-extra-7.json",
-  "thumb": "/library/shapes/sh-extra-7.svg",
-  "thumbColor": "/library/shapes/sh-extra-7.color.svg"
- },
- {
-  "id": "sh-extra-8",
-  "cat": "shapes",
-  "name": "Sun badge",
-  "tags": [
-   "shapes",
-   "callout",
-   "sun badge"
-  ],
-  "file": "/library/shapes/sh-extra-8.json",
-  "thumb": "/library/shapes/sh-extra-8.svg",
-  "thumbColor": "/library/shapes/sh-extra-8.color.svg"
- },
- {
-  "id": "sh-extra-9",
-  "cat": "shapes",
-  "name": "Seal badge",
-  "tags": [
-   "shapes",
-   "callout",
-   "seal badge"
-  ],
-  "file": "/library/shapes/sh-extra-9.json",
-  "thumb": "/library/shapes/sh-extra-9.svg",
-  "thumbColor": "/library/shapes/sh-extra-9.color.svg"
- },
- {
-  "id": "sh-extra-10",
-  "cat": "shapes",
-  "name": "Ticket badge",
-  "tags": [
-   "shapes",
-   "callout",
-   "ticket badge"
-  ],
-  "file": "/library/shapes/sh-extra-10.json",
-  "thumb": "/library/shapes/sh-extra-10.svg",
-  "thumbColor": "/library/shapes/sh-extra-10.color.svg"
- },
- {
-  "id": "sh-extra-11",
-  "cat": "shapes",
-  "name": "Price tag",
-  "tags": [
-   "shapes",
-   "callout",
-   "price tag"
-  ],
-  "file": "/library/shapes/sh-extra-11.json",
-  "thumb": "/library/shapes/sh-extra-11.svg",
-  "thumbColor": "/library/shapes/sh-extra-11.color.svg"
- },
- {
-  "id": "sh-extra-12",
-  "cat": "shapes",
-  "name": "Bookmark",
-  "tags": [
-   "shapes",
-   "callout",
-   "bookmark"
-  ],
-  "file": "/library/shapes/sh-extra-12.json",
-  "thumb": "/library/shapes/sh-extra-12.svg",
-  "thumbColor": "/library/shapes/sh-extra-12.color.svg"
- },
- {
-  "id": "sh-extra-13",
-  "cat": "shapes",
-  "name": "Map pin",
-  "tags": [
-   "shapes",
-   "callout",
-   "map pin"
-  ],
-  "file": "/library/shapes/sh-extra-13.json",
-  "thumb": "/library/shapes/sh-extra-13.svg",
-  "thumbColor": "/library/shapes/sh-extra-13.color.svg"
- },
- {
-  "id": "sh-extra-14",
-  "cat": "shapes",
-  "name": "Flag marker",
-  "tags": [
-   "shapes",
-   "callout",
-   "flag marker"
-  ],
-  "file": "/library/shapes/sh-extra-14.json",
-  "thumb": "/library/shapes/sh-extra-14.svg",
-  "thumbColor": "/library/shapes/sh-extra-14.color.svg"
- },
- {
-  "id": "sh-extra-15",
-  "cat": "shapes",
-  "name": "Shield badge",
-  "tags": [
-   "shapes",
-   "callout",
-   "shield badge"
-  ],
-  "file": "/library/shapes/sh-extra-15.json",
-  "thumb": "/library/shapes/sh-extra-15.svg",
-  "thumbColor": "/library/shapes/sh-extra-15.color.svg"
- },
- {
-  "id": "sh-extra-16",
-  "cat": "shapes",
-  "name": "Round callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "round callout"
-  ],
-  "file": "/library/shapes/sh-extra-16.json",
-  "thumb": "/library/shapes/sh-extra-16.svg",
-  "thumbColor": "/library/shapes/sh-extra-16.color.svg"
- },
- {
-  "id": "sh-extra-17",
-  "cat": "shapes",
-  "name": "Square callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "square callout"
-  ],
-  "file": "/library/shapes/sh-extra-17.json",
-  "thumb": "/library/shapes/sh-extra-17.svg",
-  "thumbColor": "/library/shapes/sh-extra-17.color.svg"
- },
- {
-  "id": "sh-extra-18",
-  "cat": "shapes",
-  "name": "Note callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "note callout"
-  ],
-  "file": "/library/shapes/sh-extra-18.json",
-  "thumb": "/library/shapes/sh-extra-18.svg",
-  "thumbColor": "/library/shapes/sh-extra-18.color.svg"
- },
- {
-  "id": "sh-extra-19",
-  "cat": "shapes",
-  "name": "Quote callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "quote callout"
-  ],
-  "file": "/library/shapes/sh-extra-19.json",
-  "thumb": "/library/shapes/sh-extra-19.svg",
-  "thumbColor": "/library/shapes/sh-extra-19.color.svg"
- },
- {
-  "id": "sh-extra-20",
-  "cat": "shapes",
-  "name": "Chat bubble",
-  "tags": [
-   "shapes",
-   "callout",
-   "chat bubble"
-  ],
-  "file": "/library/shapes/sh-extra-20.json",
-  "thumb": "/library/shapes/sh-extra-20.svg",
-  "thumbColor": "/library/shapes/sh-extra-20.color.svg"
- },
- {
-  "id": "sh-extra-21",
-  "cat": "shapes",
-  "name": "Idea bubble",
-  "tags": [
-   "shapes",
-   "callout",
-   "idea bubble"
-  ],
-  "file": "/library/shapes/sh-extra-21.json",
-  "thumb": "/library/shapes/sh-extra-21.svg",
-  "thumbColor": "/library/shapes/sh-extra-21.color.svg"
- },
- {
-  "id": "sh-extra-22",
-  "cat": "shapes",
-  "name": "Warning callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "warning callout"
-  ],
-  "file": "/library/shapes/sh-extra-22.json",
-  "thumb": "/library/shapes/sh-extra-22.svg",
-  "thumbColor": "/library/shapes/sh-extra-22.color.svg"
- },
- {
-  "id": "sh-extra-23",
-  "cat": "shapes",
-  "name": "Info callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "info callout"
-  ],
-  "file": "/library/shapes/sh-extra-23.json",
-  "thumb": "/library/shapes/sh-extra-23.svg",
-  "thumbColor": "/library/shapes/sh-extra-23.color.svg"
- },
- {
-  "id": "sh-extra-24",
-  "cat": "shapes",
-  "name": "Question callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "question callout"
-  ],
-  "file": "/library/shapes/sh-extra-24.json",
-  "thumb": "/library/shapes/sh-extra-24.svg",
-  "thumbColor": "/library/shapes/sh-extra-24.color.svg"
- },
- {
-  "id": "sh-extra-25",
-  "cat": "shapes",
-  "name": "Pointer callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "pointer callout"
-  ],
-  "file": "/library/shapes/sh-extra-25.json",
-  "thumb": "/library/shapes/sh-extra-25.svg",
-  "thumbColor": "/library/shapes/sh-extra-25.color.svg"
- },
- {
-  "id": "sh-extra-26",
-  "cat": "shapes",
-  "name": "Label callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "label callout"
-  ],
-  "file": "/library/shapes/sh-extra-26.json",
-  "thumb": "/library/shapes/sh-extra-26.svg",
-  "thumbColor": "/library/shapes/sh-extra-26.color.svg"
- },
- {
-  "id": "sh-extra-27",
-  "cat": "shapes",
-  "name": "Caption callout",
-  "tags": [
-   "shapes",
-   "callout",
-   "caption callout"
-  ],
-  "file": "/library/shapes/sh-extra-27.json",
-  "thumb": "/library/shapes/sh-extra-27.svg",
-  "thumbColor": "/library/shapes/sh-extra-27.color.svg"
- },
- {
-  "id": "sh-extra-28",
-  "cat": "shapes",
-  "name": "Sticky note",
-  "tags": [
-   "shapes",
-   "callout",
-   "sticky note"
-  ],
-  "file": "/library/shapes/sh-extra-28.json",
-  "thumb": "/library/shapes/sh-extra-28.svg",
-  "thumbColor": "/library/shapes/sh-extra-28.color.svg"
- },
- {
-  "id": "sh-extra-29",
-  "cat": "shapes",
-  "name": "Message flag",
-  "tags": [
-   "shapes",
-   "callout",
-   "message flag"
-  ],
-  "file": "/library/shapes/sh-extra-29.json",
-  "thumb": "/library/shapes/sh-extra-29.svg",
-  "thumbColor": "/library/shapes/sh-extra-29.color.svg"
- },
- {
-  "id": "sh-extra-30",
-  "cat": "shapes",
-  "name": "Speech cloud",
-  "tags": [
-   "shapes",
-   "callout",
-   "speech cloud"
-  ],
-  "file": "/library/shapes/sh-extra-30.json",
-  "thumb": "/library/shapes/sh-extra-30.svg",
-  "thumbColor": "/library/shapes/sh-extra-30.color.svg"
- },
- {
-  "id": "sh-extra-31",
-  "cat": "shapes",
-  "name": "Process arrow",
-  "tags": [
-   "shapes",
-   "arrow",
-   "process arrow"
-  ],
-  "file": "/library/shapes/sh-extra-31.json",
-  "thumb": "/library/shapes/sh-extra-31.svg",
-  "thumbColor": "/library/shapes/sh-extra-31.color.svg"
- },
- {
-  "id": "sh-extra-32",
-  "cat": "shapes",
-  "name": "Loop arrow",
-  "tags": [
-   "shapes",
-   "arrow",
-   "loop arrow"
-  ],
-  "file": "/library/shapes/sh-extra-32.json",
-  "thumb": "/library/shapes/sh-extra-32.svg",
-  "thumbColor": "/library/shapes/sh-extra-32.color.svg"
- },
- {
-  "id": "sh-extra-33",
-  "cat": "shapes",
-  "name": "Up arrow",
-  "tags": [
-   "shapes",
-   "arrow",
-   "up arrow"
-  ],
-  "file": "/library/shapes/sh-extra-33.json",
-  "thumb": "/library/shapes/sh-extra-33.svg",
-  "thumbColor": "/library/shapes/sh-extra-33.color.svg"
- },
- {
-  "id": "sh-extra-34",
-  "cat": "shapes",
-  "name": "Down arrow",
-  "tags": [
-   "shapes",
-   "arrow",
-   "down arrow"
-  ],
-  "file": "/library/shapes/sh-extra-34.json",
-  "thumb": "/library/shapes/sh-extra-34.svg",
-  "thumbColor": "/library/shapes/sh-extra-34.color.svg"
- },
- {
-  "id": "sh-extra-35",
-  "cat": "shapes",
-  "name": "Left arrow",
-  "tags": [
-   "shapes",
-   "arrow",
-   "left arrow"
-  ],
-  "file": "/library/shapes/sh-extra-35.json",
-  "thumb": "/library/shapes/sh-extra-35.svg",
-  "thumbColor": "/library/shapes/sh-extra-35.color.svg"
- },
- {
-  "id": "sh-extra-36",
-  "cat": "shapes",
-  "name": "Right arrow",
-  "tags": [
-   "shapes",
-   "arrow",
-   "right arrow"
-  ],
-  "file": "/library/shapes/sh-extra-36.json",
-  "thumb": "/library/shapes/sh-extra-36.svg",
-  "thumbColor": "/library/shapes/sh-extra-36.color.svg"
- },
- {
-  "id": "sh-extra-37",
-  "cat": "shapes",
-  "name": "Double arrow",
-  "tags": [
-   "shapes",
-   "arrow",
-   "double arrow"
-  ],
-  "file": "/library/shapes/sh-extra-37.json",
-  "thumb": "/library/shapes/sh-extra-37.svg",
-  "thumbColor": "/library/shapes/sh-extra-37.color.svg"
- },
- {
-  "id": "sh-extra-38",
-  "cat": "shapes",
-  "name": "Flow connector",
-  "tags": [
-   "shapes",
-   "arrow",
-   "flow connector"
-  ],
-  "file": "/library/shapes/sh-extra-38.json",
-  "thumb": "/library/shapes/sh-extra-38.svg",
-  "thumbColor": "/library/shapes/sh-extra-38.color.svg"
- },
- {
-  "id": "sh-extra-39",
-  "cat": "shapes",
-  "name": "Timeline marker",
-  "tags": [
-   "shapes",
-   "arrow",
-   "timeline marker"
-  ],
-  "file": "/library/shapes/sh-extra-39.json",
-  "thumb": "/library/shapes/sh-extra-39.svg",
-  "thumbColor": "/library/shapes/sh-extra-39.color.svg"
- },
- {
-  "id": "sh-extra-40",
-  "cat": "shapes",
-  "name": "Step marker",
-  "tags": [
-   "shapes",
-   "arrow",
-   "step marker"
-  ],
-  "file": "/library/shapes/sh-extra-40.json",
-  "thumb": "/library/shapes/sh-extra-40.svg",
-  "thumbColor": "/library/shapes/sh-extra-40.color.svg"
- },
- {
-  "id": "sh-extra-41",
-  "cat": "shapes",
-  "name": "Focus frame",
-  "tags": [
-   "shapes",
-   "arrow",
-   "focus frame"
-  ],
-  "file": "/library/shapes/sh-extra-41.json",
-  "thumb": "/library/shapes/sh-extra-41.svg",
-  "thumbColor": "/library/shapes/sh-extra-41.color.svg"
- },
- {
-  "id": "sh-extra-42",
-  "cat": "shapes",
-  "name": "Dashed frame",
-  "tags": [
-   "shapes",
-   "arrow",
-   "dashed frame"
-  ],
-  "file": "/library/shapes/sh-extra-42.json",
-  "thumb": "/library/shapes/sh-extra-42.svg",
-  "thumbColor": "/library/shapes/sh-extra-42.color.svg"
- },
- {
-  "id": "sh-extra-43",
-  "cat": "shapes",
-  "name": "Corner frame",
-  "tags": [
-   "shapes",
-   "arrow",
-   "corner frame"
-  ],
-  "file": "/library/shapes/sh-extra-43.json",
-  "thumb": "/library/shapes/sh-extra-43.svg",
-  "thumbColor": "/library/shapes/sh-extra-43.color.svg"
- },
- {
-  "id": "sh-extra-44",
-  "cat": "shapes",
-  "name": "Divider",
-  "tags": [
-   "shapes",
-   "arrow",
-   "divider"
-  ],
-  "file": "/library/shapes/sh-extra-44.json",
-  "thumb": "/library/shapes/sh-extra-44.svg",
-  "thumbColor": "/library/shapes/sh-extra-44.color.svg"
- },
- {
-  "id": "sh-extra-45",
-  "cat": "shapes",
-  "name": "Highlight circle",
-  "tags": [
-   "shapes",
-   "arrow",
-   "highlight circle"
-  ],
-  "file": "/library/shapes/sh-extra-45.json",
-  "thumb": "/library/shapes/sh-extra-45.svg",
-  "thumbColor": "/library/shapes/sh-extra-45.color.svg"
+  "file": "/library/realestate/re-front-door.json",
+  "strokeCount": 9,
+  "premium": false,
+  "thumb": "/library/realestate/re-front-door.svg",
+  "thumbColor": "/library/realestate/re-front-door.color.svg"
  },
  {
   "id": "sh-speech",
@@ -1952,6 +2082,8 @@
    "quote"
   ],
   "file": "/library/shapes/sh-speech.json",
+  "strokeCount": 9,
+  "premium": false,
   "thumb": "/library/shapes/sh-speech.svg",
   "thumbColor": "/library/shapes/sh-speech.color.svg"
  },
@@ -1966,6 +2098,8 @@
    "idea"
   ],
   "file": "/library/shapes/sh-thought.json",
+  "strokeCount": 9,
+  "premium": false,
   "thumb": "/library/shapes/sh-thought.svg",
   "thumbColor": "/library/shapes/sh-thought.color.svg"
  },
@@ -1980,6 +2114,8 @@
    "direction"
   ],
   "file": "/library/shapes/sh-curved-arrow.json",
+  "strokeCount": 10,
+  "premium": false,
   "thumb": "/library/shapes/sh-curved-arrow.svg",
   "thumbColor": "/library/shapes/sh-curved-arrow.color.svg"
  },
@@ -1994,6 +2130,8 @@
    "highlight"
   ],
   "file": "/library/shapes/sh-starburst.json",
+  "strokeCount": 13,
+  "premium": false,
   "thumb": "/library/shapes/sh-starburst.svg",
   "thumbColor": "/library/shapes/sh-starburst.color.svg"
  },
@@ -2008,7 +2146,169 @@
    "ribbon"
   ],
   "file": "/library/shapes/sh-banner.json",
+  "strokeCount": 10,
+  "premium": false,
   "thumb": "/library/shapes/sh-banner.svg",
   "thumbColor": "/library/shapes/sh-banner.color.svg"
+ },
+ {
+  "id": "te-laptop",
+  "cat": "tech",
+  "name": "Laptop",
+  "tags": [
+   "tech",
+   "computer",
+   "work",
+   "online"
+  ],
+  "file": "/library/tech/te-laptop.json",
+  "strokeCount": 8,
+  "premium": false,
+  "thumb": "/library/tech/te-laptop.svg",
+  "thumbColor": "/library/tech/te-laptop.color.svg"
+ },
+ {
+  "id": "te-smartphone",
+  "cat": "tech",
+  "name": "Smartphone",
+  "tags": [
+   "tech",
+   "mobile",
+   "app",
+   "phone"
+  ],
+  "file": "/library/tech/te-smartphone.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/tech/te-smartphone.svg",
+  "thumbColor": "/library/tech/te-smartphone.color.svg"
+ },
+ {
+  "id": "te-cloud",
+  "cat": "tech",
+  "name": "Cloud storage",
+  "tags": [
+   "tech",
+   "cloud",
+   "upload",
+   "data"
+  ],
+  "file": "/library/tech/te-cloud.json",
+  "strokeCount": 9,
+  "premium": false,
+  "thumb": "/library/tech/te-cloud.svg",
+  "thumbColor": "/library/tech/te-cloud.color.svg"
+ },
+ {
+  "id": "te-gears",
+  "cat": "tech",
+  "name": "Gears",
+  "tags": [
+   "tech",
+   "settings",
+   "process",
+   "engineering"
+  ],
+  "file": "/library/tech/te-gears.json",
+  "strokeCount": 8,
+  "premium": false,
+  "thumb": "/library/tech/te-gears.svg",
+  "thumbColor": "/library/tech/te-gears.color.svg"
+ },
+ {
+  "id": "te-robot",
+  "cat": "tech",
+  "name": "Robot",
+  "tags": [
+   "tech",
+   "ai",
+   "automation",
+   "bot"
+  ],
+  "file": "/library/tech/te-robot.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/tech/te-robot.svg",
+  "thumbColor": "/library/tech/te-robot.color.svg"
+ },
+ {
+  "id": "tr-car",
+  "cat": "transport",
+  "name": "Car",
+  "tags": [
+   "transport",
+   "car",
+   "drive",
+   "road"
+  ],
+  "file": "/library/transport/tr-car.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/transport/tr-car.svg",
+  "thumbColor": "/library/transport/tr-car.color.svg"
+ },
+ {
+  "id": "tr-bicycle",
+  "cat": "transport",
+  "name": "Bicycle",
+  "tags": [
+   "transport",
+   "bike",
+   "cycling",
+   "fitness"
+  ],
+  "file": "/library/transport/tr-bicycle.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/transport/tr-bicycle.svg",
+  "thumbColor": "/library/transport/tr-bicycle.color.svg"
+ },
+ {
+  "id": "tr-bus",
+  "cat": "transport",
+  "name": "Bus",
+  "tags": [
+   "transport",
+   "bus",
+   "school bus",
+   "city"
+  ],
+  "file": "/library/transport/tr-bus.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/transport/tr-bus.svg",
+  "thumbColor": "/library/transport/tr-bus.color.svg"
+ },
+ {
+  "id": "tr-airplane",
+  "cat": "transport",
+  "name": "Airplane",
+  "tags": [
+   "transport",
+   "plane",
+   "travel",
+   "flight"
+  ],
+  "file": "/library/transport/tr-airplane.json",
+  "strokeCount": 10,
+  "premium": false,
+  "thumb": "/library/transport/tr-airplane.svg",
+  "thumbColor": "/library/transport/tr-airplane.color.svg"
+ },
+ {
+  "id": "tr-rickshaw",
+  "cat": "transport",
+  "name": "Auto rickshaw",
+  "tags": [
+   "transport",
+   "rickshaw",
+   "south asian",
+   "city"
+  ],
+  "file": "/library/transport/tr-rickshaw.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/transport/tr-rickshaw.svg",
+  "thumbColor": "/library/transport/tr-rickshaw.color.svg"
  }
 ]

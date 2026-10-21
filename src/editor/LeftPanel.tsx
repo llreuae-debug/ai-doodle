@@ -116,6 +116,8 @@ export function LeftPanel(p: Props) {
   const doodles = (p.category === 'custom' ? p.project.custom : LIBRARY.filter((d) => d.cat === p.category)).filter((d) => matches(d.name, d.tags, d.cat));
   const listed = p.category === 'custom' ? [] : manifest.filter((m) => categoryOf.get(m.cat)?.tab === p.category && matches(m.name, m.tags, m.cat));
   const empty = doodles.length === 0 && listed.length === 0 && (p.category !== 'custom' || uploads.length === 0);
+  const totalShowing = doodles.length + listed.length + (p.category === 'custom' ? uploads.length : 0);
+  const totalAvailable = manifest.length || LIBRARY.length;
   const filterCount = tags.size + activeCats.length;
 
   const toggleCat = (c: LibraryCategory) =>
@@ -176,6 +178,9 @@ export function LeftPanel(p: Props) {
             </label>
             Color
           </div>
+        </div>
+        <div className="tile-count" role="status">
+          Showing {totalShowing} of {totalAvailable}
         </div>
         {filterOpen && (
           <div className="filterpop">
