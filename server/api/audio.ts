@@ -105,7 +105,7 @@ export function estimateWords(text: string, seconds: number): WordTime[] {
   const words = text.trim().split(/\s+/).filter(Boolean);
   if (words.length === 0) return [];
   const speak = words.map((w) => Math.max(1, w.replace(/[^\p{L}\p{N}\p{M}]/gu, '').length));
-  const pause = words.map((w): number => (/[.!?۔؟।]["'”’)]*$/.test(w) ? STOP_PAUSE : /[,،;:]["'”’)]*$/.test(w) ? COMMA_PAUSE : 0));
+  const pause = words.map((w, i): number => (i === words.length - 1 ? 0 : /[.!?۔؟।]["'”’)]*$/.test(w) ? STOP_PAUSE : /[,،;:]["'”’)]*$/.test(w) ? COMMA_PAUSE : 0));
   const charTotal = speak.reduce((a, b) => a + b, 0);
   // Pauses are in seconds; the rest of the time is shared by character length.
   const pauseTotal = Math.min(pause.reduce((a, b) => a + b, 0), seconds * 0.4);

@@ -11,5 +11,8 @@ export function aiPlugin(): Plugin {
     configureServer(server) {
       server.middlewares.use(apiMiddleware);
     },
+    configurePreviewServer(server) {
+      server.middlewares.use(apiMiddleware);
+    },
   };
 }

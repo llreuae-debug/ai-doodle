@@ -1,4 +1,4 @@
-import { Bell, Download, ExternalLink, Lightbulb, Maximize, Music, Pause, Pencil, Play, Redo2, SkipBack, SkipForward, Sparkles, Undo2, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
+import { Bell, Download, ExternalLink, KeyRound, Lightbulb, Maximize, Music, Pause, Pencil, Play, Redo2, SkipBack, SkipForward, Sparkles, Undo2, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { mixSoundtrack } from '../audio/mix';
 import { Logomark } from '../brand/Logomark';
@@ -17,6 +17,7 @@ import { lastProjectId, loadProject, saveProject } from '../services/storage';
 import { LeftPanel, type LayerAction, type LeftTab, type TextPreset } from './LeftPanel';
 import { ExportModal, type RenderCache } from './ExportModal';
 import { GenerateModal } from './GenerateModal';
+import { ApiKeyModal } from './ApiKeyModal';
 import { DashboardModal, TutorialModal, UploadModal, VoiceModal } from './modals';
 import { MusicLibraryModal } from './MusicLibraryModal';
 import { MusicModal } from './MusicModal';
@@ -48,7 +49,8 @@ type ModalState =
   | { kind: 'music' }
   | { kind: 'aimusic' }
   | { kind: 'story' }
-  | { kind: 'tutorial' };
+  | { kind: 'tutorial' }
+  | { kind: 'apiKey' };
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 const errText = (err: unknown) => (err instanceof Error ? err.message : String(err));
@@ -144,6 +146,13 @@ export default function Editor() {
     const onDone = () => bump();
     document.fonts.addEventListener('loadingdone', onDone);
     return () => document.fonts.removeEventListener('loadingdone', onDone);
+  }, []);
+
+  // Listen for requests to configure API key from AI services.
+  useEffect(() => {
+    const handleOpenApiKey = () => setModal({ kind: 'apiKey' });
+    window.addEventListener('open-api-key-modal', handleOpenApiKey);
+    return () => window.removeEventListener('open-api-key-modal', handleOpenApiKey);
   }, []);
 
   // ---------- playback ----------
@@ -720,6 +729,18 @@ export default function Editor() {
             <Sparkles size={18} />
             Story
           </button>
+          <button
+            type="button"
+            className="btn"
+            title="Google Gemini API Key"
+            onClick={() => {
+              stopPlay();
+              setModal({ kind: 'apiKey' });
+            }}
+          >
+            <KeyRound size={18} />
+            <span className="lbl-hide">API Key</span>
+          </button>
           <button type="button" className="btn" onClick={() => setModal({ kind: 'tutorial' })}>
             <span className="lbl-hide">Tutorials</span>
             <Lightbulb size={18} />
@@ -1053,6 +1074,12 @@ export default function Editor() {
         />
       )}
       {modal?.kind === 'tutorial' && <TutorialModal onClose={() => setModal(null)} />}
+      {modal?.kind === 'apiKey' && (
+        <ApiKeyModal
+          onClose={() => setModal(null)}
+          onSaved={() => showToast('Google Gemini key connected!')}
+        />
+      )}
       {toast && (
         <div className="toast" role="status">
           {toast}

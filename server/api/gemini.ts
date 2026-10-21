@@ -7,7 +7,7 @@ import path from 'node:path';
  * Never logs keys, prompts or user text.
  */
 export const MODELS = {
-  text: process.env.GEMINI_TEXT_MODEL || 'gemini-3.8-flash',
+  text: process.env.GEMINI_TEXT_MODEL || 'gemini-3.5-flash-lite',
   image: process.env.GEMINI_IMAGE_MODEL || 'gemini-nano-banana-2.1',
   tts: process.env.GEMINI_TTS_MODEL || 'gemini-3.8-flash-tts',
 };
@@ -17,7 +17,7 @@ export const MODELS = {
  * allowance per model, e.g. 10 requests for gemini-3.8-flash-tts).
  */
 /** Text models tried in order when the main one has used up its daily quota (each has its own). */
-export const TEXT_FALLBACKS = (process.env.GEMINI_TEXT_FALLBACKS || 'gemini-3.7-flash,gemini-3.6-flash,gemini-3.5-flash,gemini-2.5-flash')
+export const TEXT_FALLBACKS = (process.env.GEMINI_TEXT_FALLBACKS || 'gemini-3.8-flash,gemini-3.1-flash-lite,gemini-3-flash-preview,gemini-3.5-flash-lite')
   .split(',')
   .map((m) => m.trim())
   .filter(Boolean);
