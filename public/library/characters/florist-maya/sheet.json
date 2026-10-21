@@ -1,0 +1,24 @@
+{
+  "name": "Maya",
+  "role": "Botanist Florist",
+  "slug": "florist-maya",
+  "age": 27,
+  "look": "long wavy ponytail, green gardener apron, rolled pastel sleeves, friendly dimpled smile",
+  "outfitColours": {
+    "jacket": "#059669",
+    "shirt": "#FDF2F8",
+    "pants": "#1F2937",
+    "shoes": "#B45309"
+  },
+  "skinTone": "#F6D3B7",
+  "hairColor": "#78350F",
+  "hairStyle": "ponytail",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding cup",
+    "waving",
+    "thinking"
+  ]
+}

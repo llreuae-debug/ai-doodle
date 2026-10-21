@@ -1,0 +1,24 @@
+{
+  "name": "Ali",
+  "role": "Little Boy",
+  "slug": "little-boy-ali",
+  "age": 7,
+  "look": "bright t-shirt, shorts, wide curious eyes, playful grin",
+  "outfitColours": {
+    "jacket": "#EF4444",
+    "shirt": "#EF4444",
+    "pants": "#2563EB",
+    "shoes": "#FFFFFF"
+  },
+  "skinTone": "#E2B48C",
+  "hairColor": "#1F2937",
+  "hairStyle": "spiky",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "waving",
+    "running",
+    "thumbs up"
+  ]
+}

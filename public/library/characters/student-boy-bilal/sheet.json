@@ -1,0 +1,24 @@
+{
+  "name": "Bilal",
+  "role": "Student Boy",
+  "slug": "student-boy-bilal",
+  "age": 12,
+  "look": "neat school uniform, backpack straps, cheerful enthusiastic smile",
+  "outfitColours": {
+    "jacket": "#1E3A8A",
+    "shirt": "#FFFFFF",
+    "pants": "#334155",
+    "shoes": "#111827"
+  },
+  "skinTone": "#E2B48C",
+  "hairColor": "#111827",
+  "hairStyle": "short",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "backpack",
+    "waving",
+    "pointing"
+  ]
+}

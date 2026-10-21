@@ -2,12 +2,14 @@
   "id": "ed-open-book",
   "cat": "education",
   "name": "Open book",
+  "role": "Education",
   "tags": [
     "education",
     "reading",
     "study",
     "school"
   ],
+  "premium": false,
   "strokes": [
     "M24,64 L24,160 Q62,152 100,162 Q138,152 176,160 L176,64",
     "M100,62 Q70,50 32,58 L32,150 Q70,142 100,154 Z",

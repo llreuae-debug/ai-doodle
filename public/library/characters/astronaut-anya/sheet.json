@@ -1,0 +1,24 @@
+{
+  "name": "Anya",
+  "role": "Space Astronaut",
+  "slug": "astronaut-anya",
+  "age": 36,
+  "look": "white pressurized space suit with mission shoulder patch, blue trim, swept hair",
+  "outfitColours": {
+    "jacket": "#F8FAFC",
+    "shirt": "#0284C7",
+    "pants": "#E2E8F0",
+    "shoes": "#0F172A"
+  },
+  "skinTone": "#F6D3B7",
+  "hairColor": "#1E293B",
+  "hairStyle": "swept",
+  "hasGlasses": false,
+  "premium": true,
+  "poses": [
+    "standing",
+    "waving",
+    "pointing",
+    "walking"
+  ]
+}

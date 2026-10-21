@@ -1,0 +1,24 @@
+{
+  "name": "Zoya",
+  "role": "Engineer",
+  "slug": "engineer-zoya",
+  "age": 31,
+  "look": "yellow safety helmet, high-visibility vest, holding digital tablet",
+  "outfitColours": {
+    "jacket": "#F97316",
+    "shirt": "#1E293B",
+    "pants": "#2563EB",
+    "shoes": "#B45309"
+  },
+  "skinTone": "#B97F55",
+  "hairColor": "#1F2937",
+  "hairStyle": "bun",
+  "hasGlasses": false,
+  "premium": true,
+  "poses": [
+    "standing",
+    "holding tablet",
+    "pointing",
+    "thumbs up"
+  ]
+}

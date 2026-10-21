@@ -1,0 +1,24 @@
+{
+  "name": "Leo",
+  "role": "Musician",
+  "slug": "musician-leo",
+  "age": 26,
+  "look": "vintage leather jacket, slim jeans, acoustic guitar slung over shoulder",
+  "outfitColours": {
+    "jacket": "#78350F",
+    "shirt": "#D97706",
+    "pants": "#1E293B",
+    "shoes": "#451A03"
+  },
+  "skinTone": "#F6D3B7",
+  "hairColor": "#1C1917",
+  "hairStyle": "wavy",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding guitar",
+    "playing guitar",
+    "waving"
+  ]
+}

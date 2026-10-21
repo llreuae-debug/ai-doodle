@@ -2,12 +2,14 @@
   "id": "bz-target",
   "cat": "business",
   "name": "Target and arrow",
+  "role": "Business",
   "tags": [
     "business",
     "goal",
     "aim",
     "strategy"
   ],
+  "premium": false,
   "strokes": [
     "M30,110 A60,60 0 1,0 150,110 A60,60 0 1,0 30,110 Z",
     "M48,110 A42,42 0 1,0 132,110 A42,42 0 1,0 48,110 Z",

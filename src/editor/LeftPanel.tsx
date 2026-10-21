@@ -28,11 +28,12 @@ interface Props {
   onFont: (family: string) => void;
   onUploadFont: () => void;
   onDeleteFont: (id: string) => void;
-  onAddDoodle: (defId: string) => void;
+  onAddDoodle: (defId: string, color?: boolean) => void;
   onAddImage: (assetId: string) => void;
   onAddText: (preset: TextPreset) => void;
   onUpload: () => void;
   onGenerate: (category: 'characters' | 'props') => void;
+  onCharacterVariations?: (initialCharacter?: any) => void;
   onLayer: (id: string, action: LayerAction) => void;
 }
 
@@ -92,6 +93,8 @@ export function LeftPanel(p: Props) {
   const [filterOpen, setFilterOpen] = useState(false);
   const [tags, setTags] = useState<Set<string>>(new Set());
   const [cats, setCats] = useState<Set<LibraryCategory>>(new Set());
+  const [lineOnly, setLineOnly] = useState(false);
+  const [premiumOnly, setPremiumOnly] = useState(false);
   const manifest = useLibraryManifest();
   const [fontQuery, setFontQuery] = useState('');
   // The Add-text buttons preview the current font.
@@ -104,21 +107,35 @@ export function LeftPanel(p: Props) {
   const q = query.trim().toLowerCase();
   const tabCats = LIBRARY_CATEGORIES.filter((c) => c.tab === p.category);
   const activeCats = tabCats.filter((c) => cats.has(c.id));
-  /** Search words, tag chips, and category chips (built-in doodles match a category through their tags). */
-  const matches = (name: string, itemTags: string[], cat?: string) =>
-    (!q || `${name} ${itemTags.join(' ')}`.toLowerCase().includes(q)) &&
-    (p.category === 'custom' || tags.size === 0 || itemTags.some((t) => tags.has(t))) &&
-    (activeCats.length === 0 || activeCats.some((c) => c.id === cat || itemTags.includes(c.label.toLowerCase())));
+
+  /** Search matches name, role, character, pose, and tags. */
+  const matchesItem = (item: { name: string; tags: string[]; cat?: string; role?: string; character?: string; pose?: string; premium?: boolean }) => {
+    if (premiumOnly && !item.premium) return false;
+    if (q) {
+      const searchTarget = `${item.name} ${item.role ?? ''} ${item.character ?? ''} ${item.pose ?? ''} ${item.tags.join(' ')}`.toLowerCase();
+      if (!searchTarget.includes(q)) return false;
+    }
+    if (p.category !== 'custom' && tags.size > 0 && !item.tags.some((t) => tags.has(t))) return false;
+    if (activeCats.length > 0 && !activeCats.some((c) => c.id === item.cat || item.tags.includes(c.label.toLowerCase()))) return false;
+    return true;
+  };
 
   const uploads = Object.values(p.project.assets)
     .sort((a, b) => b.createdAt - a.createdAt)
-    .filter((a) => matches(a.name, []));
-  const doodles = (p.category === 'custom' ? p.project.custom : LIBRARY.filter((d) => d.cat === p.category)).filter((d) => matches(d.name, d.tags, d.cat));
-  const listed = p.category === 'custom' ? [] : manifest.filter((m) => categoryOf.get(m.cat)?.tab === p.category && matches(m.name, m.tags, m.cat));
-  const empty = doodles.length === 0 && listed.length === 0 && (p.category !== 'custom' || uploads.length === 0);
-  const totalShowing = doodles.length + listed.length + (p.category === 'custom' ? uploads.length : 0);
-  const totalAvailable = manifest.length || LIBRARY.length;
-  const filterCount = tags.size + activeCats.length;
+    .filter((a) => matchesItem({ name: a.name, tags: [] }));
+  const doodles = (p.category === 'custom' ? p.project.custom : LIBRARY.filter((d) => d.cat === p.category)).filter((d) =>
+    matchesItem({ name: d.name, tags: d.tags, cat: d.cat })
+  );
+  const listed = p.category === 'custom' ? [] : manifest.filter((m) => categoryOf.get(m.cat)?.tab === p.category && matchesItem(m));
+
+  const multiplier = lineOnly || p.colorMode ? 1 : 2;
+  const totalShowing = p.category === 'custom' ? uploads.length : (doodles.length + listed.length) * multiplier;
+  const totalAvailableInTab =
+    p.category === 'custom'
+      ? Object.keys(p.project.assets).length
+      : (manifest.filter((m) => categoryOf.get(m.cat)?.tab === p.category).length || LIBRARY.filter((d) => d.cat === p.category).length) * multiplier;
+  const empty = totalShowing === 0;
+  const filterCount = tags.size + activeCats.length + (lineOnly ? 1 : 0) + (premiumOnly ? 1 : 0);
 
   const toggleCat = (c: LibraryCategory) =>
     setCats((s) => {
@@ -134,6 +151,12 @@ export function LeftPanel(p: Props) {
       else next.add(t);
       return next;
     });
+
+  const itemCaption = (item: { name: string; role?: string; character?: string }) => {
+    if (item.role && item.character) return `${item.role} – ${item.character}`;
+    if (item.role) return `${item.role} – ${item.name}`;
+    return item.name;
+  };
 
   const els = p.scene.elements;
 
@@ -173,17 +196,47 @@ export function LeftPanel(p: Props) {
           </button>
           <div className="colorlbl">
             <label className="switch" title="Show colour versions">
-              <input type="checkbox" aria-label="Colour versions" checked={p.colorMode} onChange={(e) => p.onColorMode(e.target.checked)} />
+              <input
+                type="checkbox"
+                aria-label="Colour versions"
+                checked={p.colorMode}
+                onChange={(e) => {
+                  p.onColorMode(e.target.checked);
+                  if (e.target.checked && lineOnly) setLineOnly(false);
+                }}
+              />
               <span />
             </label>
             Color
           </div>
         </div>
         <div className="tile-count" role="status">
-          Showing {totalShowing} of {totalAvailable}
+          Showing {totalShowing} of {totalAvailableInTab}
         </div>
         {filterOpen && (
           <div className="filterpop">
+            <div className="chiprow" role="group" aria-label="Modes">
+              <button
+                type="button"
+                className="chip"
+                aria-pressed={lineOnly}
+                onClick={() => {
+                  const next = !lineOnly;
+                  setLineOnly(next);
+                  if (next && p.colorMode) p.onColorMode(false);
+                }}
+              >
+                Line only
+              </button>
+              <button
+                type="button"
+                className="chip"
+                aria-pressed={premiumOnly}
+                onClick={() => setPremiumOnly(!premiumOnly)}
+              >
+                ★ Premium
+              </button>
+            </div>
             {tabCats.length > 1 && (
               <div className="chiprow" role="group" aria-label="Categories">
                 {tabCats.map((c) => (
@@ -205,6 +258,8 @@ export function LeftPanel(p: Props) {
                 onClick={() => {
                   setTags(new Set());
                   setCats(new Set());
+                  setLineOnly(false);
+                  setPremiumOnly(false);
                 }}
               >
                 Clear
@@ -212,10 +267,28 @@ export function LeftPanel(p: Props) {
             )}
           </div>
         )}
-        <button type="button" className="btn ai gen-top" onClick={() => p.onGenerate(p.category === 'props' || p.category === 'shapes' ? 'props' : 'characters')}>
-          <Sparkles size={18} />
-          {genLabel}
-        </button>
+        <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
+          <button type="button" className="btn ai gen-top" style={{ flex: 1 }} onClick={() => p.onGenerate(p.category === 'props' || p.category === 'shapes' ? 'props' : 'characters')}>
+            <Sparkles size={18} />
+            {genLabel}
+          </button>
+          <button
+            id="btn-character-variations"
+            type="button"
+            className="btn ai gen-top"
+            style={{
+              background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
+              borderColor: '#d8b4fe',
+              color: '#7e22ce',
+              fontWeight: 600,
+            }}
+            title="Consistent Character Variations"
+            onClick={() => p.onCharacterVariations?.()}
+          >
+            <Star size={16} fill="#c084fc" />
+            Variations
+          </button>
+        </div>
         <div className="libgrid">
           {empty &&
             (p.category === 'custom' ? (
@@ -236,29 +309,75 @@ export function LeftPanel(p: Props) {
                 <span className="cap">{a.name}</span>
               </button>
             ))}
-          {doodles.map((d) => (
-            <button key={d.id} type="button" className="tile" title={`Add ${d.name}`} onClick={() => p.onAddDoodle(d.id)}>
-              <DoodleThumb def={d} color={p.colorMode} />
-              <span className="cap">{d.name}</span>
-            </button>
-          ))}
-          {listed.map((m) => (
-            <button key={m.id} type="button" className="tile" title={`Add ${m.name}`} onClick={() => p.onAddDoodle(m.id)}>
-              <span className="thumb">
-                <img src={p.colorMode ? m.thumbColor : m.thumb} alt="" loading="lazy" decoding="async" />
+          {doodles.map((d) => {
+            const cap = itemCaption(d);
+            const showColor = !lineOnly;
+            const showLine = !p.colorMode;
+            return (
+              <span key={d.id} style={{ display: 'contents' }}>
+                {showColor && (
+                  <button key={`${d.id}-col`} type="button" className="tile" title={`Add ${cap} (Colour)`} onClick={() => p.onAddDoodle(d.id, true)}>
+                    <DoodleThumb def={d} color={true} />
+                    <span className="cap">{cap}</span>
+                  </button>
+                )}
+                {showLine && (
+                  <button key={`${d.id}-line`} type="button" className="tile" title={`Add ${cap} (Line)`} onClick={() => p.onAddDoodle(d.id, false)}>
+                    <DoodleThumb def={d} color={false} />
+                    <span className="cap">{cap}</span>
+                  </button>
+                )}
               </span>
-              <span className="cap">{m.name}</span>
-            </button>
-          ))}
+            );
+          })}
+          {listed.map((m) => {
+            const cap = itemCaption(m);
+            const showColor = !lineOnly;
+            const showLine = !p.colorMode;
+            return (
+              <span key={m.id} style={{ display: 'contents' }}>
+                {showColor && (
+                  <button key={`${m.id}-col`} type="button" className="tile" title={`Add ${cap} (Colour)`} onClick={() => p.onAddDoodle(m.id, true)}>
+                    {m.premium && (
+                      <span className="badge-premium" title="Premium">
+                        <Star size={12} fill="#F59E0B" stroke="#F59E0B" strokeWidth={0} />
+                      </span>
+                    )}
+                    <span className="thumb">
+                      <img src={m.thumbColor} alt="" loading="lazy" decoding="async" />
+                    </span>
+                    <span className="cap">{cap}</span>
+                  </button>
+                )}
+                {showLine && (
+                  <button key={`${m.id}-line`} type="button" className="tile" title={`Add ${cap} (Line)`} onClick={() => p.onAddDoodle(m.id, false)}>
+                    {m.premium && (
+                      <span className="badge-premium" title="Premium">
+                        <Star size={12} fill="#F59E0B" stroke="#F59E0B" strokeWidth={0} />
+                      </span>
+                    )}
+                    <span className="thumb">
+                      <img src={m.thumbLine || m.thumb} alt="" loading="lazy" decoding="async" />
+                    </span>
+                    <span className="cap">{cap}</span>
+                  </button>
+                )}
+              </span>
+            );
+          })}
         </div>
         <div className="bottombtns">
           <button type="button" className="btn" onClick={p.onUpload}>
             <Upload size={18} />
             Upload
           </button>
+          <button type="button" className="btn ai" onClick={() => p.onCharacterVariations?.()} title="Consistent Character Variations">
+            <Star size={16} fill="#c084fc" />
+            Variations
+          </button>
           <button type="button" className="btn ai" onClick={() => p.onGenerate(p.category === 'props' || p.category === 'shapes' ? 'props' : 'characters')}>
-            <Sparkles size={18} />
-            Generate with AI
+            <Sparkles size={16} />
+            AI
           </button>
         </div>
       </section>

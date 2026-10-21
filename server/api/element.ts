@@ -23,7 +23,7 @@ export const ElementRequest = z.object({
   type: z.enum(['element', 'character', 'scene']),
   style: z.enum(ELEMENT_STYLES),
   prompt: z.string().trim().min(2).max(500),
-  variations: z.union([z.literal(1), z.literal(4)]).default(1),
+  variations: z.union([z.literal(1), z.literal(3), z.literal(4)]).default(1),
   /** Video size, for scenes. */
   aspect: z.enum(['16:9', '9:16', '1:1', '4:5']).default('16:9'),
   projectId: z.string().max(60).default('shared'),

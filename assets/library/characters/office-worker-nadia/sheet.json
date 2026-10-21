@@ -1,0 +1,24 @@
+{
+  "name": "Nadia",
+  "role": "Office Worker",
+  "slug": "office-worker-nadia",
+  "age": 28,
+  "look": "modern corporate blouse, company lanyard, holding ultrabook",
+  "outfitColours": {
+    "jacket": "#9333EA",
+    "shirt": "#F3E8FF",
+    "pants": "#1E293B",
+    "shoes": "#0F172A"
+  },
+  "skinTone": "#B97F55",
+  "hairColor": "#1F2937",
+  "hairStyle": "wavy",
+  "hasGlasses": false,
+  "premium": true,
+  "poses": [
+    "standing",
+    "holding laptop",
+    "presenting",
+    "thinking"
+  ]
+}

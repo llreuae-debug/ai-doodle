@@ -1,0 +1,24 @@
+{
+  "name": "Mehak",
+  "role": "Business Woman",
+  "slug": "business-woman-mehak",
+  "age": 32,
+  "look": "long sleek ponytail, expressive eyes, warm smile",
+  "outfitColours": {
+    "jacket": "#475569",
+    "shirt": "#FFFFFF",
+    "pants": "#0F172A",
+    "shoes": "#0F172A"
+  },
+  "skinTone": "#F6D3B7",
+  "hairColor": "#3B2A20",
+  "hairStyle": "ponytail",
+  "hasGlasses": false,
+  "premium": true,
+  "poses": [
+    "standing",
+    "presenting",
+    "clipboard",
+    "waving"
+  ]
+}

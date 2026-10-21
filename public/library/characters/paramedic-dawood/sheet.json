@@ -1,0 +1,24 @@
+{
+  "name": "Dawood",
+  "role": "Paramedic Responder",
+  "slug": "paramedic-dawood",
+  "age": 35,
+  "look": "high-visibility orange emergency jacket with reflective stripes, radio shoulder clip",
+  "outfitColours": {
+    "jacket": "#EA580C",
+    "shirt": "#1E293B",
+    "pants": "#0F172A",
+    "shoes": "#111827"
+  },
+  "skinTone": "#C68642",
+  "hairColor": "#1F2937",
+  "hairStyle": "short",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "clipboard",
+    "waving",
+    "walking"
+  ]
+}

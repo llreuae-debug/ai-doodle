@@ -1,0 +1,24 @@
+{
+  "name": "Zain",
+  "role": "Artisan Barista",
+  "slug": "barista-zain",
+  "age": 25,
+  "look": "trendy quiff haircut, canvas coffee apron, rolled white shirt, warm welcoming smile",
+  "outfitColours": {
+    "jacket": "#78350F",
+    "shirt": "#FFFFFF",
+    "pants": "#1E293B",
+    "shoes": "#111827"
+  },
+  "skinTone": "#8A5636",
+  "hairColor": "#111827",
+  "hairStyle": "quiff",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding cup",
+    "waving",
+    "presenting"
+  ]
+}

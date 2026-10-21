@@ -1,0 +1,24 @@
+{
+  "name": "Rasheed",
+  "role": "Elderly Man",
+  "slug": "elderly-man-rasheed",
+  "age": 72,
+  "look": "white swept hair, grey moustache, half-moon glasses, smiling eyes",
+  "outfitColours": {
+    "jacket": "#78350F",
+    "shirt": "#FEF3C7",
+    "pants": "#451A03",
+    "shoes": "#1C1917"
+  },
+  "skinTone": "#E2B48C",
+  "hairColor": "#F3F4F6",
+  "hairStyle": "swept",
+  "hasGlasses": true,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding cup",
+    "thinking",
+    "waving"
+  ]
+}

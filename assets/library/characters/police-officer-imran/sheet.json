@@ -1,0 +1,24 @@
+{
+  "name": "Imran",
+  "role": "Police Officer",
+  "slug": "police-officer-imran",
+  "age": 36,
+  "look": "plain dark navy service uniform (no insignia), peak cap, upright posture",
+  "outfitColours": {
+    "jacket": "#1E3A8A",
+    "shirt": "#1E40AF",
+    "pants": "#0F172A",
+    "shoes": "#020617"
+  },
+  "skinTone": "#B97F55",
+  "hairColor": "#111827",
+  "hairStyle": "short",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "saluting",
+    "arms crossed",
+    "pointing"
+  ]
+}

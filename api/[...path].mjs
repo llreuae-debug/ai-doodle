@@ -20098,7 +20098,7 @@ var ElementRequest = external_exports.object({
   type: external_exports.enum(["element", "character", "scene"]),
   style: external_exports.enum(ELEMENT_STYLES),
   prompt: external_exports.string().trim().min(2).max(500),
-  variations: external_exports.union([external_exports.literal(1), external_exports.literal(4)]).default(1),
+  variations: external_exports.union([external_exports.literal(1), external_exports.literal(3), external_exports.literal(4)]).default(1),
   /** Video size, for scenes. */
   aspect: external_exports.enum(["16:9", "9:16", "1:1", "4:5"]).default("16:9"),
   projectId: external_exports.string().max(60).default("shared"),

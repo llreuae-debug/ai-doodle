@@ -1,0 +1,24 @@
+{
+  "name": "Nasreen",
+  "role": "Elderly Woman",
+  "slug": "elderly-woman-nasreen",
+  "age": 70,
+  "look": "grey hair in a neat bun, soft draped shawl, gentle smile",
+  "outfitColours": {
+    "jacket": "#047857",
+    "shirt": "#F0FDF4",
+    "pants": "#ECFDF5",
+    "shoes": "#064E3B"
+  },
+  "skinTone": "#E2B48C",
+  "hairColor": "#9CA3AF",
+  "hairStyle": "bun",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "waving",
+    "sitting",
+    "thumbs up"
+  ]
+}

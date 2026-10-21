@@ -2,12 +2,14 @@
   "id": "bz-bar-chart",
   "cat": "business",
   "name": "Rising bar chart",
+  "role": "Business",
   "tags": [
     "business",
     "growth",
     "chart",
     "money"
   ],
+  "premium": false,
   "strokes": [
     "M30,28 L30,170 L178,170",
     "M42,130 L64,130 L64,170 L42,170 Z",

@@ -2,12 +2,14 @@
   "id": "ed-globe",
   "cat": "education",
   "name": "Globe",
+  "role": "Education",
   "tags": [
     "education",
     "geography",
     "world",
     "school"
   ],
+  "premium": false,
   "strokes": [
     "M48,88 A52,52 0 1,0 152,88 A52,52 0 1,0 48,88 Z",
     "M78,88 A22,52 0 1,0 122,88 A22,52 0 1,0 78,88 Z",

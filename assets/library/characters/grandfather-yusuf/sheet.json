@@ -1,0 +1,24 @@
+{
+  "name": "Yusuf",
+  "role": "Grandfather",
+  "slug": "grandfather-yusuf",
+  "age": 76,
+  "look": "white crochet prayer topi, flowing white beard, holding olive tasbeeh",
+  "outfitColours": {
+    "jacket": "#F8FAFC",
+    "shirt": "#F8FAFC",
+    "pants": "#E2E8F0",
+    "shoes": "#65A30D"
+  },
+  "skinTone": "#E2B48C",
+  "hairColor": "#FFFFFF",
+  "hairStyle": "topi",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding tasbeeh",
+    "waving",
+    "thinking"
+  ]
+}

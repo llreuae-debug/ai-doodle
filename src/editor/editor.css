@@ -446,24 +446,42 @@ body.editor-body {
   & .tile {
     position: relative;
     border: 1px solid var(--line);
-    border-radius: var(--r);
-    background: var(--panel);
+    border-radius: 12px;
+    background: #fff;
     padding: 0;
     display: flex;
     flex-direction: column;
     text-align: left;
     min-height: max-content;
+    overflow: hidden;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   & .tile:hover {
     border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
-  & .tile .thumb {
-    height: 118px;
+  & .tile .badge-premium {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid var(--line);
     display: grid;
     place-items: center;
-    padding: 8px;
+    color: #f59e0b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+  }
+  & .tile .thumb {
+    height: 136px;
+    display: grid;
+    place-items: center;
+    padding: 10px;
     background: #fff;
-    border-radius: var(--r) var(--r) 0 0;
+    border-radius: 12px 12px 0 0;
   }
   & .tile .thumb svg,
   & .tile .thumb img {
@@ -472,15 +490,17 @@ body.editor-body {
     object-fit: contain;
   }
   & .tile .cap {
-    font-size: 12.5px;
+    font-size: 15px;
     font-weight: 600;
-    padding: 7px 9px;
+    padding: 8px 10px;
     border-top: 1px solid var(--line);
     background: var(--panel-2);
+    color: var(--fg);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-radius: 0 0 var(--r) var(--r);
+    border-radius: 0 0 12px 12px;
+    line-height: 1.25;
   }
   & .empty {
     grid-column: 1 / -1;

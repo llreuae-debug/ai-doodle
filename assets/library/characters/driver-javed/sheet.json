@@ -1,0 +1,24 @@
+{
+  "name": "Javed",
+  "role": "Driver",
+  "slug": "driver-javed",
+  "age": 48,
+  "look": "chauffeur driving cap, comfortable bomber jacket, friendly smile",
+  "outfitColours": {
+    "jacket": "#475569",
+    "shirt": "#E2E8F0",
+    "pants": "#1E293B",
+    "shoes": "#0F172A"
+  },
+  "skinTone": "#B97F55",
+  "hairColor": "#1F2937",
+  "hairStyle": "short",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "thumbs up",
+    "waving",
+    "steering pose"
+  ]
+}

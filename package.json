@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit && tsc -p tsconfig.node.json",
     "test": "vitest run",
     "start": "node server/index.ts",
-    "build:api": "esbuild server/vercel.ts --bundle --platform=node --format=esm --target=node22 --outfile='api/[...path].mjs' --external:sharp --external:ffmpeg-static --external:@vercel/blob --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\" && esbuild server/proxy.ts --bundle --platform=node --format=esm --target=node22 --outfile=proxy.js && mkdir -p api/ai api/music && printf \"// Same handler for /api/ai/* (catch-alls only match one level).\\nexport { default } from '../[...path].mjs';\\n\" > 'api/ai/[...path].mjs' && printf \"// Same handler for /api/music/* (catch-alls only match one level).\\nexport { default } from '../[...path].mjs';\\n\" > 'api/music/[...path].mjs'"
+    "build:api": "esbuild server/vercel.ts --bundle --platform=node --format=esm --target=node22 --outfile='api/[...path].mjs' --external:sharp --external:ffmpeg-static --external:@vercel/blob --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\" && esbuild server/proxy.ts --bundle --platform=node --format=esm --target=node22 --outfile=proxy.js && mkdir -p api/ai api/music && printf \"// Same handler for /api/ai/* (catch-alls only match one level).\\nexport { default } from '../[...path].mjs';\\n\" > 'api/ai/[...path].mjs' && printf \"// Same handler for /api/music/* (catch-alls only match one level).\\nexport { default } from '../[...path].mjs';\\n\" > 'api/music/[...path].mjs'",
+    "build:scenes": "node scripts/library/build-scenes.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.8.2",
@@ -35,6 +36,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "esbuild": "^0.28.2",
     "oxlint": "^1.88.0",
+    "paper": "^0.12.18",
     "playwright-core": "^1.56.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.4",

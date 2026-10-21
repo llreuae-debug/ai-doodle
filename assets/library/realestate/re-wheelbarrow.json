@@ -1,0 +1,41 @@
+{
+  "id": "re-wheelbarrow",
+  "cat": "realestate",
+  "name": "Wheelbarrow",
+  "role": "Real Estate",
+  "tags": [
+    "real estate",
+    "buildings",
+    "wheelbarrow",
+    "garden",
+    "construction",
+    "gravel",
+    "sand"
+  ],
+  "premium": false,
+  "strokes": [
+    "M48,68 L144,68 L128,116 L68,116 Z",
+    "M144,82 L172,82",
+    "M168,82 A4,4 0 1,0 176,82 A4,4 0 1,0 168,82 Z",
+    "M68,116 L38,138",
+    "M20,138 A18,18 0 1,0 56,138 A18,18 0 1,0 20,138 Z",
+    "M31,138 A7,7 0 1,0 45,138 A7,7 0 1,0 31,138 Z",
+    "M100,116 L100,156 L112,156 L112,116 Z",
+    "M52,68 Q96,52 140,68"
+  ],
+  "fills": [
+    {
+      "d": "M48,68 L144,68 L128,116 L68,116 Z",
+      "c": "#2563EB"
+    },
+    {
+      "d": "M20,138 A18,18 0 1,0 56,138 A18,18 0 1,0 20,138 Z",
+      "c": "#1E293B"
+    },
+    {
+      "d": "M52,68 Q96,52 140,68 Z",
+      "c": "#D97706"
+    }
+  ],
+  "source": "original"
+}

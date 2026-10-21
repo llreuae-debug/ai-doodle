@@ -63,7 +63,7 @@ export interface ElementRequest {
   type: ElementType;
   style: ElementStyle;
   prompt: string;
-  variations: 1 | 4;
+  variations: 1 | 3 | 4;
   aspect?: string;
   projectId?: string;
   /** Reuse an earlier identical result (story builds). */

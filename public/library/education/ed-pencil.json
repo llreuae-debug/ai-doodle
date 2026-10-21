@@ -2,12 +2,14 @@
   "id": "ed-pencil",
   "cat": "education",
   "name": "Pencil",
+  "role": "Education",
   "tags": [
     "education",
     "writing",
     "school",
     "draw"
   ],
+  "premium": false,
   "strokes": [
     "M49.4,137 L115.9,70.5 L131.5,86.1 L65,152.6 Z",
     "M54.4,142 L120.9,75.5",

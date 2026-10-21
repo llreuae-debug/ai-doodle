@@ -1,0 +1,24 @@
+{
+  "name": "Sarah",
+  "role": "Veterinarian",
+  "slug": "veterinarian-sarah",
+  "age": 31,
+  "look": "light green animal hospital scrubs, stethoscope, warm gentle smile",
+  "outfitColours": {
+    "jacket": "#10B981",
+    "shirt": "#047857",
+    "pants": "#059669",
+    "shoes": "#FFFFFF"
+  },
+  "skinTone": "#F6D3B7",
+  "hairColor": "#B45309",
+  "hairStyle": "ponytail",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding puppy",
+    "thumbs up",
+    "clipboard"
+  ]
+}

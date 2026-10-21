@@ -1,0 +1,24 @@
+{
+  "name": "Rex",
+  "role": "Field Archaeologist",
+  "slug": "archaeologist-rex",
+  "age": 52,
+  "look": "khaki safari vest with utility pockets, round wire glasses, trimmed grey beard",
+  "outfitColours": {
+    "jacket": "#A16207",
+    "shirt": "#FEF3C7",
+    "pants": "#713F12",
+    "shoes": "#451A03"
+  },
+  "skinTone": "#D4A373",
+  "hairColor": "#9CA3AF",
+  "hairStyle": "short",
+  "hasGlasses": true,
+  "premium": false,
+  "poses": [
+    "standing",
+    "pointing",
+    "thinking",
+    "walking"
+  ]
+}

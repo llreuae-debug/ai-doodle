@@ -17,6 +17,7 @@ import { lastProjectId, loadProject, saveProject } from '../services/storage';
 import { LeftPanel, type LayerAction, type LeftTab, type TextPreset } from './LeftPanel';
 import { ExportModal, type RenderCache } from './ExportModal';
 import { GenerateModal } from './GenerateModal';
+import { CharacterVariationsModal } from './CharacterVariationsModal';
 import { ApiKeyModal } from './ApiKeyModal';
 import { DashboardModal, TutorialModal, UploadModal, VoiceModal } from './modals';
 import { MusicLibraryModal } from './MusicLibraryModal';
@@ -42,6 +43,7 @@ const START_LEAD_S = 0.06;
 type ModalState =
   | { kind: 'upload'; file: File }
   | { kind: 'generate'; preset: 'characters' | 'props' }
+  | { kind: 'characterVariations'; initialCharacter?: any }
   | { kind: 'voice' }
   | { kind: 'export' }
   | { kind: 'dashboard' }
@@ -784,11 +786,12 @@ export default function Editor() {
           onFont={applyFont}
           onUploadFont={() => fontInput.current?.click()}
           onDeleteFont={deleteFont}
-          onAddDoodle={(id) => addDoodle(id)}
+          onAddDoodle={(id, color) => addDoodle(id, color)}
           onAddImage={(id) => addImageEl(id, project.assets[id]?.name ?? 'image')}
           onAddText={addText}
           onUpload={() => imageInput.current?.click()}
           onGenerate={(preset) => setModal({ kind: 'generate', preset })}
+          onCharacterVariations={(initialCharacter) => setModal({ kind: 'characterVariations', initialCharacter })}
           onLayer={onLayer}
         />
 
@@ -991,6 +994,20 @@ export default function Editor() {
           projectId={project.id}
           aspect={project.aspectRatio}
           characters={project.characters ?? []}
+          onSpend={(n) => setCredits((c) => c - n)}
+          onAddVector={addGenerated}
+          onSaveVector={saveGenerated}
+          onAddImage={(blob, name, opts) => addUpload(blob, name, opts)}
+          onSaveCharacter={saveCharacter}
+        />
+      )}
+      {modal?.kind === 'characterVariations' && (
+        <CharacterVariationsModal
+          initialCharacter={modal.initialCharacter}
+          characters={project.characters ?? []}
+          credits={credits}
+          projectId={project.id}
+          onClose={() => setModal(null)}
           onSpend={(n) => setCredits((c) => c - n)}
           onAddVector={addGenerated}
           onSaveVector={saveGenerated}

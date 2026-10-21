@@ -1,0 +1,24 @@
+{
+  "name": "Chen",
+  "role": "Gardener",
+  "slug": "gardener-chen",
+  "age": 53,
+  "look": "wide straw sun hat, utility green vest, holding metal watering can",
+  "outfitColours": {
+    "jacket": "#15803D",
+    "shirt": "#FDE68A",
+    "pants": "#3F6212",
+    "shoes": "#0284C7"
+  },
+  "skinTone": "#F6D3B7",
+  "hairColor": "#4B5563",
+  "hairStyle": "straw-hat",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding watering can",
+    "waving",
+    "thumbs up"
+  ]
+}

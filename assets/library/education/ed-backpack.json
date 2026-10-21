@@ -2,12 +2,14 @@
   "id": "ed-backpack",
   "cat": "education",
   "name": "School bag",
+  "role": "Education",
   "tags": [
     "education",
     "school",
     "kids",
     "study"
   ],
+  "premium": false,
   "strokes": [
     "M76,52 Q76,30 100,30 Q124,30 124,52",
     "M74,50 L126,50 A24,24 0 0,1 150,74 L150,152 A24,24 0 0,1 126,176 L74,176 A24,24 0 0,1 50,152 L50,74 A24,24 0 0,1 74,50 Z",

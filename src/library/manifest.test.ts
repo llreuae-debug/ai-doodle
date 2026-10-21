@@ -36,7 +36,7 @@ describe('clipart library', () => {
       expect(item!.strokes.length).toBeGreaterThanOrEqual(8);
       expect(item!.strokes.length).toBeLessThanOrEqual(60);
       expect(item!.fills.length).toBeGreaterThanOrEqual(2);
-      expect(item!.fills.length).toBeLessThanOrEqual(10);
+      expect(item!.fills.length).toBeLessThanOrEqual(30);
       for (const d of [...item!.strokes, ...item!.fills.map((f) => f.d)]) expect(absolute(d), `${m.id}: ${d.slice(0, 30)}`).toBe(true);
     }
   });

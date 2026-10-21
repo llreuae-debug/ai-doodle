@@ -263,8 +263,32 @@ function ElementCard(p: Props & { el: SceneElement; mutateEl: (fn: (el: SceneEle
       <Sec icon={<Square size={18} />}>Appearance</Sec>
       {el.kind === 'doodle' && (
         <div className="row">
-          <label htmlFor="eColor">Colour fill</label>
-          <Switch id="eColor" checked={el.color} onChange={(v) => mutateEl((x) => void (x.kind === 'doodle' && (x.color = v)))} />
+          <label htmlFor="eDrawAs">Draw as</label>
+          <select
+            className="sel"
+            id="eDrawAs"
+            value={!el.color ? 'line' : el.anim.type === 'draw' ? 'line-color' : 'color-only'}
+            onChange={(e) => {
+              const val = e.target.value;
+              mutateEl((x) => {
+                if (x.kind !== 'doodle') return;
+                if (val === 'line') {
+                  x.color = false;
+                  x.anim.type = 'draw';
+                } else if (val === 'line-color') {
+                  x.color = true;
+                  x.anim.type = 'draw';
+                } else if (val === 'color-only') {
+                  x.color = true;
+                  x.anim.type = 'fade';
+                }
+              });
+            }}
+          >
+            <option value="line">Line only</option>
+            <option value="line-color">Line then colour</option>
+            <option value="color-only">Colour only (no hand)</option>
+          </select>
         </div>
       )}
       {el.kind === 'text' && (

@@ -1,0 +1,25 @@
+{
+  "name": "Beatrice",
+  "role": "Court Judge",
+  "slug": "judge-beatrice",
+  "age": 63,
+  "look": "silver hair in neat bun, formal black judicial robe with white neck jabot, half-moon glasses",
+  "outfitColours": {
+    "jacket": "#0F172A",
+    "shirt": "#FFFFFF",
+    "tie": "#FFFFFF",
+    "pants": "#0F172A",
+    "shoes": "#0F172A"
+  },
+  "skinTone": "#F6D3B7",
+  "hairColor": "#E5E7EB",
+  "hairStyle": "bun",
+  "hasGlasses": true,
+  "premium": true,
+  "poses": [
+    "standing",
+    "pointing",
+    "thinking",
+    "presenting"
+  ]
+}

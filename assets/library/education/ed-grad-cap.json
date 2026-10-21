@@ -2,12 +2,14 @@
   "id": "ed-grad-cap",
   "cat": "education",
   "name": "Graduation cap",
+  "role": "Education",
   "tags": [
     "education",
     "graduation",
     "university",
     "success"
   ],
+  "premium": false,
   "strokes": [
     "M100,46 L180,78 L100,110 L20,78 Z",
     "M54,92 L54,128 Q100,150 146,128 L146,92",

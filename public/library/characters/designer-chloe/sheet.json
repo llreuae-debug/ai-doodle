@@ -1,0 +1,24 @@
+{
+  "name": "Chloe",
+  "role": "UI Designer",
+  "slug": "designer-chloe",
+  "age": 29,
+  "look": "stylish round glasses, purple knit sweater, artistic confident expression",
+  "outfitColours": {
+    "jacket": "#7C3AED",
+    "shirt": "#F3E8FF",
+    "pants": "#374151",
+    "shoes": "#1F2937"
+  },
+  "skinTone": "#FCD34D",
+  "hairColor": "#BE185D",
+  "hairStyle": "ponytail",
+  "hasGlasses": true,
+  "premium": false,
+  "poses": [
+    "standing",
+    "thinking",
+    "pointing",
+    "presenting"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Zainab",
+  "role": "Lawyer",
+  "slug": "lawyer-zainab",
+  "age": 35,
+  "look": "tailored black courtroom suit, silk blouse, leather legal briefcase",
+  "outfitColours": {
+    "jacket": "#0F172A",
+    "shirt": "#EDE9FE",
+    "pants": "#0F172A",
+    "shoes": "#78350F"
+  },
+  "skinTone": "#E2B48C",
+  "hairColor": "#1F2937",
+  "hairStyle": "ponytail",
+  "hasGlasses": false,
+  "premium": true,
+  "poses": [
+    "standing",
+    "holding briefcase",
+    "presenting",
+    "arms crossed"
+  ]
+}

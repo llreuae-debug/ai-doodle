@@ -17,6 +17,7 @@ export type LibraryCategory =
   | 'food'
   | 'nature'
   | 'transport'
+  | 'scenes'
   | 'shapes';
 
 /** The panel sub-tab each category is listed under. */
@@ -32,6 +33,7 @@ export const LIBRARY_CATEGORIES: { id: LibraryCategory; label: string; tab: 'cha
   { id: 'food', label: 'Food', tab: 'props' },
   { id: 'nature', label: 'Nature', tab: 'props' },
   { id: 'transport', label: 'Transport', tab: 'props' },
+  { id: 'scenes', label: 'Scenes', tab: 'props' },
   { id: 'shapes', label: 'Shapes & callouts', tab: 'shapes' },
 ];
 
@@ -39,11 +41,16 @@ export interface ManifestItem {
   id: string;
   cat: LibraryCategory;
   name: string;
+  role?: string;
+  character?: string;
+  pose?: string;
   tags: string[];
-  /** Item JSON: { id, cat, name, tags, strokes, fills, source }. */
+  premium?: boolean;
   file: string;
   thumb: string;
+  thumbLine?: string;
   thumbColor: string;
+  strokeCount?: number;
 }
 
 export const LIBRARY_MANIFEST_URL = '/assets/library/manifest.json';

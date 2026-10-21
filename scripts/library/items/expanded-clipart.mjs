@@ -77,27 +77,8 @@ function shape(index, name, group) {
   ]);
 }
 
-const props = ['Calendar', 'Clipboard', 'Calculator', 'Clock', 'Light bulb'];
-
-function prop(name, index) {
-  const color = OUTFITS[(index + 2) % OUTFITS.length];
-  const body = index === 3 ? circle(100, 100, 64) : rrect(42, 32, 116, 136, 12);
-  const inner = index === 4 ? star(100, 92, 34, 16, 8) : rrect(60, 60, 80, 76, 6);
-  return item('business', `bz-extra-${index + 1}`, name, ['business', 'office', name.toLowerCase()], [
-    body, inner, line(70, 80, 130, 80), line(70, 100, 130, 100), line(70, 120, 112, 120),
-    circle(76, 146, 5), circle(100, 146, 5), circle(124, 146, 5), ...rays(100, 36, 4, 12, 3, 270),
-  ], [
-    { d: body, c: color },
-    { d: inner, c: '#FFFFFF' },
-    { d: circle(76, 146, 5), c: '#F2C14E' },
-    { d: circle(100, 146, 5), c: '#F2C14E' },
-    { d: circle(124, 146, 5), c: '#F2C14E' },
-  ]);
-}
-
 export default [
   ...people.map(person),
-  ...props.map(prop),
   ...badges.map((name, i) => shape(i, name, 0)),
   ...callouts.map((name, i) => shape(i + badges.length, name, 1)),
   ...diagrams.map((name, i) => shape(i + badges.length + callouts.length, name, 2)),

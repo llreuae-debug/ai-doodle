@@ -1,0 +1,24 @@
+{
+  "name": "Hamza",
+  "role": "Doctor",
+  "slug": "doctor-hamza",
+  "age": 38,
+  "look": "short trim hair, stethoscope around neck, white lab coat",
+  "outfitColours": {
+    "jacket": "#F8FAFC",
+    "shirt": "#0284C7",
+    "pants": "#0369A1",
+    "shoes": "#FFFFFF"
+  },
+  "skinTone": "#B97F55",
+  "hairColor": "#111827",
+  "hairStyle": "short",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "clipboard",
+    "thumbs up",
+    "thinking"
+  ]
+}

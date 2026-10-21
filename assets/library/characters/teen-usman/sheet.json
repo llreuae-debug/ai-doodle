@@ -1,0 +1,24 @@
+{
+  "name": "Usman",
+  "role": "Teen",
+  "slug": "teen-usman",
+  "age": 17,
+  "look": "cozy oversized hoodie, relaxed posture, headphones around neck",
+  "outfitColours": {
+    "jacket": "#6366F1",
+    "shirt": "#4F46E5",
+    "pants": "#374151",
+    "shoes": "#10B981"
+  },
+  "skinTone": "#E2B48C",
+  "hairColor": "#111827",
+  "hairStyle": "messy",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "thumbs up",
+    "hand on chin",
+    "hands in pockets"
+  ]
+}

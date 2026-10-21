@@ -155,63 +155,113 @@ function measureInPage(list) {
 }
 
 // In-browser contact sheet renderer
-async function renderContactSheetInPage({ title, cells }) {
-  const cell = 180, cols = Math.min(cells.length, 5), rows = Math.ceil(cells.length / cols);
-  const c = new OffscreenCanvas(cols * (cell * 2 + 16) + 32, rows * (cell + 40) + 70);
+// In-browser contact sheet renderer matching Part 1 reference tile design
+async function renderContactSheetInPage({ title, pairs }) {
+  // Each pair is rendered as two tiles: Colour tile on left, Line tile on right
+  const tileW = 200;
+  const thumbH = 150;
+  const capH = 38;
+  const tileH = thumbH + capH;
+  const gap = 16;
+  const pad = 28;
+
+  // 2 pairs per row (i.e. 4 tiles per row: Pair1-Col, Pair1-Line, Pair2-Col, Pair2-Line)
+  const pairsPerRow = 2;
+  const cols = pairsPerRow * 2;
+  const rows = Math.ceil(pairs.length / pairsPerRow);
+
+  const totalW = pad * 2 + cols * tileW + (cols - 1) * gap;
+  const totalH = pad * 2 + 70 + rows * tileH + (rows - 1) * gap;
+
+  const c = new OffscreenCanvas(totalW, totalH);
   const g = c.getContext('2d');
-  g.fillStyle = '#ffffff';
+  g.fillStyle = '#f8fafc';
   g.fillRect(0, 0, c.width, c.height);
 
+  // Header
   g.fillStyle = '#0f172a';
-  g.font = 'bold 22px system-ui, sans-serif';
-  g.fillText(title, 24, 38);
+  g.font = 'bold 24px system-ui, -apple-system, sans-serif';
+  g.fillText(title, pad, 42);
 
   g.fillStyle = '#64748b';
-  g.font = '13px system-ui, sans-serif';
-  g.fillText('Line version (left) and colour version (right) for each item in drawing order', 24, 58);
+  g.font = '14px system-ui, -apple-system, sans-serif';
+  g.fillText('Tile design: Colour caricature tile (left) and black ink Line tile (right) side by side in pairs', pad, 68);
 
-  for (const [i, { name, id, lineSvg, colorSvg }] of cells.entries()) {
-    const colIdx = i % cols;
-    const rowIdx = Math.floor(i / cols);
-    const x = 24 + colIdx * (cell * 2 + 16);
-    const y = 80 + rowIdx * (cell + 40);
+  for (const [pairIdx, pair] of pairs.entries()) {
+    const row = Math.floor(pairIdx / pairsPerRow);
+    const colInRow = pairIdx % pairsPerRow;
 
-    // Box container
-    g.fillStyle = '#f8fafc';
-    g.strokeStyle = '#e2e8f0';
-    g.lineWidth = 1;
-    g.beginPath();
-    g.roundRect(x, y, cell * 2, cell, 8);
-    g.fill();
-    g.stroke();
+    const tiles = [
+      { type: 'color', svg: pair.colorSvg, name: pair.name, premium: pair.premium },
+      { type: 'line', svg: pair.lineSvg, name: pair.name, premium: pair.premium },
+    ];
 
-    // Render Line SVG
-    const lineImg = new Image(cell, cell);
-    lineImg.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(lineSvg)}`;
-    await lineImg.decode();
-    g.drawImage(lineImg, x, y, cell, cell);
+    for (let t = 0; t < 2; t++) {
+      const tile = tiles[t];
+      const col = colInRow * 2 + t;
+      const x = pad + col * (tileW + gap);
+      const y = pad + 85 + row * (tileH + gap);
 
-    // Divider
-    g.strokeStyle = '#e2e8f0';
-    g.beginPath();
-    g.moveTo(x + cell, y);
-    g.lineTo(x + cell, y + cell);
-    g.stroke();
+      // White tile card with 12px radius and 1px border
+      g.save();
+      g.fillStyle = '#ffffff';
+      g.strokeStyle = '#e2e8f0';
+      g.lineWidth = 1;
+      g.beginPath();
+      g.roundRect(x, y, tileW, tileH, 12);
+      g.fill();
+      g.stroke();
+      g.clip();
 
-    // Render Color SVG
-    const colorImg = new Image(cell, cell);
-    colorImg.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(colorSvg)}`;
-    await colorImg.decode();
-    g.drawImage(colorImg, x + cell, y, cell, cell);
+      // Render SVG into thumb area
+      const img = new Image(tileW, thumbH);
+      img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(tile.svg)}`;
+      await img.decode();
+      g.drawImage(img, x + 8, y + 8, tileW - 16, thumbH - 16);
 
-    // Label
-    g.fillStyle = '#1e293b';
-    g.font = 'bold 12px system-ui, sans-serif';
-    g.fillText(name.length > 22 ? `${name.slice(0, 21)}…` : name, x + 4, y + cell + 18);
+      // Premium gold star badge
+      if (tile.premium) {
+        const bx = x + tileW - 30;
+        const by = y + 8;
+        g.fillStyle = '#ffffff';
+        g.strokeStyle = '#e2e8f0';
+        g.lineWidth = 1;
+        g.beginPath();
+        g.roundRect(bx, by, 22, 22, 6);
+        g.fill();
+        g.stroke();
 
-    g.fillStyle = '#94a3b8';
-    g.font = '11px monospace';
-    g.fillText(id, x + 4, y + cell + 32);
+        g.fillStyle = '#f59e0b';
+        g.font = '13px system-ui, sans-serif';
+        g.textAlign = 'center';
+        g.textBaseline = 'middle';
+        g.fillText('★', bx + 11, by + 11);
+      }
+
+      // Caption bar at the bottom: light grey background var(--panel-2) #f1f5f9
+      const capY = y + thumbH;
+      g.fillStyle = '#f1f5f9';
+      g.fillRect(x, capY, tileW, capH);
+      g.strokeStyle = '#e2e8f0';
+      g.beginPath();
+      g.moveTo(x, capY);
+      g.lineTo(x + tileW, capY);
+      g.stroke();
+
+      // 15px semibold text "Role – Name", one line, ellipsis when long
+      g.fillStyle = '#1e293b';
+      g.font = '600 15px system-ui, -apple-system, sans-serif';
+      g.textAlign = 'left';
+      g.textBaseline = 'middle';
+      let captionText = tile.name;
+      // Ellipsis measurement
+      while (g.measureText(captionText).width > tileW - 20 && captionText.length > 3) {
+        captionText = `${captionText.slice(0, -2)}…`;
+      }
+      g.fillText(captionText, x + 10, capY + capH / 2);
+
+      g.restore();
+    }
   }
 
   const blob = await c.convertToBlob({ type: 'image/png' });
@@ -320,9 +370,10 @@ export async function runBatch(batchNum = 1) {
   const catName = batchItems[0]?.cat || 'library';
   const sheetPng = await page.evaluate(renderContactSheetInPage, {
     title: `Batch ${padBatch} · ${catName.toUpperCase()} · ${batchItems.length} Items`,
-    cells: batchItems.map((it) => ({
+    pairs: batchItems.map((it) => ({
       id: it.id,
       name: it.name,
+      premium: !!it.premium,
       lineSvg: svgOf(it, false),
       colorSvg: svgOf(it, true),
     })),

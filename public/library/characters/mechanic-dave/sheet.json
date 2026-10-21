@@ -1,0 +1,24 @@
+{
+  "name": "Dave",
+  "role": "Mechanic",
+  "slug": "mechanic-dave",
+  "age": 38,
+  "look": "blue workshop overalls with chest pockets, holding adjustable wrench",
+  "outfitColours": {
+    "jacket": "#1D4ED8",
+    "shirt": "#475569",
+    "pants": "#1E40AF",
+    "shoes": "#94A3B8"
+  },
+  "skinTone": "#F6D3B7",
+  "hairColor": "#B45309",
+  "hairStyle": "short",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding wrench",
+    "thumbs up",
+    "waving"
+  ]
+}

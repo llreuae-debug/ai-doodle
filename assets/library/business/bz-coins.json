@@ -2,12 +2,14 @@
   "id": "bz-coins",
   "cat": "business",
   "name": "Stacks of coins",
+  "role": "Business",
   "tags": [
     "business",
     "money",
     "savings",
     "finance"
   ],
+  "premium": false,
   "strokes": [
     "M38,160 L38,170 A30,8 0 0,0 98,170 L98,160",
     "M38,148 L38,158 A30,8 0 0,0 98,158 L98,148",

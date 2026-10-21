@@ -1,0 +1,24 @@
+{
+  "name": "Akram",
+  "role": "Builder",
+  "slug": "builder-akram",
+  "age": 45,
+  "look": "white construction helmet, heavy tool belt, rugged smiling face",
+  "outfitColours": {
+    "jacket": "#EA580C",
+    "shirt": "#F97316",
+    "pants": "#334155",
+    "shoes": "#78350F"
+  },
+  "skinTone": "#8A5636",
+  "hairColor": "#1E293B",
+  "hairStyle": "short",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding bricks",
+    "thumbs up",
+    "waving"
+  ]
+}

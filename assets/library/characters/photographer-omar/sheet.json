@@ -1,0 +1,24 @@
+{
+  "name": "Omar",
+  "role": "Photographer",
+  "slug": "photographer-omar",
+  "age": 30,
+  "look": "multi-pocket camera vest, DSLR camera with zoom lens on strap",
+  "outfitColours": {
+    "jacket": "#78716C",
+    "shirt": "#1C1917",
+    "pants": "#292524",
+    "shoes": "#0F172A"
+  },
+  "skinTone": "#B97F55",
+  "hairColor": "#1F2937",
+  "hairStyle": "short",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "taking photo",
+    "thumbs up",
+    "waving"
+  ]
+}

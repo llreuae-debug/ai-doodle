@@ -1,0 +1,24 @@
+{
+  "name": "Maya",
+  "role": "Barista",
+  "slug": "barista-maya",
+  "age": 25,
+  "look": "artisan denim apron, rolled cuffs, holding ceramic latte art cup",
+  "outfitColours": {
+    "jacket": "#1E40AF",
+    "shirt": "#F8FAFC",
+    "pants": "#334155",
+    "shoes": "#D97706"
+  },
+  "skinTone": "#E2B48C",
+  "hairColor": "#3B2A20",
+  "hairStyle": "bun",
+  "hasGlasses": false,
+  "premium": false,
+  "poses": [
+    "standing",
+    "holding coffee",
+    "waving",
+    "thumbs up"
+  ]
+}
