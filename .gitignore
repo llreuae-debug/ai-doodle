@@ -37,3 +37,6 @@ media/
 
 # Local Netlify folder
 .netlify
+.env*
+# Downloaded CC0 source previews (re-downloaded by tools/prepare-pen-sounds.mjs)
+assets/pen-sounds/raw-cc0/

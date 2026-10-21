@@ -26,6 +26,7 @@ export function ExportModal({ project, resources, cache, onClose }: { project: P
   const [, force] = useState(0);
   const [playing, setPlaying] = useState<Resolution | null>(null);
   const [includeDrawSound, setIncludeDrawSound] = useState(true);
+  const [soundWarning, setSoundWarning] = useState<string | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   useEffect(() => () => abortRef.current?.abort(), []);
 
@@ -56,7 +57,7 @@ export function ExportModal({ project, resources, cache, onClose }: { project: P
       await ensureResources(project, resources, () => {});
       const tl = projectTimeline(project, resources);
       set(r, { kind: 'rendering', progress: 0, stage: 'Mixing sound' });
-      const audio = await mixSoundtrack(project, tl, resources, { includeDrawSound });
+      const audio = await mixSoundtrack(project, tl, resources, { includeDrawSound, onWarning: setSoundWarning });
       const blob = await exportMp4(project, tl, resources, {
         resolution: r,
         audio,
@@ -83,6 +84,7 @@ export function ExportModal({ project, resources, cache, onClose }: { project: P
         <div style={{ color: 'var(--text-muted)' }}>
           Includes: voice {hasVoice ? '✓' : '—'} · music {hasMusic ? '✓' : '—'} · pen sound {penSoundIncluded ? `✓ (${penSoundVol}%)` : '—'}
         </div>
+        {soundWarning && <div className="note warn">{soundWarning}; the video is exported without it.</div>}
         <label style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer', userSelect: 'none' }}>
           <input
             type="checkbox"

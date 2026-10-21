@@ -4,8 +4,9 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import { z } from 'zod';
 import { ElementRequest, makeElements } from './element.ts';
 import { makeMusic, MusicRequest, MUSIC_STYLES, MOOD_DEFAULTS } from './music.ts';
-import { envKey, generate, HttpError, MODELS, TEXT_FALLBACKS, withFallback } from './gemini.ts';
-import { ensureSession, rateLimit, requireSession, serveMedia } from './security.ts';
+import { envKey, generate, HttpError, MODELS, requestDeadline, TEXT_FALLBACKS, withFallback } from './gemini.ts';
+import { accessPassword, checkPassword, ensureSession, hasSession, issueSession, rateLimit, requireSession, serveMedia } from './security.ts';
+import { gateHtml } from './gate.ts';
 import { rewriteSlide, SlideRequest, StoryRequest, writeStory } from './story.ts';
 import { LANG_SUPPORT, textToSpeech, TtsRequest, VOICES } from './tts.ts';
 
@@ -68,6 +69,12 @@ const POST: Record<string, Route> = {
     bucket: 'light',
     run: async (b) => {
       const { key } = parse(z.object({ key: z.string().trim().min(20).max(300) }), b);
+      // A hosted server can't rewrite its own settings: the key belongs in the host's environment.
+      if (process.env.VERCEL) throw new HttpError(400, 'hosted', 'On Vercel, set GEMINI_API_KEY in the project\'s Environment Variables, then redeploy.');
+      // Check the key with Google before saving it (listing models uses no generation quota).
+      const check = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1', { headers: { 'x-goog-api-key': key } }).catch(() => null);
+      if (!check) throw new HttpError(502, 'offline', "Couldn't reach Google AI to check the key. Try again.");
+      if (!check.ok) throw new HttpError(400, 'bad_key', 'Google AI rejected this key. Check it and try again.');
       const file = path.resolve(process.cwd(), '.env.local');
       let content = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
       content = /^GEMINI_API_KEY=.*$/m.test(content) ? content.replace(/^GEMINI_API_KEY=.*$/m, `GEMINI_API_KEY=${key}`) : `${content.trimEnd()}\nGEMINI_API_KEY=${key}\n`.trimStart();
@@ -97,13 +104,36 @@ function send(res: ServerResponse, status: number, payload: unknown) {
  */
 export function apiMiddleware(req: IncomingMessage, res: ServerResponse, next: () => void): void {
   const url = req.url?.split('?')[0] ?? '';
+  const locked = !!accessPassword() && !hasSession(req);
+  if (url === '/api/access' && req.method === 'POST') {
+    (async () => {
+      rateLimit(req, 'access');
+      const { password } = parse(z.object({ password: z.string().max(200) }), await readJson(req));
+      if (!checkPassword(password)) throw new HttpError(401, 'bad_password', 'That password is not right.');
+      issueSession(req, res);
+      return { ok: true };
+    })()
+      .then((payload) => send(res, 200, payload))
+      .catch((err: unknown) => (err instanceof HttpError ? send(res, err.status, { error: err.code, message: err.message }) : send(res, 500, { error: 'internal', message: 'Something went wrong.' })));
+    return;
+  }
   if (url.startsWith('/media/')) {
+    if (locked) return send(res, 401, { error: 'no_session', message: 'Enter the access password first.' });
     if (!serveMedia(req, res)) next();
     return;
   }
   if (!url.startsWith('/api/')) {
-    // Pages get the session cookie; the API then only answers this app's pages.
-    if (req.method === 'GET' && (url === '/' || url.endsWith('.html') || !url.includes('.'))) ensureSession(req, res);
+    const page = req.method === 'GET' && (url === '/' || url.endsWith('.html') || !url.includes('.'));
+    // With an access password, every page shows the password form until it's entered.
+    if (locked && page) {
+      res.statusCode = 401;
+      res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      res.setHeader('Cache-Control', 'no-store');
+      res.end(gateHtml());
+      return;
+    }
+    // Otherwise pages get the session cookie; the API then only answers this app's pages.
+    if (page) ensureSession(req, res);
     next();
     return;
   }
@@ -113,7 +143,9 @@ export function apiMiddleware(req: IncomingMessage, res: ServerResponse, next: (
     send(res, GET[url] || POST[url] ? 405 : 404, { error: 'not_found', message: 'No such API route.' });
     return;
   }
-  (async () => {
+  /** Vercel stops a function at 300 s; finish (or fail clearly) before that. */
+  const deadline = Date.now() + (process.env.VERCEL ? 285_000 : 60 * 60_000);
+  requestDeadline.run(deadline, async () => {
     requireSession(req);
     if (getRoute) {
       rateLimit(req, 'light');
@@ -121,7 +153,7 @@ export function apiMiddleware(req: IncomingMessage, res: ServerResponse, next: (
     }
     rateLimit(req, postRoute!.bucket);
     return postRoute!.run(await readJson(req));
-  })()
+  })
     .then((payload) => send(res, 200, payload))
     .catch((err: unknown) => {
       if (err instanceof HttpError) return send(res, err.status, { error: err.code, message: err.message });

@@ -1,6 +1,6 @@
 import { ArrowRight, ChevronDown, ChevronUp, Clock, Library, Mic, Monitor, Music, PenLine, Play, RefreshCw, Settings, SlidersHorizontal, Square, Star, Trash, Upload, AudioLines, X, Columns3, Volume2, VolumeX } from 'lucide-react';
 import { useRef, useState, type ReactNode } from 'react';
-import { testDrawSound } from '../audio/drawSound';
+import { testPenSound } from '../audio/penEngine';
 import { BOARDS } from '../engine/boards';
 import type { SceneTiming, Timeline } from '../engine/timeline';
 import { autoDurationMs } from '../engine/timeline';
@@ -33,10 +33,14 @@ const SOUND_TYPES: [DrawSoundType, string][] = [
   ['marker', 'Marker'],
   ['chalk', 'Chalk'],
   ['pencil', 'Pencil'],
-  ['soft', 'Soft'],
+  ['soft', 'Soft marker'],
+  ['ballpoint', 'Ballpoint'],
   ['custom', 'Custom'],
   ['none', 'None'],
 ];
+/** The pen sound that suits each board: suggested, never switched silently. */
+const BOARD_SOUND: Record<BoardId, DrawSoundType> = { white: 'marker', black: 'chalk', green: 'chalk', grid: 'pencil', kraft: 'pencil' };
+
 /** Slide hand select values that aren't hand ids. */
 const INHERIT = '__project__';
 const NO_HAND = '__none__';
@@ -573,7 +577,7 @@ function ProjectCard(p: Props) {
       return;
     }
     setTestingSound(true);
-    const stop = await testDrawSound(project.drawSound);
+    const stop = await testPenSound(project.drawSound);
     testStopRef.current = stop;
     setTimeout(() => {
       setTestingSound(false);
@@ -821,18 +825,22 @@ function ProjectCard(p: Props) {
           </button>
         ))}
       </div>
-      {(project.board === 'black' || project.board === 'green') && project.drawSound?.type !== 'chalk' && (
-        <div className="chalk-hint" style={{ marginTop: '0.4rem', marginBottom: '0.5rem' }}>
-          <span>Drawing on a {BOARDS[project.board].name.toLowerCase()}.</span>
-          <button
-            type="button"
-            className="link"
-            onClick={() => p.update((d) => { d.drawSound.type = 'chalk'; })}
-          >
-            Use chalk sound?
-          </button>
-        </div>
-      )}
+      {(() => {
+        const type = project.drawSound?.type ?? 'marker';
+        const suggest = BOARD_SOUND[project.board];
+        // Paper takes a pencil or a ballpoint; either is fine there.
+        const fits = type === suggest || (suggest === 'pencil' && type === 'ballpoint');
+        if (fits || type === 'custom' || type === 'none') return null;
+        const label = SOUND_TYPES.find(([t]) => t === suggest)?.[1] ?? suggest;
+        return (
+          <div className="chalk-hint" style={{ marginTop: '0.4rem', marginBottom: '0.5rem' }}>
+            <span>Drawing on {BOARDS[project.board].name.toLowerCase()}.</span>
+            <button type="button" className="link" onClick={() => p.update((d) => void (d.drawSound.type = suggest))}>
+              Use {label.toLowerCase()} sound?
+            </button>
+          </div>
+        );
+      })()}
       {project.drawSound?.type === 'custom' && (
         <div className="stack" style={{ margin: '0.5rem 0', padding: '0.75rem', background: 'var(--surface-sunken)', borderRadius: 'var(--radius-sm)' }}>
           <div className="row" style={{ border: 'none', padding: 0 }}>
@@ -922,6 +930,15 @@ function ProjectCard(p: Props) {
           />
         </div>
       </div>
+      {(project.drawSound?.type ?? 'marker') === 'marker' && (
+        <div className="row">
+          <label htmlFor="pCapSound" style={{ fontSize: '12px' }}>
+            <Hint text="A marker cap coming off just before the first drawing." />
+            Cap-off sound at the start
+          </label>
+          <Switch id="pCapSound" checked={!!project.drawSound?.capSound} onChange={(val) => p.update((d) => void (d.drawSound.capSound = val))} />
+        </div>
+      )}
     </div>
     </>
   );

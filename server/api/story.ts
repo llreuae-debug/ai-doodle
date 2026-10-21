@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { generateJson, HttpError } from './gemini.ts';
+import { generateJson, HttpError, STORY_MODELS } from './gemini.ts';
 
 /** Narration pace and slide counts per video length (≈150 words a minute, a slide every 7–9 s). */
 export const PACING = {
@@ -117,6 +117,40 @@ const STORY_SCHEMA = {
 
 const wordCount = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
 
+/** Words per slide that hit the total: the average, ±3. */
+function perSlide(length: 3 | 5 | 8): [number, number] {
+  const p = PACING[length];
+  const avg = Math.round((p.words[0] + p.words[1]) / (p.slides[0] + p.slides[1]));
+  return [avg - 3, Math.min(28, avg + 3)];
+}
+
+const EXPAND_SCHEMA = {
+  type: 'object',
+  properties: { slides: { type: 'array', items: { type: 'object', properties: { n: { type: 'integer' }, narration: { type: 'string' } }, required: ['n', 'narration'] } } },
+  required: ['slides'],
+};
+
+/**
+ * Repairs a script whose narration is too short (or long) overall: only the slides furthest from the
+ * per-slide target are rewritten to that length, keeping their meaning and language.
+ */
+async function rebalance(sb: Storyboard, r: StoryRequest): Promise<Storyboard> {
+  const p = PACING[r.length];
+  const [lo, hi] = perSlide(r.length);
+  const total = sb.slides.reduce((a, s) => a + wordCount(s.narration), 0);
+  const short = total < p.words[0];
+  const pick = sb.slides.filter((s) => s.n > 1 && (short ? wordCount(s.narration) < lo : wordCount(s.narration) > hi));
+  if (pick.length === 0) return sb;
+  const target = short ? `${lo}–${hi}` : `${lo}–${hi}`;
+  const out = await generateJson<{ slides?: { n: number; narration: string }[] }>(
+    `These narration lines from the story "${sb.title}" are too ${short ? 'short' : 'long'}. Rewrite each one to ${target} words, keeping its meaning, the story's tone and its language, adding vivid detail${short ? '' : ' only where needed'}. Keep any [VERSE: ...] placeholder exactly. Never add scripture.\n\n${JSON.stringify(pick.map((s) => ({ n: s.n, narration: s.narration })))}`,
+    EXPAND_SCHEMA,
+    { temperature: 0.7, models: STORY_MODELS },
+  );
+  const fixed = new Map((out.slides ?? []).filter((x) => wordCount(x.narration) <= 28).map((x) => [x.n, x.narration.trim()]));
+  return { ...sb, slides: sb.slides.map((s) => (fixed.has(s.n) ? { ...s, narration: fixed.get(s.n)! } : s)) };
+}
+
 function rules(r: Pick<StoryRequest, 'type' | 'audience' | 'language' | 'englishText'>): string {
   const lines = [
     'Slide 1 is a hook: a question, a surprise or tension, spoken in under 8 seconds (under 18 words).',
@@ -172,7 +206,8 @@ export async function writeStory(r: StoryRequest): Promise<{ storyboard: Storybo
 
 It is a ${r.length}-minute whiteboard-animation video narrated at about 150 words a minute, a new slide every 7–9 seconds:
 - ${p.slides[0]}–${p.slides[1]} slides (aim for ${Math.round((p.slides[0] + p.slides[1]) / 2)}),
-- ${p.words[0]}–${p.words[1]} words of narration in total (aim for ${Math.round((p.words[0] + p.words[1]) / 2)}), about ${Math.round((p.words[0] + p.words[1]) / (p.slides[0] + p.slides[1]))} words per slide.
+- ${p.words[0]}–${p.words[1]} words of narration in total (aim for ${Math.round((p.words[0] + p.words[1]) / 2)}).
+- So EVERY slide's narration is ${perSlide(r.length)[0]}–${perSlide(r.length)[1]} words (slide 1 may be shorter). Count them: short slides make the video too short.
 
 Rules:
 ${rules(r)}`;
@@ -182,14 +217,30 @@ ${rules(r)}`;
   let lastValid: Storyboard | null = null;
   let schemaRetries = 0;
   for (let attempt = 0; attempt < 3; attempt++) {
-    const raw = await generateJson(prompt + feedback, STORY_SCHEMA, { system, temperature: 0.8 });
+    let raw: unknown;
+    try {
+      raw = await generateJson(prompt + feedback, STORY_SCHEMA, { system, temperature: 0.8, models: STORY_MODELS });
+    } catch (err) {
+      // Out of time or quota on a later attempt: the closest draft is better than nothing.
+      if (lastValid && err instanceof HttpError) return { storyboard: lastValid, warnings: problems(lastValid, r.length) };
+      throw err;
+    }
     const parsed = Storyboard.safeParse(raw);
     if (!parsed.success) {
       if (schemaRetries++ >= 1) break;
       feedback = '\n\nYour previous answer did not match the schema. Follow it exactly.';
       continue;
     }
-    const sb = tidy(parsed.data);
+    let sb = tidy(parsed.data);
+    // Slide count right but narration too short or long: fix just the lines (cheaper and more reliable
+    // than rewriting the whole story).
+    for (let round = 0; round < 2; round++) {
+      const words = sb.slides.reduce((a, s) => a + wordCount(s.narration), 0);
+      const p = PACING[r.length];
+      if (words >= p.words[0] && words <= p.words[1]) break;
+      if (sb.slides.length < p.slides[0] || sb.slides.length > p.slides[1]) break;
+      sb = await rebalance(sb, r).catch(() => sb);
+    }
     lastValid = sb;
     const issues = problems(sb, r.length);
     if (issues.length === 0) return { storyboard: sb, warnings: [] };
@@ -230,7 +281,7 @@ Rules:
 ${rules({ type: c.type, audience: c.audience, language: c.language, englishText: c.englishText })}
 Keep "n" as ${r.slide.n}.`;
   for (let attempt = 0; attempt < 2; attempt++) {
-    const parsed = Slide.safeParse(await generateJson(prompt, SLIDE_SCHEMA, { temperature: 0.9 }));
+    const parsed = Slide.safeParse(await generateJson(prompt, SLIDE_SCHEMA, { temperature: 0.9, models: STORY_MODELS }));
     if (parsed.success) return { slide: { ...parsed.data, n: r.slide.n } };
   }
   throw new HttpError(502, 'bad_output', "Google AI couldn't rewrite that slide. Try again.");

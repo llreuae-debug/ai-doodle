@@ -1,70 +1,52 @@
-import { AlertCircle, CheckCircle2, ExternalLink, Eye, EyeOff, KeyRound, Loader2, Trash2, X } from 'lucide-react';
+import { AlertCircle, CheckCircle2, ExternalLink, Eye, EyeOff, KeyRound, Loader2, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { getClientApiKey, setClientApiKey, testApiKey, getAiStatus } from '../services/ai';
+import { AiError, getAiStatus, setAiApiKey } from '../services/ai';
 
 interface ApiKeyModalProps {
   onClose: () => void;
   onSaved?: () => void;
 }
 
+/**
+ * Connects a Google Gemini key. The key is sent once to this app's server, checked with Google and
+ * saved in the server's .env.local; the browser never stores it.
+ */
 export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
   const [key, setKey] = useState('');
   const [showKey, setShowKey] = useState(false);
-  const [testing, setTesting] = useState(false);
-  const [status, setStatus] = useState<{ configured: boolean; provider: string | null; keySource?: string } | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [configured, setConfigured] = useState<boolean | null>(null);
   const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
-
-  useEffect(() => {
-    const existing = getClientApiKey();
-    if (existing) {
-      setKey(existing);
-    }
-    void checkStatus();
-  }, []);
 
   const checkStatus = async () => {
     try {
-      const s = await getAiStatus();
-      setStatus({ ...s, keySource: getClientApiKey() ? 'browser' : 'server' });
+      setConfigured((await getAiStatus()).configured);
     } catch {
-      const k = getClientApiKey();
-      setStatus({ configured: !!k, provider: 'gemini', keySource: k ? 'browser' : 'none' });
+      setConfigured(false);
     }
   };
+
+  useEffect(() => {
+    void checkStatus();
+  }, []);
 
   const handleSave = async (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    const cleanKey = key.trim();
-    if (!cleanKey) {
-      setMessage({ type: 'error', text: 'Please enter a valid Google Gemini API key.' });
-      return;
-    }
-
-    setTesting(true);
-    setMessage({ type: 'info', text: 'Validating key with Google AI...' });
-
+    e?.preventDefault();
+    const clean = key.trim();
+    if (!clean) return setMessage({ type: 'error', text: 'Enter your Google Gemini API key.' });
+    setSaving(true);
+    setMessage({ type: 'info', text: 'Checking the key with Google AI…' });
     try {
-      const testRes = await testApiKey(cleanKey);
-      if (testRes.ok) {
-        setClientApiKey(cleanKey);
-        setMessage({ type: 'success', text: `Key verified successfully! Using model: ${testRes.model}` });
-        await checkStatus();
-        if (onSaved) onSaved();
-      } else {
-        setMessage({ type: 'error', text: testRes.error || 'Google AI rejected this key. Please check it and try again.' });
-      }
+      await setAiApiKey(clean);
+      setKey('');
+      setMessage({ type: 'success', text: 'Key checked and saved on the server.' });
+      await checkStatus();
+      onSaved?.();
     } catch (err: unknown) {
-      setMessage({ type: 'error', text: err instanceof Error ? err.message : 'Failed to validate key.' });
+      setMessage({ type: 'error', text: err instanceof AiError ? err.message : "Couldn't save the key. Try again." });
     } finally {
-      setTesting(false);
+      setSaving(false);
     }
-  };
-
-  const handleClear = () => {
-    setClientApiKey('');
-    setKey('');
-    setMessage({ type: 'info', text: 'API key removed from browser storage.' });
-    void checkStatus();
   };
 
   return (
@@ -77,7 +59,7 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
             </div>
             <div>
               <h2 id="api-key-title">Google Gemini API Key</h2>
-              <p className="subtitle">Connect your Google AI key to generate storyboards, vector doodles, and voiceovers.</p>
+              <p className="subtitle">Connect your Google AI key to generate storyboards, doodles, voices and music.</p>
             </div>
           </div>
           <button type="button" className="btn icon ghost" onClick={onClose} aria-label="Close">
@@ -86,20 +68,20 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
         </div>
 
         <div className="modal-body">
-          {status?.configured ? (
+          {configured === null ? null : configured ? (
             <div className="status-banner success" role="status">
               <CheckCircle2 size={18} />
               <div>
                 <strong>AI is active and ready</strong>
-                <p>Configured via {status.keySource === 'browser' ? 'browser storage' : 'environment file'}. All AI features are enabled.</p>
+                <p>The server has a Google AI key. Paste a new one below to replace it.</p>
               </div>
             </div>
           ) : (
             <div className="status-banner warning" role="status">
               <AlertCircle size={18} />
               <div>
-                <strong>No API key active</strong>
-                <p>Enter your Google Gemini key below to enable AI story writing, doodle creation, and narration.</p>
+                <strong>No API key on the server</strong>
+                <p>Enter your Google Gemini key below to turn on story writing, doodles, voices and music.</p>
               </div>
             </div>
           )}
@@ -113,19 +95,13 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
                 id="gemini-key-input"
                 type={showKey ? 'text' : 'password'}
                 className="input-field"
-                placeholder="AIzaSy... or AQ..."
+                placeholder="AIzaSy…"
                 value={key}
                 onChange={(e) => setKey(e.target.value)}
                 autoComplete="off"
                 spellCheck={false}
               />
-              <button
-                type="button"
-                className="btn icon ghost input-action-btn"
-                onClick={() => setShowKey(!showKey)}
-                title={showKey ? 'Hide key' : 'Show key'}
-                aria-label={showKey ? 'Hide key' : 'Show key'}
-              >
+              <button type="button" className="btn icon ghost input-action-btn" onClick={() => setShowKey(!showKey)} title={showKey ? 'Hide key' : 'Show key'} aria-label={showKey ? 'Hide key' : 'Show key'}>
                 {showKey ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
             </div>
@@ -140,34 +116,23 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
             )}
 
             <div className="helper-links">
-              <a
-                href="https://aistudio.google.com/app/apikey"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="link-btn"
-              >
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer noopener" className="link-btn">
                 <span>Get a free Google Gemini key</span>
                 <ExternalLink size={14} />
               </a>
-              <span className="privacy-note">Keys are stored locally in your browser and used only for Google AI calls.</span>
+              <span className="privacy-note">The key is saved on this app's server (.env.local), never in your browser.</span>
             </div>
 
             <div className="modal-actions">
-              {key && (
-                <button type="button" className="btn ghost danger" onClick={handleClear} disabled={testing}>
-                  <Trash2 size={16} />
-                  <span>Remove</span>
-                </button>
-              )}
               <div className="spacer" />
-              <button type="button" className="btn" onClick={onClose} disabled={testing}>
+              <button type="button" className="btn" onClick={onClose} disabled={saving}>
                 Cancel
               </button>
-              <button type="submit" className="btn primary" disabled={testing || !key.trim()}>
-                {testing ? (
+              <button type="submit" className="btn primary" disabled={saving || !key.trim()}>
+                {saving ? (
                   <>
                     <Loader2 size={16} className="spin" />
-                    <span>Verifying…</span>
+                    <span>Checking…</span>
                   </>
                 ) : (
                   <span>Save & Connect</span>

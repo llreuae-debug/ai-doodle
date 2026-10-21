@@ -4,8 +4,9 @@ import path from 'node:path';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { envKey, HttpError } from './gemini.ts';
 
-/** Generated files live here, one folder per project, and are served at /media/<projectId>/<file>. */
-export const MEDIA_DIR = path.resolve(process.cwd(), 'media');
+import { MEDIA_DIR, readStored, storeFile } from './storage.ts';
+
+export { MEDIA_DIR };
 
 let secret: string | null = null;
 /** APP_SECRET signs the browser session cookie and media file names. A random one is used if it's missing. */
@@ -19,9 +20,22 @@ function appSecret(): string {
 
 const sign = (value: string) => crypto.createHmac('sha256', appSecret()).update(value).digest('base64url').slice(0, 32);
 
-// ---------- session ----------
+// ---------- session and access password ----------
 
-const COOKIE = 'ad_session';
+import { SESSION_COOKIE as COOKIE } from './gate.ts';
+
+/** ACCESS_PASSWORD, if set, locks the whole site (pages and API) behind one shared password. */
+export const accessPassword = (): string | undefined => envKey('ACCESS_PASSWORD');
+
+/**
+ * The cookie is "<id>.<mac>", mac = HMAC(APP_SECRET, id|tag), where tag depends on the access
+ * password: changing the password signs everyone out. proxy.ts computes the same mac on Vercel.
+ */
+const accessTag = () => {
+  const pw = accessPassword();
+  return pw ? crypto.createHash('sha256').update(pw).digest('hex').slice(0, 16) : '';
+};
+const sessionMac = (id: string) => sign(`${id}|${accessTag()}`);
 
 function cookieValue(req: IncomingMessage): string | undefined {
   return req.headers.cookie
@@ -30,28 +44,41 @@ function cookieValue(req: IncomingMessage): string | undefined {
     .find(([k]) => k === COOKIE)?.[1];
 }
 
-/** Issues the session cookie with the page, so only pages served by this app can call the API. */
-export function ensureSession(req: IncomingMessage, res: ServerResponse): void {
-  const v = cookieValue(req);
-  if (v && validSession(v)) return;
-  const id = crypto.randomBytes(12).toString('base64url');
-  res.setHeader('Set-Cookie', `${COOKIE}=${id}.${sign(id)}; Path=/; HttpOnly; SameSite=Strict; Max-Age=2592000`);
+export function hasSession(req: IncomingMessage): boolean {
+  const [id, mac] = (cookieValue(req) ?? '').split('.');
+  if (!id || !mac) return false;
+  return crypto.timingSafeEqual(Buffer.from(sessionMac(id).padEnd(32)), Buffer.from(mac.padEnd(32).slice(0, 32)));
 }
 
-const validSession = (v: string) => {
-  const [id, mac] = v.split('.');
-  return !!id && !!mac && crypto.timingSafeEqual(Buffer.from(sign(id).padEnd(32)), Buffer.from(mac.padEnd(32).slice(0, 32)));
-};
+/** Sets a fresh session cookie. */
+export function issueSession(req: IncomingMessage, res: ServerResponse): void {
+  const id = crypto.randomBytes(12).toString('base64url');
+  const https = req.headers['x-forwarded-proto'] === 'https' || !!process.env.VERCEL;
+  res.setHeader('Set-Cookie', `${COOKIE}=${id}.${sessionMac(id)}; Path=/; HttpOnly; SameSite=Strict; Max-Age=2592000${https ? '; Secure' : ''}`);
+}
+
+/** Without an access password, the page itself hands out the session, so only this app's pages can call the API. */
+export function ensureSession(req: IncomingMessage, res: ServerResponse): void {
+  if (!accessPassword() && !hasSession(req)) issueSession(req, res);
+}
 
 export function requireSession(req: IncomingMessage): void {
-  const v = cookieValue(req);
-  if (!v || !validSession(v)) throw new HttpError(401, 'no_session', 'Reload the page and try again.');
+  if (!hasSession(req)) throw new HttpError(401, 'no_session', accessPassword() ? 'Enter the access password first (reload the page).' : 'Reload the page and try again.');
+}
+
+/** Compares in constant time (both sides hashed to the same length first). */
+export function checkPassword(given: string): boolean {
+  const pw = accessPassword();
+  if (!pw) return true;
+  const a = crypto.createHash('sha256').update(given).digest();
+  const b = crypto.createHash('sha256').update(pw).digest();
+  return crypto.timingSafeEqual(a, b);
 }
 
 // ---------- rate limit ----------
 
 /** Requests per IP per minute, per bucket. */
-const LIMITS: Record<string, number> = { light: 60, story: 8, element: 20, tts: 90, music: 6 };
+const LIMITS: Record<string, number> = { light: 60, story: 8, element: 20, tts: 90, music: 6, access: 10 };
 const hits = new Map<string, number[]>();
 
 export function rateLimit(req: IncomingMessage, bucket: keyof typeof LIMITS): void {
@@ -66,14 +93,23 @@ export function rateLimit(req: IncomingMessage, bucket: keyof typeof LIMITS): vo
 
 // ---------- media ----------
 
+/**
+ * A small disk cache for generated results (raw speech, drawings) keyed by everything that affects
+ * them, so rebuilding a story after small edits only pays for what changed.
+ */
+export const cacheKey = (v: unknown) => crypto.createHash('sha256').update(JSON.stringify(v)).digest('hex').slice(0, 32);
+/** Cache entries are named by a hash of their inputs, signed so they can't be guessed. */
+const cachePath = (kind: string, key: string) => `_cache/${kind}/${sign(`${kind}:${key}`)}`;
+export const cacheGet = (kind: string, key: string): Promise<Buffer | null> => readStored(cachePath(kind, key));
+export async function cachePut(kind: string, key: string, data: Buffer): Promise<void> {
+  await storeFile(cachePath(kind, key), data);
+}
+
 /** Saves a generated file and returns its URL. File names are unguessable (signed hash). */
-export function saveMedia(projectId: string, data: Buffer, ext: string): string {
+export function saveMedia(projectId: string, data: Buffer, ext: string): Promise<string> {
   const project = projectId.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 40) || 'shared';
   const name = `${sign(`${project}:${crypto.createHash('sha256').update(data).digest('hex')}`)}.${ext}`;
-  const dir = path.join(MEDIA_DIR, project);
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, name), data);
-  return `/media/${project}/${name}`;
+  return storeFile(`${project}/${name}`, data);
 }
 
 const MIME: Record<string, string> = { mp3: 'audio/mpeg', wav: 'audio/wav', png: 'image/png', webp: 'image/webp', jpg: 'image/jpeg' };

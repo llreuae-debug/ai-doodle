@@ -1,10 +1,9 @@
 import { spawn } from 'node:child_process';
 import crypto from 'node:crypto';
-import fs from 'node:fs';
-import path from 'node:path';
 import { z } from 'zod';
+import { FFMPEG } from './audio.ts';
 import { envKey, HttpError } from './gemini.ts';
-import { MEDIA_DIR, saveMedia } from './security.ts';
+import { cacheGet, cachePut, saveMedia } from './security.ts';
 
 /**
  * Background music with Lyria RealTime (see MUSIC_NOTES.md). The model streams short clips; this
@@ -28,7 +27,6 @@ const FADE_IN = 2;
 const FADE_OUT = 4;
 const TAIL = 2;
 const MAX_TOTAL_SEC = 15 * 60;
-const CACHE = path.join(MEDIA_DIR, '_music-cache');
 
 export const MUSIC_STYLES = {
   'calm-piano': { label: 'Calm piano', prompt: 'calm solo piano', instruments: ['piano'] },
@@ -187,10 +185,10 @@ function streamClip(spec: ClipSpec, seconds: number): Promise<Buffer> {
 
 /** A base clip, from the cache or Lyria (retried with backoff on 429/5xx-like failures). */
 async function baseClip(spec: ClipSpec, stats: { generated: number }): Promise<Float32Array> {
-  fs.mkdirSync(CACHE, { recursive: true });
-  const file = path.join(CACHE, `${hash(spec)}.pcm`);
+  const key = hash(spec);
   let pcm: Buffer;
-  if (fs.existsSync(file)) pcm = fs.readFileSync(file);
+  const hit = await cacheGet('music-clip', key);
+  if (hit) pcm = hit;
   else {
     for (let attempt = 0; ; attempt++) {
       try {
@@ -203,7 +201,7 @@ async function baseClip(spec: ClipSpec, stats: { generated: number }): Promise<F
         await new Promise((r) => setTimeout(r, 1500 * 2 ** attempt));
       }
     }
-    fs.writeFileSync(file, pcm);
+    await cachePut('music-clip', key, pcm);
   }
   const out = new Float32Array(pcm.length / 2);
   for (let i = 0; i < out.length; i++) out[i] = pcm.readInt16LE(i * 2) / 32768;
@@ -326,7 +324,7 @@ function* render(sections: Section[], loops: Map<Mood, Float32Array>, totalSec: 
 function encode(blocks: Iterable<Buffer>): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     const p = spawn(
-      process.env.FFMPEG_PATH || 'ffmpeg',
+      FFMPEG,
       ['-hide_banner', '-loglevel', 'error', '-f', 's16le', '-ar', String(RATE), '-ac', String(CH), '-i', 'pipe:0', '-af', 'loudnorm=I=-20:TP=-2:LRA=11', '-ar', String(RATE), '-codec:a', 'libmp3lame', '-b:a', '192k', '-f', 'mp3', 'pipe:1'],
       { stdio: ['pipe', 'pipe', 'ignore'] },
     );
@@ -368,8 +366,8 @@ export async function makeMusic(r: MusicRequest): Promise<{
 
   // Same request again (e.g. regenerate with the same seed, or refit to the same length) costs nothing.
   const trackKey = hash({ ...req, sections, totalSec });
-  const cached = path.join(CACHE, `${trackKey}.json`);
-  if (fs.existsSync(cached)) return { ...JSON.parse(fs.readFileSync(cached, 'utf8')), generated: 0 };
+  const cached = await cacheGet('music-track', trackKey);
+  if (cached) return { ...JSON.parse(cached.toString('utf8')), generated: 0 };
 
   // Base clips, three at a time.
   const loops = new Map<Mood, Float32Array>();
@@ -388,12 +386,12 @@ export async function makeMusic(r: MusicRequest): Promise<{
   const loopUrls = new Map<Mood, string>();
   for (const mood of moods) loopUrls.set(mood, await loopUrl(r.projectId, loops.get(mood)!));
   const result = {
-    audioUrl: saveMedia(r.projectId, audio, 'mp3'),
+    audioUrl: await saveMedia(r.projectId, audio, 'mp3'),
     durationSec: +totalSec.toFixed(3),
     loopable: true as const,
     seed,
     sections: sections.map((s) => ({ ...s, url: loopUrls.get(s.mood)! })),
   };
-  fs.writeFileSync(cached, JSON.stringify(result));
+  await cachePut('music-track', trackKey, Buffer.from(JSON.stringify(result)));
   return { ...result, generated: stats.generated };
 }

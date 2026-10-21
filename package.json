@@ -5,16 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run typecheck && vite build",
+    "build": "npm run typecheck && vite build && npm run build:api",
     "lint": "oxlint",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.node.json",
     "test": "vitest run",
-    "start": "node server/index.ts"
+    "start": "node server/index.ts",
+    "build:api": "esbuild server/vercel.ts --bundle --platform=node --format=esm --target=node22 --outfile='api/[...path].mjs' --external:sharp --external:ffmpeg-static --external:@vercel/blob --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\" && esbuild server/proxy.ts --bundle --platform=node --format=esm --target=node22 --outfile=proxy.js && mkdir -p api/ai api/music && printf \"// Same handler for /api/ai/* (catch-alls only match one level).\\nexport { default } from '../[...path].mjs';\\n\" > 'api/ai/[...path].mjs' && printf \"// Same handler for /api/music/* (catch-alls only match one level).\\nexport { default } from '../[...path].mjs';\\n\" > 'api/music/[...path].mjs'"
   },
   "dependencies": {
+    "@vercel/blob": "^2.8.2",
+    "@vercel/functions": "^3.10.2",
     "canvas-confetti": "^1.9.4",
     "express": "^5.3.0",
+    "ffmpeg-static": "^5.3.0",
     "lucide-react": "^1.60.0",
     "mediabunny": "^1.62.0",
     "react": "^19.3.1",
@@ -29,10 +33,18 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+    "esbuild": "^0.28.2",
     "oxlint": "^1.88.0",
     "playwright-core": "^1.56.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.4",
     "vitest": "^5.0.5"
+  },
+  "allowScripts": {
+    "ffmpeg-static@5.3.0": true,
+    "esbuild@0.28.2": true
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

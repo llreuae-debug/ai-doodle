@@ -121,16 +121,14 @@ export function StoryWizard(props: { project: Project; hands: Hand[]; resources:
   const abort = useRef<AbortController | null>(null);
 
   const faith = type.startsWith('faith');
-  useEffect(() => {
-    // Faith stories default to the voice-free humming pad with no drums; the user can change it.
-    if (faith) {
+  /** Faith stories default to the voice-free humming pad with no drums; the user can change it. */
+  const pickType = (t: StoryType) => {
+    setType(t);
+    if (t.startsWith('faith')) {
       setMusic('humming-pad');
       setNoDrums(true);
     }
-  }, [faith]);
-  useEffect(() => {
-    if (audience.startsWith('kids') && catalog && !voiceId) setVoiceId(catalog.defaults.storyteller);
-  }, [audience, catalog, voiceId]);
+  };
   useEffect(() => void loadLibraryManifest().then(setLibrary), []);
   useEffect(() => () => abort.current?.abort(), []);
 
@@ -267,7 +265,7 @@ export function StoryWizard(props: { project: Project; hands: Hand[]; resources:
           </div>
           <div className="field">
             <span>Story type</span>
-            <Choice value={type} options={TYPES} onChange={setType} label="Story type" />
+            <Choice value={type} options={TYPES} onChange={pickType} label="Story type" />
           </div>
           <div className="field">
             <span>Audience</span>

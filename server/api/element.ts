@@ -1,7 +1,7 @@
 import sharp from 'sharp';
 import { z } from 'zod';
-import { generateJson, generatePicture, HttpError, type Part } from './gemini.ts';
-import { saveMedia } from './security.ts';
+import { generateJson, generatePicture, HttpError, STORY_MODELS, type Part } from './gemini.ts';
+import { cacheGet, cacheKey, cachePut, saveMedia } from './security.ts';
 
 export const ELEMENT_STYLES = ['doodle', 'colour-doodle', '3d', 'flat', 'watercolour', 'charcoal', 'photo', 'anime'] as const;
 export type ElementStyle = (typeof ELEMENT_STYLES)[number];
@@ -27,6 +27,8 @@ export const ElementRequest = z.object({
   /** Video size, for scenes. */
   aspect: z.enum(['16:9', '9:16', '1:1', '4:5']).default('16:9'),
   projectId: z.string().max(60).default('shared'),
+  /** Reuse an earlier result for the exact same request (story builds); Regenerate leaves this off. */
+  reuse: z.boolean().default(false),
   /** Keeps a character the same across poses. */
   characterSheet: z
     .object({ name: z.string().max(60), look: z.string().max(400), style: z.enum(ELEMENT_STYLES).optional(), reference: ImageRef.optional() })
@@ -98,7 +100,8 @@ ${r.type === 'scene' ? '30 to 70' : '12 to 50'} strokes, each a separate path st
 ${color ? 'Add 3 to 10 fills: closed shapes drawn behind the strokes, each {d, c} with a #RRGGBB colour, covering the main areas.' : 'Return an empty fills array.'}
 "name" is a short title of at most 4 words.${attempt > 0 ? '\nYour last drawing had invalid path data. Double-check every path.' : ''}`;
   const parts: Part[] = sheet?.reference ? [{ inlineData: sheet.reference }, { text: `Reference drawing of ${sheet.name}.\n${text}` }] : [{ text }];
-  const raw = await generateJson<{ name?: string; strokes?: unknown[]; fills?: unknown[] }>(parts, STROKE_SCHEMA, { temperature: 0.9 });
+  // Drawing good path data needs the stronger Flash models (the lite ones draw crude shapes).
+  const raw = await generateJson<{ name?: string; strokes?: unknown[]; fills?: unknown[] }>(parts, STROKE_SCHEMA, { temperature: 0.9, models: STORY_MODELS, thinking: 'low' });
   const strokes = (raw.strokes ?? []).map((s) => String(s).trim()).filter(validPath).slice(0, 80);
   const fills = (raw.fills ?? [])
     .filter((f): f is { d: string; c: string } => !!f && typeof f === 'object' && typeof (f as { d: unknown }).d === 'string' && /^#[0-9a-fA-F]{6}$/.test(String((f as { c: unknown }).c)))
@@ -175,14 +178,25 @@ async function picture(r: ElementRequest): Promise<ElementResult> {
   const pic = await generatePicture(`${subject}. Style: ${style}. ${framing}`, sheet?.reference ? [sheet.reference] : [], scene ? ASPECT[r.aspect] : '1:1');
   if (scene) {
     const png = await sharp(pic.data).png().toBuffer({ resolveWithObject: true });
-    return { kind: 'image', name: r.prompt.split(/\s+/).slice(0, 4).join(' '), url: saveMedia(r.projectId, png.data, 'png'), width: png.info.width, height: png.info.height, transparent: false };
+    return { kind: 'image', name: r.prompt.split(/\s+/).slice(0, 4).join(' '), url: await saveMedia(r.projectId, png.data, 'png'), width: png.info.width, height: png.info.height, transparent: false };
   }
   const cut = await removeWhite(pic.data);
-  return { kind: 'image', name: r.prompt.split(/\s+/).slice(0, 4).join(' '), url: saveMedia(r.projectId, cut.png, 'png'), width: cut.width, height: cut.height, transparent: true };
+  return { kind: 'image', name: r.prompt.split(/\s+/).slice(0, 4).join(' '), url: await saveMedia(r.projectId, cut.png, 'png'), width: cut.width, height: cut.height, transparent: true };
 }
 
 /** Runs the variations in parallel; returns every one that worked, or the first error if none did. */
 export async function makeElements(r: ElementRequest): Promise<{ results: ElementResult[]; failed: number }> {
+  const key = cacheKey({ type: r.type, style: r.style, prompt: r.prompt, variations: r.variations, aspect: r.aspect, sheet: r.characterSheet ?? null });
+  if (r.reuse) {
+    const hit = await cacheGet('element', key);
+    if (hit) return { results: JSON.parse(hit.toString('utf8')) as ElementResult[], failed: 0 };
+  }
+  const fresh = await makeFresh(r);
+  if (fresh.failed === 0) await cachePut('element', key, Buffer.from(JSON.stringify(fresh.results)));
+  return fresh;
+}
+
+async function makeFresh(r: ElementRequest): Promise<{ results: ElementResult[]; failed: number }> {
   const one = VECTOR_STYLES.includes(r.style) ? () => vector(r) : () => picture(r);
   const settled = await Promise.allSettled(Array.from({ length: r.variations }, one));
   const results = settled.flatMap((s) => (s.status === 'fulfilled' ? [s.value] : []));

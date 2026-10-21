@@ -11,6 +11,7 @@ import {
   fetchMedia,
   generateElements,
   generateMusic,
+  listVoices,
   speakText,
   type Audience,
   type ElementStyle,
@@ -80,6 +81,32 @@ const FONT_BY_LANG: Record<Language, string> = { en: 'Caveat', ur: 'Noto Nastali
 const CHARACTER_VOICES = ['Puck', 'Leda', 'Fenrir', 'Aoede', 'Achird', 'Laomedeia'];
 
 // ---------- small helpers ----------
+
+/** Waits before retrying a request that hit a per-minute limit or an overloaded model. */
+const RETRY_WAITS_MS = [20_000, 45_000, 75_000];
+const RETRYABLE = new Set(['rate_limited', 'api_error', 'offline', 'timeout']);
+
+const sleep = (ms: number, signal: AbortSignal) =>
+  new Promise<void>((resolve, reject) => {
+    const t = setTimeout(resolve, ms);
+    signal.addEventListener('abort', () => (clearTimeout(t), reject(new AiError('cancelled', 'Cancelled.'))), { once: true });
+  });
+
+/**
+ * Free Google AI keys allow only a few requests a minute, so a long build waits and tries again
+ * instead of giving up on the first "too many requests".
+ */
+async function patient<T>(fn: () => Promise<T>, signal: AbortSignal): Promise<T> {
+  for (let i = 0; ; i++) {
+    if (signal.aborted) throw new AiError('cancelled', 'Cancelled.');
+    try {
+      return await fn();
+    } catch (err) {
+      if (!(err instanceof AiError) || !RETRYABLE.has(err.code) || i >= RETRY_WAITS_MS.length) throw err;
+      await sleep(RETRY_WAITS_MS[i], signal);
+    }
+  }
+}
 
 /** Runs at most `n` tasks at once. */
 function limiter(n: number) {
@@ -298,9 +325,7 @@ export async function buildStory(
         if (hit) return { kind: 'doodle', defId: hit, color: s.style !== 'doodle' };
       }
       const prompt = ch ? `${ch.name}: ${ch.look}` : v.description;
-      const r = await genLimit(() =>
-        signal.aborted ? Promise.reject(new AiError('cancelled', 'Cancelled.')) : generateElements({ type: v.type, style: s.style, prompt: prompt.slice(0, 500), variations: 1, aspect: s.ratio, projectId: project.id }, signal),
-      );
+      const r = await genLimit(() => patient(() => generateElements({ type: v.type, style: s.style, prompt: prompt.slice(0, 500), variations: 1, aspect: s.ratio, projectId: project.id, reuse: true }, signal), signal));
       const res = r.results[0];
       if (res.kind === 'vector') {
         const def: DoodleDef = { id: `ai-${newId()}`, cat: 'custom', name: (ch?.name ?? res.name).slice(0, 32), tags: [v.type, s.style, 'story'], strokes: validStrokes(res.strokes), fills: res.fills };
@@ -338,7 +363,9 @@ export async function buildStory(
   const ttsLimit = limiter(CONCURRENCY);
   const voiceOf = new Map<string, string>();
   const pool = CHARACTER_VOICES.filter((v) => v !== s.voiceId);
-  sb.characters.forEach((c, i) => voiceOf.set(c.id, c.voice ?? pool[i % pool.length]));
+  // The storyboard may describe a voice in words; only real Google voice names are used as-is.
+  const known = new Set((await listVoices().catch(() => null))?.voices.map((v) => v.id) ?? CHARACTER_VOICES);
+  sb.characters.forEach((c, i) => voiceOf.set(c.id, c.voice && known.has(c.voice) ? c.voice : pool[i % pool.length]));
 
   const voiceFor = async (sl: StorySlide): Promise<{ voice: Voice | null; problem?: string }> => {
     const spoken = sl.narration.replace(VERSE, '').replace(/\s{2,}/g, ' ').trim();
@@ -347,9 +374,9 @@ export async function buildStory(
     const turns = ch ? dialogueTurns(spoken, ch.name) : null;
     try {
       const r = await ttsLimit(() =>
-        signal.aborted
-          ? Promise.reject(new AiError('cancelled', 'Cancelled.'))
-          : speakText(
+        patient(
+          () =>
+            speakText(
               {
                 text: spoken,
                 voice: ch && !turns ? voiceOf.get(ch.id)! : s.voiceId,
@@ -364,6 +391,8 @@ export async function buildStory(
               },
               signal,
             ),
+          signal,
+        ),
       );
       const blob = await fetchMedia(r.audioUrl, signal);
       return {
@@ -416,7 +445,7 @@ export async function buildStory(
     scene.voice = voice;
     scene.syncVoice = !!voice;
     scene.storyMood = sl.mood;
-    scene.holdMs = 500;
+    scene.holdMs = 250;
 
     // Timing: the first visual starts with the first word; the text at its first matching word.
     const durationMs = voice?.durationMs ?? Math.round((sl.narration.split(/\s+/).length / WORDS_PER_SEC) * 1000);

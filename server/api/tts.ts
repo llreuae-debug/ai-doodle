@@ -1,12 +1,10 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
-import { encodeVoice, estimateWords, preciseWords, toPcm, type WordTime } from './audio.ts';
+import langSupportJson from './lang-support.json' with { type: 'json' };
+import voicesJson from './voices.json' with { type: 'json' };
+import { encodeVoice, estimateWords, preciseWords, toPcm, wav, type WordTime } from './audio.ts';
 import { HttpError, speak, type SpeechTurn } from './gemini.ts';
-import { saveMedia } from './security.ts';
+import { cacheGet, cacheKey, cachePut, saveMedia } from './security.ts';
 
-const here = path.dirname(fileURLToPath(import.meta.url));
 
 export interface VoiceInfo {
   id: string;
@@ -18,7 +16,7 @@ export interface VoiceInfo {
   previewUrl: string;
 }
 
-export const VOICES: { defaults: Record<string, string>; voices: VoiceInfo[] } = JSON.parse(fs.readFileSync(path.join(here, 'voices.json'), 'utf8'));
+export const VOICES = voicesJson as { defaults: Record<string, string>; voices: VoiceInfo[] };
 const voiceIds = new Set(VOICES.voices.map((v) => v.id));
 
 /**
@@ -26,9 +24,7 @@ const voiceIds = new Set(VOICES.voices.map((v) => v.id));
  * each language aloud and Gemini transcribed it back). "unsupported" languages fail with a clear
  * message instead of producing bad audio; Cloud Text-to-Speech would be the fallback.
  */
-export const LANG_SUPPORT: Record<string, { engine: 'gemini' | 'cloud-tts' | 'unsupported'; note: string }> = JSON.parse(
-  fs.readFileSync(path.join(here, 'lang-support.json'), 'utf8'),
-);
+export const LANG_SUPPORT = langSupportJson as Record<string, { engine: 'gemini' | 'cloud-tts' | 'unsupported'; note: string }>;
 
 const TONE_STYLE: Record<string, string> = {
   warm: 'warmly and gently, like a storyteller',
@@ -87,19 +83,25 @@ export async function textToSpeech(r: TtsRequest): Promise<{ audioUrl: string; d
   for (const t of turns) voiceMap[t.speaker] ??= r.voice;
   const spoken = turns.map((t) => t.text).join(' ');
 
-  const raw = await speak(turns, voiceMap);
-  const pcm = toPcm(raw.mimeType, raw.data);
+  // The same line, voice and delivery always sounds the same: reuse the raw speech if we have it.
+  const key = cacheKey({ turns, voiceMap });
+  const cached = await cacheGet('tts', key);
+  const pcm = cached ? toPcm('audio/wav', cached) : toPcm(...(await speak(turns, voiceMap).then((a) => [a.mimeType, a.data] as const)));
+  if (!cached) await cachePut('tts', key, wav(pcm));
   const natural = pcm.samples.length / 2 / pcm.channels / pcm.rate;
   // Speed is asked for in the style; if the voice drifted more than 8% from it, stretch (pitch kept).
+  // Scripts are paced at 150 words a minute × speed. English words are a steady enough unit to check
+  // that against; other scripts only get the stretch when a speed other than 1.0 was asked for.
   let tempo = 1;
-  if (Math.abs(r.speed - 1) > 0.001) {
+  if (r.language === 'en' || Math.abs(r.speed - 1) > 0.001) {
     const words = spoken.split(/\s+/).filter(Boolean).length;
     const target = words / (BASE_WPS * r.speed);
     const ratio = natural / target;
-    if (Math.abs(ratio - 1) > SPEED_TOLERANCE) tempo = Math.min(1.2, Math.max(0.85, ratio));
+    // A line of a few words has too little speech to measure a pace from.
+    if (words >= 6 && Math.abs(ratio - 1) > SPEED_TOLERANCE) tempo = Math.min(1.2, Math.max(0.85, ratio));
   }
   const file = await encodeVoice(pcm, tempo);
-  const audioUrl = saveMedia(r.projectId, file.data, file.ext);
+  const audioUrl = await saveMedia(r.projectId, file.data, file.ext);
   let words = estimateWords(spoken, file.seconds);
   let timing: 'estimate' | 'precise' = 'estimate';
   if (r.precise) {

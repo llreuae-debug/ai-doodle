@@ -9,14 +9,22 @@ interface State {
   future: Project[];
 }
 
-/** Copies the parts a recipe may mutate: top-level fields, scenes and elements. */
+/**
+ * Copies the parts a recipe may mutate: top-level fields, the pen sound settings, scenes and
+ * elements. (A recipe that edited a shared object would also change the undo history, and React
+ * runs updaters twice in development, so a toggle would flip back.)
+ */
 function draftOf(p: Project): Project {
-  return { ...p, scenes: p.scenes.map((s) => ({ ...s, elements: s.elements.map((e) => ({ ...e, anim: { ...e.anim } })) })) };
+  return {
+    ...p,
+    drawSound: { ...p.drawSound },
+    scenes: p.scenes.map((s) => ({ ...s, elements: s.elements.map((e) => ({ ...e, anim: { ...e.anim } })) })),
+  };
 }
 
 /**
  * The project with undo/redo. Recipes get a draft and mutate it:
- * scenes, elements and top-level fields freely; `assets`, `custom` and `music` only by assigning new objects.
+ * scenes, elements, top-level fields and `drawSound` freely; `assets`, `custom` and `music` only by assigning new objects.
  * During a drag, call `checkpoint()` once and then `update(..., false)` per move so the drag is one undo step.
  */
 export function useProjectStore(initial: () => Project) {

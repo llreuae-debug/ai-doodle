@@ -188,18 +188,20 @@ export interface CustomFont {
   blob: Blob;
 }
 
-export type DrawSoundType = 'marker' | 'chalk' | 'pencil' | 'soft' | 'custom' | 'none';
+export type DrawSoundType = 'marker' | 'chalk' | 'pencil' | 'soft' | 'ballpoint' | 'custom' | 'none';
 
 export interface DrawSoundConfig {
   enabled: boolean;
   /** Volume 0–1 (default 0.35). */
   volume: number;
-  /** Sound type: Marker · Chalk · Pencil · Soft · Custom · None (default 'marker'). */
+  /** Sound type: Marker · Chalk · Pencil · Soft marker · Ballpoint · Custom · None (default 'marker'). */
   type?: DrawSoundType;
   /** Mute toggle. Mute keeps the chosen volume. */
   muted?: boolean;
   /** Pen sound drops to 40% while narration plays (default true). */
   quietDuringVoice?: boolean;
+  /** Marker cap-off sound before the first drawing (default off). */
+  capSound?: boolean;
   /** Uploaded custom sound as a data URL (<= 2MB, <= 10s). */
   customUrl?: string;
   customName?: string;

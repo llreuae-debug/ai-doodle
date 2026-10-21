@@ -1,3 +1,4 @@
+import { AsyncLocalStorage } from 'node:async_hooks';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -17,6 +18,15 @@ export const MODELS = {
  * allowance per model, e.g. 10 requests for gemini-3.8-flash-tts).
  */
 /** Text models tried in order when the main one has used up its daily quota (each has its own). */
+/**
+ * Story writing needs the stronger Flash models (the lite ones write thin narration); the general
+ * text chain is used once these are out of quota.
+ */
+export const STORY_MODELS = (process.env.GEMINI_STORY_MODELS || 'gemini-3.8-flash,gemini-3.7-flash,gemini-3.6-flash,gemini-3.5-flash')
+  .split(',')
+  .map((m) => m.trim())
+  .filter(Boolean);
+
 export const TEXT_FALLBACKS = (process.env.GEMINI_TEXT_FALLBACKS || 'gemini-3.8-flash,gemini-3.1-flash-lite,gemini-3-flash-preview,gemini-3.5-flash-lite')
   .split(',')
   .map((m) => m.trim())
@@ -91,7 +101,18 @@ const apiKey = (): string => {
   return key;
 };
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+/**
+ * Each API request gets a deadline (router.ts): on Vercel a function is stopped after 300 s, so work
+ * gives up cleanly a little before that, with a message, instead of being cut off.
+ */
+export const requestDeadline = new AsyncLocalStorage<number>();
+const remainingMs = () => (requestDeadline.getStore() ?? Infinity) - Date.now();
+const tooLong = () => new HttpError(504, 'timeout', 'This took too long: Google AI is busy or this key is near its free limits. Try again in a few minutes.');
+
+const sleep = (ms: number) => {
+  if (ms > remainingMs() - 5000) throw tooLong();
+  return new Promise((r) => setTimeout(r, ms));
+};
 
 export interface Part {
   text?: string;
@@ -122,8 +143,17 @@ export async function generate(model: string, parts: Part[], generationConfig: R
   for (let attempt = 0; ; attempt++) {
     let res: Response;
     try {
-      res = await fetch(`${BASE}/${model}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey() }, body });
-    } catch {
+      if (remainingMs() < 3000) throw tooLong();
+      const left = remainingMs();
+      res = await fetch(`${BASE}/${model}:generateContent`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey() },
+        body,
+        ...(Number.isFinite(left) ? { signal: AbortSignal.timeout(left - 1000) } : {}),
+      });
+    } catch (err) {
+      if (err instanceof HttpError) throw err;
+      if (remainingMs() < 5000) throw tooLong();
       if (attempt < MAX_RETRIES) {
         await sleep(800 * 2 ** attempt);
         continue;
@@ -161,10 +191,20 @@ export async function generate(model: string, parts: Part[], generationConfig: R
 }
 
 /** Structured JSON output (responseJsonSchema). The caller validates the result; counts aren't enforced by the API. */
-export async function generateJson<T = unknown>(prompt: string | Part[], schema: object, opts: { system?: string; temperature?: number; model?: string } = {}): Promise<T> {
+export async function generateJson<T = unknown>(
+  prompt: string | Part[],
+  schema: object,
+  opts: { system?: string; temperature?: number; model?: string; models?: string[]; thinking?: 'minimal' | 'low' | 'medium' | 'high' } = {},
+): Promise<T> {
   const parts = typeof prompt === 'string' ? [{ text: prompt }] : prompt;
-  const out = await withFallback(opts.model ? [opts.model] : [MODELS.text, ...TEXT_FALLBACKS], (model) =>
-    generate(model, parts, { temperature: opts.temperature ?? 0.7, responseMimeType: 'application/json', responseJsonSchema: schema }, opts.system),
+  const chain = opts.model ? [opts.model] : [...new Set([...(opts.models ?? []), MODELS.text, ...TEXT_FALLBACKS])];
+  const out = await withFallback(chain, (model) =>
+    generate(
+      model,
+      parts,
+      { temperature: opts.temperature ?? 0.7, responseMimeType: 'application/json', responseJsonSchema: schema, ...(opts.thinking ? { thinkingConfig: { thinkingLevel: opts.thinking } } : {}) },
+      opts.system,
+    ),
   );
   const text = out.map((p) => p.text ?? '').join('').trim().replace(/^```json\s*/i, '').replace(/```\s*$/, '');
   try {
@@ -200,7 +240,20 @@ export async function speak(turns: SpeechTurn[], voices: Record<string, string>)
   const speechConfig = multi
     ? { multiSpeakerVoiceConfig: { speakerVoiceConfigs: speakers.map((s) => ({ speaker: s, voiceConfig: { prebuiltVoiceConfig: { voiceName: voices[s] } } })) } }
     : { voiceConfig: { prebuiltVoiceConfig: { voiceName: voices[speakers[0]] } } };
-  const out = await withFallback([MODELS.tts, ...TTS_FALLBACKS], (model) => generate(model, parts, { responseModalities: ['AUDIO'], speechConfig }));
+  // Older speech models don't take speechMetadata: they get the classic prompt form instead
+  // ("Say warmly: ..." for one voice, "Name: line" turns for two).
+  const classic: Part[] = multi
+    ? [{ text: `${turns[0].style ? `${turns[0].style}.\n` : ''}${turns.map((t) => `${t.speaker}: ${t.text}`).join('\n')}` }]
+    : [{ text: `${turns[0].style ? `${turns[0].style}: ` : ''}${turns.map((t) => t.text).join(' ')}` }];
+  const out = await withFallback([MODELS.tts, ...TTS_FALLBACKS], async (model) => {
+    const config = { responseModalities: ['AUDIO'], speechConfig };
+    try {
+      return await generate(model, parts, config);
+    } catch (err) {
+      if (err instanceof HttpError && err.code === 'bad_request' && /speech.?metadata/i.test(err.message)) return generate(model, classic, config);
+      throw err;
+    }
+  });
   const audio = out.find((p) => p.inlineData?.data);
   if (!audio?.inlineData) throw new HttpError(502, 'empty', 'Google AI returned no audio. Try again.');
   return { mimeType: audio.inlineData.mimeType, data: Buffer.from(audio.inlineData.data, 'base64') };

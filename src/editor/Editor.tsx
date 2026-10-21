@@ -192,7 +192,7 @@ export default function Editor() {
     setPlayTime(t0);
     let mixed: AudioBuffer | null = null;
     try {
-      mixed = await mixSoundtrack(project, tl, resources);
+      mixed = await mixSoundtrack(project, tl, resources, { onWarning: showToast });
     } catch (err) {
       showToast(`Playing without sound: ${errText(err)}`);
     }
@@ -525,7 +525,7 @@ export default function Editor() {
       setRefitting(false);
     }
   };
-  const keepMusicLength = () => update((d) => void (d.music?.ai && (d.music.ai.fittedSec = videoSec)));
+  const keepMusicLength = () => update((d) => void (d.music?.ai && (d.music = { ...d.music, ai: { ...d.music.ai, fittedSec: videoSec } })));
 
   const playVoice = () => {
     const v = scene.voice;

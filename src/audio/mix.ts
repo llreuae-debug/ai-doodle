@@ -1,9 +1,7 @@
-import { drawingIntervals } from '../engine/drawIntervals';
-import { elementStrokes } from '../engine/projectTiming';
 import type { Resources } from '../engine/resources';
 import type { Timeline } from '../engine/timeline';
 import type { Mood, Project, Scene } from '../model/types';
-import { decodeCustomSound, SAMPLE_RATE, scheduleDrawSound } from './drawSound';
+import { penBankFor, penPath, projectSeed, SAMPLE_RATE, schedulePen } from './penEngine';
 
 /** Music sits under narration: it ducks to this share of its volume while a voiceover plays. */
 export const DUCK = 0.25;
@@ -27,14 +25,17 @@ function decode(ctx: BaseAudioContext, blob: Blob): Promise<AudioBuffer> {
 
 export interface MixOptions {
   includeDrawSound?: boolean;
+  /** Called when something can't be included (e.g. the pen sound didn't load); the rest still plays. */
+  onWarning?: (message: string) => void;
 }
 
 /**
  * The whole soundtrack as one stereo buffer, used by both preview and MP4 export:
- * - Master limiter (DynamicsCompressorNode at -3 dB) to stop clipping
+ * - Master limiter (DynamicsCompressorNode at -1 dB) to stop clipping
  * - Background music bus (its volume set per slide by mood, ducked to 25% under each voiceover, faded out at the end)
  * - Voiceover bus at 100% from each slide start
- * - Pen sound bus (ducked to 40% under narration with 0.2 s ramps)
+ * - Pen sound bus: recorded pen samples driven by the hand's strokes (audio/penEngine.ts), ducked to
+ *   40% under narration with 0.2 s ramps when "Quieter during voiceover" is on
  * Returns null when there is nothing to hear.
  */
 export async function mixSoundtrack(
@@ -56,20 +57,18 @@ export async function mixSoundtrack(
     project.drawSound?.type !== 'none' &&
     (project.drawSound?.volume ?? 0) > 0;
 
-  const intervals = drawSoundEnabled
-    ? drawingIntervals(project, timeline, (el) => elementStrokes(el, project, resources))
-    : [];
+  const pen = drawSoundEnabled ? penPath(project, timeline, resources) : [];
 
-  if (!project.music && voices.length === 0 && intervals.length === 0) return null;
+  if (!project.music && voices.length === 0 && pen.length === 0) return null;
 
   const ctx = new OfflineAudioContext(2, Math.ceil(durationS * SAMPLE_RATE), SAMPLE_RATE);
 
   // Master limiter (DynamicsCompressor, threshold -3 dB) to stop clipping
   const limiter = ctx.createDynamicsCompressor();
-  limiter.threshold.setValueAtTime(-3, 0);
+  limiter.threshold.setValueAtTime(-1, 0);
   limiter.knee.setValueAtTime(6, 0);
   limiter.ratio.setValueAtTime(20, 0);
-  limiter.attack.setValueAtTime(0.003, 0);
+  limiter.attack.setValueAtTime(0.001, 0);
   limiter.release.setValueAtTime(0.1, 0);
   limiter.connect(ctx.destination);
 
@@ -136,7 +135,7 @@ export async function mixSoundtrack(
   }
 
   // Pen sound scheduling & voiceover ducking
-  if (intervals.length > 0) {
+  if (pen.length > 0) {
     // Toggle "Quieter during voiceover" (default on): pen sound drops to 40% of its volume while narration plays, with 0.2 s ramps
     const quietDuringVoice = project.drawSound?.quietDuringVoice !== false;
     if (quietDuringVoice && voices.length > 0) {
@@ -148,12 +147,20 @@ export async function mixSoundtrack(
       }
     }
 
-    let customBuffer: AudioBuffer | null = null;
-    if (project.drawSound?.type === 'custom' && project.drawSound?.customUrl) {
-      customBuffer = await decodeCustomSound(ctx, project.drawSound.customUrl);
+    try {
+      const bank = await penBankFor(project.drawSound, ctx);
+      if (bank) {
+        const first = pen[0].t0;
+        schedulePen(ctx, penSoundBus, pen, bank, {
+          volume: project.drawSound.volume ?? 0.35,
+          seed: projectSeed(project.id),
+          capOffAt: project.drawSound.capSound ? first - 0.45 : undefined,
+        });
+      }
+    } catch {
+      // The video still draws (and plays voice and music) without the pen sound.
+      options?.onWarning?.("Pen sound couldn't load");
     }
-
-    scheduleDrawSound(ctx, penSoundBus, intervals, project.drawSound, customBuffer);
   }
 
   return ctx.startRendering();

@@ -1,5 +1,13 @@
 import { spawn, spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import ffmpegStatic from 'ffmpeg-static';
 import { generateJson, type Part } from './gemini.ts';
+
+/**
+ * ffmpeg: FFMPEG_PATH if set, else the binary from ffmpeg-static (always there on Vercel), else the
+ * system's ffmpeg.
+ */
+export const FFMPEG = process.env.FFMPEG_PATH || (ffmpegStatic && fs.existsSync(ffmpegStatic) ? ffmpegStatic : 'ffmpeg');
 
 /** Gemini TTS audio: 24 kHz mono 16-bit little-endian PCM, as WAV or raw L16. */
 const PCM_RATE = 24_000;
@@ -55,7 +63,7 @@ let ffmpegChecked: boolean | null = null;
 export function hasFfmpeg(): boolean {
   if (ffmpegChecked === null) {
     try {
-      ffmpegChecked = spawnSync(process.env.FFMPEG_PATH || 'ffmpeg', ['-version'], { stdio: 'ignore' }).status === 0;
+      ffmpegChecked = spawnSync(FFMPEG, ['-version'], { stdio: 'ignore' }).status === 0;
     } catch {
       ffmpegChecked = false;
     }
@@ -66,7 +74,7 @@ export function hasFfmpeg(): boolean {
 /** Runs ffmpeg with stdin → stdout. */
 function ffmpeg(args: string[], input: Buffer): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    const p = spawn(process.env.FFMPEG_PATH || 'ffmpeg', ['-hide_banner', '-loglevel', 'error', ...args], { stdio: ['pipe', 'pipe', 'ignore'] });
+    const p = spawn(FFMPEG, ['-hide_banner', '-loglevel', 'error', ...args], { stdio: ['pipe', 'pipe', 'ignore'] });
     const out: Buffer[] = [];
     p.stdout.on('data', (b: Buffer) => out.push(b));
     p.on('error', reject);
