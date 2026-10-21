@@ -1,0 +1,2014 @@
+[
+ {
+  "id": "ch-man-kameez",
+  "cat": "characters",
+  "name": "Man – shalwar kameez",
+  "tags": [
+   "people",
+   "south asian",
+   "everyday"
+  ],
+  "file": "/library/characters/ch-man-kameez.json",
+  "thumb": "/library/characters/ch-man-kameez.svg",
+  "thumbColor": "/library/characters/ch-man-kameez.color.svg"
+ },
+ {
+  "id": "ch-woman-kameez",
+  "cat": "characters",
+  "name": "Woman – shalwar kameez",
+  "tags": [
+   "people",
+   "south asian",
+   "everyday"
+  ],
+  "file": "/library/characters/ch-woman-kameez.json",
+  "thumb": "/library/characters/ch-woman-kameez.svg",
+  "thumbColor": "/library/characters/ch-woman-kameez.color.svg"
+ },
+ {
+  "id": "ch-elder-topi",
+  "cat": "characters",
+  "name": "Elder with cane",
+  "tags": [
+   "people",
+   "south asian",
+   "family",
+   "faith"
+  ],
+  "file": "/library/characters/ch-elder-topi.json",
+  "thumb": "/library/characters/ch-elder-topi.svg",
+  "thumbColor": "/library/characters/ch-elder-topi.color.svg"
+ },
+ {
+  "id": "ch-teacher-hijab",
+  "cat": "characters",
+  "name": "Teacher with book",
+  "tags": [
+   "people",
+   "education",
+   "faith"
+  ],
+  "file": "/library/characters/ch-teacher-hijab.json",
+  "thumb": "/library/characters/ch-teacher-hijab.svg",
+  "thumbColor": "/library/characters/ch-teacher-hijab.color.svg"
+ },
+ {
+  "id": "ch-doctor",
+  "cat": "characters",
+  "name": "Doctor",
+  "tags": [
+   "people",
+   "health"
+  ],
+  "file": "/library/characters/ch-doctor.json",
+  "thumb": "/library/characters/ch-doctor.svg",
+  "thumbColor": "/library/characters/ch-doctor.color.svg"
+ },
+ {
+  "id": "ch-businessman",
+  "cat": "characters",
+  "name": "Businessman",
+  "tags": [
+   "people",
+   "business"
+  ],
+  "file": "/library/characters/ch-businessman.json",
+  "thumb": "/library/characters/ch-businessman.svg",
+  "thumbColor": "/library/characters/ch-businessman.color.svg"
+ },
+ {
+  "id": "ch-student",
+  "cat": "characters",
+  "name": "Student waving",
+  "tags": [
+   "people",
+   "education",
+   "kids"
+  ],
+  "file": "/library/characters/ch-student.json",
+  "thumb": "/library/characters/ch-student.svg",
+  "thumbColor": "/library/characters/ch-student.color.svg"
+ },
+ {
+  "id": "ch-girl",
+  "cat": "characters",
+  "name": "Girl in frock",
+  "tags": [
+   "people",
+   "kids",
+   "family"
+  ],
+  "file": "/library/characters/ch-girl.json",
+  "thumb": "/library/characters/ch-girl.svg",
+  "thumbColor": "/library/characters/ch-girl.color.svg"
+ },
+ {
+  "id": "ch-extra-1",
+  "cat": "characters",
+  "name": "Artist",
+  "tags": [
+   "people",
+   "character",
+   "artist"
+  ],
+  "file": "/library/characters/ch-extra-1.json",
+  "thumb": "/library/characters/ch-extra-1.svg",
+  "thumbColor": "/library/characters/ch-extra-1.color.svg"
+ },
+ {
+  "id": "ch-extra-2",
+  "cat": "characters",
+  "name": "Chef",
+  "tags": [
+   "people",
+   "character",
+   "chef"
+  ],
+  "file": "/library/characters/ch-extra-2.json",
+  "thumb": "/library/characters/ch-extra-2.svg",
+  "thumbColor": "/library/characters/ch-extra-2.color.svg"
+ },
+ {
+  "id": "ch-extra-3",
+  "cat": "characters",
+  "name": "Engineer",
+  "tags": [
+   "people",
+   "character",
+   "engineer"
+  ],
+  "file": "/library/characters/ch-extra-3.json",
+  "thumb": "/library/characters/ch-extra-3.svg",
+  "thumbColor": "/library/characters/ch-extra-3.color.svg"
+ },
+ {
+  "id": "ch-extra-4",
+  "cat": "characters",
+  "name": "Farmer",
+  "tags": [
+   "people",
+   "character",
+   "farmer"
+  ],
+  "file": "/library/characters/ch-extra-4.json",
+  "thumb": "/library/characters/ch-extra-4.svg",
+  "thumbColor": "/library/characters/ch-extra-4.color.svg"
+ },
+ {
+  "id": "ch-extra-5",
+  "cat": "characters",
+  "name": "Firefighter",
+  "tags": [
+   "people",
+   "character",
+   "firefighter"
+  ],
+  "file": "/library/characters/ch-extra-5.json",
+  "thumb": "/library/characters/ch-extra-5.svg",
+  "thumbColor": "/library/characters/ch-extra-5.color.svg"
+ },
+ {
+  "id": "ch-extra-6",
+  "cat": "characters",
+  "name": "Graduate",
+  "tags": [
+   "people",
+   "character",
+   "graduate"
+  ],
+  "file": "/library/characters/ch-extra-6.json",
+  "thumb": "/library/characters/ch-extra-6.svg",
+  "thumbColor": "/library/characters/ch-extra-6.color.svg"
+ },
+ {
+  "id": "ch-extra-7",
+  "cat": "characters",
+  "name": "Musician",
+  "tags": [
+   "people",
+   "character",
+   "musician"
+  ],
+  "file": "/library/characters/ch-extra-7.json",
+  "thumb": "/library/characters/ch-extra-7.svg",
+  "thumbColor": "/library/characters/ch-extra-7.color.svg"
+ },
+ {
+  "id": "ch-extra-8",
+  "cat": "characters",
+  "name": "Nurse",
+  "tags": [
+   "people",
+   "character",
+   "nurse"
+  ],
+  "file": "/library/characters/ch-extra-8.json",
+  "thumb": "/library/characters/ch-extra-8.svg",
+  "thumbColor": "/library/characters/ch-extra-8.color.svg"
+ },
+ {
+  "id": "ch-extra-9",
+  "cat": "characters",
+  "name": "Photographer",
+  "tags": [
+   "people",
+   "character",
+   "photographer"
+  ],
+  "file": "/library/characters/ch-extra-9.json",
+  "thumb": "/library/characters/ch-extra-9.svg",
+  "thumbColor": "/library/characters/ch-extra-9.color.svg"
+ },
+ {
+  "id": "ch-extra-10",
+  "cat": "characters",
+  "name": "Pilot",
+  "tags": [
+   "people",
+   "character",
+   "pilot"
+  ],
+  "file": "/library/characters/ch-extra-10.json",
+  "thumb": "/library/characters/ch-extra-10.svg",
+  "thumbColor": "/library/characters/ch-extra-10.color.svg"
+ },
+ {
+  "id": "ch-extra-11",
+  "cat": "characters",
+  "name": "Police officer",
+  "tags": [
+   "people",
+   "character",
+   "police officer"
+  ],
+  "file": "/library/characters/ch-extra-11.json",
+  "thumb": "/library/characters/ch-extra-11.svg",
+  "thumbColor": "/library/characters/ch-extra-11.color.svg"
+ },
+ {
+  "id": "ch-extra-12",
+  "cat": "characters",
+  "name": "Scientist",
+  "tags": [
+   "people",
+   "character",
+   "scientist"
+  ],
+  "file": "/library/characters/ch-extra-12.json",
+  "thumb": "/library/characters/ch-extra-12.svg",
+  "thumbColor": "/library/characters/ch-extra-12.color.svg"
+ },
+ {
+  "id": "ch-extra-13",
+  "cat": "characters",
+  "name": "Shopkeeper",
+  "tags": [
+   "people",
+   "character",
+   "shopkeeper"
+  ],
+  "file": "/library/characters/ch-extra-13.json",
+  "thumb": "/library/characters/ch-extra-13.svg",
+  "thumbColor": "/library/characters/ch-extra-13.color.svg"
+ },
+ {
+  "id": "ch-extra-14",
+  "cat": "characters",
+  "name": "Athlete",
+  "tags": [
+   "people",
+   "character",
+   "athlete"
+  ],
+  "file": "/library/characters/ch-extra-14.json",
+  "thumb": "/library/characters/ch-extra-14.svg",
+  "thumbColor": "/library/characters/ch-extra-14.color.svg"
+ },
+ {
+  "id": "ch-extra-15",
+  "cat": "characters",
+  "name": "Baker",
+  "tags": [
+   "people",
+   "character",
+   "baker"
+  ],
+  "file": "/library/characters/ch-extra-15.json",
+  "thumb": "/library/characters/ch-extra-15.svg",
+  "thumbColor": "/library/characters/ch-extra-15.color.svg"
+ },
+ {
+  "id": "ch-extra-16",
+  "cat": "characters",
+  "name": "Barista",
+  "tags": [
+   "people",
+   "character",
+   "barista"
+  ],
+  "file": "/library/characters/ch-extra-16.json",
+  "thumb": "/library/characters/ch-extra-16.svg",
+  "thumbColor": "/library/characters/ch-extra-16.color.svg"
+ },
+ {
+  "id": "ch-extra-17",
+  "cat": "characters",
+  "name": "Builder",
+  "tags": [
+   "people",
+   "character",
+   "builder"
+  ],
+  "file": "/library/characters/ch-extra-17.json",
+  "thumb": "/library/characters/ch-extra-17.svg",
+  "thumbColor": "/library/characters/ch-extra-17.color.svg"
+ },
+ {
+  "id": "ch-extra-18",
+  "cat": "characters",
+  "name": "Designer",
+  "tags": [
+   "people",
+   "character",
+   "designer"
+  ],
+  "file": "/library/characters/ch-extra-18.json",
+  "thumb": "/library/characters/ch-extra-18.svg",
+  "thumbColor": "/library/characters/ch-extra-18.color.svg"
+ },
+ {
+  "id": "ch-extra-19",
+  "cat": "characters",
+  "name": "Gardener",
+  "tags": [
+   "people",
+   "character",
+   "gardener"
+  ],
+  "file": "/library/characters/ch-extra-19.json",
+  "thumb": "/library/characters/ch-extra-19.svg",
+  "thumbColor": "/library/characters/ch-extra-19.color.svg"
+ },
+ {
+  "id": "ch-extra-20",
+  "cat": "characters",
+  "name": "Journalist",
+  "tags": [
+   "people",
+   "character",
+   "journalist"
+  ],
+  "file": "/library/characters/ch-extra-20.json",
+  "thumb": "/library/characters/ch-extra-20.svg",
+  "thumbColor": "/library/characters/ch-extra-20.color.svg"
+ },
+ {
+  "id": "ch-extra-21",
+  "cat": "characters",
+  "name": "Lawyer",
+  "tags": [
+   "people",
+   "character",
+   "lawyer"
+  ],
+  "file": "/library/characters/ch-extra-21.json",
+  "thumb": "/library/characters/ch-extra-21.svg",
+  "thumbColor": "/library/characters/ch-extra-21.color.svg"
+ },
+ {
+  "id": "ch-extra-22",
+  "cat": "characters",
+  "name": "Mechanic",
+  "tags": [
+   "people",
+   "character",
+   "mechanic"
+  ],
+  "file": "/library/characters/ch-extra-22.json",
+  "thumb": "/library/characters/ch-extra-22.svg",
+  "thumbColor": "/library/characters/ch-extra-22.color.svg"
+ },
+ {
+  "id": "ch-extra-23",
+  "cat": "characters",
+  "name": "Painter",
+  "tags": [
+   "people",
+   "character",
+   "painter"
+  ],
+  "file": "/library/characters/ch-extra-23.json",
+  "thumb": "/library/characters/ch-extra-23.svg",
+  "thumbColor": "/library/characters/ch-extra-23.color.svg"
+ },
+ {
+  "id": "ch-extra-24",
+  "cat": "characters",
+  "name": "Parent",
+  "tags": [
+   "people",
+   "character",
+   "parent"
+  ],
+  "file": "/library/characters/ch-extra-24.json",
+  "thumb": "/library/characters/ch-extra-24.svg",
+  "thumbColor": "/library/characters/ch-extra-24.color.svg"
+ },
+ {
+  "id": "ch-extra-25",
+  "cat": "characters",
+  "name": "Programmer",
+  "tags": [
+   "people",
+   "character",
+   "programmer"
+  ],
+  "file": "/library/characters/ch-extra-25.json",
+  "thumb": "/library/characters/ch-extra-25.svg",
+  "thumbColor": "/library/characters/ch-extra-25.color.svg"
+ },
+ {
+  "id": "ch-extra-26",
+  "cat": "characters",
+  "name": "Receptionist",
+  "tags": [
+   "people",
+   "character",
+   "receptionist"
+  ],
+  "file": "/library/characters/ch-extra-26.json",
+  "thumb": "/library/characters/ch-extra-26.svg",
+  "thumbColor": "/library/characters/ch-extra-26.color.svg"
+ },
+ {
+  "id": "ch-extra-27",
+  "cat": "characters",
+  "name": "Researcher",
+  "tags": [
+   "people",
+   "character",
+   "researcher"
+  ],
+  "file": "/library/characters/ch-extra-27.json",
+  "thumb": "/library/characters/ch-extra-27.svg",
+  "thumbColor": "/library/characters/ch-extra-27.color.svg"
+ },
+ {
+  "id": "ch-extra-28",
+  "cat": "characters",
+  "name": "Runner",
+  "tags": [
+   "people",
+   "character",
+   "runner"
+  ],
+  "file": "/library/characters/ch-extra-28.json",
+  "thumb": "/library/characters/ch-extra-28.svg",
+  "thumbColor": "/library/characters/ch-extra-28.color.svg"
+ },
+ {
+  "id": "ch-extra-29",
+  "cat": "characters",
+  "name": "Singer",
+  "tags": [
+   "people",
+   "character",
+   "singer"
+  ],
+  "file": "/library/characters/ch-extra-29.json",
+  "thumb": "/library/characters/ch-extra-29.svg",
+  "thumbColor": "/library/characters/ch-extra-29.color.svg"
+ },
+ {
+  "id": "ch-extra-30",
+  "cat": "characters",
+  "name": "Speaker",
+  "tags": [
+   "people",
+   "character",
+   "speaker"
+  ],
+  "file": "/library/characters/ch-extra-30.json",
+  "thumb": "/library/characters/ch-extra-30.svg",
+  "thumbColor": "/library/characters/ch-extra-30.color.svg"
+ },
+ {
+  "id": "ch-extra-31",
+  "cat": "characters",
+  "name": "Traveler",
+  "tags": [
+   "people",
+   "character",
+   "traveler"
+  ],
+  "file": "/library/characters/ch-extra-31.json",
+  "thumb": "/library/characters/ch-extra-31.svg",
+  "thumbColor": "/library/characters/ch-extra-31.color.svg"
+ },
+ {
+  "id": "ch-extra-32",
+  "cat": "characters",
+  "name": "Volunteer",
+  "tags": [
+   "people",
+   "character",
+   "volunteer"
+  ],
+  "file": "/library/characters/ch-extra-32.json",
+  "thumb": "/library/characters/ch-extra-32.svg",
+  "thumbColor": "/library/characters/ch-extra-32.color.svg"
+ },
+ {
+  "id": "ch-extra-33",
+  "cat": "characters",
+  "name": "Writer",
+  "tags": [
+   "people",
+   "character",
+   "writer"
+  ],
+  "file": "/library/characters/ch-extra-33.json",
+  "thumb": "/library/characters/ch-extra-33.svg",
+  "thumbColor": "/library/characters/ch-extra-33.color.svg"
+ },
+ {
+  "id": "ch-extra-34",
+  "cat": "characters",
+  "name": "Yoga teacher",
+  "tags": [
+   "people",
+   "character",
+   "yoga teacher"
+  ],
+  "file": "/library/characters/ch-extra-34.json",
+  "thumb": "/library/characters/ch-extra-34.svg",
+  "thumbColor": "/library/characters/ch-extra-34.color.svg"
+ },
+ {
+  "id": "ch-extra-35",
+  "cat": "characters",
+  "name": "Delivery rider",
+  "tags": [
+   "people",
+   "character",
+   "delivery rider"
+  ],
+  "file": "/library/characters/ch-extra-35.json",
+  "thumb": "/library/characters/ch-extra-35.svg",
+  "thumbColor": "/library/characters/ch-extra-35.color.svg"
+ },
+ {
+  "id": "ch-extra-36",
+  "cat": "characters",
+  "name": "Entrepreneur",
+  "tags": [
+   "people",
+   "character",
+   "entrepreneur"
+  ],
+  "file": "/library/characters/ch-extra-36.json",
+  "thumb": "/library/characters/ch-extra-36.svg",
+  "thumbColor": "/library/characters/ch-extra-36.color.svg"
+ },
+ {
+  "id": "ch-extra-37",
+  "cat": "characters",
+  "name": "Librarian",
+  "tags": [
+   "people",
+   "character",
+   "librarian"
+  ],
+  "file": "/library/characters/ch-extra-37.json",
+  "thumb": "/library/characters/ch-extra-37.svg",
+  "thumbColor": "/library/characters/ch-extra-37.color.svg"
+ },
+ {
+  "id": "fa-happy",
+  "cat": "faces",
+  "name": "Happy face",
+  "tags": [
+   "faces",
+   "emotion",
+   "happy",
+   "smile"
+  ],
+  "file": "/library/faces/fa-happy.json",
+  "thumb": "/library/faces/fa-happy.svg",
+  "thumbColor": "/library/faces/fa-happy.color.svg"
+ },
+ {
+  "id": "fa-sad",
+  "cat": "faces",
+  "name": "Sad face",
+  "tags": [
+   "faces",
+   "emotion",
+   "sad",
+   "upset"
+  ],
+  "file": "/library/faces/fa-sad.json",
+  "thumb": "/library/faces/fa-sad.svg",
+  "thumbColor": "/library/faces/fa-sad.color.svg"
+ },
+ {
+  "id": "fa-surprised",
+  "cat": "faces",
+  "name": "Surprised face",
+  "tags": [
+   "faces",
+   "emotion",
+   "surprised",
+   "wow",
+   "shock"
+  ],
+  "file": "/library/faces/fa-surprised.json",
+  "thumb": "/library/faces/fa-surprised.svg",
+  "thumbColor": "/library/faces/fa-surprised.color.svg"
+ },
+ {
+  "id": "fa-thinking",
+  "cat": "faces",
+  "name": "Thinking face",
+  "tags": [
+   "faces",
+   "emotion",
+   "thinking",
+   "idea",
+   "question"
+  ],
+  "file": "/library/faces/fa-thinking.json",
+  "thumb": "/library/faces/fa-thinking.svg",
+  "thumbColor": "/library/faces/fa-thinking.color.svg"
+ },
+ {
+  "id": "fa-wink",
+  "cat": "faces",
+  "name": "Winking face",
+  "tags": [
+   "faces",
+   "emotion",
+   "wink",
+   "playful",
+   "fun"
+  ],
+  "file": "/library/faces/fa-wink.json",
+  "thumb": "/library/faces/fa-wink.svg",
+  "thumbColor": "/library/faces/fa-wink.color.svg"
+ },
+ {
+  "id": "bz-bar-chart",
+  "cat": "business",
+  "name": "Rising bar chart",
+  "tags": [
+   "business",
+   "growth",
+   "chart",
+   "money"
+  ],
+  "file": "/library/business/bz-bar-chart.json",
+  "thumb": "/library/business/bz-bar-chart.svg",
+  "thumbColor": "/library/business/bz-bar-chart.color.svg"
+ },
+ {
+  "id": "bz-briefcase",
+  "cat": "business",
+  "name": "Briefcase",
+  "tags": [
+   "business",
+   "work",
+   "office",
+   "job"
+  ],
+  "file": "/library/business/bz-briefcase.json",
+  "thumb": "/library/business/bz-briefcase.svg",
+  "thumbColor": "/library/business/bz-briefcase.color.svg"
+ },
+ {
+  "id": "bz-coins",
+  "cat": "business",
+  "name": "Stacks of coins",
+  "tags": [
+   "business",
+   "money",
+   "savings",
+   "finance"
+  ],
+  "file": "/library/business/bz-coins.json",
+  "thumb": "/library/business/bz-coins.svg",
+  "thumbColor": "/library/business/bz-coins.color.svg"
+ },
+ {
+  "id": "bz-target",
+  "cat": "business",
+  "name": "Target and arrow",
+  "tags": [
+   "business",
+   "goal",
+   "aim",
+   "strategy"
+  ],
+  "file": "/library/business/bz-target.json",
+  "thumb": "/library/business/bz-target.svg",
+  "thumbColor": "/library/business/bz-target.color.svg"
+ },
+ {
+  "id": "bz-pie-chart",
+  "cat": "business",
+  "name": "Pie chart",
+  "tags": [
+   "business",
+   "chart",
+   "report",
+   "data"
+  ],
+  "file": "/library/business/bz-pie-chart.json",
+  "thumb": "/library/business/bz-pie-chart.svg",
+  "thumbColor": "/library/business/bz-pie-chart.color.svg"
+ },
+ {
+  "id": "bz-extra-1",
+  "cat": "business",
+  "name": "Calendar",
+  "tags": [
+   "business",
+   "office",
+   "calendar"
+  ],
+  "file": "/library/business/bz-extra-1.json",
+  "thumb": "/library/business/bz-extra-1.svg",
+  "thumbColor": "/library/business/bz-extra-1.color.svg"
+ },
+ {
+  "id": "bz-extra-2",
+  "cat": "business",
+  "name": "Clipboard",
+  "tags": [
+   "business",
+   "office",
+   "clipboard"
+  ],
+  "file": "/library/business/bz-extra-2.json",
+  "thumb": "/library/business/bz-extra-2.svg",
+  "thumbColor": "/library/business/bz-extra-2.color.svg"
+ },
+ {
+  "id": "bz-extra-3",
+  "cat": "business",
+  "name": "Calculator",
+  "tags": [
+   "business",
+   "office",
+   "calculator"
+  ],
+  "file": "/library/business/bz-extra-3.json",
+  "thumb": "/library/business/bz-extra-3.svg",
+  "thumbColor": "/library/business/bz-extra-3.color.svg"
+ },
+ {
+  "id": "bz-extra-4",
+  "cat": "business",
+  "name": "Clock",
+  "tags": [
+   "business",
+   "office",
+   "clock"
+  ],
+  "file": "/library/business/bz-extra-4.json",
+  "thumb": "/library/business/bz-extra-4.svg",
+  "thumbColor": "/library/business/bz-extra-4.color.svg"
+ },
+ {
+  "id": "bz-extra-5",
+  "cat": "business",
+  "name": "Light bulb",
+  "tags": [
+   "business",
+   "office",
+   "light bulb"
+  ],
+  "file": "/library/business/bz-extra-5.json",
+  "thumb": "/library/business/bz-extra-5.svg",
+  "thumbColor": "/library/business/bz-extra-5.color.svg"
+ },
+ {
+  "id": "re-house",
+  "cat": "realestate",
+  "name": "House",
+  "tags": [
+   "real estate",
+   "buildings",
+   "home",
+   "property"
+  ],
+  "file": "/library/realestate/re-house.json",
+  "thumb": "/library/realestate/re-house.svg",
+  "thumbColor": "/library/realestate/re-house.color.svg"
+ },
+ {
+  "id": "re-apartment",
+  "cat": "realestate",
+  "name": "Apartment block",
+  "tags": [
+   "real estate",
+   "buildings",
+   "flats",
+   "city",
+   "property"
+  ],
+  "file": "/library/realestate/re-apartment.json",
+  "thumb": "/library/realestate/re-apartment.svg",
+  "thumbColor": "/library/realestate/re-apartment.color.svg"
+ },
+ {
+  "id": "re-key",
+  "cat": "realestate",
+  "name": "House key",
+  "tags": [
+   "real estate",
+   "buildings",
+   "keys",
+   "home",
+   "sale"
+  ],
+  "file": "/library/realestate/re-key.json",
+  "thumb": "/library/realestate/re-key.svg",
+  "thumbColor": "/library/realestate/re-key.color.svg"
+ },
+ {
+  "id": "re-sale-sign",
+  "cat": "realestate",
+  "name": "Sale sign",
+  "tags": [
+   "real estate",
+   "buildings",
+   "for sale",
+   "property",
+   "sign"
+  ],
+  "file": "/library/realestate/re-sale-sign.json",
+  "thumb": "/library/realestate/re-sale-sign.svg",
+  "thumbColor": "/library/realestate/re-sale-sign.color.svg"
+ },
+ {
+  "id": "re-front-door",
+  "cat": "realestate",
+  "name": "Front door",
+  "tags": [
+   "real estate",
+   "buildings",
+   "home",
+   "welcome",
+   "entrance"
+  ],
+  "file": "/library/realestate/re-front-door.json",
+  "thumb": "/library/realestate/re-front-door.svg",
+  "thumbColor": "/library/realestate/re-front-door.color.svg"
+ },
+ {
+  "id": "ed-open-book",
+  "cat": "education",
+  "name": "Open book",
+  "tags": [
+   "education",
+   "reading",
+   "study",
+   "school"
+  ],
+  "file": "/library/education/ed-open-book.json",
+  "thumb": "/library/education/ed-open-book.svg",
+  "thumbColor": "/library/education/ed-open-book.color.svg"
+ },
+ {
+  "id": "ed-grad-cap",
+  "cat": "education",
+  "name": "Graduation cap",
+  "tags": [
+   "education",
+   "graduation",
+   "university",
+   "success"
+  ],
+  "file": "/library/education/ed-grad-cap.json",
+  "thumb": "/library/education/ed-grad-cap.svg",
+  "thumbColor": "/library/education/ed-grad-cap.color.svg"
+ },
+ {
+  "id": "ed-pencil",
+  "cat": "education",
+  "name": "Pencil",
+  "tags": [
+   "education",
+   "writing",
+   "school",
+   "draw"
+  ],
+  "file": "/library/education/ed-pencil.json",
+  "thumb": "/library/education/ed-pencil.svg",
+  "thumbColor": "/library/education/ed-pencil.color.svg"
+ },
+ {
+  "id": "ed-globe",
+  "cat": "education",
+  "name": "Globe",
+  "tags": [
+   "education",
+   "geography",
+   "world",
+   "school"
+  ],
+  "file": "/library/education/ed-globe.json",
+  "thumb": "/library/education/ed-globe.svg",
+  "thumbColor": "/library/education/ed-globe.color.svg"
+ },
+ {
+  "id": "ed-backpack",
+  "cat": "education",
+  "name": "School bag",
+  "tags": [
+   "education",
+   "school",
+   "kids",
+   "study"
+  ],
+  "file": "/library/education/ed-backpack.json",
+  "thumb": "/library/education/ed-backpack.svg",
+  "thumbColor": "/library/education/ed-backpack.color.svg"
+ },
+ {
+  "id": "fh-mosque",
+  "cat": "faith",
+  "name": "Mosque",
+  "tags": [
+   "faith",
+   "mosque",
+   "islam",
+   "building"
+  ],
+  "file": "/library/faith/fh-mosque.json",
+  "thumb": "/library/faith/fh-mosque.svg",
+  "thumbColor": "/library/faith/fh-mosque.color.svg"
+ },
+ {
+  "id": "fh-prayer-mat",
+  "cat": "faith",
+  "name": "Prayer mat",
+  "tags": [
+   "faith",
+   "prayer",
+   "islam",
+   "mat"
+  ],
+  "file": "/library/faith/fh-prayer-mat.json",
+  "thumb": "/library/faith/fh-prayer-mat.svg",
+  "thumbColor": "/library/faith/fh-prayer-mat.color.svg"
+ },
+ {
+  "id": "fh-crescent-star",
+  "cat": "faith",
+  "name": "Crescent and star",
+  "tags": [
+   "faith",
+   "moon",
+   "ramadan",
+   "eid",
+   "night"
+  ],
+  "file": "/library/faith/fh-crescent-star.json",
+  "thumb": "/library/faith/fh-crescent-star.svg",
+  "thumbColor": "/library/faith/fh-crescent-star.color.svg"
+ },
+ {
+  "id": "fh-lantern",
+  "cat": "faith",
+  "name": "Lantern",
+  "tags": [
+   "faith",
+   "ramadan",
+   "eid",
+   "light"
+  ],
+  "file": "/library/faith/fh-lantern.json",
+  "thumb": "/library/faith/fh-lantern.svg",
+  "thumbColor": "/library/faith/fh-lantern.color.svg"
+ },
+ {
+  "id": "fh-prayer-beads",
+  "cat": "faith",
+  "name": "Prayer beads",
+  "tags": [
+   "faith",
+   "prayer",
+   "tasbih",
+   "dhikr"
+  ],
+  "file": "/library/faith/fh-prayer-beads.json",
+  "thumb": "/library/faith/fh-prayer-beads.svg",
+  "thumbColor": "/library/faith/fh-prayer-beads.color.svg"
+ },
+ {
+  "id": "te-laptop",
+  "cat": "tech",
+  "name": "Laptop",
+  "tags": [
+   "tech",
+   "computer",
+   "work",
+   "online"
+  ],
+  "file": "/library/tech/te-laptop.json",
+  "thumb": "/library/tech/te-laptop.svg",
+  "thumbColor": "/library/tech/te-laptop.color.svg"
+ },
+ {
+  "id": "te-smartphone",
+  "cat": "tech",
+  "name": "Smartphone",
+  "tags": [
+   "tech",
+   "mobile",
+   "app",
+   "phone"
+  ],
+  "file": "/library/tech/te-smartphone.json",
+  "thumb": "/library/tech/te-smartphone.svg",
+  "thumbColor": "/library/tech/te-smartphone.color.svg"
+ },
+ {
+  "id": "te-cloud",
+  "cat": "tech",
+  "name": "Cloud storage",
+  "tags": [
+   "tech",
+   "cloud",
+   "upload",
+   "data"
+  ],
+  "file": "/library/tech/te-cloud.json",
+  "thumb": "/library/tech/te-cloud.svg",
+  "thumbColor": "/library/tech/te-cloud.color.svg"
+ },
+ {
+  "id": "te-gears",
+  "cat": "tech",
+  "name": "Gears",
+  "tags": [
+   "tech",
+   "settings",
+   "process",
+   "engineering"
+  ],
+  "file": "/library/tech/te-gears.json",
+  "thumb": "/library/tech/te-gears.svg",
+  "thumbColor": "/library/tech/te-gears.color.svg"
+ },
+ {
+  "id": "te-robot",
+  "cat": "tech",
+  "name": "Robot",
+  "tags": [
+   "tech",
+   "ai",
+   "automation",
+   "bot"
+  ],
+  "file": "/library/tech/te-robot.json",
+  "thumb": "/library/tech/te-robot.svg",
+  "thumbColor": "/library/tech/te-robot.color.svg"
+ },
+ {
+  "id": "he-heart-pulse",
+  "cat": "health",
+  "name": "Heartbeat",
+  "tags": [
+   "health",
+   "heart",
+   "cardio",
+   "care"
+  ],
+  "file": "/library/health/he-heart-pulse.json",
+  "thumb": "/library/health/he-heart-pulse.svg",
+  "thumbColor": "/library/health/he-heart-pulse.color.svg"
+ },
+ {
+  "id": "he-pills",
+  "cat": "health",
+  "name": "Medicine",
+  "tags": [
+   "health",
+   "pills",
+   "medicine",
+   "pharmacy"
+  ],
+  "file": "/library/health/he-pills.json",
+  "thumb": "/library/health/he-pills.svg",
+  "thumbColor": "/library/health/he-pills.color.svg"
+ },
+ {
+  "id": "he-first-aid",
+  "cat": "health",
+  "name": "First aid kit",
+  "tags": [
+   "health",
+   "first aid",
+   "emergency",
+   "care"
+  ],
+  "file": "/library/health/he-first-aid.json",
+  "thumb": "/library/health/he-first-aid.svg",
+  "thumbColor": "/library/health/he-first-aid.color.svg"
+ },
+ {
+  "id": "he-stethoscope",
+  "cat": "health",
+  "name": "Stethoscope",
+  "tags": [
+   "health",
+   "doctor",
+   "checkup",
+   "clinic"
+  ],
+  "file": "/library/health/he-stethoscope.json",
+  "thumb": "/library/health/he-stethoscope.svg",
+  "thumbColor": "/library/health/he-stethoscope.color.svg"
+ },
+ {
+  "id": "he-tooth",
+  "cat": "health",
+  "name": "Healthy tooth",
+  "tags": [
+   "health",
+   "dental",
+   "teeth",
+   "hygiene"
+  ],
+  "file": "/library/health/he-tooth.json",
+  "thumb": "/library/health/he-tooth.svg",
+  "thumbColor": "/library/health/he-tooth.color.svg"
+ },
+ {
+  "id": "fo-chai",
+  "cat": "food",
+  "name": "Cup of chai",
+  "tags": [
+   "food",
+   "tea",
+   "chai",
+   "drink"
+  ],
+  "file": "/library/food/fo-chai.json",
+  "thumb": "/library/food/fo-chai.svg",
+  "thumbColor": "/library/food/fo-chai.color.svg"
+ },
+ {
+  "id": "fo-apple",
+  "cat": "food",
+  "name": "Apple",
+  "tags": [
+   "food",
+   "fruit",
+   "healthy",
+   "snack"
+  ],
+  "file": "/library/food/fo-apple.json",
+  "thumb": "/library/food/fo-apple.svg",
+  "thumbColor": "/library/food/fo-apple.color.svg"
+ },
+ {
+  "id": "fo-pizza",
+  "cat": "food",
+  "name": "Pizza slice",
+  "tags": [
+   "food",
+   "pizza",
+   "fast food",
+   "party"
+  ],
+  "file": "/library/food/fo-pizza.json",
+  "thumb": "/library/food/fo-pizza.svg",
+  "thumbColor": "/library/food/fo-pizza.color.svg"
+ },
+ {
+  "id": "fo-rice-bowl",
+  "cat": "food",
+  "name": "Bowl of rice",
+  "tags": [
+   "food",
+   "rice",
+   "biryani",
+   "meal"
+  ],
+  "file": "/library/food/fo-rice-bowl.json",
+  "thumb": "/library/food/fo-rice-bowl.svg",
+  "thumbColor": "/library/food/fo-rice-bowl.color.svg"
+ },
+ {
+  "id": "fo-carrot",
+  "cat": "food",
+  "name": "Carrot",
+  "tags": [
+   "food",
+   "vegetable",
+   "healthy",
+   "garden"
+  ],
+  "file": "/library/food/fo-carrot.json",
+  "thumb": "/library/food/fo-carrot.svg",
+  "thumbColor": "/library/food/fo-carrot.color.svg"
+ },
+ {
+  "id": "na-tree",
+  "cat": "nature",
+  "name": "Tree",
+  "tags": [
+   "nature",
+   "tree",
+   "environment",
+   "growth"
+  ],
+  "file": "/library/nature/na-tree.json",
+  "thumb": "/library/nature/na-tree.svg",
+  "thumbColor": "/library/nature/na-tree.color.svg"
+ },
+ {
+  "id": "na-sun",
+  "cat": "nature",
+  "name": "Sun",
+  "tags": [
+   "nature",
+   "sun",
+   "summer",
+   "weather"
+  ],
+  "file": "/library/nature/na-sun.json",
+  "thumb": "/library/nature/na-sun.svg",
+  "thumbColor": "/library/nature/na-sun.color.svg"
+ },
+ {
+  "id": "na-storm",
+  "cat": "nature",
+  "name": "Rain cloud",
+  "tags": [
+   "nature",
+   "rain",
+   "weather",
+   "storm"
+  ],
+  "file": "/library/nature/na-storm.json",
+  "thumb": "/library/nature/na-storm.svg",
+  "thumbColor": "/library/nature/na-storm.color.svg"
+ },
+ {
+  "id": "na-flower",
+  "cat": "nature",
+  "name": "Flower",
+  "tags": [
+   "nature",
+   "flower",
+   "spring",
+   "garden"
+  ],
+  "file": "/library/nature/na-flower.json",
+  "thumb": "/library/nature/na-flower.svg",
+  "thumbColor": "/library/nature/na-flower.color.svg"
+ },
+ {
+  "id": "na-mountains",
+  "cat": "nature",
+  "name": "Mountains",
+  "tags": [
+   "nature",
+   "mountains",
+   "travel",
+   "landscape"
+  ],
+  "file": "/library/nature/na-mountains.json",
+  "thumb": "/library/nature/na-mountains.svg",
+  "thumbColor": "/library/nature/na-mountains.color.svg"
+ },
+ {
+  "id": "tr-car",
+  "cat": "transport",
+  "name": "Car",
+  "tags": [
+   "transport",
+   "car",
+   "drive",
+   "road"
+  ],
+  "file": "/library/transport/tr-car.json",
+  "thumb": "/library/transport/tr-car.svg",
+  "thumbColor": "/library/transport/tr-car.color.svg"
+ },
+ {
+  "id": "tr-bicycle",
+  "cat": "transport",
+  "name": "Bicycle",
+  "tags": [
+   "transport",
+   "bike",
+   "cycling",
+   "fitness"
+  ],
+  "file": "/library/transport/tr-bicycle.json",
+  "thumb": "/library/transport/tr-bicycle.svg",
+  "thumbColor": "/library/transport/tr-bicycle.color.svg"
+ },
+ {
+  "id": "tr-bus",
+  "cat": "transport",
+  "name": "Bus",
+  "tags": [
+   "transport",
+   "bus",
+   "school bus",
+   "city"
+  ],
+  "file": "/library/transport/tr-bus.json",
+  "thumb": "/library/transport/tr-bus.svg",
+  "thumbColor": "/library/transport/tr-bus.color.svg"
+ },
+ {
+  "id": "tr-airplane",
+  "cat": "transport",
+  "name": "Airplane",
+  "tags": [
+   "transport",
+   "plane",
+   "travel",
+   "flight"
+  ],
+  "file": "/library/transport/tr-airplane.json",
+  "thumb": "/library/transport/tr-airplane.svg",
+  "thumbColor": "/library/transport/tr-airplane.color.svg"
+ },
+ {
+  "id": "tr-rickshaw",
+  "cat": "transport",
+  "name": "Auto rickshaw",
+  "tags": [
+   "transport",
+   "rickshaw",
+   "south asian",
+   "city"
+  ],
+  "file": "/library/transport/tr-rickshaw.json",
+  "thumb": "/library/transport/tr-rickshaw.svg",
+  "thumbColor": "/library/transport/tr-rickshaw.color.svg"
+ },
+ {
+  "id": "sh-extra-1",
+  "cat": "shapes",
+  "name": "Circle label",
+  "tags": [
+   "shapes",
+   "callout",
+   "circle label"
+  ],
+  "file": "/library/shapes/sh-extra-1.json",
+  "thumb": "/library/shapes/sh-extra-1.svg",
+  "thumbColor": "/library/shapes/sh-extra-1.color.svg"
+ },
+ {
+  "id": "sh-extra-2",
+  "cat": "shapes",
+  "name": "Oval label",
+  "tags": [
+   "shapes",
+   "callout",
+   "oval label"
+  ],
+  "file": "/library/shapes/sh-extra-2.json",
+  "thumb": "/library/shapes/sh-extra-2.svg",
+  "thumbColor": "/library/shapes/sh-extra-2.color.svg"
+ },
+ {
+  "id": "sh-extra-3",
+  "cat": "shapes",
+  "name": "Diamond badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "diamond badge"
+  ],
+  "file": "/library/shapes/sh-extra-3.json",
+  "thumb": "/library/shapes/sh-extra-3.svg",
+  "thumbColor": "/library/shapes/sh-extra-3.color.svg"
+ },
+ {
+  "id": "sh-extra-4",
+  "cat": "shapes",
+  "name": "Hexagon badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "hexagon badge"
+  ],
+  "file": "/library/shapes/sh-extra-4.json",
+  "thumb": "/library/shapes/sh-extra-4.svg",
+  "thumbColor": "/library/shapes/sh-extra-4.color.svg"
+ },
+ {
+  "id": "sh-extra-5",
+  "cat": "shapes",
+  "name": "Heart badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "heart badge"
+  ],
+  "file": "/library/shapes/sh-extra-5.json",
+  "thumb": "/library/shapes/sh-extra-5.svg",
+  "thumbColor": "/library/shapes/sh-extra-5.color.svg"
+ },
+ {
+  "id": "sh-extra-6",
+  "cat": "shapes",
+  "name": "Cloud label",
+  "tags": [
+   "shapes",
+   "callout",
+   "cloud label"
+  ],
+  "file": "/library/shapes/sh-extra-6.json",
+  "thumb": "/library/shapes/sh-extra-6.svg",
+  "thumbColor": "/library/shapes/sh-extra-6.color.svg"
+ },
+ {
+  "id": "sh-extra-7",
+  "cat": "shapes",
+  "name": "Sparkle badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "sparkle badge"
+  ],
+  "file": "/library/shapes/sh-extra-7.json",
+  "thumb": "/library/shapes/sh-extra-7.svg",
+  "thumbColor": "/library/shapes/sh-extra-7.color.svg"
+ },
+ {
+  "id": "sh-extra-8",
+  "cat": "shapes",
+  "name": "Sun badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "sun badge"
+  ],
+  "file": "/library/shapes/sh-extra-8.json",
+  "thumb": "/library/shapes/sh-extra-8.svg",
+  "thumbColor": "/library/shapes/sh-extra-8.color.svg"
+ },
+ {
+  "id": "sh-extra-9",
+  "cat": "shapes",
+  "name": "Seal badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "seal badge"
+  ],
+  "file": "/library/shapes/sh-extra-9.json",
+  "thumb": "/library/shapes/sh-extra-9.svg",
+  "thumbColor": "/library/shapes/sh-extra-9.color.svg"
+ },
+ {
+  "id": "sh-extra-10",
+  "cat": "shapes",
+  "name": "Ticket badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "ticket badge"
+  ],
+  "file": "/library/shapes/sh-extra-10.json",
+  "thumb": "/library/shapes/sh-extra-10.svg",
+  "thumbColor": "/library/shapes/sh-extra-10.color.svg"
+ },
+ {
+  "id": "sh-extra-11",
+  "cat": "shapes",
+  "name": "Price tag",
+  "tags": [
+   "shapes",
+   "callout",
+   "price tag"
+  ],
+  "file": "/library/shapes/sh-extra-11.json",
+  "thumb": "/library/shapes/sh-extra-11.svg",
+  "thumbColor": "/library/shapes/sh-extra-11.color.svg"
+ },
+ {
+  "id": "sh-extra-12",
+  "cat": "shapes",
+  "name": "Bookmark",
+  "tags": [
+   "shapes",
+   "callout",
+   "bookmark"
+  ],
+  "file": "/library/shapes/sh-extra-12.json",
+  "thumb": "/library/shapes/sh-extra-12.svg",
+  "thumbColor": "/library/shapes/sh-extra-12.color.svg"
+ },
+ {
+  "id": "sh-extra-13",
+  "cat": "shapes",
+  "name": "Map pin",
+  "tags": [
+   "shapes",
+   "callout",
+   "map pin"
+  ],
+  "file": "/library/shapes/sh-extra-13.json",
+  "thumb": "/library/shapes/sh-extra-13.svg",
+  "thumbColor": "/library/shapes/sh-extra-13.color.svg"
+ },
+ {
+  "id": "sh-extra-14",
+  "cat": "shapes",
+  "name": "Flag marker",
+  "tags": [
+   "shapes",
+   "callout",
+   "flag marker"
+  ],
+  "file": "/library/shapes/sh-extra-14.json",
+  "thumb": "/library/shapes/sh-extra-14.svg",
+  "thumbColor": "/library/shapes/sh-extra-14.color.svg"
+ },
+ {
+  "id": "sh-extra-15",
+  "cat": "shapes",
+  "name": "Shield badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "shield badge"
+  ],
+  "file": "/library/shapes/sh-extra-15.json",
+  "thumb": "/library/shapes/sh-extra-15.svg",
+  "thumbColor": "/library/shapes/sh-extra-15.color.svg"
+ },
+ {
+  "id": "sh-extra-16",
+  "cat": "shapes",
+  "name": "Round callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "round callout"
+  ],
+  "file": "/library/shapes/sh-extra-16.json",
+  "thumb": "/library/shapes/sh-extra-16.svg",
+  "thumbColor": "/library/shapes/sh-extra-16.color.svg"
+ },
+ {
+  "id": "sh-extra-17",
+  "cat": "shapes",
+  "name": "Square callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "square callout"
+  ],
+  "file": "/library/shapes/sh-extra-17.json",
+  "thumb": "/library/shapes/sh-extra-17.svg",
+  "thumbColor": "/library/shapes/sh-extra-17.color.svg"
+ },
+ {
+  "id": "sh-extra-18",
+  "cat": "shapes",
+  "name": "Note callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "note callout"
+  ],
+  "file": "/library/shapes/sh-extra-18.json",
+  "thumb": "/library/shapes/sh-extra-18.svg",
+  "thumbColor": "/library/shapes/sh-extra-18.color.svg"
+ },
+ {
+  "id": "sh-extra-19",
+  "cat": "shapes",
+  "name": "Quote callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "quote callout"
+  ],
+  "file": "/library/shapes/sh-extra-19.json",
+  "thumb": "/library/shapes/sh-extra-19.svg",
+  "thumbColor": "/library/shapes/sh-extra-19.color.svg"
+ },
+ {
+  "id": "sh-extra-20",
+  "cat": "shapes",
+  "name": "Chat bubble",
+  "tags": [
+   "shapes",
+   "callout",
+   "chat bubble"
+  ],
+  "file": "/library/shapes/sh-extra-20.json",
+  "thumb": "/library/shapes/sh-extra-20.svg",
+  "thumbColor": "/library/shapes/sh-extra-20.color.svg"
+ },
+ {
+  "id": "sh-extra-21",
+  "cat": "shapes",
+  "name": "Idea bubble",
+  "tags": [
+   "shapes",
+   "callout",
+   "idea bubble"
+  ],
+  "file": "/library/shapes/sh-extra-21.json",
+  "thumb": "/library/shapes/sh-extra-21.svg",
+  "thumbColor": "/library/shapes/sh-extra-21.color.svg"
+ },
+ {
+  "id": "sh-extra-22",
+  "cat": "shapes",
+  "name": "Warning callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "warning callout"
+  ],
+  "file": "/library/shapes/sh-extra-22.json",
+  "thumb": "/library/shapes/sh-extra-22.svg",
+  "thumbColor": "/library/shapes/sh-extra-22.color.svg"
+ },
+ {
+  "id": "sh-extra-23",
+  "cat": "shapes",
+  "name": "Info callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "info callout"
+  ],
+  "file": "/library/shapes/sh-extra-23.json",
+  "thumb": "/library/shapes/sh-extra-23.svg",
+  "thumbColor": "/library/shapes/sh-extra-23.color.svg"
+ },
+ {
+  "id": "sh-extra-24",
+  "cat": "shapes",
+  "name": "Question callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "question callout"
+  ],
+  "file": "/library/shapes/sh-extra-24.json",
+  "thumb": "/library/shapes/sh-extra-24.svg",
+  "thumbColor": "/library/shapes/sh-extra-24.color.svg"
+ },
+ {
+  "id": "sh-extra-25",
+  "cat": "shapes",
+  "name": "Pointer callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "pointer callout"
+  ],
+  "file": "/library/shapes/sh-extra-25.json",
+  "thumb": "/library/shapes/sh-extra-25.svg",
+  "thumbColor": "/library/shapes/sh-extra-25.color.svg"
+ },
+ {
+  "id": "sh-extra-26",
+  "cat": "shapes",
+  "name": "Label callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "label callout"
+  ],
+  "file": "/library/shapes/sh-extra-26.json",
+  "thumb": "/library/shapes/sh-extra-26.svg",
+  "thumbColor": "/library/shapes/sh-extra-26.color.svg"
+ },
+ {
+  "id": "sh-extra-27",
+  "cat": "shapes",
+  "name": "Caption callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "caption callout"
+  ],
+  "file": "/library/shapes/sh-extra-27.json",
+  "thumb": "/library/shapes/sh-extra-27.svg",
+  "thumbColor": "/library/shapes/sh-extra-27.color.svg"
+ },
+ {
+  "id": "sh-extra-28",
+  "cat": "shapes",
+  "name": "Sticky note",
+  "tags": [
+   "shapes",
+   "callout",
+   "sticky note"
+  ],
+  "file": "/library/shapes/sh-extra-28.json",
+  "thumb": "/library/shapes/sh-extra-28.svg",
+  "thumbColor": "/library/shapes/sh-extra-28.color.svg"
+ },
+ {
+  "id": "sh-extra-29",
+  "cat": "shapes",
+  "name": "Message flag",
+  "tags": [
+   "shapes",
+   "callout",
+   "message flag"
+  ],
+  "file": "/library/shapes/sh-extra-29.json",
+  "thumb": "/library/shapes/sh-extra-29.svg",
+  "thumbColor": "/library/shapes/sh-extra-29.color.svg"
+ },
+ {
+  "id": "sh-extra-30",
+  "cat": "shapes",
+  "name": "Speech cloud",
+  "tags": [
+   "shapes",
+   "callout",
+   "speech cloud"
+  ],
+  "file": "/library/shapes/sh-extra-30.json",
+  "thumb": "/library/shapes/sh-extra-30.svg",
+  "thumbColor": "/library/shapes/sh-extra-30.color.svg"
+ },
+ {
+  "id": "sh-extra-31",
+  "cat": "shapes",
+  "name": "Process arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "process arrow"
+  ],
+  "file": "/library/shapes/sh-extra-31.json",
+  "thumb": "/library/shapes/sh-extra-31.svg",
+  "thumbColor": "/library/shapes/sh-extra-31.color.svg"
+ },
+ {
+  "id": "sh-extra-32",
+  "cat": "shapes",
+  "name": "Loop arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "loop arrow"
+  ],
+  "file": "/library/shapes/sh-extra-32.json",
+  "thumb": "/library/shapes/sh-extra-32.svg",
+  "thumbColor": "/library/shapes/sh-extra-32.color.svg"
+ },
+ {
+  "id": "sh-extra-33",
+  "cat": "shapes",
+  "name": "Up arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "up arrow"
+  ],
+  "file": "/library/shapes/sh-extra-33.json",
+  "thumb": "/library/shapes/sh-extra-33.svg",
+  "thumbColor": "/library/shapes/sh-extra-33.color.svg"
+ },
+ {
+  "id": "sh-extra-34",
+  "cat": "shapes",
+  "name": "Down arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "down arrow"
+  ],
+  "file": "/library/shapes/sh-extra-34.json",
+  "thumb": "/library/shapes/sh-extra-34.svg",
+  "thumbColor": "/library/shapes/sh-extra-34.color.svg"
+ },
+ {
+  "id": "sh-extra-35",
+  "cat": "shapes",
+  "name": "Left arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "left arrow"
+  ],
+  "file": "/library/shapes/sh-extra-35.json",
+  "thumb": "/library/shapes/sh-extra-35.svg",
+  "thumbColor": "/library/shapes/sh-extra-35.color.svg"
+ },
+ {
+  "id": "sh-extra-36",
+  "cat": "shapes",
+  "name": "Right arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "right arrow"
+  ],
+  "file": "/library/shapes/sh-extra-36.json",
+  "thumb": "/library/shapes/sh-extra-36.svg",
+  "thumbColor": "/library/shapes/sh-extra-36.color.svg"
+ },
+ {
+  "id": "sh-extra-37",
+  "cat": "shapes",
+  "name": "Double arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "double arrow"
+  ],
+  "file": "/library/shapes/sh-extra-37.json",
+  "thumb": "/library/shapes/sh-extra-37.svg",
+  "thumbColor": "/library/shapes/sh-extra-37.color.svg"
+ },
+ {
+  "id": "sh-extra-38",
+  "cat": "shapes",
+  "name": "Flow connector",
+  "tags": [
+   "shapes",
+   "arrow",
+   "flow connector"
+  ],
+  "file": "/library/shapes/sh-extra-38.json",
+  "thumb": "/library/shapes/sh-extra-38.svg",
+  "thumbColor": "/library/shapes/sh-extra-38.color.svg"
+ },
+ {
+  "id": "sh-extra-39",
+  "cat": "shapes",
+  "name": "Timeline marker",
+  "tags": [
+   "shapes",
+   "arrow",
+   "timeline marker"
+  ],
+  "file": "/library/shapes/sh-extra-39.json",
+  "thumb": "/library/shapes/sh-extra-39.svg",
+  "thumbColor": "/library/shapes/sh-extra-39.color.svg"
+ },
+ {
+  "id": "sh-extra-40",
+  "cat": "shapes",
+  "name": "Step marker",
+  "tags": [
+   "shapes",
+   "arrow",
+   "step marker"
+  ],
+  "file": "/library/shapes/sh-extra-40.json",
+  "thumb": "/library/shapes/sh-extra-40.svg",
+  "thumbColor": "/library/shapes/sh-extra-40.color.svg"
+ },
+ {
+  "id": "sh-extra-41",
+  "cat": "shapes",
+  "name": "Focus frame",
+  "tags": [
+   "shapes",
+   "arrow",
+   "focus frame"
+  ],
+  "file": "/library/shapes/sh-extra-41.json",
+  "thumb": "/library/shapes/sh-extra-41.svg",
+  "thumbColor": "/library/shapes/sh-extra-41.color.svg"
+ },
+ {
+  "id": "sh-extra-42",
+  "cat": "shapes",
+  "name": "Dashed frame",
+  "tags": [
+   "shapes",
+   "arrow",
+   "dashed frame"
+  ],
+  "file": "/library/shapes/sh-extra-42.json",
+  "thumb": "/library/shapes/sh-extra-42.svg",
+  "thumbColor": "/library/shapes/sh-extra-42.color.svg"
+ },
+ {
+  "id": "sh-extra-43",
+  "cat": "shapes",
+  "name": "Corner frame",
+  "tags": [
+   "shapes",
+   "arrow",
+   "corner frame"
+  ],
+  "file": "/library/shapes/sh-extra-43.json",
+  "thumb": "/library/shapes/sh-extra-43.svg",
+  "thumbColor": "/library/shapes/sh-extra-43.color.svg"
+ },
+ {
+  "id": "sh-extra-44",
+  "cat": "shapes",
+  "name": "Divider",
+  "tags": [
+   "shapes",
+   "arrow",
+   "divider"
+  ],
+  "file": "/library/shapes/sh-extra-44.json",
+  "thumb": "/library/shapes/sh-extra-44.svg",
+  "thumbColor": "/library/shapes/sh-extra-44.color.svg"
+ },
+ {
+  "id": "sh-extra-45",
+  "cat": "shapes",
+  "name": "Highlight circle",
+  "tags": [
+   "shapes",
+   "arrow",
+   "highlight circle"
+  ],
+  "file": "/library/shapes/sh-extra-45.json",
+  "thumb": "/library/shapes/sh-extra-45.svg",
+  "thumbColor": "/library/shapes/sh-extra-45.color.svg"
+ },
+ {
+  "id": "sh-speech",
+  "cat": "shapes",
+  "name": "Speech bubble",
+  "tags": [
+   "shapes",
+   "callout",
+   "talk",
+   "quote"
+  ],
+  "file": "/library/shapes/sh-speech.json",
+  "thumb": "/library/shapes/sh-speech.svg",
+  "thumbColor": "/library/shapes/sh-speech.color.svg"
+ },
+ {
+  "id": "sh-thought",
+  "cat": "shapes",
+  "name": "Thought bubble",
+  "tags": [
+   "shapes",
+   "callout",
+   "think",
+   "idea"
+  ],
+  "file": "/library/shapes/sh-thought.json",
+  "thumb": "/library/shapes/sh-thought.svg",
+  "thumbColor": "/library/shapes/sh-thought.color.svg"
+ },
+ {
+  "id": "sh-curved-arrow",
+  "cat": "shapes",
+  "name": "Curved arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "next",
+   "direction"
+  ],
+  "file": "/library/shapes/sh-curved-arrow.json",
+  "thumb": "/library/shapes/sh-curved-arrow.svg",
+  "thumbColor": "/library/shapes/sh-curved-arrow.color.svg"
+ },
+ {
+  "id": "sh-starburst",
+  "cat": "shapes",
+  "name": "Starburst",
+  "tags": [
+   "shapes",
+   "badge",
+   "sale",
+   "highlight"
+  ],
+  "file": "/library/shapes/sh-starburst.json",
+  "thumb": "/library/shapes/sh-starburst.svg",
+  "thumbColor": "/library/shapes/sh-starburst.color.svg"
+ },
+ {
+  "id": "sh-banner",
+  "cat": "shapes",
+  "name": "Ribbon banner",
+  "tags": [
+   "shapes",
+   "banner",
+   "title",
+   "ribbon"
+  ],
+  "file": "/library/shapes/sh-banner.json",
+  "thumb": "/library/shapes/sh-banner.svg",
+  "thumbColor": "/library/shapes/sh-banner.color.svg"
+ }
+]

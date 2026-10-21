@@ -1,0 +1,58 @@
+feature,area,priority,original,clone,notes
+Sign up with email and password,onboarding,must,yes,no,seen on login page
+Sign in with Google,onboarding,must,yes,no,seen on login page
+Forgot password and reset,onboarding,must,yes,no,seen on login page
+Remember me for 30 days,onboarding,should,yes,no,seen on login page
+Projects dashboard (list open rename delete),projects,must,yes,no,inferred
+Create project with aspect ratio 16:9 9:16 4:5 1:1,projects,must,yes,no,ratios from sales page
+Start from a starter template (14+),templates,must,yes,no,your own templates
+Multi-scene editor with add reorder duplicate delete,editor,must,yes,no,inferred; unlimited slides on Pro
+Drag move scale rotate elements on canvas,editor,must,yes,no,sales page
+Edit text elements,editor,must,yes,no,sales page
+Autosave projects,editor,must,yes,no,inferred
+Searchable doodle asset library by category,library,must,yes,no,your own drawings; categories characters props bubbles arrows emoji
+Upload own image,assets,must,yes,no,sales page
+Image to sketch conversion,assets,must,yes,no,one-click photo or logo to doodle
+Draw-on animation with stroke order,animation,must,yes,no,the core effect; hard part 1
+Drawing hand follows the stroke,animation,must,yes,no,8 hands standard
+Animation types draw wipe slide fade pop-in,animation,must,yes,no,sales page says 6 types names 5
+Per-element duration delay and order,animation,must,yes,no,sales page timing control
+Scene backgrounds (whiteboard blackboard greenboard paper),scenes,must,yes,no,sales page
+Scene transitions fade wipe iris push,scenes,must,yes,no,sales page
+Text-to-speech voiceover,audio,must,yes,no,own TTS provider
+Upload own voiceover,audio,must,yes,no,sales page
+Background music track with volume,audio,must,yes,no,own licensed library
+Preview player in editor,editor,must,yes,no,inferred
+Cloud render and download 1080p MP4,export,must,yes,no,format not stated assume MP4
+DoodleAI prompt to doodle element,ai,must,yes,no,own model and name
+AI style choices (cartoon caricature realistic charcoal doodle),ai,should,yes,no,6 styles standard
+AI credits with balance and ledger,ai,should,yes,no,150 credits standard; 1 credit per element per source 8
+Multiple variations per generation,ai,should,yes,no,4x on Pro
+Image editor draw fill erase crop recolor,assets,should,yes,no,sales page
+One-click background removal,assets,should,yes,no,sales page
+Background blur transparency white-fill toggles,scenes,should,yes,no,sales page
+Extra hands set incl male and female,animation,should,yes,no,Pro adds 8
+Fonts library and custom font upload,text,should,yes,no,20 Pro fonts plus custom
+2K and 4K export,export,should,yes,no,Pro tier
+Mix AI styles in one video,ai,should,yes,no,sales page
+Multilingual TTS (20 to 30+ languages),audio,should,yes,no,counts conflict on sales page
+Timeline with element bars and audio tracks,editor,should,yes,no,inferred
+Render queue with progress and retry,export,should,yes,no,priority queue on Pro
+Plan tiers and feature gating,billing,should,yes,no,Standard Pro Agency
+Upgrade paywall modal on locked items,billing,should,yes,no,inferred
+Commercial licence on paid tier,billing,should,yes,no,Pro on original
+Prompts in any language,ai,should,yes,no,sales page
+AI Wizard script to full synced project,ai,could,yes,no,Agency
+Auto-sync narration to scene timing,audio,could,partial,no,original syncs manually per source 6; a fix opportunity
+InMotion video frames to sketch,assets,could,yes,no,Agency
+Unlimited AI credits tier,billing,could,yes,no,Agency
+Share directly to YouTube or Facebook,export,could,partial,no,claimed only by an affiliate tutorial
+Sound effects library,audio,could,partial,no,mentioned by affiliate post only
+Help center and ticket support,support,could,yes,no,help.instadoodle.com
+Desktop-first layout usable on tablet,editor,could,partial,no,browser on iPad claimed
+Their 1000+ and 3000+ doodle elements,library,could,yes,skip,their artwork; build your own library
+DoodleAI name and model,ai,could,yes,skip,their brand and model; rebuild the feature under your name
+Their 6 AI voices,audio,could,yes,skip,vendor-licensed voices; use your own TTS provider
+Their music tracks,audio,could,yes,skip,licensed to them; use your own library
+Sample videos and testimonials,marketing,could,yes,skip,marketing content not product
+Bonuses (VSL script One Week Cash Machine),marketing,could,yes,skip,not product features

@@ -1,0 +1,498 @@
+{
+ "defaults": {
+  "storyteller": "Sulafat",
+  "kids": "Zephyr",
+  "documentary": "Charon"
+ },
+ "voices": [
+  {
+   "id": "Zephyr",
+   "name": "Zephyr",
+   "gender": "female",
+   "style_tags": [
+    "bright",
+    "kids"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Zephyr.mp3"
+  },
+  {
+   "id": "Puck",
+   "name": "Puck",
+   "gender": "male",
+   "style_tags": [
+    "upbeat",
+    "kids"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Puck.mp3"
+  },
+  {
+   "id": "Charon",
+   "name": "Charon",
+   "gender": "male",
+   "style_tags": [
+    "informative",
+    "documentary"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Charon.mp3"
+  },
+  {
+   "id": "Kore",
+   "name": "Kore",
+   "gender": "female",
+   "style_tags": [
+    "firm"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Kore.mp3"
+  },
+  {
+   "id": "Fenrir",
+   "name": "Fenrir",
+   "gender": "male",
+   "style_tags": [
+    "excitable"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Fenrir.mp3"
+  },
+  {
+   "id": "Leda",
+   "name": "Leda",
+   "gender": "female",
+   "style_tags": [
+    "youthful",
+    "kids"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Leda.mp3"
+  },
+  {
+   "id": "Orus",
+   "name": "Orus",
+   "gender": "male",
+   "style_tags": [
+    "firm"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Orus.mp3"
+  },
+  {
+   "id": "Aoede",
+   "name": "Aoede",
+   "gender": "female",
+   "style_tags": [
+    "breezy"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Aoede.mp3"
+  },
+  {
+   "id": "Callirrhoe",
+   "name": "Callirrhoe",
+   "gender": "female",
+   "style_tags": [
+    "easy-going"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Callirrhoe.mp3"
+  },
+  {
+   "id": "Autonoe",
+   "name": "Autonoe",
+   "gender": "female",
+   "style_tags": [
+    "bright"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Autonoe.mp3"
+  },
+  {
+   "id": "Enceladus",
+   "name": "Enceladus",
+   "gender": "male",
+   "style_tags": [
+    "breathy"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Enceladus.mp3"
+  },
+  {
+   "id": "Iapetus",
+   "name": "Iapetus",
+   "gender": "male",
+   "style_tags": [
+    "clear"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Iapetus.mp3"
+  },
+  {
+   "id": "Umbriel",
+   "name": "Umbriel",
+   "gender": "male",
+   "style_tags": [
+    "easy-going"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Umbriel.mp3"
+  },
+  {
+   "id": "Algieba",
+   "name": "Algieba",
+   "gender": "male",
+   "style_tags": [
+    "smooth"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Algieba.mp3"
+  },
+  {
+   "id": "Despina",
+   "name": "Despina",
+   "gender": "female",
+   "style_tags": [
+    "smooth"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Despina.mp3"
+  },
+  {
+   "id": "Erinome",
+   "name": "Erinome",
+   "gender": "female",
+   "style_tags": [
+    "clear"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Erinome.mp3"
+  },
+  {
+   "id": "Algenib",
+   "name": "Algenib",
+   "gender": "male",
+   "style_tags": [
+    "gravelly"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Algenib.mp3"
+  },
+  {
+   "id": "Rasalgethi",
+   "name": "Rasalgethi",
+   "gender": "male",
+   "style_tags": [
+    "informative"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Rasalgethi.mp3"
+  },
+  {
+   "id": "Laomedeia",
+   "name": "Laomedeia",
+   "gender": "female",
+   "style_tags": [
+    "upbeat"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Laomedeia.mp3"
+  },
+  {
+   "id": "Achernar",
+   "name": "Achernar",
+   "gender": "female",
+   "style_tags": [
+    "soft",
+    "calm"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Achernar.mp3"
+  },
+  {
+   "id": "Alnilam",
+   "name": "Alnilam",
+   "gender": "male",
+   "style_tags": [
+    "firm"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Alnilam.mp3"
+  },
+  {
+   "id": "Schedar",
+   "name": "Schedar",
+   "gender": "male",
+   "style_tags": [
+    "even"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Schedar.mp3"
+  },
+  {
+   "id": "Gacrux",
+   "name": "Gacrux",
+   "gender": "female",
+   "style_tags": [
+    "mature",
+    "storyteller"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Gacrux.mp3"
+  },
+  {
+   "id": "Pulcherrima",
+   "name": "Pulcherrima",
+   "gender": "female",
+   "style_tags": [
+    "forward"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Pulcherrima.mp3"
+  },
+  {
+   "id": "Achird",
+   "name": "Achird",
+   "gender": "male",
+   "style_tags": [
+    "friendly"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Achird.mp3"
+  },
+  {
+   "id": "Zubenelgenubi",
+   "name": "Zubenelgenubi",
+   "gender": "male",
+   "style_tags": [
+    "casual"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Zubenelgenubi.mp3"
+  },
+  {
+   "id": "Vindemiatrix",
+   "name": "Vindemiatrix",
+   "gender": "female",
+   "style_tags": [
+    "gentle",
+    "calm"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Vindemiatrix.mp3"
+  },
+  {
+   "id": "Sadachbia",
+   "name": "Sadachbia",
+   "gender": "male",
+   "style_tags": [
+    "lively"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Sadachbia.mp3"
+  },
+  {
+   "id": "Sadaltager",
+   "name": "Sadaltager",
+   "gender": "male",
+   "style_tags": [
+    "knowledgeable",
+    "documentary"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Sadaltager.mp3"
+  },
+  {
+   "id": "Sulafat",
+   "name": "Sulafat",
+   "gender": "female",
+   "style_tags": [
+    "warm",
+    "storyteller"
+   ],
+   "languages": [
+    "en",
+    "ur",
+    "hi",
+    "ar"
+   ],
+   "provider": "gemini",
+   "previewUrl": "/assets/voices/previews/Sulafat.mp3"
+  }
+ ]
+}

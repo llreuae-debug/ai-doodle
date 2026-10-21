@@ -1,0 +1,18 @@
+{
+  "en": {
+    "engine": "gemini",
+    "note": "Gemini TTS round trip 1.00 similar, 7.6 s (checked 2026-10-20)"
+  },
+  "ur": {
+    "engine": "gemini",
+    "note": "Gemini TTS round trip 1.00 similar, 9.7 s (checked 2026-10-20)"
+  },
+  "hi": {
+    "engine": "gemini",
+    "note": "Gemini TTS round trip 0.96 similar, 9.0 s (checked 2026-10-20)"
+  },
+  "ar": {
+    "engine": "gemini",
+    "note": "Gemini TTS round trip 1.00 similar, 9.3 s (checked 2026-10-20)"
+  }
+}

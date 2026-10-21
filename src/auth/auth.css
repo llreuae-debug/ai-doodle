@@ -1,0 +1,321 @@
+/* Measurements follow the reference login screen at 1440×900: 48px mark, 30/38 title, 46px fields, 20px gaps. */
+
+.auth {
+  position: relative;
+  min-height: 100vh;
+  background: #fff;
+  overflow: hidden;
+}
+
+.auth-art {
+  position: absolute;
+  inset: 0;
+  background: url('/brand/auth-doodles.svg') center top / cover no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.auth-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.auth-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+}
+
+.auth-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 360px;
+  padding: 48px 0;
+}
+
+.auth-logo {
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.auth-block {
+  width: 100%;
+  max-width: 312px;
+}
+
+.auth-block.narrow {
+  width: auto;
+  max-width: 312px;
+}
+
+.auth-title {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 600;
+  color: var(--gray-900);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.auth-subtitle {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray-600);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.input {
+  width: 100%;
+  height: 46px;
+  padding: 10px 14px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--gray-900);
+  background: #fff;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input::placeholder {
+  color: var(--gray-500);
+}
+
+.input:focus {
+  border-color: var(--brand-300);
+  box-shadow: var(--shadow-xs), var(--ring-brand);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--error-300);
+}
+
+.input[aria-invalid='true']:focus {
+  box-shadow: var(--shadow-xs), var(--ring-error);
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input.has-icon {
+  padding-right: 42px;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: var(--gray-700);
+}
+
+.input-icon:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-brand);
+}
+
+.field-error {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--error-600);
+}
+
+.auth-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: pointer;
+}
+
+.check input {
+  appearance: none;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #dee2e6;
+  border-radius: 3.5px;
+  background: #fff center / 10px no-repeat;
+  cursor: pointer;
+}
+
+.check input:checked {
+  border-color: var(--brand-600);
+  background-color: var(--brand-50);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M10 3L4.5 8.5L2 6' fill='none' stroke='%237F56D9' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  box-shadow: var(--ring-brand);
+}
+
+.link {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--brand-600);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: color 0.25s linear;
+}
+
+.link:hover {
+  color: var(--brand-700);
+}
+
+.link:focus-visible,
+.check input:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-brand);
+}
+
+.btn-auth {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--brand-600);
+  border: 1px solid var(--brand-600);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs);
+  transition: background-color 0.15s;
+}
+
+.btn-auth:hover {
+  background: var(--brand-700);
+  border-color: var(--brand-700);
+}
+
+.btn-auth:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-xs), var(--ring-brand);
+}
+
+.btn-auth:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.auth-alert {
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--error-700);
+  background: var(--error-50);
+  border: 1px solid var(--error-300);
+  border-radius: 8px;
+}
+
+.auth-note {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-600);
+  text-align: center;
+}
+
+.auth-switch {
+  margin-top: 32px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-600);
+  text-align: center;
+}
+
+.auth-footer {
+  padding: 24px;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--gray-600);
+}
+
+/* Bootstrap-style container widths, so the form column lands where the reference puts it. */
+@media (min-width: 992px) {
+  .auth-art {
+    left: auto;
+    width: 58%;
+    background-position: left top;
+    background-size: cover;
+    opacity: 1;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+  }
+
+  .auth-container {
+    max-width: 960px;
+  }
+
+  .auth-main,
+  .auth-footer {
+    width: 50%;
+  }
+
+  .auth-footer {
+    min-height: 158px;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+@media (min-width: 1200px) {
+  .auth-container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .auth-container {
+    max-width: 1320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .link,
+  .btn-auth {
+    transition: none;
+  }
+}

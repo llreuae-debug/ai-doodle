@@ -1,0 +1,77 @@
+[
+  {
+    "id": "male-1",
+    "name": "Male Hand 1",
+    "file": "/hands/male-1.webp",
+    "png": "/hands/male-1.png",
+    "thumb": "/hands/thumbs/male-1.webp",
+    "tipX": 200,
+    "tipY": 200,
+    "arm": [
+      0.5264,
+      0.8503
+    ],
+    "premium": false,
+    "group": "Realistic"
+  },
+  {
+    "id": "male-8",
+    "name": "Male Hand 8",
+    "file": "/hands/male-8.webp",
+    "png": "/hands/male-8.png",
+    "thumb": "/hands/thumbs/male-8.webp",
+    "tipX": 200,
+    "tipY": 200,
+    "arm": [
+      0.7254,
+      0.6884
+    ],
+    "premium": true,
+    "group": "Realistic"
+  },
+  {
+    "id": "male-9",
+    "name": "Male Hand 9",
+    "file": "/hands/male-9.webp",
+    "png": "/hands/male-9.png",
+    "thumb": "/hands/thumbs/male-9.webp",
+    "tipX": 200,
+    "tipY": 200,
+    "arm": [
+      0.6347,
+      0.7728
+    ],
+    "premium": false,
+    "group": "Realistic"
+  },
+  {
+    "id": "female-3",
+    "name": "Female Hand 3",
+    "file": "/hands/female-3.webp",
+    "png": "/hands/female-3.png",
+    "thumb": "/hands/thumbs/female-3.webp",
+    "tipX": 200,
+    "tipY": 200,
+    "arm": [
+      0.3928,
+      0.9196
+    ],
+    "premium": false,
+    "group": "Realistic"
+  },
+  {
+    "id": "male-cartoon-1",
+    "name": "Male Cartoon 1",
+    "file": "/hands/male-cartoon-1.webp",
+    "png": "/hands/male-cartoon-1.png",
+    "thumb": "/hands/thumbs/male-cartoon-1.webp",
+    "tipX": 200,
+    "tipY": 560,
+    "arm": [
+      0.1036,
+      0.9946
+    ],
+    "premium": false,
+    "group": "Cartoon"
+  }
+]
