@@ -21619,7 +21619,8 @@ var POST = {
   "/api/ai/set-key": {
     bucket: "light",
     run: async (b) => {
-      const { key } = parse3(external_exports.object({ key: external_exports.string().trim().min(20).max(300) }), b);
+      const { key: raw } = parse3(external_exports.object({ key: external_exports.string().trim().min(20).max(300) }), b);
+      const key = raw.replace(/^\s*(?:GEMINI_API_KEY|GOOGLE_API_KEY)\s*=\s*/i, "").replace(/^["'\s]+|["'\s]+$/g, "");
       await saveKey(key);
       return { success: true, provider: "gemini" };
     }

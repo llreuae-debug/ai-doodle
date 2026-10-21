@@ -68,7 +68,9 @@ const POST: Record<string, Route> = {
   '/api/ai/set-key': {
     bucket: 'light',
     run: async (b) => {
-      const { key } = parse(z.object({ key: z.string().trim().min(20).max(300) }), b);
+      const { key: raw } = parse(z.object({ key: z.string().trim().min(20).max(300) }), b);
+      // Pasted keys often come with quotes or a "GEMINI_API_KEY=" prefix: keep just the key.
+      const key = raw.replace(/^\s*(?:GEMINI_API_KEY|GOOGLE_API_KEY)\s*=\s*/i, '').replace(/^["'\s]+|["'\s]+$/g, '');
       // Checked with Google, then saved encrypted on the server (works on Vercel, no redeploy).
       await saveKey(key);
       return { success: true, provider: 'gemini' };
