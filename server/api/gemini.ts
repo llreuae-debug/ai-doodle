@@ -1,5 +1,6 @@
 import { AsyncLocalStorage } from 'node:async_hooks';
 import fs from 'node:fs';
+import { getSavedKey } from './savedKey.ts';
 import path from 'node:path';
 
 /**
@@ -95,9 +96,12 @@ export function envKey(name: string): string | undefined {
   return undefined;
 }
 
+/** The Google AI key: one saved from the key dialog (keystore.ts), else GEMINI_API_KEY. */
+export const currentKey = (): string | undefined => getSavedKey() || envKey('GEMINI_API_KEY') || envKey('GOOGLE_API_KEY');
+
 const apiKey = (): string => {
-  const key = envKey('GEMINI_API_KEY') || envKey('GOOGLE_API_KEY');
-  if (!key) throw new HttpError(503, 'not_configured', 'AI is not set up. Add GEMINI_API_KEY to .env and restart the server.');
+  const key = currentKey();
+  if (!key) throw new HttpError(503, 'not_configured', 'AI is not set up. Add your Google AI key in the key dialog (or GEMINI_API_KEY in .env).');
   return key;
 };
 

@@ -1,10 +1,10 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { z } from 'zod';
 import { ElementRequest, makeElements } from './element.ts';
 import { makeMusic, MusicRequest, MUSIC_STYLES, MOOD_DEFAULTS } from './music.ts';
-import { envKey, generate, HttpError, MODELS, requestDeadline, TEXT_FALLBACKS, withFallback } from './gemini.ts';
+import { currentKey, generate, HttpError, MODELS, requestDeadline, TEXT_FALLBACKS, withFallback } from './gemini.ts';
+import { refreshSavedKey, saveKey } from './keystore.ts';
+import { getSavedKey } from './savedKey.ts';
 import { accessPassword, checkPassword, ensureSession, hasSession, issueSession, rateLimit, requireSession, serveMedia } from './security.ts';
 import { gateHtml } from './gate.ts';
 import { rewriteSlide, SlideRequest, StoryRequest, writeStory } from './story.ts';
@@ -69,17 +69,8 @@ const POST: Record<string, Route> = {
     bucket: 'light',
     run: async (b) => {
       const { key } = parse(z.object({ key: z.string().trim().min(20).max(300) }), b);
-      // A hosted server can't rewrite its own settings: the key belongs in the host's environment.
-      if (process.env.VERCEL) throw new HttpError(400, 'hosted', 'On Vercel, set GEMINI_API_KEY in the project\'s Environment Variables, then redeploy.');
-      // Check the key with Google before saving it (listing models uses no generation quota).
-      const check = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1', { headers: { 'x-goog-api-key': key } }).catch(() => null);
-      if (!check) throw new HttpError(502, 'offline', "Couldn't reach Google AI to check the key. Try again.");
-      if (!check.ok) throw new HttpError(400, 'bad_key', 'Google AI rejected this key. Check it and try again.');
-      const file = path.resolve(process.cwd(), '.env.local');
-      let content = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
-      content = /^GEMINI_API_KEY=.*$/m.test(content) ? content.replace(/^GEMINI_API_KEY=.*$/m, `GEMINI_API_KEY=${key}`) : `${content.trimEnd()}\nGEMINI_API_KEY=${key}\n`.trimStart();
-      fs.writeFileSync(file, content, 'utf8');
-      process.env.GEMINI_API_KEY = key;
+      // Checked with Google, then saved encrypted on the server (works on Vercel, no redeploy).
+      await saveKey(key);
       return { success: true, provider: 'gemini' };
     },
   },
@@ -88,7 +79,7 @@ const POST: Record<string, Route> = {
 const GET: Record<string, () => unknown> = {
   '/api/voices': () => ({ ...VOICES, langSupport: LANG_SUPPORT }),
   '/api/music/styles': () => ({ styles: Object.entries(MUSIC_STYLES).map(([id, s]) => ({ id, label: s.label, instruments: s.instruments })), moods: MOOD_DEFAULTS }),
-  '/api/ai/status': () => ({ configured: !!(envKey('GEMINI_API_KEY') || envKey('GOOGLE_API_KEY')), provider: 'gemini', models: MODELS }),
+  '/api/ai/status': () => ({ configured: !!currentKey(), source: getSavedKey() ? 'saved' : currentKey() ? 'environment' : null, provider: 'gemini', models: MODELS }),
 };
 
 function send(res: ServerResponse, status: number, payload: unknown) {
@@ -147,6 +138,7 @@ export function apiMiddleware(req: IncomingMessage, res: ServerResponse, next: (
   const deadline = Date.now() + (process.env.VERCEL ? 285_000 : 60 * 60_000);
   requestDeadline.run(deadline, async () => {
     requireSession(req);
+    await refreshSavedKey();
     if (getRoute) {
       rateLimit(req, 'light');
       return getRoute();

@@ -10,7 +10,7 @@ export { MEDIA_DIR };
 
 let secret: string | null = null;
 /** APP_SECRET signs the browser session cookie and media file names. A random one is used if it's missing. */
-function appSecret(): string {
+export function appSecret(): string {
   if (!secret) {
     secret = envKey('APP_SECRET') ?? crypto.randomBytes(32).toString('hex');
     if (!envKey('APP_SECRET')) console.warn('[ai] APP_SECRET is not set; using a temporary one (sessions reset on restart).');

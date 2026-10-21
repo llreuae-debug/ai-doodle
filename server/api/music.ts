@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process';
 import crypto from 'node:crypto';
 import { z } from 'zod';
 import { FFMPEG } from './audio.ts';
-import { envKey, HttpError } from './gemini.ts';
+import { currentKey, HttpError } from './gemini.ts';
 import { cacheGet, cachePut, saveMedia } from './security.ts';
 
 /**
@@ -108,7 +108,7 @@ const hash = (v: unknown) => crypto.createHash('sha256').update(JSON.stringify(v
 
 /** Streams `seconds` of music for one clip: 16-bit stereo PCM at 48 kHz. */
 function streamClip(spec: ClipSpec, seconds: number): Promise<Buffer> {
-  const key = envKey('GEMINI_API_KEY') || envKey('GOOGLE_API_KEY');
+  const key = currentKey();
   if (!key) return Promise.reject(new HttpError(503, 'not_configured', 'AI is not set up. Add GEMINI_API_KEY to .env.'));
   const want = Math.ceil(seconds * RATE) * CH * 2;
   return new Promise((resolve, reject) => {

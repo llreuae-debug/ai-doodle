@@ -39,7 +39,7 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
     try {
       await setAiApiKey(clean);
       setKey('');
-      setMessage({ type: 'success', text: 'Key checked and saved on the server.' });
+      setMessage({ type: 'success', text: 'Key checked and saved. AI now uses it.' });
       await checkStatus();
       onSaved?.();
     } catch (err: unknown) {
@@ -73,7 +73,7 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
               <CheckCircle2 size={18} />
               <div>
                 <strong>AI is active and ready</strong>
-                <p>The server has a Google AI key. Paste a new one below to replace it.</p>
+                <p>The server has a Google AI key. Paste a new one below to replace it; it applies within a minute.</p>
               </div>
             </div>
           ) : (
@@ -120,7 +120,7 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
                 <span>Get a free Google Gemini key</span>
                 <ExternalLink size={14} />
               </a>
-              <span className="privacy-note">The key is saved on this app's server (.env.local), never in your browser.</span>
+              <span className="privacy-note">The key is checked with Google and saved encrypted on this app's server, never in your browser.</span>
             </div>
 
             <div className="modal-actions">

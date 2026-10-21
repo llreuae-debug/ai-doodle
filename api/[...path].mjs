@@ -5,10 +5,6 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
-// server/api/router.ts
-import fs5 from "node:fs";
-import path4 from "node:path";
-
 // node_modules/zod/v4/classic/external.js
 var external_exports = {};
 __export(external_exports, {
@@ -826,10 +822,10 @@ function mergeDefs(...defs) {
 function cloneDef(schema) {
   return mergeDefs(schema._zod.def);
 }
-function getElementAtPath(obj, path5) {
-  if (!path5)
+function getElementAtPath(obj, path4) {
+  if (!path4)
     return obj;
-  return path5.reduce((acc, key) => acc?.[key], obj);
+  return path4.reduce((acc, key) => acc?.[key], obj);
 }
 function promiseAllObject(promisesObj) {
   const keys = Object.keys(promisesObj);
@@ -1169,11 +1165,11 @@ function explicitlyAborted(x, startIndex = 0) {
   }
   return false;
 }
-function prefixIssues(path5, issues) {
+function prefixIssues(path4, issues) {
   return issues.map((iss) => {
     var _a3;
     (_a3 = iss).path ?? (_a3.path = []);
-    iss.path.unshift(path5);
+    iss.path.unshift(path4);
     return iss;
   });
 }
@@ -1455,8 +1451,8 @@ var _E = "captureStackTrace" in Error ? Error : null;
 function newError(Definition) {
   const E = _E;
   if (E) {
-    const saved = E.stackTraceLimit;
-    if (typeof saved === "number") {
+    const saved2 = E.stackTraceLimit;
+    if (typeof saved2 === "number") {
       try {
         E.stackTraceLimit = 0;
       } catch {
@@ -1466,7 +1462,7 @@ function newError(Definition) {
       try {
         return new Definition();
       } finally {
-        E.stackTraceLimit = saved;
+        E.stackTraceLimit = saved2;
       }
     }
   }
@@ -1635,16 +1631,16 @@ function flattenError(error62, mapper = (issue2) => issue2.message) {
 }
 function formatError(error62, mapper = (issue2) => issue2.message) {
   const fieldErrors = { _errors: [] };
-  const processError = (error63, path5 = []) => {
+  const processError = (error63, path4 = []) => {
     for (const issue2 of error63.issues) {
       if (issue2.code === "invalid_union" && issue2.errors.length) {
-        issue2.errors.map((issues) => processError({ issues }, [...path5, ...issue2.path]));
+        issue2.errors.map((issues) => processError({ issues }, [...path4, ...issue2.path]));
       } else if (issue2.code === "invalid_key") {
-        processError({ issues: issue2.issues }, [...path5, ...issue2.path]);
+        processError({ issues: issue2.issues }, [...path4, ...issue2.path]);
       } else if (issue2.code === "invalid_element") {
-        processError({ issues: issue2.issues }, [...path5, ...issue2.path]);
+        processError({ issues: issue2.issues }, [...path4, ...issue2.path]);
       } else {
-        const fullpath = [...path5, ...issue2.path];
+        const fullpath = [...path4, ...issue2.path];
         if (fullpath.length === 0) {
           fieldErrors._errors.push(mapper(issue2));
         } else {
@@ -1683,17 +1679,17 @@ function formatError(error62, mapper = (issue2) => issue2.message) {
 }
 function treeifyError(error62, mapper = (issue2) => issue2.message) {
   const result = { errors: [] };
-  const processError = (error63, path5 = []) => {
+  const processError = (error63, path4 = []) => {
     var _a3;
     for (const issue2 of error63.issues) {
       if (issue2.code === "invalid_union" && issue2.errors.length) {
-        issue2.errors.map((issues) => processError({ issues }, [...path5, ...issue2.path]));
+        issue2.errors.map((issues) => processError({ issues }, [...path4, ...issue2.path]));
       } else if (issue2.code === "invalid_key") {
-        processError({ issues: issue2.issues }, [...path5, ...issue2.path]);
+        processError({ issues: issue2.issues }, [...path4, ...issue2.path]);
       } else if (issue2.code === "invalid_element") {
-        processError({ issues: issue2.issues }, [...path5, ...issue2.path]);
+        processError({ issues: issue2.issues }, [...path4, ...issue2.path]);
       } else {
-        const fullpath = [...path5, ...issue2.path];
+        const fullpath = [...path4, ...issue2.path];
         if (fullpath.length === 0) {
           result.errors.push(mapper(issue2));
           continue;
@@ -1732,8 +1728,8 @@ function treeifyError(error62, mapper = (issue2) => issue2.message) {
 }
 function toDotPath(_path) {
   const segs = [];
-  const path5 = _path.map((seg) => typeof seg === "object" ? seg.key : seg);
-  for (const seg of path5) {
+  const path4 = _path.map((seg) => typeof seg === "object" ? seg.key : seg);
+  for (const seg of path4) {
     if (typeof seg === "number")
       segs.push(`[${seg}]`);
     else if (typeof seg === "symbol")
@@ -18871,13 +18867,13 @@ function resolveRef(ref, ctx) {
   if (!ref.startsWith("#")) {
     throw new Error("External $ref is not supported, only local refs (#/...) are allowed");
   }
-  const path5 = ref.slice(1).split("/").filter(Boolean);
-  if (path5.length === 0) {
+  const path4 = ref.slice(1).split("/").filter(Boolean);
+  if (path4.length === 0) {
     return ctx.rootSchema;
   }
   const defsKey = ctx.version === "draft-2020-12" ? "$defs" : "definitions";
-  if (path5[0] === defsKey) {
-    const key = path5[1] === void 0 ? void 0 : decodeJSONPointerSegment(path5[1]);
+  if (path4[0] === defsKey) {
+    const key = path4[1] === void 0 ? void 0 : decodeJSONPointerSegment(path4[1]);
     if (!key || !ctx.defs[key]) {
       throw new Error(`Reference not found: ${ref}`);
     }
@@ -19732,6 +19728,15 @@ import sharp from "sharp";
 // server/api/gemini.ts
 import { AsyncLocalStorage } from "node:async_hooks";
 import fs from "node:fs";
+
+// server/api/savedKey.ts
+var saved = null;
+var getSavedKey = () => saved;
+var setSavedKey = (key) => {
+  saved = key;
+};
+
+// server/api/gemini.ts
 import path from "node:path";
 var MODELS = {
   text: process.env.GEMINI_TEXT_MODEL || "gemini-3.5-flash-lite",
@@ -19786,9 +19791,10 @@ function envKey(name) {
   }
   return void 0;
 }
+var currentKey = () => getSavedKey() || envKey("GEMINI_API_KEY") || envKey("GOOGLE_API_KEY");
 var apiKey = () => {
-  const key = envKey("GEMINI_API_KEY") || envKey("GOOGLE_API_KEY");
-  if (!key) throw new HttpError(503, "not_configured", "AI is not set up. Add GEMINI_API_KEY to .env and restart the server.");
+  const key = currentKey();
+  if (!key) throw new HttpError(503, "not_configured", "AI is not set up. Add your Google AI key in the key dialog (or GEMINI_API_KEY in .env).");
   return key;
 };
 var requestDeadline = new AsyncLocalStorage();
@@ -20429,7 +20435,7 @@ function musicPrompt(r, mood) {
 }
 var hash2 = (v) => crypto2.createHash("sha256").update(JSON.stringify(v)).digest("hex").slice(0, 24);
 function streamClip(spec, seconds) {
-  const key = envKey("GEMINI_API_KEY") || envKey("GOOGLE_API_KEY");
+  const key = currentKey();
   if (!key) return Promise.reject(new HttpError(503, "not_configured", "AI is not set up. Add GEMINI_API_KEY to .env."));
   const want = Math.ceil(seconds * RATE) * CH * 2;
   return new Promise((resolve, reject) => {
@@ -20667,6 +20673,42 @@ async function makeMusic(r) {
   };
   await cachePut("music-track", trackKey, Buffer.from(JSON.stringify(result)));
   return { ...result, generated: stats.generated };
+}
+
+// server/api/keystore.ts
+import crypto3 from "node:crypto";
+var PATHNAME = "_secrets/google-ai-key.enc";
+var REFRESH_MS = 6e4;
+var loadedAt = 0;
+var cipherKey = () => crypto3.createHash("sha256").update(`ai-doodle/google-ai-key/${appSecret()}`).digest();
+function encrypt(text) {
+  const iv = crypto3.randomBytes(12);
+  const c = crypto3.createCipheriv("aes-256-gcm", cipherKey(), iv);
+  const body = Buffer.concat([c.update(text, "utf8"), c.final()]);
+  return Buffer.concat([iv, c.getAuthTag(), body]);
+}
+function decrypt(data) {
+  try {
+    const d = crypto3.createDecipheriv("aes-256-gcm", cipherKey(), data.subarray(0, 12));
+    d.setAuthTag(data.subarray(12, 28));
+    return Buffer.concat([d.update(data.subarray(28)), d.final()]).toString("utf8");
+  } catch {
+    return null;
+  }
+}
+async function refreshSavedKey(force = false) {
+  if (!force && Date.now() - loadedAt < REFRESH_MS) return;
+  loadedAt = Date.now();
+  const data = await readStored(PATHNAME).catch(() => null);
+  setSavedKey(data ? decrypt(data) : null);
+}
+async function saveKey(key) {
+  const check2 = await fetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=1", { headers: { "x-goog-api-key": key } }).catch(() => null);
+  if (!check2) throw new HttpError(502, "offline", "Couldn't reach Google AI to check the key. Try again.");
+  if (!check2.ok) throw new HttpError(400, "bad_key", "Google AI rejected this key. Check it and try again.");
+  await storeFile(PATHNAME, encrypt(key));
+  setSavedKey(key);
+  loadedAt = Date.now();
 }
 
 // server/api/story.ts
@@ -21578,17 +21620,7 @@ var POST = {
     bucket: "light",
     run: async (b) => {
       const { key } = parse3(external_exports.object({ key: external_exports.string().trim().min(20).max(300) }), b);
-      if (process.env.VERCEL) throw new HttpError(400, "hosted", "On Vercel, set GEMINI_API_KEY in the project's Environment Variables, then redeploy.");
-      const check2 = await fetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=1", { headers: { "x-goog-api-key": key } }).catch(() => null);
-      if (!check2) throw new HttpError(502, "offline", "Couldn't reach Google AI to check the key. Try again.");
-      if (!check2.ok) throw new HttpError(400, "bad_key", "Google AI rejected this key. Check it and try again.");
-      const file2 = path4.resolve(process.cwd(), ".env.local");
-      let content = fs5.existsSync(file2) ? fs5.readFileSync(file2, "utf8") : "";
-      content = /^GEMINI_API_KEY=.*$/m.test(content) ? content.replace(/^GEMINI_API_KEY=.*$/m, `GEMINI_API_KEY=${key}`) : `${content.trimEnd()}
-GEMINI_API_KEY=${key}
-`.trimStart();
-      fs5.writeFileSync(file2, content, "utf8");
-      process.env.GEMINI_API_KEY = key;
+      await saveKey(key);
       return { success: true, provider: "gemini" };
     }
   }
@@ -21596,7 +21628,7 @@ GEMINI_API_KEY=${key}
 var GET = {
   "/api/voices": () => ({ ...VOICES, langSupport: LANG_SUPPORT }),
   "/api/music/styles": () => ({ styles: Object.entries(MUSIC_STYLES).map(([id, s]) => ({ id, label: s.label, instruments: s.instruments })), moods: MOOD_DEFAULTS }),
-  "/api/ai/status": () => ({ configured: !!(envKey("GEMINI_API_KEY") || envKey("GOOGLE_API_KEY")), provider: "gemini", models: MODELS })
+  "/api/ai/status": () => ({ configured: !!currentKey(), source: getSavedKey() ? "saved" : currentKey() ? "environment" : null, provider: "gemini", models: MODELS })
 };
 function send(res, status, payload) {
   res.statusCode = status;
@@ -21644,6 +21676,7 @@ function apiMiddleware(req, res, next) {
   const deadline = Date.now() + (process.env.VERCEL ? 285e3 : 60 * 6e4);
   requestDeadline.run(deadline, async () => {
     requireSession(req);
+    await refreshSavedKey();
     if (getRoute) {
       rateLimit(req, "light");
       return getRoute();
