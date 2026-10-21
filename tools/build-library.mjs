@@ -442,6 +442,8 @@ export async function runBatch(batchNum = 1) {
 }
 
 // CLI invocation
-const batchArg = process.argv.find((a) => a.startsWith('--batch='));
-const targetBatch = batchArg ? parseInt(batchArg.split('=')[1], 10) : 1;
-await runBatch(targetBatch);
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  const batchArg = process.argv.find((a) => a.startsWith('--batch='));
+  const targetBatch = batchArg ? parseInt(batchArg.split('=')[1], 10) : 1;
+  await runBatch(targetBatch);
+}

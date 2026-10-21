@@ -307,5 +307,305 @@
   "premium": false,
   "thumb": "/library/characters/ch-extra-2.svg",
   "thumbColor": "/library/characters/ch-extra-2.color.svg"
+ },
+ {
+  "id": "ch-extra-3",
+  "cat": "characters",
+  "name": "Engineer",
+  "tags": [
+   "people",
+   "character",
+   "engineer"
+  ],
+  "file": "/library/characters/ch-extra-3.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-3.svg",
+  "thumbColor": "/library/characters/ch-extra-3.color.svg"
+ },
+ {
+  "id": "ch-extra-4",
+  "cat": "characters",
+  "name": "Farmer",
+  "tags": [
+   "people",
+   "character",
+   "farmer"
+  ],
+  "file": "/library/characters/ch-extra-4.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-4.svg",
+  "thumbColor": "/library/characters/ch-extra-4.color.svg"
+ },
+ {
+  "id": "ch-extra-5",
+  "cat": "characters",
+  "name": "Firefighter",
+  "tags": [
+   "people",
+   "character",
+   "firefighter"
+  ],
+  "file": "/library/characters/ch-extra-5.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-5.svg",
+  "thumbColor": "/library/characters/ch-extra-5.color.svg"
+ },
+ {
+  "id": "ch-extra-6",
+  "cat": "characters",
+  "name": "Graduate",
+  "tags": [
+   "people",
+   "character",
+   "graduate"
+  ],
+  "file": "/library/characters/ch-extra-6.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-6.svg",
+  "thumbColor": "/library/characters/ch-extra-6.color.svg"
+ },
+ {
+  "id": "ch-extra-7",
+  "cat": "characters",
+  "name": "Musician",
+  "tags": [
+   "people",
+   "character",
+   "musician"
+  ],
+  "file": "/library/characters/ch-extra-7.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-7.svg",
+  "thumbColor": "/library/characters/ch-extra-7.color.svg"
+ },
+ {
+  "id": "ch-extra-8",
+  "cat": "characters",
+  "name": "Nurse",
+  "tags": [
+   "people",
+   "character",
+   "nurse"
+  ],
+  "file": "/library/characters/ch-extra-8.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-8.svg",
+  "thumbColor": "/library/characters/ch-extra-8.color.svg"
+ },
+ {
+  "id": "ch-extra-9",
+  "cat": "characters",
+  "name": "Photographer",
+  "tags": [
+   "people",
+   "character",
+   "photographer"
+  ],
+  "file": "/library/characters/ch-extra-9.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-9.svg",
+  "thumbColor": "/library/characters/ch-extra-9.color.svg"
+ },
+ {
+  "id": "ch-extra-10",
+  "cat": "characters",
+  "name": "Pilot",
+  "tags": [
+   "people",
+   "character",
+   "pilot"
+  ],
+  "file": "/library/characters/ch-extra-10.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-10.svg",
+  "thumbColor": "/library/characters/ch-extra-10.color.svg"
+ },
+ {
+  "id": "ch-extra-11",
+  "cat": "characters",
+  "name": "Police officer",
+  "tags": [
+   "people",
+   "character",
+   "police officer"
+  ],
+  "file": "/library/characters/ch-extra-11.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-11.svg",
+  "thumbColor": "/library/characters/ch-extra-11.color.svg"
+ },
+ {
+  "id": "ch-extra-12",
+  "cat": "characters",
+  "name": "Scientist",
+  "tags": [
+   "people",
+   "character",
+   "scientist"
+  ],
+  "file": "/library/characters/ch-extra-12.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-12.svg",
+  "thumbColor": "/library/characters/ch-extra-12.color.svg"
+ },
+ {
+  "id": "ch-extra-13",
+  "cat": "characters",
+  "name": "Shopkeeper",
+  "tags": [
+   "people",
+   "character",
+   "shopkeeper"
+  ],
+  "file": "/library/characters/ch-extra-13.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-13.svg",
+  "thumbColor": "/library/characters/ch-extra-13.color.svg"
+ },
+ {
+  "id": "ch-extra-14",
+  "cat": "characters",
+  "name": "Athlete",
+  "tags": [
+   "people",
+   "character",
+   "athlete"
+  ],
+  "file": "/library/characters/ch-extra-14.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-14.svg",
+  "thumbColor": "/library/characters/ch-extra-14.color.svg"
+ },
+ {
+  "id": "ch-extra-15",
+  "cat": "characters",
+  "name": "Baker",
+  "tags": [
+   "people",
+   "character",
+   "baker"
+  ],
+  "file": "/library/characters/ch-extra-15.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-15.svg",
+  "thumbColor": "/library/characters/ch-extra-15.color.svg"
+ },
+ {
+  "id": "ch-extra-16",
+  "cat": "characters",
+  "name": "Barista",
+  "tags": [
+   "people",
+   "character",
+   "barista"
+  ],
+  "file": "/library/characters/ch-extra-16.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-16.svg",
+  "thumbColor": "/library/characters/ch-extra-16.color.svg"
+ },
+ {
+  "id": "ch-extra-17",
+  "cat": "characters",
+  "name": "Builder",
+  "tags": [
+   "people",
+   "character",
+   "builder"
+  ],
+  "file": "/library/characters/ch-extra-17.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-17.svg",
+  "thumbColor": "/library/characters/ch-extra-17.color.svg"
+ },
+ {
+  "id": "ch-extra-18",
+  "cat": "characters",
+  "name": "Designer",
+  "tags": [
+   "people",
+   "character",
+   "designer"
+  ],
+  "file": "/library/characters/ch-extra-18.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-18.svg",
+  "thumbColor": "/library/characters/ch-extra-18.color.svg"
+ },
+ {
+  "id": "ch-extra-19",
+  "cat": "characters",
+  "name": "Gardener",
+  "tags": [
+   "people",
+   "character",
+   "gardener"
+  ],
+  "file": "/library/characters/ch-extra-19.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-19.svg",
+  "thumbColor": "/library/characters/ch-extra-19.color.svg"
+ },
+ {
+  "id": "ch-extra-20",
+  "cat": "characters",
+  "name": "Journalist",
+  "tags": [
+   "people",
+   "character",
+   "journalist"
+  ],
+  "file": "/library/characters/ch-extra-20.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-20.svg",
+  "thumbColor": "/library/characters/ch-extra-20.color.svg"
+ },
+ {
+  "id": "ch-extra-21",
+  "cat": "characters",
+  "name": "Lawyer",
+  "tags": [
+   "people",
+   "character",
+   "lawyer"
+  ],
+  "file": "/library/characters/ch-extra-21.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-21.svg",
+  "thumbColor": "/library/characters/ch-extra-21.color.svg"
+ },
+ {
+  "id": "ch-extra-22",
+  "cat": "characters",
+  "name": "Mechanic",
+  "tags": [
+   "people",
+   "character",
+   "mechanic"
+  ],
+  "file": "/library/characters/ch-extra-22.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-22.svg",
+  "thumbColor": "/library/characters/ch-extra-22.color.svg"
  }
 ]
