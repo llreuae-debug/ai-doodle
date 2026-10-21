@@ -1,0 +1,17 @@
+# Ai Doodle robots.txt
+User-agent: *
+Allow: /
+Allow: /how-it-works
+Allow: /blog
+Allow: /blog/*
+Allow: /about
+Allow: /contact
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /cookie-policy
+
+Disallow: /api/
+Disallow: /login
+Disallow: /forgot-password
+
+Sitemap: https://ai-doodle.vercel.app/sitemap.xml

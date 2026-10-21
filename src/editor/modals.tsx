@@ -348,6 +348,13 @@ export function DashboardModal(props: { onClose: () => void; onOpen: (p: Project
       </div>
       {error && <p className="err">{error}</p>}
       <p className="note">Projects are stored in this browser only, including uploaded images and audio.</p>
+      <div style={{ marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid var(--border)', display: 'flex', gap: '0.85rem', flexWrap: 'wrap', fontSize: '0.8rem' }}>
+        <a href="/how-it-works" style={{ color: 'var(--accent)' }}>How It Works</a>
+        <a href="/blog" style={{ color: 'var(--accent)' }}>Blog</a>
+        <a href="/about" style={{ color: 'var(--accent)' }}>About</a>
+        <a href="/contact" style={{ color: 'var(--accent)' }}>Contact</a>
+        <a href="/privacy-policy" style={{ color: 'var(--accent)' }}>Privacy</a>
+      </div>
     </Modal>
   );
 }
@@ -376,6 +383,10 @@ export function TutorialModal({ onClose }: { onClose: () => void }) {
         </li>
       </ol>
       <p className="note">Shortcuts: Space plays, Delete removes the selected item, Ctrl+Z undoes, Ctrl+D duplicates, Ctrl+S saves, arrow keys nudge.</p>
+      <div style={{ marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid var(--border)', display: 'flex', gap: '1rem', flexWrap: 'wrap', fontSize: '0.85rem' }}>
+        <a href="/how-it-works" style={{ color: 'var(--accent)' }}>Read Step-by-Step Guide →</a>
+        <a href="/blog" style={{ color: 'var(--accent)' }}>Browse Tutorials & Blog →</a>
+      </div>
     </Modal>
   );
 }

@@ -1,4 +1,4 @@
-import { Bell, Download, ExternalLink, KeyRound, Lightbulb, Maximize, Music, Pause, Pencil, Play, Redo2, SkipBack, SkipForward, Sparkles, Undo2, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
+import { Bell, BookOpen, Download, ExternalLink, KeyRound, Lightbulb, Maximize, Music, Pause, Pencil, Play, Redo2, SkipBack, SkipForward, Sparkles, Undo2, Volume2, VolumeX, ZoomIn, ZoomOut } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { mixSoundtrack } from '../audio/mix';
 import { Logomark } from '../brand/Logomark';
@@ -757,6 +757,15 @@ export default function Editor() {
             <span className="lbl-hide">Tutorials</span>
             <Lightbulb size={18} />
           </button>
+          <a
+            href="/blog"
+            className="btn"
+            title="Blog & Guides"
+            aria-label="Blog & Guides"
+          >
+            <BookOpen size={18} />
+            <span className="lbl-hide">Blog</span>
+          </a>
           <button type="button" className="btn" aria-label="Save" onClick={() => void save()}>
             <span className="lbl-hide">Save</span>
             <Download size={18} />
