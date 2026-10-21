@@ -1,0 +1,72 @@
+[
+ {
+  "id": "B-083",
+  "name": "Undo",
+  "state": "board controls",
+  "result": "disabled (not clickable in this state)",
+  "problems": []
+ },
+ {
+  "id": "B-084",
+  "name": "Redo",
+  "state": "board controls",
+  "result": "disabled (not clickable in this state)",
+  "problems": []
+ },
+ {
+  "id": "B-085",
+  "name": "Snap align",
+  "state": "board controls",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-086",
+  "name": "Previous slide",
+  "state": "board controls",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-087",
+  "name": "Play",
+  "state": "board controls",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-088",
+  "name": "Next slide",
+  "state": "board controls",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-089",
+  "name": "Zoom out",
+  "state": "board controls",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-090",
+  "name": "Zoom in",
+  "state": "board controls",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-091",
+  "name": "Full screen",
+  "state": "board controls",
+  "result": "covered by 03-behaviour (full screen)",
+  "problems": []
+ },
+ {
+  "id": "B-092",
+  "name": "Mute pen sound (M)",
+  "state": "board controls",
+  "result": "clicked",
+  "problems": []
+ }
+]

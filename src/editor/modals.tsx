@@ -1,5 +1,5 @@
 import { LoaderCircle, Mic, Sparkles, X } from 'lucide-react';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import { exampleProject } from '../library/templates';
 import type { Project, Voice } from '../model/types';
 import { AiError, fetchMedia, speakText, writeVoiceLine, type Language, type Tone } from '../services/ai';
@@ -8,6 +8,20 @@ import { deleteProject, listProjects, loadProject, type ProjectSummary } from '.
 import { LANGUAGE_LABELS, languageProblem, useVoices, VoicePicker } from './VoicePicker';
 
 // ---------- shell ----------
+
+/** Dialog basics: focus moves inside when it opens and back to the opener when it closes; Escape closes it. */
+export function useDialog(ref: RefObject<HTMLElement | null>, onClose: () => void) {
+  useEffect(() => {
+    const last = document.activeElement as HTMLElement | null;
+    ref.current?.querySelector<HTMLElement>('input, select, textarea, button:not([data-close])')?.focus();
+    return () => last?.focus?.();
+  }, [ref]);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [onClose]);
+}
 
 export function Modal(props: {
   title: ReactNode;
@@ -21,16 +35,7 @@ export function Modal(props: {
 }) {
   const { title, subtitle, icon, size = 'md', hero, onClose, children, footer } = props;
   const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const last = document.activeElement as HTMLElement | null;
-    ref.current?.querySelector<HTMLElement>('input, select, textarea, button:not([data-close])')?.focus();
-    return () => last?.focus?.();
-  }, []);
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  useDialog(ref, onClose);
   return (
     <div className="scrim" onPointerDown={(e) => e.target === e.currentTarget && onClose()}>
       <div className={`modal modal-${size}`} role="dialog" aria-modal="true" aria-label={typeof title === 'string' ? title : undefined} ref={ref}>

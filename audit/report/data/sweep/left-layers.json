@@ -1,0 +1,37 @@
+[
+ {
+  "id": "B-078",
+  "name": "Layer row (selects the item)",
+  "state": "left · layers",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-079",
+  "name": "Draw later",
+  "state": "left · layers",
+  "result": "disabled (not clickable in this state)",
+  "problems": []
+ },
+ {
+  "id": "B-080",
+  "name": "Draw earlier",
+  "state": "left · layers",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-081",
+  "name": "Hide",
+  "state": "left · layers",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-082",
+  "name": "Delete",
+  "state": "left · layers",
+  "result": "clicked",
+  "problems": []
+ }
+]

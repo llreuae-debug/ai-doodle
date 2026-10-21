@@ -1,0 +1,107 @@
+[
+ {
+  "id": "B-158",
+  "name": "Close",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-159",
+  "name": "Project Size:",
+  "state": "modal · New project gallery",
+  "result": "picked option 2 of 4",
+  "problems": []
+ },
+ {
+  "id": "B-160",
+  "name": "Templates",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-161",
+  "name": "Sample Projects",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-162",
+  "name": "Empty Project",
+  "state": "modal · New project gallery",
+  "result": "FAILED: B-162 Empty Project is on the page",
+  "problems": []
+ },
+ {
+  "id": "B-163",
+  "name": "Teaching",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-164",
+  "name": "Business",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-165",
+  "name": "Funky",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-166",
+  "name": "Scribble",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-167",
+  "name": "Stickman",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-168",
+  "name": "Minimal Pastel",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-169",
+  "name": "Presenter",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-170",
+  "name": "Paper Plane",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-171",
+  "name": "Back",
+  "state": "modal · New project gallery",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-172",
+  "name": "Next",
+  "state": "modal · New project gallery",
+  "result": "FAILED: B-172 Next is on the page",
+  "problems": []
+ }
+]

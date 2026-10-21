@@ -1,0 +1,553 @@
+[
+ {
+  "id": "B-227",
+  "name": "Close",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-228",
+  "name": "What should the voice say?",
+  "state": "modal · Voiceover",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-229",
+  "name": "Write it with AI",
+  "state": "modal · Voiceover",
+  "result": "covered by 05-flows (E5)",
+  "problems": []
+ },
+ {
+  "id": "B-230",
+  "name": "Language",
+  "state": "modal · Voiceover",
+  "result": "picked option 2 of 4",
+  "problems": []
+ },
+ {
+  "id": "B-231",
+  "name": "Delivery",
+  "state": "modal · Voiceover",
+  "result": "picked option 2 of 5",
+  "problems": []
+ },
+ {
+  "id": "B-232",
+  "name": "Speed",
+  "state": "modal · Voiceover",
+  "result": "picked option 2 of 3",
+  "problems": []
+ },
+ {
+  "id": "B-233",
+  "name": "Preview Sulafat",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Sulafat.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-234",
+  "name": "Warm storyteller Sulafat · female · warm, storyteller",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-235",
+  "name": "Preview Zephyr",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-236",
+  "name": "Bright, for kids Zephyr · female · bright, kids",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-237",
+  "name": "Preview Charon",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-238",
+  "name": "Calm documentary Charon · male · informative, documentary",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-239",
+  "name": "Preview Puck",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-240",
+  "name": "Puck male · upbeat, kids",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-241",
+  "name": "Preview Kore",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Kore.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-242",
+  "name": "Kore female · firm",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-243",
+  "name": "Preview Fenrir",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Fenrir.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-244",
+  "name": "Fenrir male · excitable",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-245",
+  "name": "Preview Leda",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Leda.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-246",
+  "name": "Leda female · youthful, kids",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-247",
+  "name": "Preview Orus",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Orus.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-248",
+  "name": "Orus male · firm",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-249",
+  "name": "Preview Aoede",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Aoede.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-250",
+  "name": "Aoede female · breezy",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-251",
+  "name": "Preview Callirrhoe",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Callirrhoe.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-252",
+  "name": "Callirrhoe female · easy-going",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-253",
+  "name": "Preview Autonoe",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-254",
+  "name": "Autonoe female · bright",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-255",
+  "name": "Preview Enceladus",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Enceladus.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-256",
+  "name": "Enceladus male · breathy",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-257",
+  "name": "Preview Iapetus",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Iapetus.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-258",
+  "name": "Iapetus male · clear",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-259",
+  "name": "Preview Umbriel",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Umbriel.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-260",
+  "name": "Umbriel male · easy-going",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-261",
+  "name": "Preview Algieba",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Algieba.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-262",
+  "name": "Algieba male · smooth",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-263",
+  "name": "Preview Despina",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Despina.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-264",
+  "name": "Despina female · smooth",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-265",
+  "name": "Preview Erinome",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-266",
+  "name": "Erinome female · clear",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-267",
+  "name": "Preview Algenib",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Algenib.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-268",
+  "name": "Algenib male · gravelly",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-269",
+  "name": "Preview Rasalgethi",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Rasalgethi.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-270",
+  "name": "Rasalgethi male · informative",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-271",
+  "name": "Preview Laomedeia",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Laomedeia.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-272",
+  "name": "Laomedeia female · upbeat",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-273",
+  "name": "Preview Achernar",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Achernar.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-274",
+  "name": "Achernar female · soft, calm",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-275",
+  "name": "Preview Alnilam",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Alnilam.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-276",
+  "name": "Alnilam male · firm",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-277",
+  "name": "Preview Schedar",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Schedar.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-278",
+  "name": "Schedar male · even",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-279",
+  "name": "Preview Gacrux",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Gacrux.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-280",
+  "name": "Gacrux female · mature, storyteller",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-281",
+  "name": "Preview Pulcherrima",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Pulcherrima.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-282",
+  "name": "Pulcherrima female · forward",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-283",
+  "name": "Preview Achird",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Achird.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-284",
+  "name": "Achird male · friendly",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-285",
+  "name": "Preview Zubenelgenubi",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Zubenelgenubi.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-286",
+  "name": "Zubenelgenubi male · casual",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-287",
+  "name": "Preview Vindemiatrix",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Vindemiatrix.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-288",
+  "name": "Vindemiatrix female · gentle, calm",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-289",
+  "name": "Preview Sadachbia",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Sadachbia.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-290",
+  "name": "Sadachbia male · lively",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-291",
+  "name": "Preview Sadaltager",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/voices/previews/Sadaltager.mp3",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-292",
+  "name": "Sadaltager male · knowledgeable, documentary",
+  "state": "modal · Voiceover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-293",
+  "name": "Make voice",
+  "state": "modal · Voiceover",
+  "result": "covered by 05-flows (E5)",
+  "problems": []
+ },
+ {
+  "id": "B-294",
+  "name": "Use this voiceover",
+  "state": "modal · Voiceover",
+  "result": "covered by 05-flows (E5)",
+  "problems": []
+ }
+]

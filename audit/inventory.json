@@ -1,0 +1,3440 @@
+{
+ "generated": "2026-10-21T22:33:51.030Z",
+ "controls": [
+  {
+   "id": "B-001",
+   "kind": "B",
+   "role": "button",
+   "name": "Dashboard",
+   "state": "top bar",
+   "region": "top bar",
+   "count": 1
+  },
+  {
+   "id": "B-002",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Project name",
+   "state": "top bar",
+   "region": "top bar",
+   "count": 1
+  },
+  {
+   "id": "B-003",
+   "kind": "B",
+   "role": "button",
+   "name": "Story",
+   "state": "top bar",
+   "region": "top bar",
+   "count": 1
+  },
+  {
+   "id": "B-004",
+   "kind": "B",
+   "role": "button",
+   "name": "API Key",
+   "state": "top bar",
+   "region": "top bar",
+   "count": 1
+  },
+  {
+   "id": "B-005",
+   "kind": "B",
+   "role": "button",
+   "name": "Tutorials",
+   "state": "top bar",
+   "region": "top bar",
+   "count": 1
+  },
+  {
+   "id": "B-006",
+   "kind": "B",
+   "role": "button",
+   "name": "Save",
+   "state": "top bar",
+   "region": "top bar",
+   "count": 1
+  },
+  {
+   "id": "B-007",
+   "kind": "B",
+   "role": "button",
+   "name": "Export",
+   "state": "top bar",
+   "region": "top bar",
+   "count": 1
+  },
+  {
+   "id": "B-008",
+   "kind": "B",
+   "role": "button",
+   "name": "Notifications",
+   "state": "top bar",
+   "region": "top bar",
+   "count": 1
+  },
+  {
+   "id": "B-009",
+   "kind": "B",
+   "role": "tab",
+   "name": "Doodles",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-010",
+   "kind": "B",
+   "role": "tab",
+   "name": "Text",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-011",
+   "kind": "B",
+   "role": "tab",
+   "name": "Layers",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-012",
+   "kind": "B",
+   "role": "tab",
+   "name": "Custom",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-013",
+   "kind": "B",
+   "role": "tab",
+   "name": "Characters",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-014",
+   "kind": "B",
+   "role": "tab",
+   "name": "Props",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-015",
+   "kind": "B",
+   "role": "tab",
+   "name": "Shapes",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-016",
+   "kind": "B",
+   "role": "searchbox",
+   "name": "Search doodles",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-017",
+   "kind": "B",
+   "role": "button",
+   "name": "Filter",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-018",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "Colour versions",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-019",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate Characters with AI",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-020",
+   "kind": "B",
+   "role": "button",
+   "name": "Variations",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-021",
+   "kind": "B",
+   "role": "button",
+   "name": "Library tile (adds that doodle to the slide)",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 964
+  },
+  {
+   "id": "B-022",
+   "kind": "B",
+   "role": "button",
+   "name": "Upload",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-023",
+   "kind": "B",
+   "role": "button",
+   "name": "AI",
+   "state": "left · doodles · characters",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-024",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate a Doodle with AI",
+   "state": "left · doodles · custom",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-025",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate Props with AI",
+   "state": "left · doodles · props",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-026",
+   "kind": "B",
+   "role": "button",
+   "name": "Line only",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-027",
+   "kind": "B",
+   "role": "button",
+   "name": "★ Premium",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-028",
+   "kind": "B",
+   "role": "button",
+   "name": "Business",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-029",
+   "kind": "B",
+   "role": "button",
+   "name": "Real estate",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-030",
+   "kind": "B",
+   "role": "button",
+   "name": "Education",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-031",
+   "kind": "B",
+   "role": "button",
+   "name": "Faith",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-032",
+   "kind": "B",
+   "role": "button",
+   "name": "Tech",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-033",
+   "kind": "B",
+   "role": "button",
+   "name": "Health",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-034",
+   "kind": "B",
+   "role": "button",
+   "name": "Food",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-035",
+   "kind": "B",
+   "role": "button",
+   "name": "Nature",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-036",
+   "kind": "B",
+   "role": "button",
+   "name": "Transport",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-037",
+   "kind": "B",
+   "role": "button",
+   "name": "Scenes",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-038",
+   "kind": "B",
+   "role": "button",
+   "name": "money",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-039",
+   "kind": "B",
+   "role": "button",
+   "name": "objects",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-040",
+   "kind": "B",
+   "role": "button",
+   "name": "buildings",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-041",
+   "kind": "B",
+   "role": "button",
+   "name": "decor",
+   "state": "left · filter popover",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-042",
+   "kind": "B",
+   "role": "button",
+   "name": "+ Heading",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-043",
+   "kind": "B",
+   "role": "button",
+   "name": "+ Subheading",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-044",
+   "kind": "B",
+   "role": "button",
+   "name": "+ Body",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-045",
+   "kind": "B",
+   "role": "searchbox",
+   "name": "Search fonts",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-046",
+   "kind": "B",
+   "role": "button",
+   "name": "Chinese – Noto",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-047",
+   "kind": "B",
+   "role": "button",
+   "name": "Urdu – Nastaliq",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-048",
+   "kind": "B",
+   "role": "button",
+   "name": "Arabic – Naskh",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-049",
+   "kind": "B",
+   "role": "button",
+   "name": "Hindi – Noto",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-050",
+   "kind": "B",
+   "role": "button",
+   "name": "Dancing Script",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-051",
+   "kind": "B",
+   "role": "button",
+   "name": "Bubblegum Sans",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-052",
+   "kind": "B",
+   "role": "button",
+   "name": "Permanent Marker",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-053",
+   "kind": "B",
+   "role": "button",
+   "name": "Cabin Sketch",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-054",
+   "kind": "B",
+   "role": "button",
+   "name": "Indie Flower",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-055",
+   "kind": "B",
+   "role": "button",
+   "name": "Shadows Into Light",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-056",
+   "kind": "B",
+   "role": "button",
+   "name": "School Bell",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-057",
+   "kind": "B",
+   "role": "button",
+   "name": "Sacramento",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-058",
+   "kind": "B",
+   "role": "button",
+   "name": "Patrick Hand",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-059",
+   "kind": "B",
+   "role": "button",
+   "name": "Caveat",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-060",
+   "kind": "B",
+   "role": "button",
+   "name": "Kalam",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-061",
+   "kind": "B",
+   "role": "button",
+   "name": "Gochi Hand",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-062",
+   "kind": "B",
+   "role": "button",
+   "name": "Amatic SC",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-063",
+   "kind": "B",
+   "role": "button",
+   "name": "Architects Daughter",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-064",
+   "kind": "B",
+   "role": "button",
+   "name": "Gloria Hallelujah",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-065",
+   "kind": "B",
+   "role": "button",
+   "name": "Rock Salt",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-066",
+   "kind": "B",
+   "role": "button",
+   "name": "Reenie Beanie",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-067",
+   "kind": "B",
+   "role": "button",
+   "name": "Handlee",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-068",
+   "kind": "B",
+   "role": "button",
+   "name": "Coming Soon",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-069",
+   "kind": "B",
+   "role": "button",
+   "name": "Covered By Your Grace",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-070",
+   "kind": "B",
+   "role": "button",
+   "name": "Just Another Hand",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-071",
+   "kind": "B",
+   "role": "button",
+   "name": "Kaushan Script",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-072",
+   "kind": "B",
+   "role": "button",
+   "name": "Pacifico",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-073",
+   "kind": "B",
+   "role": "button",
+   "name": "Satisfy",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-074",
+   "kind": "B",
+   "role": "button",
+   "name": "Short Stack",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-075",
+   "kind": "B",
+   "role": "button",
+   "name": "Sue Ellen Francisco",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-076",
+   "kind": "B",
+   "role": "button",
+   "name": "Figtree",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-077",
+   "kind": "B",
+   "role": "button",
+   "name": "Upload Font",
+   "state": "left · text",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-078",
+   "kind": "B",
+   "role": "button",
+   "name": "Layer row (selects the item)",
+   "state": "left · layers",
+   "region": "left",
+   "count": 2
+  },
+  {
+   "id": "B-079",
+   "kind": "B",
+   "role": "button",
+   "name": "Draw later",
+   "state": "left · layers",
+   "region": "left",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-080",
+   "kind": "B",
+   "role": "button",
+   "name": "Draw earlier",
+   "state": "left · layers",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-081",
+   "kind": "B",
+   "role": "button",
+   "name": "Hide",
+   "state": "left · layers",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-082",
+   "kind": "B",
+   "role": "button",
+   "name": "Delete",
+   "state": "left · layers",
+   "region": "left",
+   "count": 1
+  },
+  {
+   "id": "B-083",
+   "kind": "B",
+   "role": "button",
+   "name": "Undo",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-084",
+   "kind": "B",
+   "role": "button",
+   "name": "Redo",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-085",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "Snap align",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1
+  },
+  {
+   "id": "B-086",
+   "kind": "B",
+   "role": "button",
+   "name": "Previous slide",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1
+  },
+  {
+   "id": "B-087",
+   "kind": "B",
+   "role": "button",
+   "name": "Play",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1
+  },
+  {
+   "id": "B-088",
+   "kind": "B",
+   "role": "button",
+   "name": "Next slide",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1
+  },
+  {
+   "id": "B-089",
+   "kind": "B",
+   "role": "button",
+   "name": "Zoom out",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1
+  },
+  {
+   "id": "B-090",
+   "kind": "B",
+   "role": "button",
+   "name": "Zoom in",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1
+  },
+  {
+   "id": "B-091",
+   "kind": "B",
+   "role": "button",
+   "name": "Full screen",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1
+  },
+  {
+   "id": "B-092",
+   "kind": "B",
+   "role": "button",
+   "name": "Mute pen sound (M)",
+   "state": "board controls",
+   "region": "board controls",
+   "count": 1
+  },
+  {
+   "id": "B-093",
+   "kind": "B",
+   "role": "slider",
+   "name": "Pen sound volume",
+   "state": "pen sound popover",
+   "region": "pen sound popover",
+   "count": 1
+  },
+  {
+   "id": "B-094",
+   "kind": "B",
+   "role": "tab",
+   "name": "Properties",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-095",
+   "kind": "B",
+   "role": "tab",
+   "name": "Project",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-096",
+   "kind": "B",
+   "role": "button",
+   "name": "Collapse",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-097",
+   "kind": "B",
+   "role": "combobox",
+   "name": "? Transition type:",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-098",
+   "kind": "B",
+   "role": "combobox",
+   "name": "? Drawing speed:",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-099",
+   "kind": "B",
+   "role": "spinbutton",
+   "name": "? Pause at end:",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-100",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "? Sync slide with voice",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-101",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "? Pen sound on this slide",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-102",
+   "kind": "B",
+   "role": "combobox",
+   "name": "? Drawing hand:",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-103",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate voiceover",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-104",
+   "kind": "B",
+   "role": "button",
+   "name": "Upload voiceover",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-105",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate music",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-106",
+   "kind": "B",
+   "role": "button",
+   "name": "Upload music",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-107",
+   "kind": "B",
+   "role": "combobox",
+   "name": "? Mood for this slide:",
+   "state": "right · slide",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-108",
+   "kind": "B",
+   "role": "button",
+   "name": "Deselect",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-109",
+   "kind": "B",
+   "role": "combobox",
+   "name": "Animation",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-110",
+   "kind": "B",
+   "role": "combobox",
+   "name": "? Speed",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-111",
+   "kind": "B",
+   "role": "spinbutton",
+   "name": "Duration (sec) ?",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-112",
+   "kind": "B",
+   "role": "spinbutton",
+   "name": "Wait before (sec)",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-113",
+   "kind": "B",
+   "role": "combobox",
+   "name": "Draw as",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-114",
+   "kind": "B",
+   "role": "slider",
+   "name": "Rotate",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-115",
+   "kind": "B",
+   "role": "button",
+   "name": "Duplicate",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-116",
+   "kind": "B",
+   "role": "button",
+   "name": "Draw last",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-117",
+   "kind": "B",
+   "role": "button",
+   "name": "Delete",
+   "state": "right · doodle selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-118",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Text",
+   "state": "right · text selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-119",
+   "kind": "B",
+   "role": "combobox",
+   "name": "Font",
+   "state": "right · text selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-120",
+   "kind": "B",
+   "role": "spinbutton",
+   "name": "Size",
+   "state": "right · text selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-121",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "Bold",
+   "state": "right · text selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-122",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Colour",
+   "state": "right · text selected",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-123",
+   "kind": "B",
+   "role": "button",
+   "name": "Select from Library",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-124",
+   "kind": "B",
+   "role": "button",
+   "name": "16:9",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-125",
+   "kind": "B",
+   "role": "button",
+   "name": "9:16",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-126",
+   "kind": "B",
+   "role": "button",
+   "name": "1:1",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-127",
+   "kind": "B",
+   "role": "button",
+   "name": "4:5",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-128",
+   "kind": "B",
+   "role": "combobox",
+   "name": "? Speed for new slides",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-129",
+   "kind": "B",
+   "role": "button",
+   "name": "Apply to all slides",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-130",
+   "kind": "B",
+   "role": "button",
+   "name": "Whiteboard",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-131",
+   "kind": "B",
+   "role": "button",
+   "name": "Blackboard",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-132",
+   "kind": "B",
+   "role": "button",
+   "name": "Greenboard",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-133",
+   "kind": "B",
+   "role": "button",
+   "name": "Graph paper",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-134",
+   "kind": "B",
+   "role": "button",
+   "name": "Kraft paper",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-135",
+   "kind": "B",
+   "role": "option",
+   "name": "Hand picker tile (sets the drawing hand)",
+   "state": "right · project",
+   "region": "right",
+   "count": 26
+  },
+  {
+   "id": "B-136",
+   "kind": "B",
+   "role": "button",
+   "name": "Marker",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-137",
+   "kind": "B",
+   "role": "button",
+   "name": "Chalk",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-138",
+   "kind": "B",
+   "role": "button",
+   "name": "Pencil",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-139",
+   "kind": "B",
+   "role": "button",
+   "name": "Soft marker",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-140",
+   "kind": "B",
+   "role": "button",
+   "name": "Ballpoint",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-141",
+   "kind": "B",
+   "role": "button",
+   "name": "Custom",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-142",
+   "kind": "B",
+   "role": "button",
+   "name": "None",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-143",
+   "kind": "B",
+   "role": "slider",
+   "name": "Volume (35%)",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-144",
+   "kind": "B",
+   "role": "button",
+   "name": "Mute pen sound",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-145",
+   "kind": "B",
+   "role": "button",
+   "name": "Test",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-146",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "? Quieter during voiceover",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-147",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "? Cap-off sound at the start",
+   "state": "right · project",
+   "region": "right",
+   "count": 1
+  },
+  {
+   "id": "B-148",
+   "kind": "B",
+   "role": "button",
+   "name": "Slide card (selects the slide)",
+   "state": "timeline",
+   "region": "timeline",
+   "count": 4
+  },
+  {
+   "id": "B-149",
+   "kind": "B",
+   "role": "button",
+   "name": "Slide card kebab menu",
+   "state": "timeline",
+   "region": "timeline",
+   "count": 4
+  },
+  {
+   "id": "B-150",
+   "kind": "B",
+   "role": "button",
+   "name": "Add slide",
+   "state": "timeline",
+   "region": "timeline",
+   "count": 1
+  },
+  {
+   "id": "B-151",
+   "kind": "B",
+   "role": "menuitem",
+   "name": "Duplicate slide",
+   "state": "slide menu",
+   "region": "slide menu",
+   "count": 1
+  },
+  {
+   "id": "B-152",
+   "kind": "B",
+   "role": "menuitem",
+   "name": "Move left",
+   "state": "slide menu",
+   "region": "slide menu",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-153",
+   "kind": "B",
+   "role": "menuitem",
+   "name": "Move right",
+   "state": "slide menu",
+   "region": "slide menu",
+   "count": 1
+  },
+  {
+   "id": "B-154",
+   "kind": "B",
+   "role": "menuitem",
+   "name": "Delete slide",
+   "state": "slide menu",
+   "region": "slide menu",
+   "count": 1
+  },
+  {
+   "id": "B-155",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Dashboard",
+   "region": "modal · Dashboard",
+   "count": 1
+  },
+  {
+   "id": "B-156",
+   "kind": "B",
+   "role": "button",
+   "name": "New project",
+   "state": "modal · Dashboard",
+   "region": "modal · Dashboard",
+   "count": 1
+  },
+  {
+   "id": "B-157",
+   "kind": "B",
+   "role": "button",
+   "name": "Open the example",
+   "state": "modal · Dashboard",
+   "region": "modal · Dashboard",
+   "count": 1
+  },
+  {
+   "id": "B-158",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-159",
+   "kind": "B",
+   "role": "combobox",
+   "name": "Project Size:",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-160",
+   "kind": "B",
+   "role": "tab",
+   "name": "Templates",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-161",
+   "kind": "B",
+   "role": "tab",
+   "name": "Sample Projects",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-162",
+   "kind": "B",
+   "role": "button",
+   "name": "Empty Project",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-163",
+   "kind": "B",
+   "role": "button",
+   "name": "Teaching",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-164",
+   "kind": "B",
+   "role": "button",
+   "name": "Business",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-165",
+   "kind": "B",
+   "role": "button",
+   "name": "Funky",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-166",
+   "kind": "B",
+   "role": "button",
+   "name": "Scribble",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-167",
+   "kind": "B",
+   "role": "button",
+   "name": "Stickman",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-168",
+   "kind": "B",
+   "role": "button",
+   "name": "Minimal Pastel",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-169",
+   "kind": "B",
+   "role": "button",
+   "name": "Presenter",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-170",
+   "kind": "B",
+   "role": "button",
+   "name": "Paper Plane",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-171",
+   "kind": "B",
+   "role": "button",
+   "name": "Back",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-172",
+   "kind": "B",
+   "role": "button",
+   "name": "Next",
+   "state": "modal · New project gallery",
+   "region": "modal · New project gallery",
+   "count": 1
+  },
+  {
+   "id": "B-173",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Tutorials",
+   "region": "modal · Tutorials",
+   "count": 1
+  },
+  {
+   "id": "B-174",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · API key",
+   "region": "modal · API key",
+   "count": 1
+  },
+  {
+   "id": "B-175",
+   "kind": "B",
+   "role": "textbox",
+   "name": "API Key",
+   "state": "modal · API key",
+   "region": "modal · API key",
+   "count": 1
+  },
+  {
+   "id": "B-176",
+   "kind": "B",
+   "role": "button",
+   "name": "Show key",
+   "state": "modal · API key",
+   "region": "modal · API key",
+   "count": 1
+  },
+  {
+   "id": "L-001",
+   "kind": "L",
+   "role": "link",
+   "name": "Get a free Google Gemini key",
+   "state": "modal · API key",
+   "region": "modal · API key",
+   "count": 1
+  },
+  {
+   "id": "B-177",
+   "kind": "B",
+   "role": "button",
+   "name": "Cancel",
+   "state": "modal · API key",
+   "region": "modal · API key",
+   "count": 1
+  },
+  {
+   "id": "B-178",
+   "kind": "B",
+   "role": "button",
+   "name": "Save & Connect",
+   "state": "modal · API key",
+   "region": "modal · API key",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-179",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Export",
+   "region": "modal · Export",
+   "count": 1
+  },
+  {
+   "id": "B-180",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "Include pen drawing sound in this export",
+   "state": "modal · Export",
+   "region": "modal · Export",
+   "count": 1
+  },
+  {
+   "id": "B-181",
+   "kind": "B",
+   "role": "button",
+   "name": "Render",
+   "state": "modal · Export",
+   "region": "modal · Export",
+   "count": 1
+  },
+  {
+   "id": "B-182",
+   "kind": "B",
+   "role": "button",
+   "name": "Play",
+   "state": "modal · Export",
+   "region": "modal · Export",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-183",
+   "kind": "B",
+   "role": "button",
+   "name": "Download",
+   "state": "modal · Export",
+   "region": "modal · Export",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-184",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-185",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Title",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-186",
+   "kind": "B",
+   "role": "button",
+   "name": "3 min 22–26 slides 420–480 words",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-187",
+   "kind": "B",
+   "role": "button",
+   "name": "5 min 36–42 slides 700–780 words",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-188",
+   "kind": "B",
+   "role": "button",
+   "name": "8 min 56–65 slides 1,120–1,250 words",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-189",
+   "kind": "B",
+   "role": "radio",
+   "name": "Kids story",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-190",
+   "kind": "B",
+   "role": "radio",
+   "name": "Explainer",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-191",
+   "kind": "B",
+   "role": "radio",
+   "name": "Faith story (Islamic)",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-192",
+   "kind": "B",
+   "role": "radio",
+   "name": "Faith story (Christian)",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-193",
+   "kind": "B",
+   "role": "radio",
+   "name": "Business / marketing",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-194",
+   "kind": "B",
+   "role": "radio",
+   "name": "Motivational",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-195",
+   "kind": "B",
+   "role": "radio",
+   "name": "True-life lesson",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-196",
+   "kind": "B",
+   "role": "radio",
+   "name": "Kids 4–8",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-197",
+   "kind": "B",
+   "role": "radio",
+   "name": "Kids 9–12",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-198",
+   "kind": "B",
+   "role": "radio",
+   "name": "Teens",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-199",
+   "kind": "B",
+   "role": "radio",
+   "name": "Adults",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-200",
+   "kind": "B",
+   "role": "radio",
+   "name": "Warm",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-201",
+   "kind": "B",
+   "role": "radio",
+   "name": "Funny",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-202",
+   "kind": "B",
+   "role": "radio",
+   "name": "Inspiring",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-203",
+   "kind": "B",
+   "role": "radio",
+   "name": "Calm",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-204",
+   "kind": "B",
+   "role": "radio",
+   "name": "Dramatic",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-205",
+   "kind": "B",
+   "role": "radio",
+   "name": "English",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-206",
+   "kind": "B",
+   "role": "radio",
+   "name": "Urdu",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-207",
+   "kind": "B",
+   "role": "radio",
+   "name": "Hindi",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-208",
+   "kind": "B",
+   "role": "radio",
+   "name": "Arabic",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-209",
+   "kind": "B",
+   "role": "textbox",
+   "name": "What must the story include? (optional)",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1
+  },
+  {
+   "id": "B-210",
+   "kind": "B",
+   "role": "button",
+   "name": "Next",
+   "state": "modal · Story wizard",
+   "region": "modal · Story wizard",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-211",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Generate props with AI",
+   "region": "modal · Generate props with AI",
+   "count": 1
+  },
+  {
+   "id": "B-212",
+   "kind": "B",
+   "role": "button",
+   "name": "Element",
+   "state": "modal · Generate props with AI",
+   "region": "modal · Generate props with AI",
+   "count": 1
+  },
+  {
+   "id": "B-213",
+   "kind": "B",
+   "role": "button",
+   "name": "Doodle line art",
+   "state": "modal · Generate props with AI",
+   "region": "modal · Generate props with AI",
+   "count": 1
+  },
+  {
+   "id": "B-214",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Describe what to make",
+   "state": "modal · Generate props with AI",
+   "region": "modal · Generate props with AI",
+   "count": 1
+  },
+  {
+   "id": "B-215",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate",
+   "state": "modal · Generate props with AI",
+   "region": "modal · Generate props with AI",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-216",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "4 variations",
+   "state": "modal · Generate props with AI",
+   "region": "modal · Generate props with AI",
+   "count": 1
+  },
+  {
+   "id": "B-217",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Generate characters with AI",
+   "region": "modal · Generate characters with AI",
+   "count": 1
+  },
+  {
+   "id": "B-218",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Type your prompt here...",
+   "state": "modal · Generate characters with AI",
+   "region": "modal · Generate characters with AI",
+   "count": 1
+  },
+  {
+   "id": "B-219",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate",
+   "state": "modal · Generate characters with AI",
+   "region": "modal · Generate characters with AI",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-220",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "3 variations",
+   "state": "modal · Generate characters with AI",
+   "region": "modal · Generate characters with AI",
+   "count": 1
+  },
+  {
+   "id": "B-221",
+   "kind": "B",
+   "role": "button",
+   "name": "Reference Image",
+   "state": "modal · Generate characters with AI",
+   "region": "modal · Generate characters with AI",
+   "count": 1
+  },
+  {
+   "id": "B-222",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Character variations",
+   "region": "modal · Character variations",
+   "count": 1
+  },
+  {
+   "id": "B-223",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Type your prompt here...",
+   "state": "modal · Character variations",
+   "region": "modal · Character variations",
+   "count": 1
+  },
+  {
+   "id": "B-224",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate",
+   "state": "modal · Character variations",
+   "region": "modal · Character variations",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-225",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "3 variations",
+   "state": "modal · Character variations",
+   "region": "modal · Character variations",
+   "count": 1
+  },
+  {
+   "id": "B-226",
+   "kind": "B",
+   "role": "button",
+   "name": "Reference Image",
+   "state": "modal · Character variations",
+   "region": "modal · Character variations",
+   "count": 1
+  },
+  {
+   "id": "B-227",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-228",
+   "kind": "B",
+   "role": "textbox",
+   "name": "What should the voice say?",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-229",
+   "kind": "B",
+   "role": "button",
+   "name": "Write it with AI",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-230",
+   "kind": "B",
+   "role": "combobox",
+   "name": "Language",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-231",
+   "kind": "B",
+   "role": "combobox",
+   "name": "Delivery",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-232",
+   "kind": "B",
+   "role": "combobox",
+   "name": "Speed",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-233",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Sulafat",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-234",
+   "kind": "B",
+   "role": "button",
+   "name": "Warm storyteller Sulafat · female · warm, storyteller",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-235",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Zephyr",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-236",
+   "kind": "B",
+   "role": "button",
+   "name": "Bright, for kids Zephyr · female · bright, kids",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-237",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Charon",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-238",
+   "kind": "B",
+   "role": "button",
+   "name": "Calm documentary Charon · male · informative, documentary",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-239",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Puck",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-240",
+   "kind": "B",
+   "role": "button",
+   "name": "Puck male · upbeat, kids",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-241",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Kore",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-242",
+   "kind": "B",
+   "role": "button",
+   "name": "Kore female · firm",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-243",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Fenrir",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-244",
+   "kind": "B",
+   "role": "button",
+   "name": "Fenrir male · excitable",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-245",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Leda",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-246",
+   "kind": "B",
+   "role": "button",
+   "name": "Leda female · youthful, kids",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-247",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Orus",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-248",
+   "kind": "B",
+   "role": "button",
+   "name": "Orus male · firm",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-249",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Aoede",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-250",
+   "kind": "B",
+   "role": "button",
+   "name": "Aoede female · breezy",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-251",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Callirrhoe",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-252",
+   "kind": "B",
+   "role": "button",
+   "name": "Callirrhoe female · easy-going",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-253",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Autonoe",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-254",
+   "kind": "B",
+   "role": "button",
+   "name": "Autonoe female · bright",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-255",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Enceladus",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-256",
+   "kind": "B",
+   "role": "button",
+   "name": "Enceladus male · breathy",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-257",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Iapetus",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-258",
+   "kind": "B",
+   "role": "button",
+   "name": "Iapetus male · clear",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-259",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Umbriel",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-260",
+   "kind": "B",
+   "role": "button",
+   "name": "Umbriel male · easy-going",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-261",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Algieba",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-262",
+   "kind": "B",
+   "role": "button",
+   "name": "Algieba male · smooth",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-263",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Despina",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-264",
+   "kind": "B",
+   "role": "button",
+   "name": "Despina female · smooth",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-265",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Erinome",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-266",
+   "kind": "B",
+   "role": "button",
+   "name": "Erinome female · clear",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-267",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Algenib",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-268",
+   "kind": "B",
+   "role": "button",
+   "name": "Algenib male · gravelly",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-269",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Rasalgethi",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-270",
+   "kind": "B",
+   "role": "button",
+   "name": "Rasalgethi male · informative",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-271",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Laomedeia",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-272",
+   "kind": "B",
+   "role": "button",
+   "name": "Laomedeia female · upbeat",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-273",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Achernar",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-274",
+   "kind": "B",
+   "role": "button",
+   "name": "Achernar female · soft, calm",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-275",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Alnilam",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-276",
+   "kind": "B",
+   "role": "button",
+   "name": "Alnilam male · firm",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-277",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Schedar",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-278",
+   "kind": "B",
+   "role": "button",
+   "name": "Schedar male · even",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-279",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Gacrux",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-280",
+   "kind": "B",
+   "role": "button",
+   "name": "Gacrux female · mature, storyteller",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-281",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Pulcherrima",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-282",
+   "kind": "B",
+   "role": "button",
+   "name": "Pulcherrima female · forward",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-283",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Achird",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-284",
+   "kind": "B",
+   "role": "button",
+   "name": "Achird male · friendly",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-285",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Zubenelgenubi",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-286",
+   "kind": "B",
+   "role": "button",
+   "name": "Zubenelgenubi male · casual",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-287",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Vindemiatrix",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-288",
+   "kind": "B",
+   "role": "button",
+   "name": "Vindemiatrix female · gentle, calm",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-289",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Sadachbia",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-290",
+   "kind": "B",
+   "role": "button",
+   "name": "Sadachbia male · lively",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-291",
+   "kind": "B",
+   "role": "button",
+   "name": "Preview Sadaltager",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-292",
+   "kind": "B",
+   "role": "button",
+   "name": "Sadaltager male · knowledgeable, documentary",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-293",
+   "kind": "B",
+   "role": "button",
+   "name": "Make voice",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1
+  },
+  {
+   "id": "B-294",
+   "kind": "B",
+   "role": "button",
+   "name": "Use this voiceover",
+   "state": "modal · Voiceover",
+   "region": "modal · Voiceover",
+   "count": 1,
+   "disabled": true
+  },
+  {
+   "id": "B-295",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-296",
+   "kind": "B",
+   "role": "button",
+   "name": "Calm piano",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-297",
+   "kind": "B",
+   "role": "button",
+   "name": "Whole video, one mood",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-298",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Extra words",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-299",
+   "kind": "B",
+   "role": "button",
+   "name": "Generate",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-300",
+   "kind": "B",
+   "role": "combobox",
+   "name": "Mood",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-301",
+   "kind": "B",
+   "role": "slider",
+   "name": "Tempo 66 BPM",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-302",
+   "kind": "B",
+   "role": "button",
+   "name": "Very soft",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-303",
+   "kind": "B",
+   "role": "button",
+   "name": "Soft",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-304",
+   "kind": "B",
+   "role": "button",
+   "name": "Medium",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-305",
+   "kind": "B",
+   "role": "checkbox",
+   "name": "No drums",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-306",
+   "kind": "B",
+   "role": "button",
+   "name": "piano",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-307",
+   "kind": "B",
+   "role": "button",
+   "name": "strings",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-308",
+   "kind": "B",
+   "role": "button",
+   "name": "harp",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-309",
+   "kind": "B",
+   "role": "button",
+   "name": "flute",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-310",
+   "kind": "B",
+   "role": "button",
+   "name": "acoustic guitar",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-311",
+   "kind": "B",
+   "role": "button",
+   "name": "bells",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-312",
+   "kind": "B",
+   "role": "button",
+   "name": "cello",
+   "state": "modal · Music",
+   "region": "modal · Music",
+   "count": 1
+  },
+  {
+   "id": "B-313",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Music library",
+   "region": "modal · Music library",
+   "count": 1
+  },
+  {
+   "id": "B-314",
+   "kind": "B",
+   "role": "button",
+   "name": "Play Bright Ideas",
+   "state": "modal · Music library",
+   "region": "modal · Music library",
+   "count": 1
+  },
+  {
+   "id": "B-315",
+   "kind": "B",
+   "role": "button",
+   "name": "Use track",
+   "state": "modal · Music library",
+   "region": "modal · Music library",
+   "count": 1
+  },
+  {
+   "id": "B-316",
+   "kind": "B",
+   "role": "button",
+   "name": "Play Calm Morning",
+   "state": "modal · Music library",
+   "region": "modal · Music library",
+   "count": 1
+  },
+  {
+   "id": "B-317",
+   "kind": "B",
+   "role": "button",
+   "name": "Play Corporate Steps",
+   "state": "modal · Music library",
+   "region": "modal · Music library",
+   "count": 1
+  },
+  {
+   "id": "B-318",
+   "kind": "B",
+   "role": "button",
+   "name": "Play Playful Steps",
+   "state": "modal · Music library",
+   "region": "modal · Music library",
+   "count": 1
+  },
+  {
+   "id": "B-319",
+   "kind": "B",
+   "role": "button",
+   "name": "Play Lo-fi Notes",
+   "state": "modal · Music library",
+   "region": "modal · Music library",
+   "count": 1
+  },
+  {
+   "id": "B-320",
+   "kind": "B",
+   "role": "button",
+   "name": "Play Inspire",
+   "state": "modal · Music library",
+   "region": "modal · Music library",
+   "count": 1
+  },
+  {
+   "id": "B-321",
+   "kind": "B",
+   "role": "button",
+   "name": "Close",
+   "state": "modal · Upload image",
+   "region": "modal · Upload image",
+   "count": 1
+  },
+  {
+   "id": "B-322",
+   "kind": "B",
+   "role": "button",
+   "name": "Original As uploaded",
+   "state": "modal · Upload image",
+   "region": "modal · Upload image",
+   "count": 1
+  },
+  {
+   "id": "B-323",
+   "kind": "B",
+   "role": "button",
+   "name": "Sketch version Turned into a sketch",
+   "state": "modal · Upload image",
+   "region": "modal · Upload image",
+   "count": 1
+  },
+  {
+   "id": "B-324",
+   "kind": "B",
+   "role": "textbox",
+   "name": "Name",
+   "state": "modal · Upload image",
+   "region": "modal · Upload image",
+   "count": 1
+  },
+  {
+   "id": "B-325",
+   "kind": "B",
+   "role": "button",
+   "name": "Cancel",
+   "state": "modal · Upload image",
+   "region": "modal · Upload image",
+   "count": 1
+  },
+  {
+   "id": "B-326",
+   "kind": "B",
+   "role": "button",
+   "name": "Add to board",
+   "state": "modal · Upload image",
+   "region": "modal · Upload image",
+   "count": 1
+  }
+ ],
+ "links": [
+  {
+   "id": "L-002",
+   "url": "/login",
+   "where": "src/auth/ForgotPasswordPage.tsx (Link)"
+  },
+  {
+   "id": "L-003",
+   "url": "/forgot-password",
+   "where": "src/auth/LoginPage.tsx (Link)"
+  },
+  {
+   "id": "L-004",
+   "url": "https://aistudio.google.com/app/apikey",
+   "where": "src/editor/ApiKeyModal.tsx"
+  },
+  {
+   "id": "L-005",
+   "url": "/favicon.svg",
+   "where": "index.html"
+  },
+  {
+   "id": "L-006",
+   "url": "https://fonts.googleapis.com",
+   "where": "index.html"
+  },
+  {
+   "id": "L-007",
+   "url": "https://fonts.gstatic.com",
+   "where": "index.html"
+  },
+  {
+   "id": "L-008",
+   "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+   "where": "index.html"
+  },
+  {
+   "id": "L-009",
+   "url": "http://www.w3.org/2000/svg",
+   "where": "src/auth/auth.css (url in code)"
+  },
+  {
+   "id": "L-010",
+   "url": "https://fonts.googleapis.com/css2?family=${encodeURIComponent(family",
+   "where": "src/library/fonts.ts (url in code)"
+  }
+ ],
+ "modals": [
+  {
+   "id": "M-001",
+   "name": "Dashboard",
+   "state": "modal · Dashboard"
+  },
+  {
+   "id": "M-002",
+   "name": "New project gallery",
+   "state": "modal · New project gallery"
+  },
+  {
+   "id": "M-003",
+   "name": "Tutorials",
+   "state": "modal · Tutorials"
+  },
+  {
+   "id": "M-004",
+   "name": "API key",
+   "state": "modal · API key"
+  },
+  {
+   "id": "M-005",
+   "name": "Export",
+   "state": "modal · Export"
+  },
+  {
+   "id": "M-006",
+   "name": "Story wizard",
+   "state": "modal · Story wizard"
+  },
+  {
+   "id": "M-007",
+   "name": "Generate props with AI",
+   "state": "modal · Generate props with AI"
+  },
+  {
+   "id": "M-008",
+   "name": "Generate characters with AI",
+   "state": "modal · Generate characters with AI"
+  },
+  {
+   "id": "M-009",
+   "name": "Character variations",
+   "state": "modal · Character variations"
+  },
+  {
+   "id": "M-010",
+   "name": "Voiceover",
+   "state": "modal · Voiceover"
+  },
+  {
+   "id": "M-011",
+   "name": "Music",
+   "state": "modal · Music"
+  },
+  {
+   "id": "M-012",
+   "name": "Music library",
+   "state": "modal · Music library"
+  },
+  {
+   "id": "M-013",
+   "name": "Upload image",
+   "state": "modal · Upload image"
+  },
+  {
+   "id": "M-014",
+   "name": "Filter popover",
+   "state": "left · filter popover"
+  },
+  {
+   "id": "M-015",
+   "name": "Pen sound volume popover",
+   "state": "pen sound popover"
+  },
+  {
+   "id": "M-016",
+   "name": "Slide kebab menu",
+   "state": "slide menu"
+  },
+  {
+   "id": "M-017",
+   "name": "Hand picker (Project tab)",
+   "state": "right · project"
+  },
+  {
+   "id": "M-018",
+   "name": "Story wizard steps 2–4 (look and voice, script, build)",
+   "state": ""
+  },
+  {
+   "id": "M-019",
+   "name": "Project template gallery (src/editor/TemplateGallery.tsx)",
+   "state": ""
+  }
+ ],
+ "api": [
+  {
+   "id": "A-001",
+   "side": "server route",
+   "method": "POST",
+   "url": "/api/story",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-002",
+   "side": "server route",
+   "method": "POST",
+   "url": "/api/slide",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-003",
+   "side": "server route",
+   "method": "POST",
+   "url": "/api/element",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-004",
+   "side": "server route",
+   "method": "POST",
+   "url": "/api/tts",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-005",
+   "side": "server route",
+   "method": "POST",
+   "url": "/api/music",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-006",
+   "side": "server route",
+   "method": "POST",
+   "url": "/api/ai/voiceline",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-007",
+   "side": "server route",
+   "method": "POST",
+   "url": "/api/ai/set-key",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-008",
+   "side": "server route",
+   "method": "GET",
+   "url": "/api/voices",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-009",
+   "side": "server route",
+   "method": "GET",
+   "url": "/api/music/styles",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-010",
+   "side": "server route",
+   "method": "GET",
+   "url": "/api/ai/status",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-011",
+   "side": "server route",
+   "method": "POST",
+   "url": "/api/access",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-012",
+   "side": "server route",
+   "method": "GET",
+   "url": "/media/<project>/<file>",
+   "where": "server/api/router.ts"
+  },
+  {
+   "id": "A-013",
+   "side": "front-end call",
+   "method": "POST",
+   "url": "/api/element",
+   "where": "src/services/ai.ts"
+  },
+  {
+   "id": "A-014",
+   "side": "front-end call",
+   "method": "POST",
+   "url": "/api/story",
+   "where": "src/services/ai.ts"
+  },
+  {
+   "id": "A-015",
+   "side": "front-end call",
+   "method": "POST",
+   "url": "/api/slide",
+   "where": "src/services/ai.ts"
+  },
+  {
+   "id": "A-016",
+   "side": "front-end call",
+   "method": "GET",
+   "url": "/api/voices",
+   "where": "src/services/ai.ts"
+  },
+  {
+   "id": "A-017",
+   "side": "front-end call",
+   "method": "POST",
+   "url": "/api/tts",
+   "where": "src/services/ai.ts"
+  },
+  {
+   "id": "A-018",
+   "side": "front-end call",
+   "method": "POST",
+   "url": "/api/music",
+   "where": "src/services/ai.ts"
+  },
+  {
+   "id": "A-019",
+   "side": "front-end call",
+   "method": "POST",
+   "url": "/api/ai/voiceline",
+   "where": "src/services/ai.ts"
+  },
+  {
+   "id": "A-020",
+   "side": "front-end call",
+   "method": "POST",
+   "url": "/api/ai/set-key",
+   "where": "src/services/ai.ts"
+  },
+  {
+   "id": "A-021",
+   "side": "front-end call",
+   "method": "GET",
+   "url": "/api/ai/status",
+   "where": "src/services/ai.ts"
+  }
+ ],
+ "files": [
+  {
+   "id": "F-001",
+   "accept": "image/*",
+   "where": "src/editor/CharacterVariationsModal.tsx"
+  },
+  {
+   "id": "F-002",
+   "accept": "image/png,image/jpeg,image/webp,image/svg+xml",
+   "where": "src/editor/Editor.tsx"
+  },
+  {
+   "id": "F-003",
+   "accept": "audio/*",
+   "where": "src/editor/Editor.tsx"
+  },
+  {
+   "id": "F-004",
+   "accept": "FONT_UPLOAD_TYPES",
+   "where": "src/editor/Editor.tsx"
+  },
+  {
+   "id": "F-005",
+   "accept": ".mp3,.wav,audio/mp3,audio/wav",
+   "where": "src/editor/RightPanel.tsx"
+  }
+ ],
+ "shortcuts": [
+  {
+   "id": "K-001",
+   "name": "Space (play / pause)"
+  },
+  {
+   "id": "K-002",
+   "name": "M (mute pen sound)"
+  },
+  {
+   "id": "K-003",
+   "name": "Ctrl/Cmd+Z (undo)"
+  },
+  {
+   "id": "K-004",
+   "name": "Ctrl/Cmd+Shift+Z (redo)"
+  },
+  {
+   "id": "K-005",
+   "name": "Ctrl/Cmd+Y (redo)"
+  },
+  {
+   "id": "K-006",
+   "name": "Ctrl/Cmd+S (save)"
+  },
+  {
+   "id": "K-007",
+   "name": "Ctrl/Cmd+D (duplicate)"
+  },
+  {
+   "id": "K-008",
+   "name": "Delete / Backspace (remove selected)"
+  },
+  {
+   "id": "K-009",
+   "name": "Arrow keys (nudge 8 px)"
+  },
+  {
+   "id": "K-010",
+   "name": "Shift+Arrow keys (nudge 40 px)"
+  },
+  {
+   "id": "K-011",
+   "name": "Escape (deselect / close modal / close menu)"
+  }
+ ],
+ "assets": [
+  {
+   "id": "S-001",
+   "path": "/assets",
+   "files": 7
+  },
+  {
+   "id": "S-002",
+   "path": "/brand",
+   "files": 1
+  },
+  {
+   "id": "S-003",
+   "path": "/clipart-sheets",
+   "files": 5
+  },
+  {
+   "id": "S-004",
+   "path": "/favicon.svg",
+   "files": 1
+  },
+  {
+   "id": "S-005",
+   "path": "/hands",
+   "files": 16
+  },
+  {
+   "id": "S-006",
+   "path": "/icons.svg",
+   "files": 1
+  },
+  {
+   "id": "S-007",
+   "path": "/library/LICENSES.md",
+   "files": 1
+  },
+  {
+   "id": "S-008",
+   "path": "/library/business",
+   "files": 60
+  },
+  {
+   "id": "S-009",
+   "path": "/library/characters",
+   "files": 600
+  },
+  {
+   "id": "S-010",
+   "path": "/library/education",
+   "files": 45
+  },
+  {
+   "id": "S-011",
+   "path": "/library/faces",
+   "files": 15
+  },
+  {
+   "id": "S-012",
+   "path": "/library/faith",
+   "files": 45
+  },
+  {
+   "id": "S-013",
+   "path": "/library/food",
+   "files": 45
+  },
+  {
+   "id": "S-014",
+   "path": "/library/health",
+   "files": 30
+  },
+  {
+   "id": "S-015",
+   "path": "/library/manifest.json",
+   "files": 1
+  },
+  {
+   "id": "S-016",
+   "path": "/library/nature",
+   "files": 15
+  },
+  {
+   "id": "S-017",
+   "path": "/library/realestate",
+   "files": 60
+  },
+  {
+   "id": "S-018",
+   "path": "/library/scenes",
+   "files": 150
+  },
+  {
+   "id": "S-019",
+   "path": "/library/shapes",
+   "files": 150
+  },
+  {
+   "id": "S-020",
+   "path": "/library/tech",
+   "files": 45
+  },
+  {
+   "id": "S-021",
+   "path": "/library/transport",
+   "files": 30
+  },
+  {
+   "id": "S-022",
+   "path": "/pen-sounds",
+   "files": 10
+  }
+ ],
+ "missingStates": []
+}

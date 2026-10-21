@@ -1,0 +1,86 @@
+[
+ {
+  "file": "replica/architecture.md",
+  "line": 162,
+  "text": "The owner supplied **Chalkline Studio.html**, a single-file InstaDoodle-style editor, and asked for the app to match",
+  "shipped": false
+ },
+ {
+  "file": "replica/features.csv",
+  "line": 51,
+  "text": "Help center and ticket support,support,could,yes,no,help.instadoodle.com",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 1,
+  "text": "# Recon map: InstaDoodle (web app, browser-based)",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 7,
+  "text": "> **Evidence level.** The app lives behind a login (`instadoodle.app/user/login`). No account was used, so every",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 16,
+  "text": "| 1 | app login (the URL given) | https://instadoodle.app/instadoodle | Login, sign-up, forgot-password only. Email+password, Google sign-in, \"remember 30 days\"",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 17,
+  "text": "| 2 | official sales page | https://instadoodle.com/ | Best source. Full feature list, plan table, aspect ratios, resolutions, credits, guarantee. |",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 18,
+  "text": "| 3 | samples page | https://instadoodle.com/samples | 16 sample titles (explainers, ads, kids' stories, how-tos). Videos on Vimeo, not inspected. |",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 19,
+  "text": "| 4 | terms | https://instadoodle.com/terms | Fair-use clause bans bots/scripts generating videos in mass; restricts top 0.05% users. **No anti-competitor or re",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 20,
+  "text": "| 5 | help center | https://help.instadoodle.com/support/home | JS-rendered, did not load. Ticket-based support. **Worth reading in a browser.** |",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 21,
+  "text": "| 6 | tutorial (third-party) | https://aiindigo.com/tutorials/getting-started-with-instadoodle-create-whiteboard-animations-from-text | Workflow steps; notes au",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 22,
+  "text": "| 7 | affiliate tutorial | https://instadoodle-reviews.beehiiv.com/p/instadoodle-tutorial-a-step-by-step-guide-to-creating-your-first-whiteboard-video | 3-step ",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 23,
+  "text": "| 8 | affiliate review | https://my-reviews.beehiiv.com/p/instadoodle-honest-review-what-they-don-t-tell-you | 1 credit = 1 AI element; AI misses prompts; no mo",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 24,
+  "text": "| 9 | affiliate pricing post | https://my-reviews.beehiiv.com/p/instadoodle-price-features-2025-breakdown-for-usa-uk-aus | $37 one-time front end + $67 Pro. Pro",
+  "shipped": false
+ },
+ {
+  "file": "replica/recon.md",
+  "line": 27,
+  "text": "| — | official YouTube tutorials | https://www.youtube.com/@InstaDoodle | Not watched. Best next source for real editor layout. |",
+  "shipped": false
+ }
+]

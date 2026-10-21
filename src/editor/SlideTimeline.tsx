@@ -71,52 +71,28 @@ export function SlideTimeline({ project, timeline, resources, resVersion, curren
               {i === current && <b />}
               {formatTime(timeline.scenes[i]?.start ?? 0)}
             </div>
-            <button
-              type="button"
-              className="slidecard"
-              aria-current={i === current}
-              aria-label={`Slide ${i + 1}`}
-              style={{ width: cardW, height: cardH }}
-              onClick={(e) => {
-                if ((e.target as Element).closest('[data-menu]')) return;
-                onGo(i);
-              }}
-            >
-              <canvas
-                ref={(el) => {
-                  canvases.current[i] = el;
-                }}
-                width={cardW * 2}
-                height={cardH * 2}
-              />
-              <span className="snum">{i + 1}</span>
-              {project.scenes[i]?.attention && (
-                <span className="attention" title={project.scenes[i].attention}>
-                  Needs attention
-                </span>
-              )}
-              <span className="sdur">{(((timeline.scenes[i]?.end ?? 0) - (timeline.scenes[i]?.start ?? 0)) / 1000).toFixed(1)}s</span>
-              <span
-                className="kebab"
-                data-menu
-                role="button"
-                tabIndex={0}
-                aria-label={`Slide ${i + 1} options`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  openMenu(i, e.currentTarget);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    openMenu(i, e.currentTarget);
-                  }
-                }}
-              >
+            {/* The card and its options button are siblings: a button can't contain another button. */}
+            <div className={i === current ? 'slidecard current' : 'slidecard'} style={{ width: cardW, height: cardH }}>
+              <button type="button" className="slidecard-hit" aria-current={i === current} aria-label={`Slide ${i + 1}`} onClick={() => onGo(i)}>
+                <canvas
+                  ref={(el) => {
+                    canvases.current[i] = el;
+                  }}
+                  width={cardW * 2}
+                  height={cardH * 2}
+                />
+                <span className="snum">{i + 1}</span>
+                {project.scenes[i]?.attention && (
+                  <span className="attention" title={project.scenes[i].attention}>
+                    Needs attention
+                  </span>
+                )}
+                <span className="sdur">{(((timeline.scenes[i]?.end ?? 0) - (timeline.scenes[i]?.start ?? 0)) / 1000).toFixed(1)}s</span>
+              </button>
+              <button type="button" className="kebab" aria-label={`Slide ${i + 1} options`} aria-haspopup="menu" aria-expanded={menu?.index === i} onClick={(e) => openMenu(i, e.currentTarget)}>
                 <MoreVertical size={18} />
-              </span>
-            </button>
+              </button>
+            </div>
           </div>
         ))}
         <div className="tslot">

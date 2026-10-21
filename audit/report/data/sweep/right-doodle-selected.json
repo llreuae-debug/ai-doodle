@@ -1,0 +1,72 @@
+[
+ {
+  "id": "B-108",
+  "name": "Deselect",
+  "state": "right · doodle selected",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-109",
+  "name": "Animation",
+  "state": "right · doodle selected",
+  "result": "FAILED: B-109 Animation is on the page",
+  "problems": []
+ },
+ {
+  "id": "B-110",
+  "name": "? Speed",
+  "state": "right · doodle selected",
+  "result": "picked option 2 of 9",
+  "problems": []
+ },
+ {
+  "id": "B-111",
+  "name": "Duration (sec) ?",
+  "state": "right · doodle selected",
+  "result": "typed 2",
+  "problems": []
+ },
+ {
+  "id": "B-112",
+  "name": "Wait before (sec)",
+  "state": "right · doodle selected",
+  "result": "typed 2",
+  "problems": []
+ },
+ {
+  "id": "B-113",
+  "name": "Draw as",
+  "state": "right · doodle selected",
+  "result": "picked option 2 of 3",
+  "problems": []
+ },
+ {
+  "id": "B-114",
+  "name": "Rotate",
+  "state": "right · doodle selected",
+  "result": "moved",
+  "problems": []
+ },
+ {
+  "id": "B-115",
+  "name": "Duplicate",
+  "state": "right · doodle selected",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-116",
+  "name": "Draw last",
+  "state": "right · doodle selected",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-117",
+  "name": "Delete",
+  "state": "right · doodle selected",
+  "result": "clicked",
+  "problems": []
+ }
+]

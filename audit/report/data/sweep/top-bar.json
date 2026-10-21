@@ -1,0 +1,58 @@
+[
+ {
+  "id": "B-001",
+  "name": "Dashboard",
+  "state": "top bar",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-002",
+  "name": "Project name",
+  "state": "top bar",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-003",
+  "name": "Story",
+  "state": "top bar",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-004",
+  "name": "API Key",
+  "state": "top bar",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-005",
+  "name": "Tutorials",
+  "state": "top bar",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-006",
+  "name": "Save",
+  "state": "top bar",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-007",
+  "name": "Export",
+  "state": "top bar",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-008",
+  "name": "Notifications",
+  "state": "top bar",
+  "result": "clicked",
+  "problems": []
+ }
+]

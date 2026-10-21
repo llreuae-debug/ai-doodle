@@ -1,0 +1,128 @@
+[
+ {
+  "id": "B-295",
+  "name": "Close",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-296",
+  "name": "Calm piano",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-297",
+  "name": "Whole video, one mood",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-298",
+  "name": "Extra words",
+  "state": "modal · Music",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-299",
+  "name": "Generate",
+  "state": "modal · Music",
+  "result": "covered by 05-flows (E6)",
+  "problems": []
+ },
+ {
+  "id": "B-300",
+  "name": "Mood",
+  "state": "modal · Music",
+  "result": "picked option 2 of 5",
+  "problems": []
+ },
+ {
+  "id": "B-301",
+  "name": "Tempo 66 BPM",
+  "state": "modal · Music",
+  "result": "FAILED: B-301 Tempo 66 BPM is on the page",
+  "problems": []
+ },
+ {
+  "id": "B-302",
+  "name": "Very soft",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-303",
+  "name": "Soft",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-304",
+  "name": "Medium",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-305",
+  "name": "No drums",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-306",
+  "name": "piano",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-307",
+  "name": "strings",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-308",
+  "name": "harp",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-309",
+  "name": "flute",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-310",
+  "name": "acoustic guitar",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-311",
+  "name": "bells",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-312",
+  "name": "cello",
+  "state": "modal · Music",
+  "result": "clicked",
+  "problems": []
+ }
+]

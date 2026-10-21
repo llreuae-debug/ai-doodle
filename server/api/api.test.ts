@@ -76,3 +76,13 @@ describe('story requests', () => {
     expect(StoryRequest.safeParse({ ...ok, include: 'x'.repeat(301) }).success).toBe(false);
   });
 });
+
+describe('security headers', () => {
+  it('vercel.json sends the same headers as the Node servers', async () => {
+    const { SECURITY_HEADERS } = await import('./headers.ts');
+    const fs = await import('node:fs');
+    const vercel = JSON.parse(fs.readFileSync(new URL('../../vercel.json', import.meta.url), 'utf8')) as { headers: { source: string; headers: { key: string; value: string }[] }[] };
+    const all = vercel.headers.find((h) => h.source === '/(.*)');
+    expect(Object.fromEntries(all!.headers.map((h) => [h.key, h.value]))).toEqual(SECURITY_HEADERS);
+  });
+});

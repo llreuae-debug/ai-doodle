@@ -1,5 +1,6 @@
 import { next } from '@vercel/functions';
 import { gateHtml, SESSION_COOKIE } from './api/gate.ts';
+import { GATE_CSP } from './api/headers.ts';
 
 /**
  * Vercel Routing Middleware: runs before every page, file and API call. Until the visitor has
@@ -38,5 +39,5 @@ export default async function proxy(request: Request): Promise<Response> {
   if (url.pathname.startsWith('/api/')) {
     return Response.json({ error: 'no_session', message: 'Enter the access password first (reload the page).' }, { status: 401 });
   }
-  return new Response(gateHtml(), { status: 401, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
+  return new Response(gateHtml(), { status: 401, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'content-security-policy': GATE_CSP } });
 }

@@ -1,0 +1,23 @@
+[
+ {
+  "id": "B-148",
+  "name": "Slide card (selects the slide)",
+  "state": "timeline",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-149",
+  "name": "Slide card kebab menu",
+  "state": "timeline",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-150",
+  "name": "Add slide",
+  "state": "timeline",
+  "result": "clicked",
+  "problems": []
+ }
+]

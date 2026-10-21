@@ -53,7 +53,7 @@ export interface ManifestItem {
   strokeCount?: number;
 }
 
-export const LIBRARY_MANIFEST_URL = '/assets/library/manifest.json';
+export const LIBRARY_MANIFEST_URL = '/library/manifest.json';
 
 let manifest: Promise<ManifestItem[]> | null = null;
 let byId = new Map<string, ManifestItem>();
@@ -63,12 +63,7 @@ const pending = new Map<string, Promise<DoodleDef | undefined>>();
 /** Loads the manifest once. Resolves to [] if it can't be read, so the built-in library still works. */
 export function loadLibraryManifest(): Promise<ManifestItem[]> {
   manifest ??= fetch(LIBRARY_MANIFEST_URL)
-    .then(async (res) => {
-      if (res.ok) return res.json() as Promise<ManifestItem[]>;
-      const fallback = await fetch('/library/manifest.json');
-      if (fallback.ok) return fallback.json() as Promise<ManifestItem[]>;
-      return [] as ManifestItem[];
-    })
+    .then((res) => (res.ok ? (res.json() as Promise<ManifestItem[]>) : ([] as ManifestItem[])))
     .catch(() => [] as ManifestItem[])
     .then((list) => {
       byId = new Map(list.map((m) => [m.id, m]));
@@ -91,15 +86,7 @@ export function fetchLibraryItem(id: string): Promise<DoodleDef | undefined> {
     job = loadLibraryManifest().then(async () => {
       const entry = byId.get(id);
       if (!entry) return undefined;
-      let res: Response | null = null;
-      try {
-        res = await fetch(entry.file);
-      } catch {
-        res = null;
-      }
-      if (!res || !res.ok) {
-        res = await fetch(`/assets${entry.file}`);
-      }
+      const res = await fetch(entry.file);
       if (!res.ok) throw new Error(`${entry.name} returned ${res.status}`);
       const raw = (await res.json()) as { strokes?: unknown; fills?: { d: string; c: string }[] };
       const def: DoodleDef = {

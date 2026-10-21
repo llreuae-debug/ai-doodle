@@ -1,0 +1,44 @@
+[
+ {
+  "id": "B-174",
+  "name": "Close",
+  "state": "modal · API key",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-175",
+  "name": "API Key",
+  "state": "modal · API key",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-176",
+  "name": "Show key",
+  "state": "modal · API key",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "L-001",
+  "name": "Get a free Google Gemini key",
+  "state": "modal · API key",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-177",
+  "name": "Cancel",
+  "state": "modal · API key",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-178",
+  "name": "Save & Connect",
+  "state": "modal · API key",
+  "result": "covered by 03-behaviour (API key dialog)",
+  "problems": []
+ }
+]

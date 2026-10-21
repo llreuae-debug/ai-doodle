@@ -1,0 +1,100 @@
+[
+ {
+  "id": "B-094",
+  "name": "Properties",
+  "state": "right · slide",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-095",
+  "name": "Project",
+  "state": "right · slide",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-096",
+  "name": "Collapse",
+  "state": "right · slide",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-097",
+  "name": "? Transition type:",
+  "state": "right · slide",
+  "result": "FAILED: B-097 ? Transition type: is on the page",
+  "problems": []
+ },
+ {
+  "id": "B-098",
+  "name": "? Drawing speed:",
+  "state": "right · slide",
+  "result": "picked option 2 of 8",
+  "problems": []
+ },
+ {
+  "id": "B-099",
+  "name": "? Pause at end:",
+  "state": "right · slide",
+  "result": "typed 2",
+  "problems": []
+ },
+ {
+  "id": "B-100",
+  "name": "? Sync slide with voice",
+  "state": "right · slide",
+  "result": "disabled (not clickable in this state)",
+  "problems": []
+ },
+ {
+  "id": "B-101",
+  "name": "? Pen sound on this slide",
+  "state": "right · slide",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-102",
+  "name": "? Drawing hand:",
+  "state": "right · slide",
+  "result": "picked option 2 of 27",
+  "problems": []
+ },
+ {
+  "id": "B-103",
+  "name": "Generate voiceover",
+  "state": "right · slide",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-104",
+  "name": "Upload voiceover",
+  "state": "right · slide",
+  "result": "opened the file picker",
+  "problems": []
+ },
+ {
+  "id": "B-105",
+  "name": "Generate music",
+  "state": "right · slide",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-106",
+  "name": "Upload music",
+  "state": "right · slide",
+  "result": "opened the file picker",
+  "problems": []
+ },
+ {
+  "id": "B-107",
+  "name": "? Mood for this slide:",
+  "state": "right · slide",
+  "result": "picked option 2 of 6",
+  "problems": []
+ }
+]

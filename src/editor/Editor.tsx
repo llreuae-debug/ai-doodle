@@ -150,6 +150,14 @@ export default function Editor() {
     return () => document.fonts.removeEventListener('loadingdone', onDone);
   }, []);
 
+  // Read-only view of the project for the audit tests (only with ?audit in the URL).
+  useEffect(() => {
+    if (!new URLSearchParams(window.location.search).has('audit')) return;
+    const w = window as unknown as { __audit?: unknown };
+    w.__audit = { project: () => JSON.parse(JSON.stringify(store.current(), (_k, v) => (v instanceof Blob ? `blob:${v.size}` : v))) as unknown, scene: () => cur };
+    return () => void delete w.__audit;
+  }, [store, cur]);
+
   // Listen for requests to configure API key from AI services.
   useEffect(() => {
     const handleOpenApiKey = () => setModal({ kind: 'apiKey' });
@@ -987,19 +995,34 @@ export default function Editor() {
 
       {modal?.kind === 'upload' && <UploadModal file={modal.file} onClose={() => setModal(null)} onAdd={addUpload} />}
       {modal?.kind === 'generate' && (
-        <GenerateModal
-          preset={modal.preset}
-          credits={credits}
-          onClose={() => setModal(null)}
-          projectId={project.id}
-          aspect={project.aspectRatio}
-          characters={project.characters ?? []}
-          onSpend={(n) => setCredits((c) => c - n)}
-          onAddVector={addGenerated}
-          onSaveVector={saveGenerated}
-          onAddImage={(blob, name, opts) => addUpload(blob, name, opts)}
-          onSaveCharacter={saveCharacter}
-        />
+        modal.preset === 'characters' ? (
+          <CharacterVariationsModal
+            initialCharacter={null}
+            characters={project.characters ?? []}
+            credits={credits}
+            projectId={project.id}
+            onClose={() => setModal(null)}
+            onSpend={(n) => setCredits((c) => c - n)}
+            onAddVector={addGenerated}
+            onSaveVector={saveGenerated}
+            onAddImage={(blob, name, opts) => addUpload(blob, name, opts)}
+            onSaveCharacter={saveCharacter}
+          />
+        ) : (
+          <GenerateModal
+            preset={modal.preset}
+            credits={credits}
+            onClose={() => setModal(null)}
+            projectId={project.id}
+            aspect={project.aspectRatio}
+            characters={project.characters ?? []}
+            onSpend={(n) => setCredits((c) => c - n)}
+            onAddVector={addGenerated}
+            onSaveVector={saveGenerated}
+            onAddImage={(blob, name, opts) => addUpload(blob, name, opts)}
+            onSaveCharacter={saveCharacter}
+          />
+        )
       )}
       {modal?.kind === 'characterVariations' && (
         <CharacterVariationsModal

@@ -27,9 +27,7 @@ export async function buildCast() {
   for (const c of CHARACTERS) {
     // 1. Write character sheet
     const sheetDir = path.join(ASSETS_OUT, 'characters', c.slug);
-    const pubSheetDir = path.join(PUBLIC_OUT, 'characters', c.slug);
     mkdirSync(sheetDir, { recursive: true });
-    mkdirSync(pubSheetDir, { recursive: true });
 
     const sheet = {
       name: c.name,
@@ -47,7 +45,7 @@ export async function buildCast() {
     };
 
     writeFileSync(path.join(sheetDir, 'sheet.json'), `${JSON.stringify(sheet, null, 2)}\n`);
-    writeFileSync(path.join(pubSheetDir, 'sheet.json'), `${JSON.stringify(sheet, null, 2)}\n`);
+    // Sheets are source data for the builder; the app never loads them, so they stay out of public/.
 
     // 2. Generate items for all poses
     for (const pose of c.poses) {

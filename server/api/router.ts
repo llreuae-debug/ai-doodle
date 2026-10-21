@@ -7,6 +7,7 @@ import { refreshSavedKey, saveKey } from './keystore.ts';
 import { getSavedKey } from './savedKey.ts';
 import { accessPassword, checkPassword, ensureSession, hasSession, issueSession, rateLimit, requireSession, serveMedia } from './security.ts';
 import { gateHtml } from './gate.ts';
+import { GATE_CSP, SECURITY_HEADERS } from './headers.ts';
 import { rewriteSlide, SlideRequest, StoryRequest, writeStory } from './story.ts';
 import { LANG_SUPPORT, textToSpeech, TtsRequest, VOICES } from './tts.ts';
 
@@ -84,8 +85,12 @@ const GET: Record<string, () => unknown> = {
   '/api/ai/status': () => ({ configured: !!currentKey(), source: getSavedKey() ? 'saved' : currentKey() ? 'environment' : null, provider: 'gemini', models: MODELS }),
 };
 
+/** A request from this computer, not through a proxy. */
+const isLocal = (req: IncomingMessage) => !req.headers['x-forwarded-for'] && ['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(req.socket.remoteAddress ?? '');
+
 function send(res: ServerResponse, status: number, payload: unknown) {
   res.statusCode = status;
+  for (const [k, v] of Object.entries(SECURITY_HEADERS)) res.setHeader(k, v);
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Cache-Control', 'no-store');
   res.end(JSON.stringify(payload));
@@ -122,12 +127,18 @@ export function apiMiddleware(req: IncomingMessage, res: ServerResponse, next: (
       res.statusCode = 401;
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       res.setHeader('Cache-Control', 'no-store');
+      res.setHeader('Content-Security-Policy', GATE_CSP);
       res.end(gateHtml());
       return;
     }
     // Otherwise pages get the session cookie; the API then only answers this app's pages.
     if (page) ensureSession(req, res);
     next();
+    return;
+  }
+  // Replacing the server's Google AI key needs more than a page visit: the access password, or this computer.
+  if (url === '/api/ai/set-key' && !accessPassword() && !isLocal(req)) {
+    send(res, 403, { error: 'forbidden', message: "This site has no access password, so the key can only be changed on the server (GEMINI_API_KEY in .env)." });
     return;
   }
   const getRoute = req.method === 'GET' ? GET[url] : undefined;

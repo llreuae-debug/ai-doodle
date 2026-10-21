@@ -1,6 +1,7 @@
 import { AlertCircle, CheckCircle2, ExternalLink, Eye, EyeOff, KeyRound, Loader2, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AiError, getAiStatus, setAiApiKey } from '../services/ai';
+import { useDialog } from './modals';
 
 interface ApiKeyModalProps {
   onClose: () => void;
@@ -17,6 +18,8 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
   const [saving, setSaving] = useState(false);
   const [configured, setConfigured] = useState<boolean | null>(null);
   const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info'; text: string } | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  useDialog(ref, onClose);
 
   const checkStatus = async () => {
     try {
@@ -51,7 +54,7 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
 
   return (
     <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="api-key-title">
-      <div className="modal-card api-key-modal" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-card api-key-modal" ref={ref} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div className="title-row">
             <div className="icon-badge">
@@ -62,7 +65,7 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
               <p className="subtitle">Connect your Google AI key to generate storyboards, doodles, voices and music.</p>
             </div>
           </div>
-          <button type="button" className="btn icon ghost" onClick={onClose} aria-label="Close">
+          <button type="button" className="btn icon ghost" data-close onClick={onClose} aria-label="Close">
             <X size={18} />
           </button>
         </div>

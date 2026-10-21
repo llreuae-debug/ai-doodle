@@ -1,0 +1,10 @@
+{
+ "performance": 56,
+ "accessibility": 91,
+ "bestPractices": 100,
+ "fcpMs": 1176,
+ "lcpMs": 1993,
+ "tbtMs": 992,
+ "cls": 0.005418454601173277,
+ "jsKb": 1555
+}

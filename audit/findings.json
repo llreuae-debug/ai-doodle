@@ -1,0 +1,86 @@
+[
+ {
+  "id": "S-015",
+  "item": "Library manifest (/library/manifest.json)",
+  "where": "src/library/manifest.ts",
+  "section": "broken links",
+  "result": "Fixed",
+  "notes": "The editor asked for /assets/library/manifest.json, a file that only exists in the source folder. On the built site the request got the app's HTML page instead, the JSON read failed, and the whole clipart library (380 items + 50 scenes) disappeared: Props showed 88 built-in tiles instead of 518. Now loads /library/manifest.json.",
+  "test": "03-behaviour › search, filter chips, colour toggle and the tile count agree",
+  "before": "screens/before-props-library-empty-in-production.png",
+  "after": "screens/after-props-library.png",
+  "commit": ""
+ },
+ {
+  "id": "S-001",
+  "item": "Missing files answer 200 with the app page",
+  "where": "server/index.ts, vercel.json",
+  "section": "broken links",
+  "result": "Fixed",
+  "notes": "Any missing file (/no/such/file.png) came back as 200 text/html, which hid broken links and caused the empty library above. Only page routes (no file extension) fall back to the app now; missing files are 404 (Express and the Vercel rewrite).",
+  "test": "01-links-assets › every built file and page route is served with the right content type; 04-api › wrong method and unknown route",
+  "commit": ""
+ },
+ {
+  "id": "B-020",
+  "item": "Variations button (left panel, next to Generate with AI)",
+  "where": "src/editor/LeftPanel.tsx, editor.css",
+  "section": "broken buttons",
+  "result": "Fixed",
+  "notes": "The button sat half outside the left panel and could not be clicked (Playwright: element outside the panel). The two buttons now share a row that wraps.",
+  "test": "03-behaviour › Generate with AI and AI buttons open the generator; both Variations buttons open variations",
+  "before": "screens/before-variations-clipped-and-characters-count.png",
+  "after": "screens/after-left-panel.png",
+  "commit": ""
+ },
+ {
+  "id": "B-016",
+  "item": "Tile count under the search box",
+  "where": "src/editor/LeftPanel.tsx",
+  "section": "broken buttons",
+  "result": "Fixed",
+  "notes": "Characters said \"Showing 426 of 410\": the total left out the built-in doodles. The total now counts both.",
+  "test": "03-behaviour › characters tab never shows more than it has",
+  "commit": ""
+ },
+ {
+  "id": "S-009",
+  "item": "209 unused files in public/library",
+  "where": "public/library/business, characters, food; scripts/library/build-cast.mjs",
+  "section": "broken links",
+  "result": "Fixed",
+  "notes": "Old builds left 209 files the manifest does not use (ch-extra-*, bz-extra-*, early ch-* characters, fo-rice-bowl, and 50 character sheet.json files that build-cast also copied into public/). They were deployed but never shown. Removed; build-cast now writes sheets only to assets/library.",
+  "test": "01-links-assets › library: every manifest entry has its files, and no orphan files on disk",
+  "commit": ""
+ },
+ {
+  "id": "A-012",
+  "item": "Security headers (CSP, nosniff, frame and referrer policy)",
+  "where": "server/api/headers.ts, server/index.ts, router.ts, proxy.ts, vercel.json",
+  "section": "security",
+  "result": "Fixed",
+  "notes": "No Content-Security-Policy or other security headers were sent. Added a CSP that allows only this site, Google Fonts and the Vercel Blob media store, plus nosniff, X-Frame-Options DENY, a referrer policy and a permissions policy. The password page gets its own strict CSP. A unit test keeps vercel.json and the Node servers in step.",
+  "test": "06-quality › security headers: CSP and friends on pages and the API; server/api/api.test.ts › security headers",
+  "commit": ""
+ },
+ {
+  "id": "A-003",
+  "item": "Google AI calls had no time limit when run locally",
+  "where": "server/api/gemini.ts, keystore.ts",
+  "section": "API issues",
+  "result": "Fixed",
+  "notes": "Outside Vercel a stalled Google AI answer could hold a request for up to an hour. Each call now gives up after 3 minutes (GEMINI_TIMEOUT_MS) and is retried; the key check gives up after 15 s.",
+  "test": "04-api › Google AI timeout: plain-words error, no credits used, app keeps working",
+  "commit": ""
+ },
+ {
+  "id": "A-007",
+  "item": "POST /api/ai/set-key open to any visitor",
+  "where": "server/api/router.ts",
+  "section": "security",
+  "result": "Fixed",
+  "notes": "Without an access password, every page visit gets a session, so any visitor could replace the server's Google AI key. Now only allowed when the site has an access password (as on Vercel) or from the same computer.",
+  "test": "04-api › the key dialog cannot be used by just anyone to replace the server key",
+  "commit": ""
+ }
+]

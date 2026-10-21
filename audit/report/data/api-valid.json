@@ -1,0 +1,29 @@
+{
+ "/api/voices": {
+  "status": 200,
+  "schema": "ok"
+ },
+ "/api/music/styles": {
+  "status": 200,
+  "schema": "ok"
+ },
+ "/api/ai/status": {
+  "status": 200,
+  "schema": "ok"
+ },
+ "/api/story": {
+  "status": 200,
+  "quotaLimited": false,
+  "schema": "ok"
+ },
+ "/api/slide": {
+  "status": 200,
+  "quotaLimited": false,
+  "schema": "ok"
+ },
+ "/api/element": {
+  "status": 502,
+  "message": "The drawing came back unusable twice. Try a simpler description.",
+  "quotaLimited": false
+ }
+}

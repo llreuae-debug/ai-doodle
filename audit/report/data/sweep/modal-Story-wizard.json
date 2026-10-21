@@ -1,0 +1,191 @@
+[
+ {
+  "id": "B-184",
+  "name": "Close",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-185",
+  "name": "Title",
+  "state": "modal · Story wizard",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-186",
+  "name": "3 min 22–26 slides 420–480 words",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-187",
+  "name": "5 min 36–42 slides 700–780 words",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-188",
+  "name": "8 min 56–65 slides 1,120–1,250 words",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-189",
+  "name": "Kids story",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-190",
+  "name": "Explainer",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-191",
+  "name": "Faith story (Islamic)",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-192",
+  "name": "Faith story (Christian)",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-193",
+  "name": "Business / marketing",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-194",
+  "name": "Motivational",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-195",
+  "name": "True-life lesson",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-196",
+  "name": "Kids 4–8",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-197",
+  "name": "Kids 9–12",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-198",
+  "name": "Teens",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-199",
+  "name": "Adults",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-200",
+  "name": "Warm",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-201",
+  "name": "Funny",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-202",
+  "name": "Inspiring",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-203",
+  "name": "Calm",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-204",
+  "name": "Dramatic",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-205",
+  "name": "English",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-206",
+  "name": "Urdu",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-207",
+  "name": "Hindi",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-208",
+  "name": "Arabic",
+  "state": "modal · Story wizard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-209",
+  "name": "What must the story include? (optional)",
+  "state": "modal · Story wizard",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-210",
+  "name": "Next",
+  "state": "modal · Story wizard",
+  "result": "covered by 05-flows (E2, E4) and 04-api",
+  "problems": []
+ }
+]

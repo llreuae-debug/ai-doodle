@@ -432,6 +432,21 @@ body.editor-body {
     height: 46px;
     flex: none;
   }
+  /* Generate + Variations share a row and wrap when the panel is too narrow for both. */
+  & .gen-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 14px 0;
+    & .gen-top {
+      margin: 0;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    & .gen-variations {
+      flex: 0 0 auto;
+    }
+  }
   & .libgrid {
     flex: 1 1 auto;
     min-height: 0;
@@ -1072,7 +1087,16 @@ body.editor-body {
     padding: 0;
     overflow: hidden;
   }
-  & .slidecard[aria-current='true'] {
+  & .slidecard-hit {
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  & .slidecard.current {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px var(--accent-soft);
   }

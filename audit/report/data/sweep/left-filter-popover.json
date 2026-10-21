@@ -1,0 +1,114 @@
+[
+ {
+  "id": "B-026",
+  "name": "Line only",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-027",
+  "name": "★ Premium",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-028",
+  "name": "Business",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-029",
+  "name": "Real estate",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-030",
+  "name": "Education",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-031",
+  "name": "Faith",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-032",
+  "name": "Tech",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-033",
+  "name": "Health",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-034",
+  "name": "Food",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-035",
+  "name": "Nature",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-036",
+  "name": "Transport",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-037",
+  "name": "Scenes",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-038",
+  "name": "money",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-039",
+  "name": "objects",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-040",
+  "name": "buildings",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-041",
+  "name": "decor",
+  "state": "left · filter popover",
+  "result": "clicked",
+  "problems": []
+ }
+]

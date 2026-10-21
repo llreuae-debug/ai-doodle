@@ -1,0 +1,30 @@
+[
+ {
+  "id": "B-151",
+  "name": "Duplicate slide",
+  "state": "slide menu",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-152",
+  "name": "Move left",
+  "state": "slide menu",
+  "result": "disabled (not clickable in this state)",
+  "problems": []
+ },
+ {
+  "id": "B-153",
+  "name": "Move right",
+  "state": "slide menu",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-154",
+  "name": "Delete slide",
+  "state": "slide menu",
+  "result": "clicked",
+  "problems": []
+ }
+]

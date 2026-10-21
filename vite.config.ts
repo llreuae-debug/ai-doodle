@@ -7,4 +7,8 @@ import { aiPlugin } from './server/aiPlugin.ts'
 // VITE_-prefixed variables can reach the client bundle, and none are used.
 export default defineConfig({
   plugins: [react(), aiPlugin()],
+  // @ts-expect-error vitest config
+  test: {
+    exclude: ['**/node_modules/**', '**/dist/**', '**/audit/**'],
+  },
 })

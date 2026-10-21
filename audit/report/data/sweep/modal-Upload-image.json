@@ -1,0 +1,44 @@
+[
+ {
+  "id": "B-321",
+  "name": "Close",
+  "state": "modal · Upload image",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-322",
+  "name": "Original As uploaded",
+  "state": "modal · Upload image",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-323",
+  "name": "Sketch version Turned into a sketch",
+  "state": "modal · Upload image",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-324",
+  "name": "Name",
+  "state": "modal · Upload image",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-325",
+  "name": "Cancel",
+  "state": "modal · Upload image",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-326",
+  "name": "Add to board",
+  "state": "modal · Upload image",
+  "result": "clicked",
+  "problems": []
+ }
+]

@@ -1,0 +1,33 @@
+{
+ "page": {
+  "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: blob: https://fonts.gstatic.com; img-src 'self' data: blob: https://*.public.blob.vercel-storage.com; media-src 'self' data: blob: https://*.public.blob.vercel-storage.com; connect-src 'self' data: blob: https://*.public.blob.vercel-storage.com https://fonts.googleapis.com https://fonts.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "permissions-policy": "camera=(), microphone=(), geolocation=()",
+  "set-cookie": "ad_session=UPlZ8qtyblcijaWe.J_D1Qw5SLWGh2rRL2fJsTzY6EXkTEyhG; Path=/; HttpOnly; SameSite=Strict; Max-Age=2592000",
+  "accept-ranges": "bytes",
+  "cache-control": "public, max-age=0",
+  "last-modified": "Wed, 21 Oct 2026 22:32:18 GMT",
+  "etag": "W/\"36d-1a16098087f\"",
+  "content-type": "text/html; charset=utf-8",
+  "content-length": "877",
+  "date": "Wed, 21 Oct 2026 22:42:49 GMT",
+  "connection": "keep-alive",
+  "keep-alive": "timeout=5"
+ },
+ "api": {
+  "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: blob: https://fonts.gstatic.com; img-src 'self' data: blob: https://*.public.blob.vercel-storage.com; media-src 'self' data: blob: https://*.public.blob.vercel-storage.com; connect-src 'self' data: blob: https://*.public.blob.vercel-storage.com https://fonts.googleapis.com https://fonts.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "permissions-policy": "camera=(), microphone=(), geolocation=()",
+  "content-type": "application/json",
+  "cache-control": "no-store",
+  "date": "Wed, 21 Oct 2026 22:42:49 GMT",
+  "connection": "keep-alive",
+  "keep-alive": "timeout=5",
+  "content-length": "6039"
+ },
+ "missing": []
+}

@@ -1,0 +1,68 @@
+{
+ "links": [
+  {
+   "id": "L-002",
+   "url": "/login",
+   "where": "src/auth/ForgotPasswordPage.tsx (Link)",
+   "status": "200",
+   "ok": true
+  },
+  {
+   "id": "L-003",
+   "url": "/forgot-password",
+   "where": "src/auth/LoginPage.tsx (Link)",
+   "status": "200",
+   "ok": true
+  },
+  {
+   "id": "L-004",
+   "url": "https://aistudio.google.com/app/apikey",
+   "where": "src/editor/ApiKeyModal.tsx",
+   "status": "200",
+   "ok": true
+  },
+  {
+   "id": "L-005",
+   "url": "/favicon.svg",
+   "where": "index.html",
+   "status": "200",
+   "ok": true
+  },
+  {
+   "id": "L-006",
+   "url": "https://fonts.googleapis.com",
+   "where": "index.html",
+   "status": "404",
+   "ok": true
+  },
+  {
+   "id": "L-007",
+   "url": "https://fonts.gstatic.com",
+   "where": "index.html",
+   "status": "404",
+   "ok": true
+  },
+  {
+   "id": "L-008",
+   "url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+   "where": "index.html",
+   "status": "200",
+   "ok": true
+  },
+  {
+   "id": "L-009",
+   "url": "http://www.w3.org/2000/svg",
+   "where": "src/auth/auth.css (url in code)",
+   "status": "XML namespace, not fetched",
+   "ok": true
+  },
+  {
+   "id": "L-010",
+   "url": "https://fonts.googleapis.com/css2?family=${encodeURIComponent(family",
+   "where": "src/library/fonts.ts (url in code)",
+   "status": "not a fixed URL (built at run time)",
+   "ok": true
+  }
+ ],
+ "domIssues": []
+}

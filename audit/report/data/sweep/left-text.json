@@ -1,0 +1,254 @@
+[
+ {
+  "id": "B-042",
+  "name": "+ Heading",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-043",
+  "name": "+ Subheading",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-044",
+  "name": "+ Body",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-045",
+  "name": "Search fonts",
+  "state": "left · text",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-046",
+  "name": "Chinese – Noto",
+  "state": "left · text",
+  "result": "FAILED: B-046 Chinese – Noto is on the page",
+  "problems": []
+ },
+ {
+  "id": "B-047",
+  "name": "Urdu – Nastaliq",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-048",
+  "name": "Arabic – Naskh",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-049",
+  "name": "Hindi – Noto",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-050",
+  "name": "Dancing Script",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-051",
+  "name": "Bubblegum Sans",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-052",
+  "name": "Permanent Marker",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-053",
+  "name": "Cabin Sketch",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-054",
+  "name": "Indie Flower",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-055",
+  "name": "Shadows Into Light",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-056",
+  "name": "School Bell",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-057",
+  "name": "Sacramento",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-058",
+  "name": "Patrick Hand",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-059",
+  "name": "Caveat",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-060",
+  "name": "Kalam",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-061",
+  "name": "Gochi Hand",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-062",
+  "name": "Amatic SC",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-063",
+  "name": "Architects Daughter",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-064",
+  "name": "Gloria Hallelujah",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-065",
+  "name": "Rock Salt",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-066",
+  "name": "Reenie Beanie",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-067",
+  "name": "Handlee",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-068",
+  "name": "Coming Soon",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-069",
+  "name": "Covered By Your Grace",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-070",
+  "name": "Just Another Hand",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-071",
+  "name": "Kaushan Script",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-072",
+  "name": "Pacifico",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-073",
+  "name": "Satisfy",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-074",
+  "name": "Short Stack",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-075",
+  "name": "Sue Ellen Francisco",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-076",
+  "name": "Figtree",
+  "state": "left · text",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-077",
+  "name": "Upload Font",
+  "state": "left · text",
+  "result": "opened the file picker",
+  "problems": []
+ }
+]

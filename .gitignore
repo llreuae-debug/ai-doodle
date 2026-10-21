@@ -40,3 +40,12 @@ media/
 .env*
 # Downloaded CC0 source previews (re-downloaded by tools/prepare-pen-sounds.mjs)
 assets/pen-sounds/raw-cc0/
+
+# Audit run output (the report, screenshots and data are kept)
+audit/report/artifacts/
+audit/report/exports/
+audit/report/playwright-html/
+audit/report/results.json
+audit/report/lighthouse.json
+scratch/
+audit/report/playwright-html/**

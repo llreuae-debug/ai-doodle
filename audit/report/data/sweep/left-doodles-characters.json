@@ -1,0 +1,107 @@
+[
+ {
+  "id": "B-009",
+  "name": "Doodles",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-010",
+  "name": "Text",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-011",
+  "name": "Layers",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-012",
+  "name": "Custom",
+  "state": "left · doodles · characters",
+  "result": "FAILED: B-012 Custom is on the page",
+  "problems": []
+ },
+ {
+  "id": "B-013",
+  "name": "Characters",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-014",
+  "name": "Props",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-015",
+  "name": "Shapes",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-016",
+  "name": "Search doodles",
+  "state": "left · doodles · characters",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-017",
+  "name": "Filter",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-018",
+  "name": "Colour versions",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-019",
+  "name": "Generate Characters with AI",
+  "state": "left · doodles · characters",
+  "result": "FAILED: B-019 Generate Characters with AI is on the page",
+  "problems": []
+ },
+ {
+  "id": "B-020",
+  "name": "Variations",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-021",
+  "name": "Library tile (adds that doodle to the slide)",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-022",
+  "name": "Upload",
+  "state": "left · doodles · characters",
+  "result": "opened the file picker",
+  "problems": []
+ },
+ {
+  "id": "B-023",
+  "name": "AI",
+  "state": "left · doodles · characters",
+  "result": "clicked",
+  "problems": []
+ }
+]

@@ -1,0 +1,37 @@
+[
+ {
+  "id": "B-118",
+  "name": "Text",
+  "state": "right · text selected",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-119",
+  "name": "Font",
+  "state": "right · text selected",
+  "result": "picked option 2 of 31",
+  "problems": []
+ },
+ {
+  "id": "B-120",
+  "name": "Size",
+  "state": "right · text selected",
+  "result": "typed 2",
+  "problems": []
+ },
+ {
+  "id": "B-121",
+  "name": "Bold",
+  "state": "right · text selected",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-122",
+  "name": "Colour",
+  "state": "right · text selected",
+  "result": "set colour",
+  "problems": []
+ }
+]

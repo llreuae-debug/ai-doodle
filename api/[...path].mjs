@@ -19763,8 +19763,10 @@ async function withFallback(models, fn) {
   throw last ?? new HttpError(429, "daily_quota", "Every Google AI model this key can use has reached its free daily limit. Try again later or turn on billing.");
 }
 var TTS_FALLBACKS = (process.env.GEMINI_TTS_FALLBACKS || "gemini-3.8-flash-lite-tts,gemini-3.1-flash-tts-preview,gemini-2.5-flash-preview-tts").split(",").map((m) => m.trim()).filter(Boolean);
-var BASE = "https://generativelanguage.googleapis.com/v1beta/models";
+var API_ROOT = (process.env.GEMINI_API_BASE || "https://generativelanguage.googleapis.com").replace(/\/$/, "");
+var BASE = `${API_ROOT}/v1beta/models`;
 var MAX_RETRIES = 3;
+var CALL_TIMEOUT_MS = Number(process.env.GEMINI_TIMEOUT_MS) || 18e4;
 var HttpError = class extends Error {
   status;
   code;
@@ -19824,7 +19826,7 @@ async function generate(model, parts, generationConfig = {}, systemInstruction) 
         method: "POST",
         headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey() },
         body,
-        ...Number.isFinite(left) ? { signal: AbortSignal.timeout(left - 1e3) } : {}
+        signal: AbortSignal.timeout(Math.min(CALL_TIMEOUT_MS, left - 1e3))
       });
     } catch (err) {
       if (err instanceof HttpError) throw err;
@@ -20372,7 +20374,7 @@ ${text}`
 
 // server/api/music.ts
 var MUSIC_MODEL = process.env.GOOGLE_MUSIC_MODEL || "models/lyria-realtime-exp";
-var WS_URL = "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateMusic";
+var WS_URL = `${API_ROOT.replace(/^http/, "ws")}/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateMusic`;
 var RATE = 48e3;
 var CH = 2;
 var BASE_SEC = 40;
@@ -20703,13 +20705,39 @@ async function refreshSavedKey(force = false) {
   setSavedKey(data ? decrypt(data) : null);
 }
 async function saveKey(key) {
-  const check2 = await fetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=1", { headers: { "x-goog-api-key": key } }).catch(() => null);
+  const check2 = await fetch(`${API_ROOT}/v1beta/models?pageSize=1`, { headers: { "x-goog-api-key": key }, signal: AbortSignal.timeout(15e3) }).catch(() => null);
   if (!check2) throw new HttpError(502, "offline", "Couldn't reach Google AI to check the key. Try again.");
   if (!check2.ok) throw new HttpError(400, "bad_key", "Google AI rejected this key. Check it and try again.");
   await storeFile(PATHNAME, encrypt(key));
   setSavedKey(key);
   loadedAt = Date.now();
 }
+
+// server/api/headers.ts
+var BLOB = "https://*.public.blob.vercel-storage.com";
+var CSP = [
+  "default-src 'self'",
+  "script-src 'self'",
+  // React style attributes and the Google Fonts stylesheets.
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' data: blob: https://fonts.gstatic.com",
+  `img-src 'self' data: blob: ${BLOB}`,
+  `media-src 'self' data: blob: ${BLOB}`,
+  `connect-src 'self' data: blob: ${BLOB} https://fonts.googleapis.com https://fonts.gstatic.com`,
+  "worker-src 'self' blob:",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'"
+].join("; ");
+var SECURITY_HEADERS = {
+  "Content-Security-Policy": CSP,
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+};
+var GATE_CSP = "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'";
 
 // server/api/story.ts
 var PACING = {
@@ -21631,8 +21659,10 @@ var GET = {
   "/api/music/styles": () => ({ styles: Object.entries(MUSIC_STYLES).map(([id, s]) => ({ id, label: s.label, instruments: s.instruments })), moods: MOOD_DEFAULTS }),
   "/api/ai/status": () => ({ configured: !!currentKey(), source: getSavedKey() ? "saved" : currentKey() ? "environment" : null, provider: "gemini", models: MODELS })
 };
+var isLocal = (req) => !req.headers["x-forwarded-for"] && ["127.0.0.1", "::1", "::ffff:127.0.0.1"].includes(req.socket.remoteAddress ?? "");
 function send(res, status, payload) {
   res.statusCode = status;
+  for (const [k, v] of Object.entries(SECURITY_HEADERS)) res.setHeader(k, v);
   res.setHeader("Content-Type", "application/json");
   res.setHeader("Cache-Control", "no-store");
   res.end(JSON.stringify(payload));
@@ -21661,11 +21691,16 @@ function apiMiddleware(req, res, next) {
       res.statusCode = 401;
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.setHeader("Cache-Control", "no-store");
+      res.setHeader("Content-Security-Policy", GATE_CSP);
       res.end(gateHtml());
       return;
     }
     if (page) ensureSession(req, res);
     next();
+    return;
+  }
+  if (url2 === "/api/ai/set-key" && !accessPassword() && !isLocal(req)) {
+    send(res, 403, { error: "forbidden", message: "This site has no access password, so the key can only be changed on the server (GEMINI_API_KEY in .env)." });
     return;
   }
   const getRoute = req.method === "GET" ? GET[url2] : void 0;

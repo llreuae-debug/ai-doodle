@@ -133,7 +133,7 @@ export function LeftPanel(p: Props) {
   const totalAvailableInTab =
     p.category === 'custom'
       ? Object.keys(p.project.assets).length
-      : (manifest.filter((m) => categoryOf.get(m.cat)?.tab === p.category).length || LIBRARY.filter((d) => d.cat === p.category).length) * multiplier;
+      : (manifest.filter((m) => categoryOf.get(m.cat)?.tab === p.category).length + LIBRARY.filter((d) => d.cat === p.category).length) * multiplier;
   const empty = totalShowing === 0;
   const filterCount = tags.size + activeCats.length + (lineOnly ? 1 : 0) + (premiumOnly ? 1 : 0);
 
@@ -267,15 +267,15 @@ export function LeftPanel(p: Props) {
             )}
           </div>
         )}
-        <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
-          <button type="button" className="btn ai gen-top" style={{ flex: 1 }} onClick={() => p.onGenerate(p.category === 'props' || p.category === 'shapes' ? 'props' : 'characters')}>
+        <div className="gen-row">
+          <button type="button" className="btn ai gen-top" onClick={() => p.onGenerate(p.category === 'props' || p.category === 'shapes' ? 'props' : 'characters')}>
             <Sparkles size={18} />
             {genLabel}
           </button>
           <button
             id="btn-character-variations"
             type="button"
-            className="btn ai gen-top"
+            className="btn ai gen-top gen-variations"
             style={{
               background: 'linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)',
               borderColor: '#d8b4fe',

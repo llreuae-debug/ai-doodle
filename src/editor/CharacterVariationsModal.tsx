@@ -1,10 +1,11 @@
-import { Clock, FlaskConical, HelpCircle, Image as ImageIcon, LoaderCircle, Plus, RefreshCw, Save, Sparkles, Star, Upload, X } from 'lucide-react';
+import { FlaskConical, HelpCircle, History, LoaderCircle, Plus, RefreshCw, Save, Sparkles, Star, Upload, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { doodleSvg, validStrokes, type DoodleDef } from '../library/doodles';
 import { loadLibraryManifest, type ManifestItem } from '../library/manifest';
 import { newId } from '../model/factories';
 import type { CharacterSheet } from '../model/types';
-import { AiError, generateElements, type ElementResult } from '../services/ai';
+import { AiError, fetchMedia, generateElements, type ElementResult } from '../services/ai';
+import { useDialog } from './modals';
 import './characterVariations.css';
 
 interface CharacterVariationsModalProps {
@@ -31,6 +32,34 @@ interface VariationItem {
   blob?: Blob;
 }
 
+function EmptyVariationPlaceholder() {
+  return (
+    <svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Outer subtle grey circle */}
+      <circle cx="37" cy="37" r="34" stroke="#94a3b8" strokeWidth="2.75" />
+      {/* Rounded photo frame */}
+      <rect x="23" y="24" width="28" height="25" rx="5" stroke="#94a3b8" strokeWidth="2.2" />
+      {/* Mountain outline inside frame */}
+      <path
+        d="M26 42L32 35L38 41L42 37L48 44"
+        stroke="#94a3b8"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Sparkles on top right of frame */}
+      <path
+        d="M43.5 28C43.5 28 45.2 29.2 45.2 31C45.2 29.2 47 28 47 28C47 28 45.2 26.8 45.2 25C45.2 26.8 43.5 28 43.5 28Z"
+        fill="#94a3b8"
+      />
+      <path
+        d="M47 24C47 24 48 24.8 48 26C48 24.8 49 24 49 24C49 24 48 23.2 48 22C48 23.2 47 24 47 24Z"
+        fill="#94a3b8"
+      />
+    </svg>
+  );
+}
+
 export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
   const [characterItems, setCharacterItems] = useState<ManifestItem[]>([]);
 
@@ -50,12 +79,12 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
     if (props.initialCharacter && typeof props.initialCharacter === 'object') {
       return {
         name: props.initialCharacter.name || 'Faraz',
-        src: props.initialCharacter.reference || '/library/characters/business-man-faraz-standing.color.svg',
+        src: props.initialCharacter.reference || '/library/characters/business-man-faraz-walking.color.svg',
       };
     }
     return {
       name: 'Faraz',
-      src: '/library/characters/business-man-faraz-standing.color.svg',
+      src: '/library/characters/business-man-faraz-walking.color.svg',
     };
   }, [props.initialCharacter]);
 
@@ -72,34 +101,13 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
   const [currentVariations, setCurrentVariations] = useState<(VariationItem | null)[]>([null, null, null]);
 
   // Recently generated variations stored in state
-  const [recentVariations, setRecentVariations] = useState<VariationItem[]>([
-    {
-      id: 'sample-1',
-      name: 'Faraz – Walking with Coffee',
-      prompt: 'walking in city holding coffee cup',
-      timestamp: Date.now() - 120000,
-      kind: 'image',
-      url: '/library/characters/business-man-faraz-walking.color.svg',
-    },
-    {
-      id: 'sample-2',
-      name: 'Faraz – Presenting Chart',
-      prompt: 'pointing at whiteboard presentation',
-      timestamp: Date.now() - 240000,
-      kind: 'image',
-      url: '/library/characters/business-man-faraz-pointing.color.svg',
-    },
-    {
-      id: 'sample-3',
-      name: 'Faraz – Thoughtful Pose',
-      prompt: 'thinking pose hand on chin',
-      timestamp: Date.now() - 360000,
-      kind: 'image',
-      url: '/library/characters/business-man-faraz-thinking.color.svg',
-    },
-  ]);
+  // This session's results (nothing is shown until something has been generated).
+  const [recentVariations, setRecentVariations] = useState<VariationItem[]>([]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  // Escape closes the character picker first, then the window.
+  useDialog(dialogRef, () => (charPickerOpen ? setCharPickerOpen(false) : props.onClose()));
 
   // Convert result to DoodleDef if vector
   const toDef = (r: Extract<ElementResult, { kind: 'vector' }>): DoodleDef | null => {
@@ -214,17 +222,8 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
 
       props.onSpend(res.results.length);
 
-      // Pad to target count if needed
-      while (newItems.length < targetCount) {
-        newItems.push({
-          id: `fallback-${newId()}`,
-          name: `${charName} – ${text}`,
-          prompt: text,
-          timestamp: Date.now(),
-          kind: 'image',
-          url: refImageSrc,
-        });
-      }
+      // Fewer usable results than asked for: say so instead of filling slots with copies of the reference.
+      if (newItems.length < targetCount) setError(`Google AI made ${newItems.length} of ${targetCount} variations. Generate again for more.`);
 
       setCurrentVariations(newItems);
       setRecentVariations((prev) => [...newItems, ...prev.slice(0, 12)]);
@@ -241,10 +240,27 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
     }
   };
 
+  /** Adds (or saves) a result: drawings directly, pictures after downloading them. */
+  const useResult = async (item: VariationItem, place: boolean) => {
+    if (item.def) return place ? props.onAddVector(item.def, false) : props.onSaveVector(item.def);
+    if (!item.url) return;
+    try {
+      const blob = item.blob ?? (await fetchMedia(item.url));
+      await props.onAddImage(blob, item.name, { place, asScene: false });
+    } catch (err) {
+      setError(err instanceof AiError ? err.message : "Couldn't add that picture. Try again.");
+    }
+  };
+
   const handleUploadRef = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+    e.target.value = '';
     if (!file) return;
+    if (!/^image\/(png|jpeg|webp|svg\+xml)$/.test(file.type)) return setError('Use a PNG, JPEG, WebP or SVG image as the reference.');
+    if (file.size > 8 * 1024 * 1024) return setError('That image is over 8 MB. Use a smaller file.');
+    setError(null);
     const url = URL.createObjectURL(file);
+    if (refImageSrc.startsWith('blob:')) URL.revokeObjectURL(refImageSrc);
     setRefImageSrc(url);
     setRefName(file.name.replace(/\.[^/.]+$/, ''));
   };
@@ -280,8 +296,8 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
   }, [characterItems]);
 
   return (
-    <div className="char-vars-overlay" role="dialog" aria-modal="true" aria-labelledby="char-vars-title">
-      <div className="char-vars-modal">
+    <div className="char-vars-overlay" role="dialog" aria-modal="true" aria-labelledby="char-vars-title" onPointerDown={(e) => e.target === e.currentTarget && props.onClose()}>
+      <div className="char-vars-modal" ref={dialogRef}>
         {/* Header */}
         <header className="char-vars-header">
           <div className="char-vars-header-left">
@@ -293,7 +309,7 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
               <p>Keep the same character while changing the pose or style</p>
             </div>
           </div>
-          <button type="button" className="char-vars-close" onClick={props.onClose} aria-label="Close modal">
+          <button type="button" className="char-vars-close" data-close onClick={props.onClose} aria-label="Close">
             <X size={20} />
           </button>
         </header>
@@ -353,12 +369,12 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
           <div className="char-vars-cards-grid">
             {/* Card 1: Reference Image */}
             <div className="char-vars-ref-card">
-              <div className="char-vars-ref-thumb" onClick={() => setCharPickerOpen(true)} title="Click to change reference character">
-                <img src={refImageSrc} alt={refName} />
-              </div>
-              <div className="char-vars-ref-badge" onClick={() => setCharPickerOpen(true)}>
+              <button type="button" className="char-vars-ref-thumb" onClick={() => setCharPickerOpen(true)} title="Change the reference character" aria-label={`Reference: ${refName}. Change the reference character`}>
+                <img src={refImageSrc} alt="" />
+              </button>
+              <button type="button" className="char-vars-ref-badge" onClick={() => setCharPickerOpen(true)}>
                 <span>Reference Image</span>
-              </div>
+              </button>
             </div>
 
             {/* Cards 2, 3, 4: Variation Slots */}
@@ -366,7 +382,7 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
               const item = currentVariations[idx];
 
               return (
-                <div key={idx} className={`char-vars-slot-card ${item ? 'has-item' : 'empty'} ${busy ? 'is-busy' : ''}`}>
+                <div key={idx} className={`char-vars-slot-card ${item ? 'has-item' : 'is-empty'} ${busy ? 'is-busy' : ''}`}>
                   {busy ? (
                     <div className="char-vars-busy-view">
                       <LoaderCircle size={32} className="spin" />
@@ -387,10 +403,7 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
                           type="button"
                           className="btn-action primary"
                           title="Add to Canvas"
-                          onClick={() => {
-                            if (item.def) props.onAddVector(item.def, false);
-                            else if (item.blob) void props.onAddImage(item.blob, item.name, { place: true, asScene: false });
-                          }}
+                          onClick={() => void useResult(item, true)}
                         >
                           <Plus size={14} /> Add
                         </button>
@@ -398,10 +411,7 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
                           type="button"
                           className="btn-action"
                           title="Save to Custom"
-                          onClick={() => {
-                            if (item.def) props.onSaveVector(item.def);
-                            else if (item.blob) void props.onAddImage(item.blob, item.name, { place: false, asScene: false });
-                          }}
+                          onClick={() => void useResult(item, false)}
                         >
                           <Save size={14} /> Save
                         </button>
@@ -418,8 +428,7 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
                   ) : (
                     <div className="char-vars-empty-view">
                       <div className="char-vars-empty-icon">
-                        <ImageIcon size={32} strokeWidth={1.5} />
-                        <Sparkles size={16} className="sparkle-sub" />
+                        <EmptyVariationPlaceholder />
                       </div>
                     </div>
                   )}
@@ -432,13 +441,14 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
         {/* Recently Generated Section */}
         <div className="char-vars-recent-section">
           <div className="char-vars-recent-title">
-            <Clock size={16} />
+            <History size={16} strokeWidth={2.2} />
             <span>Recently generated</span>
           </div>
 
           <div className="char-vars-recent-scroll">
+            {recentVariations.length === 0 && <p className="char-vars-recent-empty">Your variations from this window appear here.</p>}
             {recentVariations.map((v) => (
-              <div key={v.id} className="char-vars-recent-tile" onClick={() => handleUseAsRef(v)} title={`Use "${v.name}" as reference`}>
+              <button type="button" key={v.id} className="char-vars-recent-tile" onClick={() => handleUseAsRef(v)} title={`Use "${v.name}" as reference`}>
                 <div className="char-vars-recent-thumb">
                   {v.kind === 'vector' && v.def ? (
                     <span dangerouslySetInnerHTML={{ __html: doodleSvg(v.def, { color: true, ink: '#1B1B1B' }) }} />
@@ -450,7 +460,7 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
                   <span className="recent-name">{v.name}</span>
                   <span className="recent-prompt">{v.prompt}</span>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -461,7 +471,7 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
             <div className="char-picker-card">
               <div className="char-picker-head">
                 <h3>Choose Reference Character</h3>
-                <button type="button" className="close-btn" onClick={() => setCharPickerOpen(false)}>
+                <button type="button" className="close-btn" aria-label="Close character picker" onClick={() => setCharPickerOpen(false)}>
                   <X size={18} />
                 </button>
               </div>

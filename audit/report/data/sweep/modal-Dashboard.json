@@ -1,0 +1,23 @@
+[
+ {
+  "id": "B-155",
+  "name": "Close",
+  "state": "modal · Dashboard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-156",
+  "name": "New project",
+  "state": "modal · Dashboard",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-157",
+  "name": "Open the example",
+  "state": "modal · Dashboard",
+  "result": "FAILED: B-157 Open the example is on the page",
+  "problems": []
+ }
+]

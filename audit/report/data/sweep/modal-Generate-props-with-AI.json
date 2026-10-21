@@ -1,0 +1,57 @@
+[
+ {
+  "id": "B-211",
+  "name": "Close",
+  "state": "modal · Generate props with AI",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-212",
+  "name": "Element",
+  "state": "modal · Generate props with AI",
+  "result": "clicked",
+  "problems": []
+ },
+ {
+  "id": "B-213",
+  "name": "Doodle line art",
+  "state": "modal · Generate props with AI",
+  "result": "clicked",
+  "problems": [
+   "http: 404 http://localhost:8790/assets/styles/3d.png",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "http: 404 http://localhost:8790/assets/styles/flat.png",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "http: 404 http://localhost:8790/assets/styles/watercolour.png",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "http: 404 http://localhost:8790/assets/styles/charcoal.png",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "http: 404 http://localhost:8790/assets/styles/photo.png",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "http: 404 http://localhost:8790/assets/styles/anime.png",
+   "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+ },
+ {
+  "id": "B-214",
+  "name": "Describe what to make",
+  "state": "modal · Generate props with AI",
+  "result": "typed",
+  "problems": []
+ },
+ {
+  "id": "B-215",
+  "name": "Generate",
+  "state": "modal · Generate props with AI",
+  "result": "covered by 05-flows (E2, E4) and 04-api",
+  "problems": []
+ },
+ {
+  "id": "B-216",
+  "name": "4 variations",
+  "state": "modal · Generate props with AI",
+  "result": "clicked",
+  "problems": []
+ }
+]

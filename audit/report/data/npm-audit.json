@@ -1,0 +1,147 @@
+{
+ "counts": {
+  "info": 0,
+  "low": 0,
+  "moderate": 19,
+  "high": 8,
+  "critical": 0,
+  "total": 27
+ },
+ "list": [
+  {
+   "name": "@opentelemetry/core",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-amqplib",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-connect",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-express",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-fs",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-hapi",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-http",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-knex",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-koa",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-mongoose",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-mysql",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-mysql2",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-pg",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-tedious",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/instrumentation-undici",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/resources",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/sdk-trace-base",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@opentelemetry/sql-common",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "@puppeteer/browsers",
+   "severity": "high",
+   "direct": false
+  },
+  {
+   "name": "@sentry/node",
+   "severity": "moderate",
+   "direct": false
+  },
+  {
+   "name": "basic-ftp",
+   "severity": "high",
+   "direct": false
+  },
+  {
+   "name": "extract-zip",
+   "severity": "high",
+   "direct": false
+  },
+  {
+   "name": "get-uri",
+   "severity": "high",
+   "direct": false
+  },
+  {
+   "name": "lighthouse",
+   "severity": "high",
+   "direct": true
+  },
+  {
+   "name": "pac-proxy-agent",
+   "severity": "high",
+   "direct": false
+  },
+  {
+   "name": "proxy-agent",
+   "severity": "high",
+   "direct": false
+  },
+  {
+   "name": "puppeteer-core",
+   "severity": "high",
+   "direct": false
+  }
+ ]
+}

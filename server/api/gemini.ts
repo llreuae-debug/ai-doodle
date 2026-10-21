@@ -67,6 +67,8 @@ export const TTS_FALLBACKS = (process.env.GEMINI_TTS_FALLBACKS || 'gemini-3.8-fl
 export const API_ROOT = (process.env.GEMINI_API_BASE || 'https://generativelanguage.googleapis.com').replace(/\/$/, '');
 const BASE = `${API_ROOT}/v1beta/models`;
 const MAX_RETRIES = 3;
+/** One Google AI call gives up after this long (then it is retried), so a stalled answer can't hang a request. */
+const CALL_TIMEOUT_MS = Number(process.env.GEMINI_TIMEOUT_MS) || 180_000;
 
 export class HttpError extends Error {
   status: number;
@@ -155,7 +157,7 @@ export async function generate(model: string, parts: Part[], generationConfig: R
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey() },
         body,
-        ...(Number.isFinite(left) ? { signal: AbortSignal.timeout(left - 1000) } : {}),
+        signal: AbortSignal.timeout(Math.min(CALL_TIMEOUT_MS, left - 1000)),
       });
     } catch (err) {
       if (err instanceof HttpError) throw err;

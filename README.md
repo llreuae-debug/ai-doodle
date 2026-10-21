@@ -26,7 +26,7 @@ styles are drawn stroke by stroke; the others are pictures with the background r
 and reusable characters in new poses. The Story wizard turns a title into a narrated video (storyboard,
 visuals, Google AI voices, music). Background music is generated with Lyria and fitted to the video. Export: 720p, 1080p, 2K and 4K, each with Render, Play and Download.
 
-What works: 8 characters, 24 props and 20 decorations (line or colour), plus a clipart library (63 items in 12
+What works: 8 characters, 24 props and 20 decorations (line or colour), plus a clipart library (430 items in 13
 categories so far, loaded on demand), uploads traced into strokes (as uploaded or turned into a
 sketch), AI doodles, text written stroke by stroke, layers, drag / resize / rotate with snap guides, undo/redo,
 slides with transitions (fade, wipe, push, iris), drawing speed, pause, voice-synced slides, voiceover (upload, or a Google AI
@@ -51,6 +51,21 @@ Layout:
 - `scripts/ai/`: one-off generators: `check-languages.mjs` (writes the language support table),
   `voice-previews.mjs` (the ▶ preview per voice) and `style-thumbs.mjs` (Generate-with-AI style samples).
 - `MUSIC_NOTES.md`: Lyria models, limits, pricing and commercial-use notes.
+
+## Audit
+
+`npm run audit` builds the app, runs the full audit with Playwright against the production server and writes
+`audit/report/AUDIT_REPORT.md` (and `.html`). `npm run audit -- --quick` skips the slow end-to-end flows that use
+the Google AI key and take most of an hour.
+
+- `audit/inventory.md`: every link, control, window, API route, file input, shortcut and asset, with IDs.
+- `audit/tests/`: 00 inventory, 01 links and assets, 02 a sweep that uses every control once, 03 what each
+  control does, 04 API and error handling (with a mock Google AI on port 8799), 05 end-to-end flows,
+  06 accessibility, layout, performance and security, 07 Firefox and WebKit, 08 memory.
+- `audit/findings.json`: problems found, their fixes and commits (the report reads it).
+
+The editor exposes a read-only `window.__audit.project()` only when the URL has `?audit`, so tests can compare
+project state exactly.
 
 ## AI and free Google keys
 
