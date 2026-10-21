@@ -607,5 +607,305 @@
   "premium": false,
   "thumb": "/library/characters/ch-extra-22.svg",
   "thumbColor": "/library/characters/ch-extra-22.color.svg"
+ },
+ {
+  "id": "ch-extra-23",
+  "cat": "characters",
+  "name": "Painter",
+  "tags": [
+   "people",
+   "character",
+   "painter"
+  ],
+  "file": "/library/characters/ch-extra-23.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-23.svg",
+  "thumbColor": "/library/characters/ch-extra-23.color.svg"
+ },
+ {
+  "id": "ch-extra-24",
+  "cat": "characters",
+  "name": "Parent",
+  "tags": [
+   "people",
+   "character",
+   "parent"
+  ],
+  "file": "/library/characters/ch-extra-24.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-24.svg",
+  "thumbColor": "/library/characters/ch-extra-24.color.svg"
+ },
+ {
+  "id": "ch-extra-25",
+  "cat": "characters",
+  "name": "Programmer",
+  "tags": [
+   "people",
+   "character",
+   "programmer"
+  ],
+  "file": "/library/characters/ch-extra-25.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-25.svg",
+  "thumbColor": "/library/characters/ch-extra-25.color.svg"
+ },
+ {
+  "id": "ch-extra-26",
+  "cat": "characters",
+  "name": "Receptionist",
+  "tags": [
+   "people",
+   "character",
+   "receptionist"
+  ],
+  "file": "/library/characters/ch-extra-26.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-26.svg",
+  "thumbColor": "/library/characters/ch-extra-26.color.svg"
+ },
+ {
+  "id": "ch-extra-27",
+  "cat": "characters",
+  "name": "Researcher",
+  "tags": [
+   "people",
+   "character",
+   "researcher"
+  ],
+  "file": "/library/characters/ch-extra-27.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-27.svg",
+  "thumbColor": "/library/characters/ch-extra-27.color.svg"
+ },
+ {
+  "id": "ch-extra-28",
+  "cat": "characters",
+  "name": "Runner",
+  "tags": [
+   "people",
+   "character",
+   "runner"
+  ],
+  "file": "/library/characters/ch-extra-28.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-28.svg",
+  "thumbColor": "/library/characters/ch-extra-28.color.svg"
+ },
+ {
+  "id": "ch-extra-29",
+  "cat": "characters",
+  "name": "Singer",
+  "tags": [
+   "people",
+   "character",
+   "singer"
+  ],
+  "file": "/library/characters/ch-extra-29.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-29.svg",
+  "thumbColor": "/library/characters/ch-extra-29.color.svg"
+ },
+ {
+  "id": "ch-extra-30",
+  "cat": "characters",
+  "name": "Speaker",
+  "tags": [
+   "people",
+   "character",
+   "speaker"
+  ],
+  "file": "/library/characters/ch-extra-30.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-30.svg",
+  "thumbColor": "/library/characters/ch-extra-30.color.svg"
+ },
+ {
+  "id": "ch-extra-31",
+  "cat": "characters",
+  "name": "Traveler",
+  "tags": [
+   "people",
+   "character",
+   "traveler"
+  ],
+  "file": "/library/characters/ch-extra-31.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-31.svg",
+  "thumbColor": "/library/characters/ch-extra-31.color.svg"
+ },
+ {
+  "id": "ch-extra-32",
+  "cat": "characters",
+  "name": "Volunteer",
+  "tags": [
+   "people",
+   "character",
+   "volunteer"
+  ],
+  "file": "/library/characters/ch-extra-32.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-32.svg",
+  "thumbColor": "/library/characters/ch-extra-32.color.svg"
+ },
+ {
+  "id": "ch-extra-33",
+  "cat": "characters",
+  "name": "Writer",
+  "tags": [
+   "people",
+   "character",
+   "writer"
+  ],
+  "file": "/library/characters/ch-extra-33.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-33.svg",
+  "thumbColor": "/library/characters/ch-extra-33.color.svg"
+ },
+ {
+  "id": "ch-extra-34",
+  "cat": "characters",
+  "name": "Yoga teacher",
+  "tags": [
+   "people",
+   "character",
+   "yoga teacher"
+  ],
+  "file": "/library/characters/ch-extra-34.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-34.svg",
+  "thumbColor": "/library/characters/ch-extra-34.color.svg"
+ },
+ {
+  "id": "ch-extra-35",
+  "cat": "characters",
+  "name": "Delivery rider",
+  "tags": [
+   "people",
+   "character",
+   "delivery rider"
+  ],
+  "file": "/library/characters/ch-extra-35.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-35.svg",
+  "thumbColor": "/library/characters/ch-extra-35.color.svg"
+ },
+ {
+  "id": "ch-extra-36",
+  "cat": "characters",
+  "name": "Entrepreneur",
+  "tags": [
+   "people",
+   "character",
+   "entrepreneur"
+  ],
+  "file": "/library/characters/ch-extra-36.json",
+  "strokeCount": 16,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-36.svg",
+  "thumbColor": "/library/characters/ch-extra-36.color.svg"
+ },
+ {
+  "id": "ch-extra-37",
+  "cat": "characters",
+  "name": "Librarian",
+  "tags": [
+   "people",
+   "character",
+   "librarian"
+  ],
+  "file": "/library/characters/ch-extra-37.json",
+  "strokeCount": 17,
+  "premium": false,
+  "thumb": "/library/characters/ch-extra-37.svg",
+  "thumbColor": "/library/characters/ch-extra-37.color.svg"
+ },
+ {
+  "id": "bz-extra-1",
+  "cat": "business",
+  "name": "Calendar",
+  "tags": [
+   "business",
+   "office",
+   "calendar"
+  ],
+  "file": "/library/business/bz-extra-1.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-1.svg",
+  "thumbColor": "/library/business/bz-extra-1.color.svg"
+ },
+ {
+  "id": "bz-extra-2",
+  "cat": "business",
+  "name": "Clipboard",
+  "tags": [
+   "business",
+   "office",
+   "clipboard"
+  ],
+  "file": "/library/business/bz-extra-2.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-2.svg",
+  "thumbColor": "/library/business/bz-extra-2.color.svg"
+ },
+ {
+  "id": "bz-extra-3",
+  "cat": "business",
+  "name": "Calculator",
+  "tags": [
+   "business",
+   "office",
+   "calculator"
+  ],
+  "file": "/library/business/bz-extra-3.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-3.svg",
+  "thumbColor": "/library/business/bz-extra-3.color.svg"
+ },
+ {
+  "id": "bz-extra-4",
+  "cat": "business",
+  "name": "Clock",
+  "tags": [
+   "business",
+   "office",
+   "clock"
+  ],
+  "file": "/library/business/bz-extra-4.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-4.svg",
+  "thumbColor": "/library/business/bz-extra-4.color.svg"
+ },
+ {
+  "id": "bz-extra-5",
+  "cat": "business",
+  "name": "Light bulb",
+  "tags": [
+   "business",
+   "office",
+   "light bulb"
+  ],
+  "file": "/library/business/bz-extra-5.json",
+  "strokeCount": 11,
+  "premium": false,
+  "thumb": "/library/business/bz-extra-5.svg",
+  "thumbColor": "/library/business/bz-extra-5.color.svg"
  }
 ]
