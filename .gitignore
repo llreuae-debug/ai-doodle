@@ -33,3 +33,7 @@ assets/hands/masters/
 # Server secrets and generated media
 .env
 media/
+.vercel
+
+# Local Netlify folder
+.netlify
