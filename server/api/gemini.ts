@@ -63,7 +63,9 @@ export const TTS_FALLBACKS = (process.env.GEMINI_TTS_FALLBACKS || 'gemini-3.8-fl
   .map((m) => m.trim())
   .filter(Boolean);
 
-const BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
+/** Google AI address. GEMINI_API_BASE points it elsewhere for tests (the audit's failure mocks). */
+export const API_ROOT = (process.env.GEMINI_API_BASE || 'https://generativelanguage.googleapis.com').replace(/\/$/, '');
+const BASE = `${API_ROOT}/v1beta/models`;
 const MAX_RETRIES = 3;
 
 export class HttpError extends Error {

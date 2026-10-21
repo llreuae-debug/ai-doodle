@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import { HttpError } from './gemini.ts';
+import { API_ROOT, HttpError } from './gemini.ts';
 import { appSecret } from './security.ts';
 import { setSavedKey } from './savedKey.ts';
 import { readStored, storeFile } from './storage.ts';
@@ -45,7 +45,7 @@ export async function refreshSavedKey(force = false): Promise<void> {
 
 /** Checks the key with Google (listing models uses no generation quota), then saves it encrypted. */
 export async function saveKey(key: string): Promise<void> {
-  const check = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1', { headers: { 'x-goog-api-key': key } }).catch(() => null);
+  const check = await fetch(`${API_ROOT}/v1beta/models?pageSize=1`, { headers: { 'x-goog-api-key': key } }).catch(() => null);
   if (!check) throw new HttpError(502, 'offline', "Couldn't reach Google AI to check the key. Try again.");
   if (!check.ok) throw new HttpError(400, 'bad_key', 'Google AI rejected this key. Check it and try again.');
   await storeFile(PATHNAME, encrypt(key));

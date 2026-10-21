@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process';
 import crypto from 'node:crypto';
 import { z } from 'zod';
 import { FFMPEG } from './audio.ts';
-import { currentKey, HttpError } from './gemini.ts';
+import { API_ROOT, currentKey, HttpError } from './gemini.ts';
 import { cacheGet, cachePut, saveMedia } from './security.ts';
 
 /**
@@ -15,7 +15,7 @@ import { cacheGet, cachePut, saveMedia } from './security.ts';
  *  4. loudness-normalised to −20 LUFS and encoded as MP3 192 kbps (ffmpeg).
  */
 export const MUSIC_MODEL = process.env.GOOGLE_MUSIC_MODEL || 'models/lyria-realtime-exp';
-const WS_URL = 'wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateMusic';
+const WS_URL = `${API_ROOT.replace(/^http/, 'ws')}/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateMusic`;
 const RATE = 48_000;
 const CH = 2;
 /** Length of each generated base clip, and the warm-up skipped at its start. */
