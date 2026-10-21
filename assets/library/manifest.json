@@ -1207,5 +1207,305 @@
   "premium": false,
   "thumb": "/library/shapes/sh-extra-20.svg",
   "thumbColor": "/library/shapes/sh-extra-20.color.svg"
+ },
+ {
+  "id": "sh-extra-21",
+  "cat": "shapes",
+  "name": "Idea bubble",
+  "tags": [
+   "shapes",
+   "callout",
+   "idea bubble"
+  ],
+  "file": "/library/shapes/sh-extra-21.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-21.svg",
+  "thumbColor": "/library/shapes/sh-extra-21.color.svg"
+ },
+ {
+  "id": "sh-extra-22",
+  "cat": "shapes",
+  "name": "Warning callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "warning callout"
+  ],
+  "file": "/library/shapes/sh-extra-22.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-22.svg",
+  "thumbColor": "/library/shapes/sh-extra-22.color.svg"
+ },
+ {
+  "id": "sh-extra-23",
+  "cat": "shapes",
+  "name": "Info callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "info callout"
+  ],
+  "file": "/library/shapes/sh-extra-23.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-23.svg",
+  "thumbColor": "/library/shapes/sh-extra-23.color.svg"
+ },
+ {
+  "id": "sh-extra-24",
+  "cat": "shapes",
+  "name": "Question callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "question callout"
+  ],
+  "file": "/library/shapes/sh-extra-24.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-24.svg",
+  "thumbColor": "/library/shapes/sh-extra-24.color.svg"
+ },
+ {
+  "id": "sh-extra-25",
+  "cat": "shapes",
+  "name": "Pointer callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "pointer callout"
+  ],
+  "file": "/library/shapes/sh-extra-25.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-25.svg",
+  "thumbColor": "/library/shapes/sh-extra-25.color.svg"
+ },
+ {
+  "id": "sh-extra-26",
+  "cat": "shapes",
+  "name": "Label callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "label callout"
+  ],
+  "file": "/library/shapes/sh-extra-26.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-26.svg",
+  "thumbColor": "/library/shapes/sh-extra-26.color.svg"
+ },
+ {
+  "id": "sh-extra-27",
+  "cat": "shapes",
+  "name": "Caption callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "caption callout"
+  ],
+  "file": "/library/shapes/sh-extra-27.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-27.svg",
+  "thumbColor": "/library/shapes/sh-extra-27.color.svg"
+ },
+ {
+  "id": "sh-extra-28",
+  "cat": "shapes",
+  "name": "Sticky note",
+  "tags": [
+   "shapes",
+   "callout",
+   "sticky note"
+  ],
+  "file": "/library/shapes/sh-extra-28.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-28.svg",
+  "thumbColor": "/library/shapes/sh-extra-28.color.svg"
+ },
+ {
+  "id": "sh-extra-29",
+  "cat": "shapes",
+  "name": "Message flag",
+  "tags": [
+   "shapes",
+   "callout",
+   "message flag"
+  ],
+  "file": "/library/shapes/sh-extra-29.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-29.svg",
+  "thumbColor": "/library/shapes/sh-extra-29.color.svg"
+ },
+ {
+  "id": "sh-extra-30",
+  "cat": "shapes",
+  "name": "Speech cloud",
+  "tags": [
+   "shapes",
+   "callout",
+   "speech cloud"
+  ],
+  "file": "/library/shapes/sh-extra-30.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-30.svg",
+  "thumbColor": "/library/shapes/sh-extra-30.color.svg"
+ },
+ {
+  "id": "sh-extra-31",
+  "cat": "shapes",
+  "name": "Process arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "process arrow"
+  ],
+  "file": "/library/shapes/sh-extra-31.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-31.svg",
+  "thumbColor": "/library/shapes/sh-extra-31.color.svg"
+ },
+ {
+  "id": "sh-extra-32",
+  "cat": "shapes",
+  "name": "Loop arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "loop arrow"
+  ],
+  "file": "/library/shapes/sh-extra-32.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-32.svg",
+  "thumbColor": "/library/shapes/sh-extra-32.color.svg"
+ },
+ {
+  "id": "sh-extra-33",
+  "cat": "shapes",
+  "name": "Up arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "up arrow"
+  ],
+  "file": "/library/shapes/sh-extra-33.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-33.svg",
+  "thumbColor": "/library/shapes/sh-extra-33.color.svg"
+ },
+ {
+  "id": "sh-extra-34",
+  "cat": "shapes",
+  "name": "Down arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "down arrow"
+  ],
+  "file": "/library/shapes/sh-extra-34.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-34.svg",
+  "thumbColor": "/library/shapes/sh-extra-34.color.svg"
+ },
+ {
+  "id": "sh-extra-35",
+  "cat": "shapes",
+  "name": "Left arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "left arrow"
+  ],
+  "file": "/library/shapes/sh-extra-35.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-35.svg",
+  "thumbColor": "/library/shapes/sh-extra-35.color.svg"
+ },
+ {
+  "id": "sh-extra-36",
+  "cat": "shapes",
+  "name": "Right arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "right arrow"
+  ],
+  "file": "/library/shapes/sh-extra-36.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-36.svg",
+  "thumbColor": "/library/shapes/sh-extra-36.color.svg"
+ },
+ {
+  "id": "sh-extra-37",
+  "cat": "shapes",
+  "name": "Double arrow",
+  "tags": [
+   "shapes",
+   "arrow",
+   "double arrow"
+  ],
+  "file": "/library/shapes/sh-extra-37.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-37.svg",
+  "thumbColor": "/library/shapes/sh-extra-37.color.svg"
+ },
+ {
+  "id": "sh-extra-38",
+  "cat": "shapes",
+  "name": "Flow connector",
+  "tags": [
+   "shapes",
+   "arrow",
+   "flow connector"
+  ],
+  "file": "/library/shapes/sh-extra-38.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-38.svg",
+  "thumbColor": "/library/shapes/sh-extra-38.color.svg"
+ },
+ {
+  "id": "sh-extra-39",
+  "cat": "shapes",
+  "name": "Timeline marker",
+  "tags": [
+   "shapes",
+   "arrow",
+   "timeline marker"
+  ],
+  "file": "/library/shapes/sh-extra-39.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-39.svg",
+  "thumbColor": "/library/shapes/sh-extra-39.color.svg"
+ },
+ {
+  "id": "sh-extra-40",
+  "cat": "shapes",
+  "name": "Step marker",
+  "tags": [
+   "shapes",
+   "arrow",
+   "step marker"
+  ],
+  "file": "/library/shapes/sh-extra-40.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-40.svg",
+  "thumbColor": "/library/shapes/sh-extra-40.color.svg"
  }
 ]
