@@ -907,5 +907,305 @@
   "premium": false,
   "thumb": "/library/business/bz-extra-5.svg",
   "thumbColor": "/library/business/bz-extra-5.color.svg"
+ },
+ {
+  "id": "sh-extra-1",
+  "cat": "shapes",
+  "name": "Circle label",
+  "tags": [
+   "shapes",
+   "callout",
+   "circle label"
+  ],
+  "file": "/library/shapes/sh-extra-1.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-1.svg",
+  "thumbColor": "/library/shapes/sh-extra-1.color.svg"
+ },
+ {
+  "id": "sh-extra-2",
+  "cat": "shapes",
+  "name": "Oval label",
+  "tags": [
+   "shapes",
+   "callout",
+   "oval label"
+  ],
+  "file": "/library/shapes/sh-extra-2.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-2.svg",
+  "thumbColor": "/library/shapes/sh-extra-2.color.svg"
+ },
+ {
+  "id": "sh-extra-3",
+  "cat": "shapes",
+  "name": "Diamond badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "diamond badge"
+  ],
+  "file": "/library/shapes/sh-extra-3.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-3.svg",
+  "thumbColor": "/library/shapes/sh-extra-3.color.svg"
+ },
+ {
+  "id": "sh-extra-4",
+  "cat": "shapes",
+  "name": "Hexagon badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "hexagon badge"
+  ],
+  "file": "/library/shapes/sh-extra-4.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-4.svg",
+  "thumbColor": "/library/shapes/sh-extra-4.color.svg"
+ },
+ {
+  "id": "sh-extra-5",
+  "cat": "shapes",
+  "name": "Heart badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "heart badge"
+  ],
+  "file": "/library/shapes/sh-extra-5.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-5.svg",
+  "thumbColor": "/library/shapes/sh-extra-5.color.svg"
+ },
+ {
+  "id": "sh-extra-6",
+  "cat": "shapes",
+  "name": "Cloud label",
+  "tags": [
+   "shapes",
+   "callout",
+   "cloud label"
+  ],
+  "file": "/library/shapes/sh-extra-6.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-6.svg",
+  "thumbColor": "/library/shapes/sh-extra-6.color.svg"
+ },
+ {
+  "id": "sh-extra-7",
+  "cat": "shapes",
+  "name": "Sparkle badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "sparkle badge"
+  ],
+  "file": "/library/shapes/sh-extra-7.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-7.svg",
+  "thumbColor": "/library/shapes/sh-extra-7.color.svg"
+ },
+ {
+  "id": "sh-extra-8",
+  "cat": "shapes",
+  "name": "Sun badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "sun badge"
+  ],
+  "file": "/library/shapes/sh-extra-8.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-8.svg",
+  "thumbColor": "/library/shapes/sh-extra-8.color.svg"
+ },
+ {
+  "id": "sh-extra-9",
+  "cat": "shapes",
+  "name": "Seal badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "seal badge"
+  ],
+  "file": "/library/shapes/sh-extra-9.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-9.svg",
+  "thumbColor": "/library/shapes/sh-extra-9.color.svg"
+ },
+ {
+  "id": "sh-extra-10",
+  "cat": "shapes",
+  "name": "Ticket badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "ticket badge"
+  ],
+  "file": "/library/shapes/sh-extra-10.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-10.svg",
+  "thumbColor": "/library/shapes/sh-extra-10.color.svg"
+ },
+ {
+  "id": "sh-extra-11",
+  "cat": "shapes",
+  "name": "Price tag",
+  "tags": [
+   "shapes",
+   "callout",
+   "price tag"
+  ],
+  "file": "/library/shapes/sh-extra-11.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-11.svg",
+  "thumbColor": "/library/shapes/sh-extra-11.color.svg"
+ },
+ {
+  "id": "sh-extra-12",
+  "cat": "shapes",
+  "name": "Bookmark",
+  "tags": [
+   "shapes",
+   "callout",
+   "bookmark"
+  ],
+  "file": "/library/shapes/sh-extra-12.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-12.svg",
+  "thumbColor": "/library/shapes/sh-extra-12.color.svg"
+ },
+ {
+  "id": "sh-extra-13",
+  "cat": "shapes",
+  "name": "Map pin",
+  "tags": [
+   "shapes",
+   "callout",
+   "map pin"
+  ],
+  "file": "/library/shapes/sh-extra-13.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-13.svg",
+  "thumbColor": "/library/shapes/sh-extra-13.color.svg"
+ },
+ {
+  "id": "sh-extra-14",
+  "cat": "shapes",
+  "name": "Flag marker",
+  "tags": [
+   "shapes",
+   "callout",
+   "flag marker"
+  ],
+  "file": "/library/shapes/sh-extra-14.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-14.svg",
+  "thumbColor": "/library/shapes/sh-extra-14.color.svg"
+ },
+ {
+  "id": "sh-extra-15",
+  "cat": "shapes",
+  "name": "Shield badge",
+  "tags": [
+   "shapes",
+   "callout",
+   "shield badge"
+  ],
+  "file": "/library/shapes/sh-extra-15.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-15.svg",
+  "thumbColor": "/library/shapes/sh-extra-15.color.svg"
+ },
+ {
+  "id": "sh-extra-16",
+  "cat": "shapes",
+  "name": "Round callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "round callout"
+  ],
+  "file": "/library/shapes/sh-extra-16.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-16.svg",
+  "thumbColor": "/library/shapes/sh-extra-16.color.svg"
+ },
+ {
+  "id": "sh-extra-17",
+  "cat": "shapes",
+  "name": "Square callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "square callout"
+  ],
+  "file": "/library/shapes/sh-extra-17.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-17.svg",
+  "thumbColor": "/library/shapes/sh-extra-17.color.svg"
+ },
+ {
+  "id": "sh-extra-18",
+  "cat": "shapes",
+  "name": "Note callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "note callout"
+  ],
+  "file": "/library/shapes/sh-extra-18.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-18.svg",
+  "thumbColor": "/library/shapes/sh-extra-18.color.svg"
+ },
+ {
+  "id": "sh-extra-19",
+  "cat": "shapes",
+  "name": "Quote callout",
+  "tags": [
+   "shapes",
+   "callout",
+   "quote callout"
+  ],
+  "file": "/library/shapes/sh-extra-19.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-19.svg",
+  "thumbColor": "/library/shapes/sh-extra-19.color.svg"
+ },
+ {
+  "id": "sh-extra-20",
+  "cat": "shapes",
+  "name": "Chat bubble",
+  "tags": [
+   "shapes",
+   "callout",
+   "chat bubble"
+  ],
+  "file": "/library/shapes/sh-extra-20.json",
+  "strokeCount": 14,
+  "premium": false,
+  "thumb": "/library/shapes/sh-extra-20.svg",
+  "thumbColor": "/library/shapes/sh-extra-20.color.svg"
  }
 ]
