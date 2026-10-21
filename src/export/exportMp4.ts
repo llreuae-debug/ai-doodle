@@ -62,6 +62,20 @@ export async function loadProjectFonts(project: Project): Promise<void> {
  * Renders every frame with the shared Renderer and encodes H.264 (+ AAC) into an MP4, in the browser.
  * Frames are rendered as fast as the encoder accepts them, not in real time. The tab must stay open.
  */
+/**
+ * The AAC encoder pads the start of the stream (2112 samples, measured on an exported file as a
+ * constant 44 ms at 48 kHz) and the file doesn't mark it to be skipped, so the sound would play that
+ * much late. Dropping that many samples from the start puts it back in sync with the picture.
+ */
+const AAC_PRIMING_SAMPLES = 2112;
+function withoutPriming(audio: AudioBuffer): AudioBuffer {
+  const skip = Math.round((AAC_PRIMING_SAMPLES * audio.sampleRate) / 48000);
+  if (audio.length <= skip) return audio;
+  const out = new AudioBuffer({ length: audio.length - skip, numberOfChannels: audio.numberOfChannels, sampleRate: audio.sampleRate });
+  for (let c = 0; c < audio.numberOfChannels; c++) out.copyToChannel(audio.getChannelData(c).subarray(skip), c);
+  return out;
+}
+
 export async function exportMp4(
   project: Project,
   timeline: Timeline,
@@ -86,7 +100,7 @@ export async function exportMp4(
   const renderer = new Renderer(resources);
   const frames = Math.max(1, Math.ceil((timeline.duration / 1000) * fps));
   try {
-    if (sound && audio) await sound.add(audio);
+    if (sound && audio) await sound.add(withoutPriming(audio));
     for (let i = 0; i < frames; i++) {
       signal?.throwIfAborted();
       renderer.render(surface.ctx, project, timeline, (i * 1000) / fps, width, height, { showHand: true });

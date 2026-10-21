@@ -246,22 +246,6 @@ const ROOM_WET = 0.08;
 const TAP_LEAD_S = 0.02;
 const ROOM_S = 0.15;
 
-const curves = new Map<string, Float32Array>();
-/** Equal-power fade curve (sin for in, cos for out). */
-function fadeCurve(dir: 'in' | 'out', peak: number): Float32Array {
-  const key = `${dir}:${peak.toFixed(4)}`;
-  let c = curves.get(key);
-  if (!c) {
-    c = new Float32Array(16);
-    for (let i = 0; i < 16; i++) {
-      const x = i / 15;
-      c[i] = peak * (dir === 'in' ? Math.sin((x * Math.PI) / 2) : Math.cos((x * Math.PI) / 2));
-    }
-    curves.set(key, c);
-  }
-  return c;
-}
-
 /** A short generated room so the pen sounds in a room, not in your ear (seeded noise, exponential decay). */
 function roomImpulse(ctx: BaseAudioContext, rand: () => number): AudioBuffer {
   const n = Math.floor(ROOM_S * ctx.sampleRate);
@@ -273,9 +257,149 @@ function roomImpulse(ctx: BaseAudioContext, rand: () => number): AudioBuffer {
   return ir;
 }
 
+/** Stereo output being written, plus the bank's samples (mono) resampled to the output rate. */
+interface Out {
+  L: Float32Array<ArrayBuffer>;
+  R: Float32Array<ArrayBuffer>;
+  sr: number;
+  src: Float32Array;
+  /** Bank sample rate / output sample rate. */
+  ratio: number;
+}
+
+/** Equal-power pan (as StereoPannerNode does for a mono input): pan −1 … +1. */
+const panGains = (pan: number): [number, number] => {
+  const x = ((pan + 1) / 2) * (Math.PI / 2);
+  return [Math.cos(x), Math.sin(x)];
+};
+
 /**
- * Schedules the pen sound for `strokes` into `ctx`, routed to `destination`. `capOffAt` plays the
- * marker cap-off sound at that time (seconds), when the bank has one.
+ * Adds one recorded segment at `at` seconds: playback rate (pitch), gain, a 12 ms fade at the end,
+ * and pan (fixed, or ramped between two values). `gainAt`, if given, multiplies every sample (the
+ * stroke's speed envelope); `fadeIn`/`fadeOut` give equal-power crossfades in seconds.
+ */
+function addSegment(
+  o: Out,
+  seg: Segment,
+  at: number,
+  opts: { gain: number; rate?: number; maxDur?: number; pan0: number; pan1?: number; fadeIn?: number; fadeOut?: number; gainAt?: (i: number) => number },
+): void {
+  const rate = opts.rate ?? 1;
+  const segLen = Math.min(seg.dur, (opts.maxDur ?? Infinity) * rate);
+  const outLen = Math.floor((segLen / rate) * o.sr);
+  const i0 = Math.floor(at * o.sr);
+  const s0 = seg.start * o.sr * o.ratio;
+  const step = rate * o.ratio;
+  const fin = Math.max(1, Math.floor((opts.fadeIn ?? 0) * o.sr));
+  const fout = Math.max(1, Math.floor((opts.fadeOut ?? 0.012) * o.sr));
+  const pan1 = opts.pan1 ?? opts.pan0;
+  for (let k = 0; k < outLen; k++) {
+    const i = i0 + k;
+    if (i < 0) continue;
+    if (i >= o.L.length) break;
+    const pos = s0 + k * step;
+    const j = Math.floor(pos);
+    const f = pos - j;
+    const v = (o.src[j] ?? 0) * (1 - f) + (o.src[j + 1] ?? 0) * f;
+    let env = opts.gain;
+    if (opts.fadeIn && k < fin) env *= Math.sin(((k / fin) * Math.PI) / 2);
+    if (k > outLen - fout) env *= opts.fadeIn ? Math.cos((((k - (outLen - fout)) / fout) * Math.PI) / 2) : (outLen - k) / fout;
+    if (opts.gainAt) env *= opts.gainAt(i);
+    const p = pan1 === opts.pan0 ? opts.pan0 : opts.pan0 + (pan1 - opts.pan0) * (k / Math.max(1, outLen));
+    const [gl, gr] = panGains(p);
+    o.L[i] += v * env * gl;
+    o.R[i] += v * env * gr;
+  }
+}
+
+/**
+ * Renders the pen sound for `strokes` straight into stereo sample arrays (no audio node per stroke
+ * or grain, so a long video renders in seconds rather than minutes). Same rules as before, from a
+ * seeded random source, so preview and export are identical.
+ */
+export function renderPen(
+  strokes: PenStroke[],
+  bank: PenBank,
+  opts: { seed: number; sampleRate: number; durationS: number; capOffAt?: number },
+): { L: Float32Array<ArrayBuffer>; R: Float32Array<ArrayBuffer> } {
+  const sr = opts.sampleRate;
+  const n = Math.ceil(opts.durationS * sr);
+  const o: Out = { L: new Float32Array(n), R: new Float32Array(n), sr, src: bank.buffer.getChannelData(0), ratio: bank.buffer.sampleRate / sr };
+  const rand = mulberry32(opts.seed);
+  const pick = <T,>(list: T[]) => list[Math.floor(rand() * list.length)];
+  const { map, ranked } = bank;
+  const shorts = map.strokes.filter((x) => x.label === 'short');
+
+  if (opts.capOffAt !== undefined && map.cap?.off) addSegment(o, map.cap.off, Math.max(0, opts.capOffAt), { gain: 0.7, pan0: 0 });
+
+  let prevGrain: Grain | null = null;
+  for (const s of strokes) {
+    const dur = s.t1 - s.t0;
+    const intensity = intensityOf(s.speed);
+    const level = 0.35 + 0.65 * intensity;
+    const panAt = (t: number) => s.pan0 + (s.pan1 - s.pan0) * Math.max(0, Math.min(1, (t - s.t0) / Math.max(1e-6, dur)));
+
+    // 1. Pen down: a tap, a little random in level, pitch (±2 semitones) and timing (0–8 ms).
+    if (map.taps.length) {
+      const tap = pick(map.taps);
+      addSegment(o, tap, s.t0 + rand() * 0.008, { gain: 0.5 + rand() * 0.3, rate: 2 ** ((rand() * 4 - 2) / 12), pan0: s.pan0 });
+    }
+
+    if (dur < SHORT_S && shorts.length) {
+      // 4. Very short marks (dots, accents): one whole recorded short stroke, stretched to fit.
+      const seg = pick(shorts);
+      addSegment(o, seg, s.t0, { gain: level, rate: Math.max(0.75, Math.min(1.33, seg.dur / dur)), maxDur: dur, pan0: s.pan0, pan1: s.pan1 });
+    } else {
+      // The stroke's gain over time: rises after the tap, dips and catches at corners (3), falls
+      // over 25 ms at pen up (5). One-pole smoothing, like setTargetAtTime.
+      const dragAt = s.t0 + TAP_LEAD_S;
+      const a = Math.floor(s.t0 * sr);
+      const z = Math.min(n, Math.ceil((s.t1 + 0.1) * sr));
+      const targets: { at: number; value: number; tau: number }[] = [{ at: dragAt, value: level, tau: 0.01 }];
+      for (const c of s.corners) {
+        const dip = 0.01 + rand() * 0.01;
+        targets.push({ at: c, value: level * 0.35, tau: dip / 3 }, { at: c + dip, value: level * 1.26, tau: 0.005 }, { at: c + dip + 0.015, value: level, tau: 0.01 });
+      }
+      targets.push({ at: s.t1, value: 0, tau: 0.025 / 3 });
+      const env = new Float32Array(Math.max(0, z - a));
+      let g = 0;
+      let ti = 0;
+      let cur = { value: 0, tau: 0.01 };
+      for (let i = 0; i < env.length; i++) {
+        const t = (a + i) / sr;
+        while (ti < targets.length && targets[ti].at <= t) cur = targets[ti++];
+        g += (cur.value - g) * (1 - Math.exp(-1 / (cur.tau * sr)));
+        env[i] = g;
+      }
+      const gainAt = (i: number) => env[i - a] ?? 0;
+
+      // 2. Moving: grains back to back with equal-power crossfades, chosen by pen speed.
+      let t = dragAt;
+      while (t < s.t1) {
+        const near = ranked
+          .filter((r) => r.grain !== prevGrain)
+          .map((r) => ({ r, d: Math.abs(r.score - intensity) + rand() * 0.08 }))
+          .sort((p, q) => p.d - q.d)
+          .slice(0, 5);
+        const choice = pick(near).r.grain;
+        prevGrain = choice;
+        const rate = 0.94 + rand() * 0.12;
+        const real = choice.dur / rate;
+        const xf = 0.015 + rand() * 0.015;
+        addSegment(o, choice, t, { gain: 1, rate, pan0: panAt(t), pan1: panAt(t + real), fadeIn: xf, fadeOut: xf, gainAt });
+        t += real - xf;
+      }
+    }
+
+    // 5. Pen up: a lift sound.
+    if (map.lifts.length) addSegment(o, pick(map.lifts), s.t1, { gain: 0.4 + rand() * 0.3, rate: 2 ** ((rand() * 2 - 1) / 12), pan0: s.pan1 });
+  }
+  return { L: o.L, R: o.R };
+}
+
+/**
+ * Plays the rendered pen sound into `ctx`: one buffer, through a little room (8% wet), at the pen
+ * volume, routed to `destination`.
  */
 export function schedulePen(
   ctx: BaseAudioContext,
@@ -285,11 +409,12 @@ export function schedulePen(
   opts: { volume: number; seed: number; capOffAt?: number },
 ): void {
   if (strokes.length === 0 || opts.volume <= 0) return;
-  const rand = mulberry32(opts.seed);
-  const pick = <T,>(list: T[]) => list[Math.floor(rand() * list.length)];
-  const { map, buffer, ranked } = bank;
-
-  // Output: dry plus a little room.
+  const durationS = Math.max(...strokes.map((s) => s.t1)) + 0.5;
+  const { L, R } = renderPen(strokes, bank, { seed: opts.seed, sampleRate: ctx.sampleRate, durationS, capOffAt: opts.capOffAt });
+  const buf = ctx.createBuffer(2, L.length, ctx.sampleRate);
+  buf.copyToChannel(L, 0);
+  buf.copyToChannel(R, 1);
+  const rand = mulberry32(opts.seed ^ 0x51ab);
   const bus = ctx.createGain();
   bus.gain.value = opts.volume;
   const dry = ctx.createGain();
@@ -301,90 +426,10 @@ export function schedulePen(
   room.buffer = roomImpulse(ctx, rand);
   bus.connect(dry).connect(destination);
   bus.connect(room).connect(wet).connect(destination);
-
-  /** One sample segment: optional delay, pitch (playback rate), gain and a short fade at the end. */
-  const play = (seg: Segment, at: number, out: AudioNode, gain: number, rate = 1, maxDur = Infinity) => {
-    const src = ctx.createBufferSource();
-    src.buffer = buffer;
-    src.playbackRate.value = rate;
-    const g = ctx.createGain();
-    const dur = Math.min(seg.dur, maxDur * rate);
-    const real = dur / rate;
-    g.gain.setValueAtTime(gain, at);
-    g.gain.setValueAtTime(gain, at + Math.max(0, real - 0.012));
-    g.gain.linearRampToValueAtTime(0, at + real);
-    src.connect(g).connect(out);
-    src.start(at, seg.start, dur);
-  };
-
-  if (opts.capOffAt !== undefined && map.cap?.off) play(map.cap.off, Math.max(0, opts.capOffAt), bus, 0.7);
-
-  let prevGrain = -1;
-  for (const s of strokes) {
-    const dur = s.t1 - s.t0;
-    const intensity = intensityOf(s.speed);
-    const level = 0.35 + 0.65 * intensity;
-    const panner = ctx.createStereoPanner();
-    panner.pan.setValueAtTime(s.pan0, s.t0);
-    panner.pan.linearRampToValueAtTime(s.pan1, s.t1);
-    panner.connect(bus);
-
-    // 1. Pen down: a tap, a little random in level, pitch (±2 semitones) and timing (0–8 ms).
-    if (map.taps.length) play(pick(map.taps), s.t0 + rand() * 0.008, panner, 0.5 + rand() * 0.3, 2 ** ((rand() * 4 - 2) / 12));
-
-    // 4. Very short marks (dots, accents): one whole recorded short stroke, stretched to fit.
-    const shorts = map.strokes.filter((x) => x.label === 'short');
-    if (dur < SHORT_S && shorts.length) {
-      const seg = pick(shorts);
-      const rate = Math.max(0.75, Math.min(1.33, seg.dur / dur));
-      play(seg, s.t0, panner, level, rate, dur);
-    } else {
-      // 2. Moving: grains back to back with equal-power crossfades, chosen by pen speed.
-      const leg = ctx.createGain();
-      // The drag starts just after the touch-down, so the tap is heard first.
-      const dragAt = s.t0 + TAP_LEAD_S;
-      leg.gain.setValueAtTime(0, s.t0);
-      leg.gain.setTargetAtTime(level, dragAt, 0.03 / 3);
-      // 3. Corners: a 10–20 ms dip, then a small catch (+2 dB for 15 ms), like a marker turning.
-      for (const c of s.corners) {
-        const dip = 0.01 + rand() * 0.01;
-        leg.gain.setTargetAtTime(level * 0.35, c, dip / 3);
-        leg.gain.setTargetAtTime(level * 1.26, c + dip, 0.005);
-        leg.gain.setTargetAtTime(level, c + dip + 0.015, 0.01);
-      }
-      // 5. Pen up: grains fade out over 25 ms.
-      leg.gain.setTargetAtTime(0, s.t1, 0.025 / 3);
-      leg.connect(panner);
-
-      let t = dragAt;
-      while (t < s.t1) {
-        // The nearest few grains to the pen's intensity, never the one just played.
-        const near = ranked
-          .map((r, idx) => ({ idx, d: Math.abs(r.score - intensity) + rand() * 0.08 }))
-          .filter((x) => ranked[x.idx].grain !== map.grains[prevGrain])
-          .sort((a, b) => a.d - b.d)
-          .slice(0, 5);
-        const choice = ranked[pick(near).idx].grain;
-        prevGrain = map.grains.indexOf(choice);
-        const rate = 0.94 + rand() * 0.12;
-        const real = choice.dur / rate;
-        const xf = 0.015 + rand() * 0.015;
-        const src = ctx.createBufferSource();
-        src.buffer = buffer;
-        src.playbackRate.value = rate;
-        const env = ctx.createGain();
-        env.gain.value = 0;
-        env.gain.setValueCurveAtTime(fadeCurve('in', 1), t, xf);
-        env.gain.setValueCurveAtTime(fadeCurve('out', 1), t + real - xf, xf);
-        src.connect(env).connect(leg);
-        src.start(t, choice.start, choice.dur);
-        t += real - xf;
-      }
-    }
-
-    // 5. Pen up: a lift sound.
-    if (map.lifts.length) play(pick(map.lifts), s.t1, panner, 0.4 + rand() * 0.3, 2 ** ((rand() * 2 - 1) / 12));
-  }
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  src.connect(bus);
+  src.start(0);
 }
 
 /** The bank for a project's pen settings, or null for no pen sound. */
