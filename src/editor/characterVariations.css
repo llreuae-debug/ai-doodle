@@ -664,3 +664,75 @@ button.char-vars-recent-tile {
   color: #64748b;
   font-size: 13px;
 }
+
+@media (max-width: 820px) {
+  .char-vars-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .char-vars-header {
+    padding: 14px 18px;
+  }
+  .char-vars-prompt-wrap {
+    padding: 12px 18px 8px;
+  }
+  .char-vars-results-area {
+    padding: 14px 18px 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .char-vars-overlay {
+    padding: 8px;
+  }
+  .char-vars-modal {
+    max-height: 96vh;
+    border-radius: 12px;
+  }
+  .char-vars-header {
+    padding: 12px 14px;
+  }
+  .char-vars-icon-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+  .char-vars-titles h2 {
+    font-size: 15px;
+  }
+  .char-vars-titles p {
+    font-size: 12px;
+  }
+  .char-vars-prompt-wrap {
+    padding: 10px 14px 6px;
+  }
+  .char-vars-prompt-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+  .char-vars-gen-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+  .char-vars-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .char-vars-results-area {
+    padding: 10px 14px 14px;
+  }
+  .char-vars-results-toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .char-vars-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

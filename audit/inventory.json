@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T22:33:51.030Z",
+ "generated": "2026-10-21T23:31:24.015Z",
  "controls": [
   {
    "id": "B-001",
@@ -32,7 +32,7 @@
    "id": "B-004",
    "kind": "B",
    "role": "button",
-   "name": "API Key",
+   "name": "Google Gemini API Key",
    "state": "top bar",
    "region": "top bar",
    "count": 1
@@ -188,7 +188,7 @@
    "name": "Library tile (adds that doodle to the slide)",
    "state": "left · doodles · characters",
    "region": "left",
-   "count": 964
+   "count": 1064
   },
   {
    "id": "B-022",
@@ -3413,7 +3413,7 @@
   {
    "id": "S-018",
    "path": "/library/scenes",
-   "files": 150
+   "files": 300
   },
   {
    "id": "S-019",

@@ -731,18 +731,20 @@ export default function Editor() {
           <button
             type="button"
             className="btn ai"
+            aria-label="Story"
             onClick={() => {
               stopPlay();
               setModal({ kind: 'story' });
             }}
           >
             <Sparkles size={18} />
-            Story
+            <span className="lbl-story">Story</span>
           </button>
           <button
             type="button"
             className="btn"
             title="Google Gemini API Key"
+            aria-label="Google Gemini API Key"
             onClick={() => {
               stopPlay();
               setModal({ kind: 'apiKey' });
@@ -751,23 +753,24 @@ export default function Editor() {
             <KeyRound size={18} />
             <span className="lbl-hide">API Key</span>
           </button>
-          <button type="button" className="btn" onClick={() => setModal({ kind: 'tutorial' })}>
+          <button type="button" className="btn" aria-label="Tutorials" onClick={() => setModal({ kind: 'tutorial' })}>
             <span className="lbl-hide">Tutorials</span>
             <Lightbulb size={18} />
           </button>
-          <button type="button" className="btn" onClick={() => void save()}>
+          <button type="button" className="btn" aria-label="Save" onClick={() => void save()}>
             <span className="lbl-hide">Save</span>
             <Download size={18} />
           </button>
           <button
             type="button"
             className="btn primary"
+            aria-label="Export"
             onClick={() => {
               stopPlay();
               setModal({ kind: 'export' });
             }}
           >
-            Export
+            <span className="lbl-export">Export</span>
             <ExternalLink size={18} />
           </button>
           <button type="button" className="btn ghost icon" aria-label="Notifications" onClick={() => showToast('No new notifications')}>
@@ -883,6 +886,10 @@ export default function Editor() {
                 className="grp sound-control-wrap"
                 onMouseEnter={() => setSoundPopoverOpen(true)}
                 onMouseLeave={() => setSoundPopoverOpen(false)}
+                onFocus={() => setSoundPopoverOpen(true)}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget)) setSoundPopoverOpen(false);
+                }}
               >
                 <button
                   type="button"

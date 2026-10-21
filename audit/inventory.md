@@ -1,8 +1,8 @@
 # Inventory
 
-Generated 2026-10-21T22:33:51.030Z by `audit/tests/00-inventory.spec.ts` from the running app (accessibility snapshots of 29 UI states) and the source code. Every item has an ID used in the audit report.
+Generated 2026-10-21T23:31:24.015Z by `audit/tests/00-inventory.spec.ts` from the running app (accessibility snapshots of 29 UI states) and the source code. Every item has an ID used in the audit report.
 
-Totals: 327 controls, 9 links and URLs, 19 modals, 21 API routes and calls, 5 file inputs, 11 shortcuts, 22 asset groups (1333 files).
+Totals: 327 controls, 9 links and URLs, 19 modals, 21 API routes and calls, 5 file inputs, 11 shortcuts, 22 asset groups (1483 files).
 
 ## Controls (B) and in-page links
 
@@ -11,7 +11,7 @@ Totals: 327 controls, 9 links and URLs, 19 modals, 21 API routes and calls, 5 fi
 | B-001 | button | Dashboard | top bar | 1 |
 | B-002 | textbox | Project name | top bar | 1 |
 | B-003 | button | Story | top bar | 1 |
-| B-004 | button | API Key | top bar | 1 |
+| B-004 | button | Google Gemini API Key | top bar | 1 |
 | B-005 | button | Tutorials | top bar | 1 |
 | B-006 | button | Save | top bar | 1 |
 | B-007 | button | Export | top bar | 1 |
@@ -28,7 +28,7 @@ Totals: 327 controls, 9 links and URLs, 19 modals, 21 API routes and calls, 5 fi
 | B-018 | checkbox | Colour versions | left · doodles · characters | 1 |
 | B-019 | button | Generate Characters with AI | left · doodles · characters | 1 |
 | B-020 | button | Variations | left · doodles · characters | 1 |
-| B-021 | button | Library tile (adds that doodle to the slide) | left · doodles · characters | 964 |
+| B-021 | button | Library tile (adds that doodle to the slide) | left · doodles · characters | 1064 |
 | B-022 | button | Upload | left · doodles · characters | 1 |
 | B-023 | button | AI | left · doodles · characters | 1 |
 | B-024 | button | Generate a Doodle with AI | left · doodles · custom | 1 |
@@ -447,7 +447,7 @@ Totals: 327 controls, 9 links and URLs, 19 modals, 21 API routes and calls, 5 fi
 | S-015 | /library/manifest.json | 1 |
 | S-016 | /library/nature | 15 |
 | S-017 | /library/realestate | 60 |
-| S-018 | /library/scenes | 150 |
+| S-018 | /library/scenes | 300 |
 | S-019 | /library/shapes | 150 |
 | S-020 | /library/tech | 45 |
 | S-021 | /library/transport | 30 |

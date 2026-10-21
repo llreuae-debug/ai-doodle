@@ -49,3 +49,4 @@ audit/report/results.json
 audit/report/lighthouse.json
 scratch/
 audit/report/playwright-html/**
+test-results/

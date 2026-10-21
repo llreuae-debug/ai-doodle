@@ -1195,14 +1195,15 @@ body.editor-body {
   }
 
   /* modals */
-  & .scrim {
+  & .scrim,
+  & .modal-backdrop {
     position: fixed;
     inset: 0;
     background: rgba(10, 16, 30, 0.45);
     z-index: 50;
     display: grid;
     place-items: center;
-    padding: 16px;
+    padding: max(12px, env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) max(12px, env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
   }
   & .modal {
     background: var(--panel);
@@ -1414,11 +1415,14 @@ body.editor-body {
   }
   .editor {
     height: auto;
-    display: block;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   .editor .work {
     display: flex;
     flex-direction: column;
+    flex: 1;
   }
   .editor .center {
     order: 1;
@@ -1426,7 +1430,7 @@ body.editor-body {
     padding: 12px max(16px, env(safe-area-inset-left, 0px));
   }
   .editor .stagewrap {
-    min-height: 240px;
+    min-height: clamp(220px, 45vh, 480px);
   }
   .editor .left {
     order: 2;
@@ -1440,18 +1444,220 @@ body.editor-body {
     border-top: 1px solid var(--line);
     padding: 14px max(16px, env(safe-area-inset-left, 0px));
   }
+  .editor .timeline {
+    order: 4;
+  }
   .editor .crumbs {
     order: 3;
     flex-basis: 100%;
+    width: 100%;
   }
   .editor .top-actions {
     gap: 6px;
+    flex-wrap: wrap;
   }
   .editor .top-actions .btn {
     padding: 0 10px;
   }
   .editor .top-actions .btn .lbl-hide {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .editor .top {
+    padding: 8px max(12px, env(safe-area-inset-right, 0px)) 8px max(12px, env(safe-area-inset-left, 0px));
+    gap: 8px;
+    row-gap: 8px;
+  }
+  .editor .brand {
+    order: 1;
+    font-size: 18px;
+  }
+  .editor .top-actions {
+    order: 2;
+    margin-left: auto;
+    gap: 6px;
+  }
+  .editor .crumbs {
+    order: 3;
+    flex-basis: 100%;
+    width: 100%;
+    margin-top: 2px;
+    font-size: 14px;
+  }
+  .editor .crumbs input {
+    font-size: 14px;
+    width: min(220px, 50vw);
+  }
+  .editor .top-actions .btn {
+    height: 36px;
+    padding: 0 8px;
+    font-size: 13px;
+    gap: 4px;
+  }
+  .editor .top-actions .btn.icon {
+    width: 36px;
+    height: 36px;
+  }
+  .editor .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .editor .ctrlrow {
+    justify-content: center;
+    gap: 8px 10px;
+  }
+  .editor .ctrlrow .grp {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editor .top {
+    padding: 8px max(8px, env(safe-area-inset-right, 0px)) 8px max(8px, env(safe-area-inset-left, 0px));
+    gap: 6px;
+  }
+  .editor .brand {
+    order: 1;
+    font-size: 17px;
+  }
+  .editor .crumbs {
+    order: 2;
+    flex: 1 1 auto;
+    width: auto;
+    font-size: 13px;
+    gap: 4px;
+    margin-top: 0;
+  }
+  .editor .crumbs button {
+    padding: 4px;
+    font-size: 13px;
+  }
+  .editor .crumbs input {
+    padding: 4px 6px;
+    font-size: 13px;
+    width: min(130px, 32vw);
+  }
+  .editor .top-actions {
+    order: 3;
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    gap: 4px;
+    margin-top: 2px;
+  }
+  .editor .top-actions .btn {
+    height: 36px;
+    padding: 0 6px;
+    font-size: 12px;
+    gap: 4px;
+  }
+  .editor .top-actions .btn.primary .lbl-export {
+    display: none;
+  }
+  .editor .top-actions .btn.ai .lbl-story {
+    font-size: 12px;
+  }
+  .editor .center {
+    padding: 8px max(8px, env(safe-area-inset-left, 0px));
+    gap: 8px;
+  }
+  .editor .ctrl {
+    padding: 8px;
+    gap: 6px;
+  }
+  .editor .ctrlrow {
+    gap: 6px;
+    justify-content: space-between;
+  }
+  .editor .ctrlrow .grp {
+    gap: 4px;
+  }
+  .editor .playbtn {
+    width: 44px;
+    height: 44px;
+  }
+  .editor .zoomval {
+    min-width: 40px;
+    font-size: 13px;
+  }
+  .editor .snaplbl {
+    font-size: 12px;
+    gap: 4px;
+  }
+  .editor .pad {
+    padding: 10px;
+    gap: 10px;
+  }
+  .editor .libgrid {
+    padding: 10px;
+    gap: 8px;
+  }
+  .editor .tile .thumb {
+    height: 110px;
+    padding: 6px;
+  }
+  .editor .tile .cap {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+  .editor .bottombtns {
+    padding: 10px;
+    gap: 8px;
+  }
+  .editor .bottombtns .btn {
+    height: 42px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .editor .brand span {
+    font-size: 15px;
+  }
+  .editor .top-actions {
+    gap: 3px;
+  }
+  .editor .top-actions .btn {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    min-width: 34px;
+    justify-content: center;
+  }
+  .editor .top-actions .btn.ai {
+    width: 34px;
+    padding: 0;
+  }
+  .editor .top-actions .btn.ai .lbl-story {
+    display: none;
+  }
+  .editor .top-actions .btn.primary {
+    width: 34px;
+    padding: 0;
+  }
+  .editor .top-actions .avatar {
+    width: 34px;
+    height: 34px;
+  }
+  .editor .snaplbl {
+    display: none;
+  }
+}
+
+@media (min-width: 1921px) {
+  .editor .work {
+    grid-template-columns: 360px minmax(0, 1fr) 380px;
+  }
+  .editor .libgrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .editor .tile .thumb {
+    height: 160px;
   }
 }
 
