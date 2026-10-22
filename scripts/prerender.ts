@@ -32,74 +32,132 @@ function escapeHtml(str: string): string {
     .replace(/"/g, '&quot;');
 }
 
+function renderLogomark(size = 32): string {
+  return `
+  <svg width="${size}" height="${size}" viewBox="0 0 48 48" aria-hidden="true">
+    <defs>
+      <linearGradient id="logo-neon-grad-${size}" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#B75B48" />
+        <stop offset="100%" stop-color="#B2C7B6" />
+      </linearGradient>
+      <filter id="logo-glow-${size}" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#B75B48" flood-opacity="0.45" />
+      </filter>
+    </defs>
+    <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#logo-neon-grad-${size})" filter="url(#logo-glow-${size})" />
+    <rect x="2" y="2" width="44" height="44" rx="12" fill="none" stroke="rgba(232,236,214,0.4)" stroke-width="1" />
+    <path d="M11 31C14 19 20 17 23 25C26 33 32 33 36.5 18" stroke="#E8ECD6" stroke-width="4" fill="none" stroke-linecap="round" />
+    <circle cx="36.5" cy="17.5" r="3.2" fill="#E8ECD6" />
+  </svg>`;
+}
+
 function renderHeader(activePath: string): string {
+  const navItems = [
+    { label: 'Studio', href: '/' },
+    { label: 'How It Works', href: '/how-it-works' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+  ];
+
   return `
   <header class="site-header">
     <div class="site-container site-header-inner">
-      <a href="/" class="site-brand" aria-label="Ai Doodle Homepage">
-        <svg class="site-brand-icon" viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="20" cy="20" r="16" stroke="rgba(183, 91, 72, 0.45)" fill="rgba(183, 91, 72, 0.15)"></circle>
-          <path d="M12 24 C14 14, 20 14, 28 20 C24 28, 16 28, 12 24" stroke="#B75B48" stroke-width="2.6"></path>
-          <circle cx="28" cy="20" r="2.5" fill="#E8ECD6"></circle>
-        </svg>
-        <span class="site-brand-text">Ai Doodle</span>
+      <a href="/" class="site-brand" aria-label="Ai Doodle Home">
+        ${renderLogomark(32)}
+        <span>Ai Doodle</span>
       </a>
-      <nav class="site-nav" aria-label="Main Navigation">
-        <a href="/" class="site-nav-link ${activePath === '/' ? 'active' : ''}">Canvas Studio</a>
-        <a href="/how-it-works" class="site-nav-link ${activePath === '/how-it-works' ? 'active' : ''}">How It Works</a>
-        <a href="/blog" class="site-nav-link ${activePath.startsWith('/blog') ? 'active' : ''}">Guides & Blog</a>
-        <a href="/about" class="site-nav-link ${activePath === '/about' ? 'active' : ''}">About</a>
+      <nav class="site-nav-desktop" aria-label="Main Navigation">
+        ${navItems
+          .map(
+            (item) => `
+          <a href="${item.href}" class="site-nav-link ${
+            activePath === item.href || (item.href === '/blog' && activePath.startsWith('/blog')) ? 'active' : ''
+          }">
+            ${escapeHtml(item.label)}
+          </a>`,
+          )
+          .join('')}
       </nav>
-      <div class="site-actions">
-        <a href="/" class="btn-3d btn-3d-primary btn-3d-sm">Launch Studio</a>
+      <div class="site-header-actions">
+        <a href="/login" class="btn-site btn-site-outline btn-site-sm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span>Sign in</span>
+        </a>
+        <a href="/" class="btn-site btn-site-primary btn-site-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+          <span>Open Studio</span>
+        </a>
+        <button type="button" class="site-mobile-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
       </div>
     </div>
   </header>`;
 }
 
 function renderFooter(): string {
+  const currentYear = new Date().getFullYear();
   return `
   <footer class="site-footer">
-    <div class="site-container site-footer-inner">
-      <div class="site-footer-col">
-        <div class="site-brand" style="margin-bottom: 0.75rem;">
-          <span class="site-brand-text" style="font-size: 1.15rem;">Ai Doodle</span>
+    <div class="site-container">
+      <div class="site-footer-grid">
+        <div>
+          <a href="/" class="site-brand">
+            ${renderLogomark(28)}
+            <span>Ai Doodle</span>
+          </a>
+          <p class="footer-brand-text">
+            The modern, browser-native whiteboard animation studio. Transform ideas, text prompts, and drawings into synchronized hand-drawn vector videos with authentic chalk & pen sound effects.
+          </p>
+          <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+            <a href="/" class="btn-site btn-site-primary btn-site-sm">
+              Start Drawing Free
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
         </div>
-        <p class="site-footer-text">
-          Browser-native AI whiteboard animation and vector doodle explainer studio. 100% free with hardware-accelerated 4K export.
-        </p>
+
+        <div>
+          <h3 class="footer-col-title">Product & Studio</h3>
+          <ul class="footer-links">
+            <li><a href="/" class="footer-link">AI Doodle Studio</a></li>
+            <li><a href="/how-it-works" class="footer-link">How It Works Guide</a></li>
+            <li><a href="/blog/save-and-download-doodles" class="footer-link">Save & Export 4K MP4</a></li>
+            <li><a href="/blog/ai-doodle-best-practices" class="footer-link">Prompt Writing Tips</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Educational Guides</h3>
+          <ul class="footer-links">
+            <li><a href="/blog" class="footer-link">Blog & Resource Index</a></li>
+            <li><a href="/blog/ai-doodle-art-guide" class="footer-link">What Is AI Doodle Art?</a></li>
+            <li><a href="/blog/ai-doodle-prompt-tips" class="footer-link">Prompts Into Doodle Ideas</a></li>
+            <li><a href="/blog/ai-vs-traditional-drawing" class="footer-link">AI vs Traditional Drawing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Trust & Legal</h3>
+          <ul class="footer-links">
+            <li><a href="/about" class="footer-link">About Us</a></li>
+            <li><a href="/contact" class="footer-link">Contact Support</a></li>
+            <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="/terms-of-service" class="footer-link">Terms of Service</a></li>
+            <li><a href="/cookie-policy" class="footer-link">Cookie Policy</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="site-footer-col">
-        <h4 class="site-footer-heading">Features</h4>
-        <ul class="site-footer-links">
-          <li><a href="/">Blank Drawing Canvas</a></li>
-          <li><a href="/how-it-works">How It Works</a></li>
-          <li><a href="/blog">Educational Guides</a></li>
-          <li><a href="/blog/how-to-use-ai-doodle-generator">AI Doodle Generator</a></li>
-        </ul>
+
+      <div class="site-footer-bottom">
+        <div>
+          © ${currentYear} Ai Doodle. Built with passion for creators, educators, and visual storytellers.
+        </div>
+        <div>
+          100% Client-Side Safe • Device Pixel Scaling • Zero Latency Vector Engine
+        </div>
       </div>
-      <div class="site-footer-col">
-        <h4 class="site-footer-heading">Topic Clusters</h4>
-        <ul class="site-footer-links">
-          <li><a href="/blog/turn-sketches-into-ai-art">Sketch to Vector AI</a></li>
-          <li><a href="/blog/doodle-art-ideas-drawing-prompts">100+ Doodle Prompts</a></li>
-          <li><a href="/blog/whiteboard-animation-for-education">Classroom Animation</a></li>
-          <li><a href="/blog/save-and-download-doodles">Exporting 4K Videos</a></li>
-        </ul>
-      </div>
-      <div class="site-footer-col">
-        <h4 class="site-footer-heading">Trust & Legal</h4>
-        <ul class="site-footer-links">
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact Support</a></li>
-          <li><a href="/privacy-policy">Privacy Policy</a></li>
-          <li><a href="/terms-of-service">Terms of Service</a></li>
-          <li><a href="/cookie-policy">Cookie Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="site-container site-footer-bottom">
-      <p>© ${new Date().getFullYear()} Ai Doodle Studio. All rights reserved.</p>
     </div>
   </footer>`;
 }
@@ -117,6 +175,9 @@ function renderBlogPostHtml(post: BlogPost): string {
       tocItems.push({ text: headingText, id });
     }
   });
+
+  const remaining = BLOG_POSTS.filter((p) => p.slug !== post.slug);
+  const nextPost = remaining.find((p) => p.category === post.category) || remaining[0];
 
   const processedSections = post.content
     .map((sectionHtml) => {
@@ -137,7 +198,10 @@ function renderBlogPostHtml(post: BlogPost): string {
     post.faqs && post.faqs.length > 0
       ? `
     <section class="faq-section" id="frequently-asked-questions">
-      <h2 class="faq-section-title">Frequently Asked Questions</h2>
+      <h2 class="faq-section-title" style="display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--site-terracotta);" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Frequently Asked Questions
+      </h2>
       <p class="faq-section-desc">Clear, direct answers to common questions about this topic and Ai Doodle workflows.</p>
       <div class="faq-grid">
         ${post.faqs
@@ -170,9 +234,20 @@ function renderBlogPostHtml(post: BlogPost): string {
           <div class="blog-meta">
             <span class="blog-tag" style="background: rgba(183, 91, 72, 0.25); color: var(--site-ivory); border-color: var(--site-terracotta);">${escapeHtml(post.category)}</span>
             ${post.tags.map((t) => `<span class="blog-tag">${escapeHtml(t)}</span>`).join(' ')}
-            <span>${escapeHtml(post.readTime)}</span>
-            <span>Published: <time datetime="${post.publishDate}" itemprop="datePublished">${escapeHtml(post.displayPublishDate)}</time></span>
-            <span>Modified: <time datetime="${post.updatedDate}" itemprop="dateModified">${escapeHtml(post.displayUpdatedDate)}</time></span>
+            <span style="display: flex; align-items: center; gap: 0.3rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              ${escapeHtml(post.readTime)}
+            </span>
+            <span style="display: flex; align-items: center; gap: 0.3rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>Published: </span>
+              <time datetime="${post.publishDate}" itemprop="datePublished">${escapeHtml(post.displayPublishDate)}</time>
+            </span>
+            <span style="display: flex; align-items: center; gap: 0.3rem;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+              <span>Modified: </span>
+              <time datetime="${post.updatedDate}" itemprop="dateModified">${escapeHtml(post.displayUpdatedDate)}</time>
+            </span>
           </div>
 
           <h1 class="blog-title">${escapeHtml(post.title)}</h1>
@@ -184,11 +259,16 @@ function renderBlogPostHtml(post: BlogPost): string {
               <div class="blog-author-name">${escapeHtml(post.author.name)}</div>
               <div class="blog-author-role">${escapeHtml(post.author.role)}</div>
             </div>
+            <button type="button" class="btn-site btn-site-outline btn-site-sm" style="margin-left: auto;" aria-label="Share article link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              <span>Share</span>
+            </button>
           </div>
         </header>
 
         <aside class="geo-direct-answer" aria-label="Quick Summary & Direct Answer">
           <h2 class="geo-direct-answer-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             <span>Quick Answer & Key Definition</span>
           </h2>
           <p class="geo-direct-answer-body">${escapeHtml(post.directAnswer)}</p>
@@ -198,9 +278,12 @@ function renderBlogPostHtml(post: BlogPost): string {
           post.keyTakeaways && post.keyTakeaways.length > 0
             ? `
         <section class="key-takeaways-box" aria-label="Key Takeaways">
-          <h2 class="key-takeaways-title">Core Takeaways</h2>
+          <h2 class="key-takeaways-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Core Takeaways</span>
+          </h2>
           <ul class="key-takeaways-list">
-            ${post.keyTakeaways.map((t) => `<li><span>${escapeHtml(t)}</span></li>`).join('\n')}
+            ${post.keyTakeaways.map((t) => `<li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>${escapeHtml(t)}</span></li>`).join('\n')}
           </ul>
         </section>`
             : ''
@@ -210,7 +293,10 @@ function renderBlogPostHtml(post: BlogPost): string {
           tocItems.length > 2
             ? `
         <nav class="table-of-contents" aria-label="Table of Contents">
-          <h2 class="toc-title">In This Guide</h2>
+          <h2 class="toc-title" style="display: flex; align-items: center; gap: 0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            <span>In This Guide</span>
+          </h2>
           <ul class="toc-list">
             ${tocItems.map((item) => `<li><a href="#${item.id}">${escapeHtml(item.text)}</a></li>`).join('\n')}
             ${post.faqs && post.faqs.length > 0 ? `<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>` : ''}
@@ -234,15 +320,42 @@ function renderBlogPostHtml(post: BlogPost): string {
               <h3 class="author-bio-title" style="font-size: 1.05rem; margin: 0 0 0.25rem; color: var(--site-ivory);">Written by ${escapeHtml(post.author.name)}</h3>
               <div class="author-bio-role">${escapeHtml(post.author.role)}</div>
               <p class="author-bio-text">${escapeHtml(post.author.bio)}</p>
+              <div style="display: flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; color: var(--site-sage); font-size: 0.8rem; font-weight: 600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+                <span>Verified Ai Doodle Engineering & Animation Contributor</span>
+              </div>
             </div>
           </section>
 
           <section class="article-cta" aria-label="Try Studio Call to Action">
-            <div style="color: var(--site-sage); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">Interactive Whiteboard Studio</div>
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; color: var(--site-sage); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+              <span>Try It in the Studio</span>
+            </div>
             <h2 class="article-cta-title" style="font-size: 1.6rem; font-weight: 800; margin: 0 0 0.85rem; color: var(--site-ivory);">Put These Techniques Into Practice</h2>
             <p>Launch the Ai Doodle Studio now to experiment with drawing tools, vector stroke orders, and realistic hand animations. 100% free in your browser with zero install.</p>
-            <a href="/" class="btn-site btn-site-primary btn-site-lg">Launch Ai Doodle Canvas</a>
+            <a href="/" class="btn-site btn-site-primary btn-site-lg">
+              Launch Ai Doodle Canvas
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </section>
+
+          ${
+            nextPost
+              ? `
+          <aside style="margin-top: 3rem; padding: 1.75rem; background: var(--site-card-bg); border: 1px solid var(--site-card-border); border-radius: var(--site-radius-lg);" aria-label="Recommended Reading">
+            <h2 style="font-size: 0.8rem; color: var(--site-sage); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin: 0 0 0.5rem;">Next Recommended Guide</h2>
+            <h3 style="font-size: 1.35rem; margin: 0 0 0.75rem;">
+              <a href="/blog/${nextPost.slug}" style="color: var(--site-ivory); text-decoration: none;">${escapeHtml(nextPost.title)}</a>
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--site-text-muted); margin: 0 0 1.25rem;">${escapeHtml(nextPost.summary)}</p>
+            <a href="/blog/${nextPost.slug}" class="btn-site btn-site-outline btn-site-sm">
+              Read Next Guide
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </aside>`
+              : ''
+          }
         </article>
       </div>
     </main>
@@ -251,6 +364,8 @@ function renderBlogPostHtml(post: BlogPost): string {
 }
 
 function renderBlogIndexHtml(): string {
+  const clusterNames = ['All', 'Tools', 'Tutorials', 'Workflows', 'Use Cases', 'Troubleshooting'];
+
   return `
   <div class="site-wrapper">
     ${renderHeader('/blog')}
@@ -263,15 +378,31 @@ function renderBlogIndexHtml(): string {
         </nav>
 
         <section class="site-hero">
-          <div class="site-hero-badge">Articles & Insights</div>
+          <div class="site-hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Articles & Insights</span>
+          </div>
           <h1 class="site-hero-title">The Whiteboard Animation & AI Doodle Journal</h1>
           <p class="site-hero-desc">
             Deep dive into vector illustration workflows, prompt engineering, audio synchronization, and visual storytelling strategies for creators, educators, and marketers.
           </p>
+
+          <div style="max-width: 480px; margin: 1.5rem auto 0; position: relative;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--site-text-dim);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Search guides, prompt tips, and tutorials..." class="form-input" style="padding-left: 2.6rem;" aria-label="Search articles" readonly />
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; align-items: center;">
+            <span style="font-size: 0.8rem; color: var(--site-text-dim); display: inline-flex; align-items: center; gap: 0.3rem; margin-right: 0.25rem;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+              Clusters:
+            </span>
+            ${clusterNames.map((name, i) => `<button type="button" class="btn-site btn-site-sm ${i === 0 ? 'btn-site-primary' : 'btn-site-outline'}">${name}</button>`).join('\n')}
+          </div>
         </section>
 
         <section style="margin: 2.5rem 0;" aria-label="Articles Grid">
-          <h2 class="visually-hidden">Latest Articles & Guides</h2>
+          <h2 class="visually-hidden">Articles Catalog</h2>
           <div class="site-grid site-grid-2">
             ${BLOG_POSTS.map(
               (post) => `
@@ -279,7 +410,10 @@ function renderBlogIndexHtml(): string {
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
                   <span class="blog-tag" style="background: rgba(183, 91, 72, 0.2); border-color: var(--site-terracotta); color: var(--site-ivory);">${escapeHtml(post.category)}</span>
                   ${post.tags.slice(0, 2).map((t) => `<span class="blog-tag">${escapeHtml(t)}</span>`).join(' ')}
-                  <span style="font-size: 0.8rem; color: var(--site-text-dim); margin-left: auto;">${escapeHtml(post.readTime)}</span>
+                  <span style="font-size: 0.8rem; color: var(--site-text-dim); margin-left: auto; display: flex; align-items: center; gap: 0.25rem;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    ${escapeHtml(post.readTime)}
+                  </span>
                 </div>
                 <h3 style="font-size: 1.35rem; font-weight: 700; margin: 0 0 0.75rem; line-height: 1.3;">
                   <a href="/blog/${post.slug}" style="color: var(--site-ivory); text-decoration: none;">${escapeHtml(post.title)}</a>
@@ -293,7 +427,7 @@ function renderBlogIndexHtml(): string {
                       <time datetime="${post.publishDate}" itemprop="datePublished" style="color: var(--site-text-dim);">${escapeHtml(post.displayPublishDate)}</time>
                     </div>
                   </div>
-                  <a href="/blog/${post.slug}" class="btn-site btn-site-outline btn-site-sm">Read Guide</a>
+                  <a href="/blog/${post.slug}" class="btn-site btn-site-outline btn-site-sm">Read Guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 </div>
               </article>`,
             ).join('\n')}
@@ -301,10 +435,16 @@ function renderBlogIndexHtml(): string {
         </section>
 
         <section class="article-cta" aria-label="Interactive Studio CTA">
-          <div style="color: var(--site-sage); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">Interactive Whiteboard Studio</div>
+          <div style="display: inline-flex; align-items: center; gap: 0.4rem; color: var(--site-sage); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+            <span>Interactive Whiteboard Studio</span>
+          </div>
           <h2 class="article-cta-title" style="font-size: 1.6rem; font-weight: 800; margin: 0 0 0.85rem; color: var(--site-ivory);">Turn Ideas Into Motion Instantly</h2>
           <p>Experience the tools discussed in these articles firsthand. Test vector hand animation and audio synchronization in your browser right now.</p>
-          <a href="/" class="btn-site btn-site-primary btn-site-lg">Launch Ai Doodle Tool</a>
+          <a href="/" class="btn-site btn-site-primary btn-site-lg">
+            Launch Ai Doodle Tool
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </section>
       </div>
     </main>

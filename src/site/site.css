@@ -70,6 +70,20 @@
   border: 0 !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure anchor jumps do not hide headings behind sticky 68px header */
+.blog-content h2,
+.blog-content h3,
+.faq-section,
+.key-takeaways-box,
+.geo-direct-answer,
+[id] {
+  scroll-margin-top: 86px;
+}
+
 /* Site Layout Wrapper */
 .site-wrapper {
   min-height: 100vh;
