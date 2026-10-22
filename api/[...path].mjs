@@ -20721,13 +20721,14 @@ async function saveKey(key) {
 var BLOB = "https://*.public.blob.vercel-storage.com";
 var CSP = [
   "default-src 'self'",
-  "script-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://adservice.google.com",
   // React style attributes and the Google Fonts stylesheets.
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' data: blob: https://fonts.gstatic.com",
-  `img-src 'self' data: blob: ${BLOB}`,
+  `img-src 'self' data: blob: ${BLOB} https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com https://*.googleusercontent.com`,
   `media-src 'self' data: blob: ${BLOB}`,
-  `connect-src 'self' data: blob: ${BLOB} https://fonts.googleapis.com https://fonts.gstatic.com`,
+  `connect-src 'self' data: blob: ${BLOB} https://fonts.googleapis.com https://fonts.gstatic.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://googleads.g.doubleclick.net`,
+  "frame-src 'self' https://googleads.g.doubleclick.net https://*.googlesyndication.com https://*.google.com",
   "worker-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",

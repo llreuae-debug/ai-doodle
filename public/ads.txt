@@ -1,5 +1,1 @@
-# Ai Doodle Google AdSense Verification File
-# Replace the placeholder below with your authorized Google AdSense Publisher ID
-# Example: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-#
-# Status: Prepared for production AdSense verification. Awaiting owner's Publisher ID.
+google.com, pub-7917951493632805, DIRECT, f08c47fec0942fa0
