@@ -549,9 +549,9 @@ body.editor-body {
   }
   & .tile {
     position: relative;
-    border: 1px solid rgba(0, 245, 255, 0.16);
+    border: 1px solid rgba(0, 245, 255, 0.2);
     border-radius: 12px;
-    background: rgba(16, 22, 41, 0.85);
+    background: #ffffff;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -564,7 +564,7 @@ body.editor-body {
   & .tile:hover {
     border-color: var(--cyan);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 245, 255, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 245, 255, 0.35);
   }
   & .tile .badge-premium {
     position: absolute;
@@ -586,7 +586,7 @@ body.editor-body {
     display: grid;
     place-items: center;
     padding: 10px;
-    background: rgba(8, 10, 18, 0.65);
+    background: #ffffff;
     border-radius: 12px 12px 0 0;
   }
   & .tile .thumb svg,
