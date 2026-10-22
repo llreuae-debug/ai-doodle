@@ -1,9 +1,10 @@
 import { useState, type ReactNode } from 'react';
-import { Menu, X, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Menu, X, Sparkles, ArrowRight, ShieldCheck, LogIn } from 'lucide-react';
 import { Logomark } from '../brand/Logomark';
 import { Link } from '../Link';
 import { CookieConsent } from './CookieConsent';
 import { usePath } from '../router';
+import { useCurrentUser } from '../services/auth';
 import './site.css';
 
 interface SiteLayoutProps {
@@ -14,6 +15,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cookieModalOpen, setCookieModalOpen] = useState(false);
   const currentPath = usePath();
+  const user = useCurrentUser();
 
   const navItems = [
     { label: 'Studio', href: '/' },
@@ -48,6 +50,22 @@ export function SiteLayout({ children }: SiteLayoutProps) {
 
           {/* Header Action Button */}
           <div className="site-header-actions">
+            {user ? (
+              <Link href="/" className="site-user-badge" title={`Signed in as ${user.name} (${user.email})`}>
+                {user.picture ? (
+                  <img src={user.picture} alt={user.name} className="site-user-avatar" />
+                ) : (
+                  <span className="site-user-initial">{(user.given_name?.[0] || user.name[0] || 'U').toUpperCase()}</span>
+                )}
+                <span className="site-user-name">{user.given_name || user.name}</span>
+              </Link>
+            ) : (
+              <Link href="/login" className="btn-site btn-site-outline btn-site-sm">
+                <LogIn size={15} />
+                <span>Sign in</span>
+              </Link>
+            )}
+
             <Link href="/" className="btn-site btn-site-primary btn-site-sm">
               <Sparkles size={16} aria-hidden="true" />
               <span>Open Studio</span>
@@ -78,7 +96,27 @@ export function SiteLayout({ children }: SiteLayoutProps) {
                 {item.label}
               </Link>
             ))}
-            <div style={{ marginTop: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid var(--site-card-border)' }}>
+            <div style={{ marginTop: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid var(--site-card-border)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {user ? (
+                <div className="site-mobile-user-row">
+                  {user.picture ? (
+                    <img src={user.picture} alt={user.name} className="site-user-avatar" />
+                  ) : (
+                    <span className="site-user-initial">{(user.given_name?.[0] || user.name[0] || 'U').toUpperCase()}</span>
+                  )}
+                  <span className="site-user-name">{user.name}</span>
+                </div>
+              ) : (
+                <Link
+                  href="/login"
+                  className="btn-site btn-site-outline"
+                  style={{ width: '100%', boxSizing: 'border-box' }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <LogIn size={16} />
+                  <span>Sign in</span>
+                </Link>
+              )}
               <Link
                 href="/"
                 className="btn-site btn-site-primary"

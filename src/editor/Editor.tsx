@@ -19,6 +19,8 @@ import { ExportModal, type RenderCache } from './ExportModal';
 import { GenerateModal } from './GenerateModal';
 import { CharacterVariationsModal } from './CharacterVariationsModal';
 import { ApiKeyModal } from './ApiKeyModal';
+import { AccountModal } from './AccountModal';
+import { useCurrentUser } from '../services/auth';
 import { DashboardModal, TutorialModal, UploadModal, VoiceModal } from './modals';
 import { MusicLibraryModal } from './MusicLibraryModal';
 import { MusicModal } from './MusicModal';
@@ -52,7 +54,8 @@ type ModalState =
   | { kind: 'aimusic' }
   | { kind: 'story' }
   | { kind: 'tutorial' }
-  | { kind: 'apiKey' };
+  | { kind: 'apiKey' }
+  | { kind: 'account' };
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 const errText = (err: unknown) => (err instanceof Error ? err.message : String(err));
@@ -64,6 +67,7 @@ async function audioDurationMs(blob: Blob): Promise<number> {
 }
 
 export default function Editor() {
+  const user = useCurrentUser();
   const [resources] = useState(emptyResources);
   const store = useProjectStore(() => exampleProject(DEFAULT_HAND_ID));
   const { project, update, checkpoint, undo, redo, replace } = store;
@@ -785,9 +789,21 @@ export default function Editor() {
           <button type="button" className="btn ghost icon" aria-label="Notifications" onClick={() => showToast('No new notifications')}>
             <Bell size={18} />
           </button>
-          <div className="avatar" aria-label="Your account">
-            You
-          </div>
+          <button
+            type="button"
+            className="avatar-btn"
+            aria-label={user ? `Account (${user.name})` : 'Sign in or view account'}
+            title={user ? `Signed in as ${user.name} (${user.email})` : 'Sign in with Google'}
+            onClick={() => setModal({ kind: 'account' })}
+          >
+            {user?.picture ? (
+              <img src={user.picture} alt={user.name} className="avatar-img" />
+            ) : (
+              <div className="avatar">
+                {user ? (user.given_name?.[0] || user.name[0] || 'U').toUpperCase() : 'You'}
+              </div>
+            )}
+          </button>
         </div>
       </header>
 
@@ -1134,6 +1150,13 @@ export default function Editor() {
         <ApiKeyModal
           onClose={() => setModal(null)}
           onSaved={() => showToast('Google Gemini key connected!')}
+        />
+      )}
+      {modal?.kind === 'account' && (
+        <AccountModal
+          user={user}
+          onClose={() => setModal(null)}
+          onToast={showToast}
         />
       )}
       {toast && (

@@ -527,6 +527,57 @@ input, select, textarea {
   box-shadow: 0 5px 0 var(--base-edge), 0 0 15px rgba(183, 91, 72, 0.35);
 }
 
+/* Google Sign-in Tactile 3D Button (Universal) */
+.btn-google {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  height: 48px !important;
+  padding: 0 18px !important;
+  background: #ffffff !important;
+  color: #1a1f16 !important;
+  border: 1.5px solid #d5ddcf !important;
+  border-radius: 12px !important;
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 0 #b2c7b6, 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.15s ease, background-color 0.15s ease !important;
+  user-select: none !important;
+  text-decoration: none !important;
+}
+
+.btn-google span {
+  color: #1a1f16 !important;
+  font-weight: 700 !important;
+}
+
+.btn-google:hover:not(:disabled) {
+  background: #fbfcf9 !important;
+  border-color: #8fa793 !important;
+  box-shadow: 0 5px 0 #8fa793, 0 8px 20px rgba(178, 199, 182, 0.45) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-google:active:not(:disabled) {
+  transform: translateY(3px) !important;
+  box-shadow: 0 1px 0 #8fa793 !important;
+}
+
+.btn-google:disabled {
+  opacity: 0.65 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+.google-icon {
+  flex-shrink: 0 !important;
+  display: block !important;
+}
+
 /* ==========================================================================
    CANVAS CONTAINER
    ========================================================================== */
