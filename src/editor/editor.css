@@ -96,6 +96,17 @@ body.editor-body {
     color: var(--fg);
     text-shadow: 0 0 12px rgba(183, 91, 72, 0.4);
   }
+  & .brand h1,
+  & .brand .brand-title {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    display: inline-block;
+  }
   & .crumbs {
     display: flex;
     align-items: center;

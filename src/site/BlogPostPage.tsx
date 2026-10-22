@@ -16,6 +16,7 @@ import {
   HelpCircle,
   List,
   UserCheck,
+  RefreshCw,
 } from 'lucide-react';
 
 interface BlogPostPageProps {
@@ -27,14 +28,17 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
 
   useEffect(() => {
     if (post) {
-      // 1. BlogPosting Schema
+      const pubIso = `${post.publishDate}T00:00:00Z`;
+      const modIso = `${post.updatedDate}T00:00:00Z`;
+
+      // 1. BlogPosting Schema with ISO 8601 published and modified dates
       const blogPostingSchema = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: post.title,
         description: post.metaDescription,
-        datePublished: post.publishDate,
-        dateModified: post.updatedDate,
+        datePublished: pubIso,
+        dateModified: modIso,
         mainEntityOfPage: `https://ai-doodle.vercel.app/blog/${post.slug}`,
         author: {
           '@type': 'Person',
@@ -104,8 +108,8 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
         description: post.metaDescription,
         canonicalPath: `/blog/${post.slug}`,
         type: 'article',
-        publishedTime: post.publishDate,
-        modifiedTime: post.updatedDate,
+        publishedTime: pubIso,
+        modifiedTime: modIso,
         author: post.author.name,
         structuredData,
       });
@@ -161,7 +165,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
           <span aria-current="page">{post.title}</span>
         </nav>
 
-        {/* Article Header */}
+        {/* Article Header with Primary H1 */}
         <header className="blog-header">
           <div className="blog-meta">
             <span
@@ -185,7 +189,17 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <Calendar size={14} />
-              Published {post.publishDate}
+              <span>Published: </span>
+              <time dateTime={post.publishDate} itemProp="datePublished">
+                {post.displayPublishDate}
+              </time>
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+              <RefreshCw size={13} />
+              <span>Modified: </span>
+              <time dateTime={post.updatedDate} itemProp="dateModified">
+                {post.displayUpdatedDate}
+              </time>
             </span>
           </div>
 
@@ -214,24 +228,24 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
         {/* Top AdSlot */}
         <AdSlot slotId={`blog-${post.slug}-top`} format="horizontal" />
 
-        {/* GEO Direct Answer Callout */}
+        {/* GEO Direct Answer Callout with Semantic H2 */}
         {post.directAnswer && (
           <aside className="geo-direct-answer" aria-label="Quick Summary & Direct Answer">
-            <div className="geo-direct-answer-header">
+            <h2 className="geo-direct-answer-header">
               <Zap size={16} />
               <span>Quick Answer & Key Definition</span>
-            </div>
+            </h2>
             <p className="geo-direct-answer-body">{post.directAnswer}</p>
           </aside>
         )}
 
-        {/* Key Takeaways Box */}
+        {/* Key Takeaways Box with Semantic H2 */}
         {post.keyTakeaways && post.keyTakeaways.length > 0 && (
           <section className="key-takeaways-box" aria-label="Key Takeaways">
-            <div className="key-takeaways-title">
+            <h2 className="key-takeaways-title">
               <CheckCircle size={18} />
               <span>Core Takeaways</span>
-            </div>
+            </h2>
             <ul className="key-takeaways-list">
               {post.keyTakeaways.map((takeaway, idx) => (
                 <li key={idx}>
@@ -243,13 +257,13 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
           </section>
         )}
 
-        {/* Table of Contents */}
+        {/* Table of Contents with Semantic H2 */}
         {tocItems.length > 2 && (
           <nav className="table-of-contents" aria-label="Table of Contents">
-            <div className="toc-title" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <h2 className="toc-title" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <List size={14} />
               <span>In This Guide</span>
-            </div>
+            </h2>
             <ul className="toc-list">
               {tocItems.map((item, idx) => (
                 <li key={idx}>
@@ -265,8 +279,12 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
           </nav>
         )}
 
-        {/* Main Article Body */}
-        <article className="blog-content">
+        {/* Main Article Body with Semantic Heading Hierarchy */}
+        <article className="blog-content" itemScope itemType="https://schema.org/BlogPosting">
+          <meta itemProp="headline" content={post.title} />
+          <meta itemProp="datePublished" content={`${post.publishDate}T00:00:00Z`} />
+          <meta itemProp="dateModified" content={`${post.updatedDate}T00:00:00Z`} />
+
           {post.content.map((sectionHtml, idx) => {
             // Automatically inject IDs onto H2 headings so TOC anchors work
             const headingMatch = sectionHtml.match(/<h2[^>]*>(.*?)<\/h2>/i);
@@ -294,7 +312,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
           {/* In-Article AdSlot */}
           <AdSlot slotId={`blog-${post.slug}-mid`} format="in-article" />
 
-          {/* AEO Frequently Asked Questions Section */}
+          {/* AEO Frequently Asked Questions Section with H2 and H3 */}
           {post.faqs && post.faqs.length > 0 && (
             <section className="faq-section" id="frequently-asked-questions">
               <h2 className="faq-section-title" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -315,11 +333,14 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
             </section>
           )}
 
-          {/* E-E-A-T Author Bio Card */}
+          {/* E-E-A-T Author Bio Card with Strict Heading Hierarchy (H2 -> H3) */}
           <section className="author-bio-card" aria-label="Author Profile">
+            <h2 className="visually-hidden">About the Author</h2>
             <div className="author-bio-avatar">{post.author.avatar}</div>
             <div className="author-bio-content">
-              <h4>Written by {post.author.name}</h4>
+              <h3 className="author-bio-title" style={{ fontSize: '1.05rem', margin: '0 0 0.25rem', color: 'var(--site-ivory)' }}>
+                Written by {post.author.name}
+              </h3>
               <div className="author-bio-role">{post.author.role}</div>
               <p className="author-bio-text">{post.author.bio}</p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.5rem', color: 'var(--site-sage)', fontSize: '0.8rem', fontWeight: 600 }}>
@@ -329,8 +350,8 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
             </div>
           </section>
 
-          {/* Interactive Core Tool CTA */}
-          <div className="article-cta">
+          {/* Interactive Core Tool CTA with H2 */}
+          <section className="article-cta" aria-label="Try Studio Call to Action">
             <div
               style={{
                 display: 'inline-flex',
@@ -345,7 +366,9 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
               <Sparkles size={16} />
               <span>Try It in the Studio</span>
             </div>
-            <h3>Put These Techniques Into Practice</h3>
+            <h2 className="article-cta-title" style={{ fontSize: '1.6rem', fontWeight: 800, margin: '0 0 0.85rem', color: 'var(--site-ivory)' }}>
+              Put These Techniques Into Practice
+            </h2>
             <p>
               Launch the Ai Doodle Studio now to experiment with drawing tools, vector stroke orders, and realistic hand animations. 100% free in your browser with zero install.
             </p>
@@ -353,11 +376,11 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
               Launch Ai Doodle Canvas
               <ArrowRight size={18} />
             </Link>
-          </div>
+          </section>
 
-          {/* Next Article Recommendation */}
+          {/* Next Article Recommendation with H2 and H3 */}
           {nextPost && (
-            <div
+            <aside
               style={{
                 marginTop: '3rem',
                 padding: '1.75rem',
@@ -365,19 +388,21 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
                 border: '1px solid var(--site-card-border)',
                 borderRadius: 'var(--site-radius-lg)',
               }}
+              aria-label="Recommended Reading"
             >
-              <span
+              <h2
                 style={{
                   fontSize: '0.8rem',
                   color: 'var(--site-sage)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.06em',
                   fontWeight: 700,
+                  margin: '0 0 0.5rem',
                 }}
               >
                 Next Recommended Guide
-              </span>
-              <h3 style={{ fontSize: '1.35rem', margin: '0.5rem 0 0.75rem' }}>
+              </h2>
+              <h3 style={{ fontSize: '1.35rem', margin: '0 0 0.75rem' }}>
                 <Link
                   href={`/blog/${nextPost.slug}`}
                   style={{ color: 'var(--site-ivory)', textDecoration: 'none' }}
@@ -401,7 +426,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
                 Read Next Guide
                 <ArrowRight size={14} />
               </Link>
-            </div>
+            </aside>
           )}
         </article>
 

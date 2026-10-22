@@ -26,8 +26,8 @@ export function BlogIndexPage() {
             '@type': 'BlogPosting',
             headline: p.title,
             description: p.summary,
-            datePublished: p.publishDate,
-            dateModified: p.updatedDate,
+            datePublished: `${p.publishDate}T00:00:00Z`,
+            dateModified: `${p.updatedDate}T00:00:00Z`,
             url: `https://ai-doodle.vercel.app/blog/${p.slug}`,
             author: {
               '@type': 'Person',
@@ -158,7 +158,8 @@ export function BlogIndexPage() {
         <AdSlot slotId="blog-index-top" format="horizontal" />
 
         {/* Article Cards Grid */}
-        <section style={{ margin: '2.5rem 0' }}>
+        <section style={{ margin: '2.5rem 0' }} aria-label="Articles Grid">
+          <h2 className="visually-hidden">Articles Catalog</h2>
           {filteredPosts.length === 0 ? (
             <div
               style={{
@@ -232,7 +233,7 @@ export function BlogIndexPage() {
                     </span>
                   </div>
 
-                  <h2
+                  <h3
                     style={{
                       fontSize: '1.35rem',
                       fontWeight: 700,
@@ -246,7 +247,7 @@ export function BlogIndexPage() {
                     >
                       {post.title}
                     </Link>
-                  </h2>
+                  </h3>
 
                   <p className="site-card-text">{post.summary}</p>
 
@@ -277,9 +278,13 @@ export function BlogIndexPage() {
                         >
                           {post.author.name}
                         </span>
-                        <span style={{ color: 'var(--site-text-dim)' }}>
-                          {post.publishDate}
-                        </span>
+                        <time
+                          dateTime={post.publishDate}
+                          itemProp="datePublished"
+                          style={{ color: 'var(--site-text-dim)' }}
+                        >
+                          {post.displayPublishDate}
+                        </time>
                       </div>
                     </div>
 

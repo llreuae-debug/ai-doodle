@@ -710,7 +710,7 @@ export default function Editor() {
       <header className="top">
         <div className="brand" aria-label="Ai Doodle">
           <Logomark size={30} />
-          <span>Ai Doodle</span>
+          <h1 className="brand-title">Ai Doodle</h1>
         </div>
         <nav className="crumbs" aria-label="Breadcrumb">
           <button type="button" onClick={() => setModal({ kind: 'dashboard' })}>

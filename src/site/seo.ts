@@ -67,11 +67,28 @@ export function updateDocumentMeta(opts: MetaOptions): void {
   setMeta('name', 'twitter:description', opts.description);
   setMeta('name', 'twitter:image', opts.image ?? DEFAULT_OG_IMAGE);
 
-  // 8. Article specific tags
+  // 8. Article specific date & author tags
   if (opts.type === 'article') {
-    if (opts.publishedTime) setMeta('property', 'article:published_time', opts.publishedTime);
-    if (opts.modifiedTime) setMeta('property', 'article:modified_time', opts.modifiedTime);
-    if (opts.author) setMeta('property', 'article:author', opts.author);
+    const pubIso = opts.publishedTime ? (opts.publishedTime.includes('T') ? opts.publishedTime : new Date(opts.publishedTime).toISOString()) : undefined;
+    const modIso = opts.modifiedTime ? (opts.modifiedTime.includes('T') ? opts.modifiedTime : new Date(opts.modifiedTime).toISOString()) : undefined;
+
+    if (pubIso) {
+      setMeta('property', 'article:published_time', pubIso);
+      setMeta('name', 'publish-date', pubIso.slice(0, 10));
+      setMeta('name', 'pubdate', pubIso.slice(0, 10));
+      setMeta('name', 'date', pubIso.slice(0, 10));
+    }
+    if (modIso) {
+      setMeta('property', 'article:modified_time', modIso);
+      setMeta('property', 'og:updated_time', modIso);
+      setMeta('name', 'modified-date', modIso.slice(0, 10));
+      setMeta('name', 'revised', modIso.slice(0, 10));
+      setMeta('name', 'last-modified', modIso.slice(0, 10));
+    }
+    if (opts.author) {
+      setMeta('property', 'article:author', opts.author);
+      setMeta('name', 'author', opts.author);
+    }
   }
 
   // 9. Structured Data (JSON-LD)

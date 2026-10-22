@@ -171,7 +171,8 @@ function renderBlogPostHtml(post: BlogPost): string {
             <span class="blog-tag" style="background: rgba(183, 91, 72, 0.25); color: var(--site-ivory); border-color: var(--site-terracotta);">${escapeHtml(post.category)}</span>
             ${post.tags.map((t) => `<span class="blog-tag">${escapeHtml(t)}</span>`).join(' ')}
             <span>${escapeHtml(post.readTime)}</span>
-            <span>Published ${escapeHtml(post.publishDate)}</span>
+            <span>Published: <time datetime="${post.publishDate}" itemprop="datePublished">${escapeHtml(post.displayPublishDate)}</time></span>
+            <span>Modified: <time datetime="${post.updatedDate}" itemprop="dateModified">${escapeHtml(post.displayUpdatedDate)}</time></span>
           </div>
 
           <h1 class="blog-title">${escapeHtml(post.title)}</h1>
@@ -187,9 +188,9 @@ function renderBlogPostHtml(post: BlogPost): string {
         </header>
 
         <aside class="geo-direct-answer" aria-label="Quick Summary & Direct Answer">
-          <div class="geo-direct-answer-header">
+          <h2 class="geo-direct-answer-header">
             <span>Quick Answer & Key Definition</span>
-          </div>
+          </h2>
           <p class="geo-direct-answer-body">${escapeHtml(post.directAnswer)}</p>
         </aside>
 
@@ -197,7 +198,7 @@ function renderBlogPostHtml(post: BlogPost): string {
           post.keyTakeaways && post.keyTakeaways.length > 0
             ? `
         <section class="key-takeaways-box" aria-label="Key Takeaways">
-          <div class="key-takeaways-title">Core Takeaways</div>
+          <h2 class="key-takeaways-title">Core Takeaways</h2>
           <ul class="key-takeaways-list">
             ${post.keyTakeaways.map((t) => `<li><span>${escapeHtml(t)}</span></li>`).join('\n')}
           </ul>
@@ -209,7 +210,7 @@ function renderBlogPostHtml(post: BlogPost): string {
           tocItems.length > 2
             ? `
         <nav class="table-of-contents" aria-label="Table of Contents">
-          <div class="toc-title">In This Guide</div>
+          <h2 class="toc-title">In This Guide</h2>
           <ul class="toc-list">
             ${tocItems.map((item) => `<li><a href="#${item.id}">${escapeHtml(item.text)}</a></li>`).join('\n')}
             ${post.faqs && post.faqs.length > 0 ? `<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>` : ''}
@@ -218,25 +219,30 @@ function renderBlogPostHtml(post: BlogPost): string {
             : ''
         }
 
-        <article class="blog-content">
+        <article class="blog-content" itemscope itemtype="https://schema.org/BlogPosting">
+          <meta itemprop="headline" content="${escapeHtml(post.title)}" />
+          <meta itemprop="datePublished" content="${post.publishDate}T00:00:00Z" />
+          <meta itemprop="dateModified" content="${post.updatedDate}T00:00:00Z" />
+
           ${processedSections}
           ${faqsHtml}
 
           <section class="author-bio-card" aria-label="Author Profile">
+            <h2 class="visually-hidden">About the Author</h2>
             <div class="author-bio-avatar">${escapeHtml(post.author.avatar)}</div>
             <div class="author-bio-content">
-              <h4>Written by ${escapeHtml(post.author.name)}</h4>
+              <h3 class="author-bio-title" style="font-size: 1.05rem; margin: 0 0 0.25rem; color: var(--site-ivory);">Written by ${escapeHtml(post.author.name)}</h3>
               <div class="author-bio-role">${escapeHtml(post.author.role)}</div>
               <p class="author-bio-text">${escapeHtml(post.author.bio)}</p>
             </div>
           </section>
 
-          <div class="article-cta">
+          <section class="article-cta" aria-label="Try Studio Call to Action">
             <div style="color: var(--site-sage); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">Interactive Whiteboard Studio</div>
-            <h3>Put These Techniques Into Practice</h3>
+            <h2 class="article-cta-title" style="font-size: 1.6rem; font-weight: 800; margin: 0 0 0.85rem; color: var(--site-ivory);">Put These Techniques Into Practice</h2>
             <p>Launch the Ai Doodle Studio now to experiment with drawing tools, vector stroke orders, and realistic hand animations. 100% free in your browser with zero install.</p>
             <a href="/" class="btn-site btn-site-primary btn-site-lg">Launch Ai Doodle Canvas</a>
-          </div>
+          </section>
         </article>
       </div>
     </main>
@@ -264,7 +270,8 @@ function renderBlogIndexHtml(): string {
           </p>
         </section>
 
-        <section style="margin: 2.5rem 0;">
+        <section style="margin: 2.5rem 0;" aria-label="Articles Grid">
+          <h2 class="visually-hidden">Latest Articles & Guides</h2>
           <div class="site-grid site-grid-2">
             ${BLOG_POSTS.map(
               (post) => `
@@ -274,16 +281,16 @@ function renderBlogIndexHtml(): string {
                   ${post.tags.slice(0, 2).map((t) => `<span class="blog-tag">${escapeHtml(t)}</span>`).join(' ')}
                   <span style="font-size: 0.8rem; color: var(--site-text-dim); margin-left: auto;">${escapeHtml(post.readTime)}</span>
                 </div>
-                <h2 style="font-size: 1.35rem; font-weight: 700; margin: 0 0 0.75rem; line-height: 1.3;">
+                <h3 style="font-size: 1.35rem; font-weight: 700; margin: 0 0 0.75rem; line-height: 1.3;">
                   <a href="/blog/${post.slug}" style="color: var(--site-ivory); text-decoration: none;">${escapeHtml(post.title)}</a>
-                </h2>
+                </h3>
                 <p class="site-card-text">${escapeHtml(post.summary)}</p>
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 1.25rem; border-top: 1px solid var(--site-card-border);">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
                     <div class="blog-author-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">${escapeHtml(post.author.avatar)}</div>
                     <div style="font-size: 0.8rem;">
                       <span style="color: var(--site-ivory); font-weight: 600; display: block;">${escapeHtml(post.author.name)}</span>
-                      <span style="color: var(--site-text-dim);">${escapeHtml(post.publishDate)}</span>
+                      <time datetime="${post.publishDate}" itemprop="datePublished" style="color: var(--site-text-dim);">${escapeHtml(post.displayPublishDate)}</time>
                     </div>
                   </div>
                   <a href="/blog/${post.slug}" class="btn-site btn-site-outline btn-site-sm">Read Guide</a>
@@ -293,9 +300,9 @@ function renderBlogIndexHtml(): string {
           </div>
         </section>
 
-        <section class="article-cta">
+        <section class="article-cta" aria-label="Interactive Studio CTA">
           <div style="color: var(--site-sage); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem;">Interactive Whiteboard Studio</div>
-          <h3>Turn Ideas Into Motion Instantly</h3>
+          <h2 class="article-cta-title" style="font-size: 1.6rem; font-weight: 800; margin: 0 0 0.85rem; color: var(--site-ivory);">Turn Ideas Into Motion Instantly</h2>
           <p>Experience the tools discussed in these articles firsthand. Test vector hand animation and audio synchronization in your browser right now.</p>
           <a href="/" class="btn-site btn-site-primary btn-site-lg">Launch Ai Doodle Tool</a>
         </section>
@@ -379,6 +386,8 @@ function buildPages(): PageMeta[] {
     description: 'Explore practical guides, prompt writing techniques, whiteboard animation tutorials, and tips for creating engaging hand-drawn doodle videos with Ai Doodle.',
     canonical: `${SITE_URL}/blog`,
     type: 'website',
+    publishedTime: '2026-10-18T00:00:00Z',
+    modifiedTime: '2026-10-22T00:00:00Z',
     schemas: [
       {
         '@context': 'https://schema.org',
@@ -406,6 +415,8 @@ function buildPages(): PageMeta[] {
     description: 'Discover the technical architecture behind Ai Doodle: vector stroke ordering, hand kinematics, audio-visual synchronization, and local 4K WebCodecs video export.',
     canonical: `${SITE_URL}/how-it-works`,
     type: 'website',
+    publishedTime: '2026-10-18T00:00:00Z',
+    modifiedTime: '2026-10-22T00:00:00Z',
     schemas: [
       {
         '@context': 'https://schema.org',
@@ -427,14 +438,17 @@ function buildPages(): PageMeta[] {
 
   // 3. Blog Posts (All 10 Cluster Articles)
   for (const post of BLOG_POSTS) {
+    const pubIso = `${post.publishDate}T00:00:00Z`;
+    const modIso = `${post.updatedDate}T00:00:00Z`;
+
     const postSchemas: Record<string, unknown>[] = [
       {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: post.title,
         description: post.metaDescription,
-        datePublished: post.publishDate,
-        dateModified: post.updatedDate,
+        datePublished: pubIso,
+        dateModified: modIso,
         mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
         author: {
           '@type': 'Person',
@@ -483,8 +497,8 @@ function buildPages(): PageMeta[] {
       description: post.metaDescription,
       canonical: `${SITE_URL}/blog/${post.slug}`,
       type: 'article',
-      publishedTime: post.publishDate,
-      modifiedTime: post.updatedDate,
+      publishedTime: pubIso,
+      modifiedTime: modIso,
       author: post.author.name,
       schemas: postSchemas,
       renderHtml: () => renderBlogPostHtml(post),
@@ -498,6 +512,8 @@ function buildPages(): PageMeta[] {
     description: 'Learn about Ai Doodle, our mission to make whiteboard explainer animation accessible to every educator, marketer, and creator worldwide.',
     canonical: `${SITE_URL}/about`,
     type: 'website',
+    publishedTime: '2026-10-18T00:00:00Z',
+    modifiedTime: '2026-10-22T00:00:00Z',
     schemas: [
       {
         '@context': 'https://schema.org',
@@ -525,6 +541,8 @@ function buildPages(): PageMeta[] {
     description: 'Get in touch with the Ai Doodle engineering and creative team. Inquire about partnerships, report technical issues, or request custom features.',
     canonical: `${SITE_URL}/contact`,
     type: 'website',
+    publishedTime: '2026-10-18T00:00:00Z',
+    modifiedTime: '2026-10-22T00:00:00Z',
     schemas: [
       {
         '@context': 'https://schema.org',
@@ -550,6 +568,8 @@ function buildPages(): PageMeta[] {
     description: 'Read the Ai Doodle privacy policy. Learn how we handle your project data, client-side rendering privacy, and cookies.',
     canonical: `${SITE_URL}/privacy-policy`,
     type: 'website',
+    publishedTime: '2026-10-18T00:00:00Z',
+    modifiedTime: '2026-10-22T00:00:00Z',
     schemas: [{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Ai Doodle Privacy Policy' }],
     renderHtml: () =>
       renderSimplePageHtml(
@@ -568,6 +588,8 @@ function buildPages(): PageMeta[] {
     description: 'Read our terms of service, commercial usage rights, and platform policies.',
     canonical: `${SITE_URL}/terms-of-service`,
     type: 'website',
+    publishedTime: '2026-10-18T00:00:00Z',
+    modifiedTime: '2026-10-22T00:00:00Z',
     schemas: [{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Ai Doodle Terms of Service' }],
     renderHtml: () =>
       renderSimplePageHtml(
@@ -584,6 +606,8 @@ function buildPages(): PageMeta[] {
     description: 'Information regarding the cookies and local storage tokens used on Ai Doodle.',
     canonical: `${SITE_URL}/cookie-policy`,
     type: 'website',
+    publishedTime: '2026-10-18T00:00:00Z',
+    modifiedTime: '2026-10-22T00:00:00Z',
     schemas: [{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Ai Doodle Cookie Policy' }],
     renderHtml: () =>
       renderSimplePageHtml(
@@ -652,7 +676,32 @@ export function prerenderAll() {
       `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`,
     );
 
-    // 5. Replace Schema.org Structured Data
+    // 5. Clean template fallback date tags and inject page-specific Published & Modified Dates
+    html = html.replace(/<meta\s+name=["'](publish-date|modified-date|date|revised)["'][^>]*>\s*/gi, '');
+    const dateMetaTags = [];
+    if (page.publishedTime) {
+      dateMetaTags.push(`<meta property="article:published_time" content="${page.publishedTime}" />`);
+      dateMetaTags.push(`<meta name="publish-date" content="${page.publishedTime.slice(0, 10)}" />`);
+      dateMetaTags.push(`<meta name="pubdate" content="${page.publishedTime.slice(0, 10)}" />`);
+      dateMetaTags.push(`<meta name="date" content="${page.publishedTime.slice(0, 10)}" />`);
+    }
+    if (page.modifiedTime) {
+      dateMetaTags.push(`<meta property="article:modified_time" content="${page.modifiedTime}" />`);
+      dateMetaTags.push(`<meta property="og:updated_time" content="${page.modifiedTime}" />`);
+      dateMetaTags.push(`<meta name="modified-date" content="${page.modifiedTime.slice(0, 10)}" />`);
+      dateMetaTags.push(`<meta name="revised" content="${page.modifiedTime.slice(0, 10)}" />`);
+      dateMetaTags.push(`<meta name="last-modified" content="${page.modifiedTime.slice(0, 10)}" />`);
+    }
+    if (page.author) {
+      dateMetaTags.push(`<meta property="article:author" content="${escapeHtml(page.author)}" />`);
+      dateMetaTags.push(`<meta name="author" content="${escapeHtml(page.author)}" />`);
+    }
+
+    if (dateMetaTags.length > 0) {
+      html = html.replace('</head>', `    ${dateMetaTags.join('\n    ')}\n  </head>`);
+    }
+
+    // 6. Replace Schema.org Structured Data
     const schemasHtml = page.schemas
       .map((s) => `<script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n</script>`)
       .join('\n');
@@ -661,11 +710,11 @@ export function prerenderAll() {
       schemasHtml,
     );
 
-    // 6. Pre-render HTML inside <div id="root">
+    // 7. Pre-render HTML inside <div id="root">
     const bodyContent = page.renderHtml();
-    html = html.replace('<div id="root"></div>', `<div id="root">${bodyContent}</div>`);
+    html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${bodyContent}</div>`);
 
-    // 7. Write to dist/<path>/index.html
+    // 8. Write to dist/<path>/index.html
     const targetDir = path.join(DIST, page.path.replace(/^\//, ''));
     mkdirSync(targetDir, { recursive: true });
     const targetFile = path.join(targetDir, 'index.html');

@@ -9,8 +9,10 @@ export interface BlogPost {
   metaTitle: string;
   metaDescription: string;
   readTime: string;
-  publishDate: string;
-  updatedDate: string;
+  publishDate: string; // ISO 8601 (YYYY-MM-DD)
+  updatedDate: string; // ISO 8601 (YYYY-MM-DD)
+  displayPublishDate: string;
+  displayUpdatedDate: string;
   author: {
     name: string;
     role: string;
@@ -36,8 +38,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'How to Use an AI Doodle Generator: Beginner Guide | Ai Doodle',
     metaDescription: 'Learn how to use an AI doodle generator to create whiteboard explainer videos, animated sketch sequences, and vector drawings in minutes with zero install.',
     readTime: '7 min read',
-    publishDate: 'October 21, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-21',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 21, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Faraz Rehman',
       role: 'Creative Director & Animation Lead',
@@ -137,8 +141,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'Turn Sketches into AI Art: Vector Tracing Workflow | Ai Doodle',
     metaDescription: 'Discover how to turn rough hand-drawn paper sketches into animated vector doodle videos using AI stroke reconstruction and intelligent path ordering.',
     readTime: '6 min read',
-    publishDate: 'October 21, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-21',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 21, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Elena Rostova',
       role: 'Traditional Animator & Digital Artist',
@@ -233,8 +239,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: '100+ Doodle Art Ideas & Drawing Prompts | Ai Doodle',
     metaDescription: 'Spark your imagination with 100+ creative doodle art ideas, drawing prompts, and visual metaphors for education, business, social media, and sketchbook practice.',
     readTime: '8 min read',
-    publishDate: 'October 21, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-21',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 21, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Maya Chen',
       role: 'Staff Prompt Engineer & Illustrator',
@@ -308,8 +316,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'Whiteboard Animation for Education: Classroom Guide | Ai Doodle',
     metaDescription: 'Discover why whiteboard animations boost student comprehension by up to 15% and how educators can create animated lesson explainers in minutes without drawing skills.',
     readTime: '7 min read',
-    publishDate: 'October 21, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-21',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 21, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Faraz Rehman',
       role: 'Creative Director & Animation Lead',
@@ -364,8 +374,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'Common AI Drawing Problems & Fixes | Ai Doodle Guide',
     metaDescription: 'Troubleshoot stroke order glitches, messy lines, muddy color palettes, canvas scaling issues, and video export errors with practical step-by-step solutions.',
     readTime: '6 min read',
-    publishDate: 'October 21, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-21',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 21, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Maya Chen',
       role: 'Staff Prompt Engineer & Illustrator',
@@ -453,8 +465,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'What Is AI Doodle Art? Beginner\'s Complete Guide | Ai Doodle',
     metaDescription: 'Discover how AI doodle art and whiteboard animation work. Learn how artificial intelligence turns simple text prompts into animated, hand-drawn vector illustrations.',
     readTime: '6 min read',
-    publishDate: 'October 18, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-18',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 18, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Faraz Rehman',
       role: 'Creative Director & Animation Lead',
@@ -527,8 +541,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'How to Turn Text Prompts Into Creative Doodle Ideas | Ai Doodle',
     metaDescription: 'Master the art of crafting visual metaphors for AI doodle generation. Learn how to transform abstract business concepts into punchy editorial spot illustrations.',
     readTime: '7 min read',
-    publishDate: 'October 19, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-19',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 19, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Maya Chen',
       role: 'Staff Prompt Engineer & Illustrator',
@@ -623,8 +639,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'How to Create Better AI Doodles: Practical Tips & Best Practices',
     metaDescription: 'Step-by-step best practices for authoring professional doodle illustrations. Discover optimal line weights, palette harmony, character consistency, and export tips.',
     readTime: '8 min read',
-    publishDate: 'October 20, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-20',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 20, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Faraz Rehman',
       role: 'Creative Director & Animation Lead',
@@ -693,8 +711,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'AI Doodle Tools vs. Traditional Drawing: Honest Comparison | Ai Doodle',
     metaDescription: 'An honest, in-depth comparison of AI doodle generators and traditional hand drawing. Explore speed, costs, creative control, and how hybrid workflows offer the best of both.',
     readTime: '6 min read',
-    publishDate: 'October 20, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-20',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 20, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Elena Rostova',
       role: 'Traditional Animator & Digital Artist',
@@ -791,8 +811,10 @@ export const BLOG_POSTS: BlogPost[] = [
     metaTitle: 'How to Download, Save, and Export Doodle Artwork | Ai Doodle',
     metaDescription: 'Complete guide to exporting your doodle artwork. Learn when to use SVG vectors, high-res PNGs, or full WebCodecs 4K MP4 whiteboard video recordings.',
     readTime: '5 min read',
-    publishDate: 'October 21, 2026',
-    updatedDate: 'October 22, 2026',
+    publishDate: '2026-10-21',
+    updatedDate: '2026-10-22',
+    displayPublishDate: 'October 21, 2026',
+    displayUpdatedDate: 'October 22, 2026',
     author: {
       name: 'Maya Chen',
       role: 'Staff Prompt Engineer & Illustrator',
