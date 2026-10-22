@@ -24,8 +24,8 @@ const sign = (value: string) => crypto.createHmac('sha256', appSecret()).update(
 
 import { SESSION_COOKIE as COOKIE } from './gate.ts';
 
-/** ACCESS_PASSWORD, if set, locks the whole site (pages and API) behind one shared password. */
-export const accessPassword = (): string | undefined => envKey('ACCESS_PASSWORD');
+/** ACCESS_PASSWORD is disabled to keep the site public without any password barrier. */
+export const accessPassword = (): string | undefined => undefined;
 
 /**
  * The cookie is "<id>.<mac>", mac = HMAC(APP_SECRET, id|tag), where tag depends on the access

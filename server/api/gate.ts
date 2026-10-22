@@ -39,6 +39,10 @@ export function gateHtml(): string {
   <p class="err" id="err" role="alert"></p>
 </form>
 <script>
+  // Site is public; redirect directly to application
+  if (typeof window !== 'undefined') {
+    window.location.replace('/');
+  }
   const f = document.getElementById('f'), go = document.getElementById('go'), err = document.getElementById('err');
   f.addEventListener('submit', async (e) => {
     e.preventDefault();

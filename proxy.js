@@ -3401,7 +3401,7 @@ var require_websocket = __commonJS({
     var tls = __require("tls");
     var { randomBytes, createHash } = __require("crypto");
     var { Duplex, Readable } = __require("stream");
-    var { URL: URL2 } = __require("url");
+    var { URL } = __require("url");
     var PerMessageDeflate2 = require_permessage_deflate();
     var Receiver2 = require_receiver();
     var Sender2 = require_sender();
@@ -3915,11 +3915,11 @@ var require_websocket = __commonJS({
         );
       }
       let parsedUrl;
-      if (address instanceof URL2) {
+      if (address instanceof URL) {
         parsedUrl = address;
       } else {
         try {
-          parsedUrl = new URL2(address);
+          parsedUrl = new URL(address);
         } catch {
           throw new SyntaxError(`Invalid URL: ${address}`);
         }
@@ -4056,7 +4056,7 @@ var require_websocket = __commonJS({
           req.abort();
           let addr;
           try {
-            addr = new URL2(location, address);
+            addr = new URL(location, address);
           } catch (e) {
             const err = new SyntaxError(`Invalid URL: ${location}`);
             emitErrorAndClose(websocket, err);
@@ -4995,13 +4995,13 @@ var require_functions = __commonJS({
       dangerouslyDeleteByTag: () => import_purge.dangerouslyDeleteByTag,
       experimental_attachDatabasePool: () => import_db_connections.experimental_attachDatabasePool,
       experimental_upgradeWebSocket: () => import_websocket2.experimental_upgradeWebSocket,
-      geolocation: () => import_headers2.geolocation,
+      geolocation: () => import_headers.geolocation,
       getCache: () => import_cache.getCache,
       getDeadline: () => import_deadline.getDeadline,
       getEnv: () => import_get_env.getEnv,
       invalidateBySrcImage: () => import_purge.invalidateBySrcImage,
       invalidateByTag: () => import_purge.invalidateByTag,
-      ipAddress: () => import_headers2.ipAddress,
+      ipAddress: () => import_headers.ipAddress,
       metric: () => import_metric.metric,
       next: () => import_middleware.next,
       rewrite: () => import_middleware.rewrite,
@@ -5009,7 +5009,7 @@ var require_functions = __commonJS({
       waitUntil: () => import_wait_until.waitUntil
     });
     module.exports = __toCommonJS(src_exports);
-    var import_headers2 = require_headers();
+    var import_headers = require_headers();
     var import_get_env = require_get_env();
     var import_deadline = require_deadline();
     var import_wait_until = require_wait_until();
@@ -5025,103 +5025,8 @@ var require_functions = __commonJS({
 
 // server/proxy.ts
 var import_functions = __toESM(require_functions(), 1);
-
-// server/api/gate.ts
-var SESSION_COOKIE = "ad_session";
-function gateHtml() {
-  return `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Ai Doodle</title>
-<style>
-  :root { --accent: #7f56d9; --bg: #f9fafb; --panel: #fff; --fg: #101828; --muted: #475467; --line: #eaecf0; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0c111d; --panel: #161b26; --fg: #f5f5f6; --muted: #94969c; --line: #1f242f; } }
-  * { box-sizing: border-box; }
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
-  form { width: 100%; max-width: 380px; padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); box-shadow: 0 12px 32px rgba(16,24,40,.08); }
-  h1 { margin: 0 0 4px; font-size: 22px; }
-  p { margin: 0 0 20px; color: var(--muted); font-size: 14px; }
-  label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
-  input { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--fg); font: inherit; }
-  input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-  button { width: 100%; margin-top: 16px; padding: 11px; border: 0; border-radius: 10px; background: var(--accent); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
-  button:disabled { opacity: .6; cursor: progress; }
-  .err { color: #d92d20; font-size: 14px; margin: 10px 0 0; min-height: 1.5em; }
-</style>
-</head>
-<body>
-<form id="f">
-  <h1>Ai Doodle</h1>
-  <p>This site is private. Enter the access password to continue.</p>
-  <label for="pw">Access password</label>
-  <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
-  <button id="go" type="submit">Continue</button>
-  <p class="err" id="err" role="alert"></p>
-</form>
-<script>
-  const f = document.getElementById('f'), go = document.getElementById('go'), err = document.getElementById('err');
-  f.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    go.disabled = true; err.textContent = '';
-    try {
-      const r = await fetch('/api/access', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: f.password.value }) });
-      if (r.ok) return location.reload();
-      const d = await r.json().catch(() => ({}));
-      err.textContent = d.message || 'That password is not right.';
-    } catch { err.textContent = "Couldn't reach the server. Try again."; }
-    go.disabled = false;
-  });
-</script>
-</body>
-</html>`;
-}
-
-// server/api/headers.ts
-var BLOB = "https://*.public.blob.vercel-storage.com";
-var CSP = [
-  "default-src 'self'",
-  "script-src 'self'",
-  // React style attributes and the Google Fonts stylesheets.
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' data: blob: https://fonts.gstatic.com",
-  `img-src 'self' data: blob: ${BLOB}`,
-  `media-src 'self' data: blob: ${BLOB}`,
-  `connect-src 'self' data: blob: ${BLOB} https://fonts.googleapis.com https://fonts.gstatic.com`,
-  "worker-src 'self' blob:",
-  "object-src 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "frame-ancestors 'none'"
-].join("; ");
-var GATE_CSP = "default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'";
-
-// server/proxy.ts
-var enc = new TextEncoder();
-var base64url = (bytes) => btoa(String.fromCharCode(...bytes)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-async function hmac(secret, value) {
-  const key = await crypto.subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
-  return base64url(new Uint8Array(await crypto.subtle.sign("HMAC", key, enc.encode(value)))).slice(0, 32);
-}
-async function passwordTag(pw) {
-  const digest = new Uint8Array(await crypto.subtle.digest("SHA-256", enc.encode(pw)));
-  return [...digest].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 16);
-}
-async function proxy(request) {
-  const url = new URL(request.url);
-  if (url.pathname === "/api/access") return (0, import_functions.next)();
-  const pw = process.env.ACCESS_PASSWORD;
-  const secret = process.env.APP_SECRET;
-  if (!pw || !secret) return new Response("This site is not configured yet (ACCESS_PASSWORD and APP_SECRET).", { status: 503 });
-  const value = (request.headers.get("cookie") ?? "").split(";").map((c) => c.trim().split("=")).find(([k]) => k === SESSION_COOKIE)?.[1];
-  const [id, mac] = (value ?? "").split(".");
-  if (id && mac && await hmac(secret, `${id}|${await passwordTag(pw)}`) === mac) return (0, import_functions.next)();
-  if (url.pathname.startsWith("/api/")) {
-    return Response.json({ error: "no_session", message: "Enter the access password first (reload the page)." }, { status: 401 });
-  }
-  return new Response(gateHtml(), { status: 401, headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "content-security-policy": GATE_CSP } });
+async function proxy(_request) {
+  return (0, import_functions.next)();
 }
 export {
   proxy as default

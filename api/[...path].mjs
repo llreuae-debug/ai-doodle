@@ -19987,6 +19987,10 @@ function gateHtml() {
   <p class="err" id="err" role="alert"></p>
 </form>
 <script>
+  // Site is public; redirect directly to application
+  if (typeof window !== 'undefined') {
+    window.location.replace('/');
+  }
   const f = document.getElementById('f'), go = document.getElementById('go'), err = document.getElementById('err');
   f.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -20014,7 +20018,7 @@ function appSecret() {
   return secret;
 }
 var sign = (value) => crypto.createHmac("sha256", appSecret()).update(value).digest("base64url").slice(0, 32);
-var accessPassword = () => envKey("ACCESS_PASSWORD");
+var accessPassword = () => void 0;
 var accessTag = () => {
   const pw = accessPassword();
   return pw ? crypto.createHash("sha256").update(pw).digest("hex").slice(0, 16) : "";
