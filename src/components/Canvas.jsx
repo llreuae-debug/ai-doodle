@@ -81,10 +81,10 @@ const Canvas = forwardRef(({
     ctx.restore();
   }, []);
 
-  // Render a stroke on any canvas context
-  const renderSingleStroke = (ctx, stroke) => {
+  // Render a stroke on any canvas context with realistic hand-drawn stroke textures
+  const renderSingleStroke = (ctx, stroke, exportScale = 1) => {
     if (!stroke || !stroke.points || stroke.points.length === 0) return;
-    const { points, color, brush, width, opacity } = stroke;
+    const { points, color, brush = 'pencil', width, opacity } = stroke;
     const canvas = canvasRef.current;
     const w = canvas ? canvas.width / (window.devicePixelRatio || 1) : 800;
     const h = canvas ? canvas.height / (window.devicePixelRatio || 1) : 600;
@@ -96,42 +96,141 @@ const Canvas = forwardRef(({
       ctx.save();
       transform(ctx);
 
-      ctx.globalAlpha = opacity ?? 1;
-      ctx.lineWidth = width;
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
 
       if (brush === 'eraser') {
         ctx.globalCompositeOperation = 'destination-out';
         ctx.strokeStyle = 'rgba(0,0,0,1)';
+        ctx.lineWidth = width;
+        ctx.globalAlpha = 1;
       } else {
         ctx.globalCompositeOperation = 'source-over';
         ctx.strokeStyle = color;
-      }
-
-      if (brush === 'neon') {
-        ctx.shadowColor = color;
-        ctx.shadowBlur = width * 2.2;
-      } else if (brush === 'calligraphy') {
-        ctx.lineCap = 'square';
+        ctx.fillStyle = color;
+        ctx.globalAlpha = opacity ?? 1;
       }
 
       if (points.length === 1) {
+        const pt = points[0];
+        const p = pt.p || 0.6;
+        const radius = (width * (0.6 + p * 0.6)) / 2;
         ctx.beginPath();
-        ctx.arc(points[0].x, points[0].y, width / 2, 0, Math.PI * 2);
-        ctx.fillStyle = ctx.strokeStyle;
+        ctx.arc(pt.x, pt.y, Math.max(0.8, radius), 0, Math.PI * 2);
         ctx.fill();
-      } else {
+        ctx.restore();
+        return;
+      }
+
+      // --- Realistic Hand-Drawn Medium Rendering ---
+      if (brush === 'pencil') {
+        // Natural graphite pencil with authentic paper grain and pressure sensitivity
+        ctx.globalAlpha = (opacity ?? 1) * 0.88;
+        for (let i = 1; i < points.length; i++) {
+          const p0 = points[i - 1];
+          const p1 = points[i];
+          const pressure = p1.p || 0.55;
+          const strokeW = Math.max(0.75, width * (0.65 + pressure * 0.7));
+
+          ctx.lineWidth = strokeW;
+          ctx.beginPath();
+          ctx.moveTo(p0.x, p0.y);
+          ctx.lineTo(p1.x, p1.y);
+          ctx.stroke();
+
+          // Organic graphite paper grain / fiber micro-jitter
+          if (strokeW > 2) {
+            ctx.lineWidth = strokeW * 0.45;
+            ctx.globalAlpha = (opacity ?? 1) * 0.35;
+            const jitterX = ((i * 7) % 5 - 2) * 0.3;
+            const jitterY = ((i * 11) % 5 - 2) * 0.3;
+            ctx.beginPath();
+            ctx.moveTo(p0.x + jitterX, p0.y + jitterY);
+            ctx.lineTo(p1.x + jitterX, p1.y + jitterY);
+            ctx.stroke();
+            ctx.globalAlpha = (opacity ?? 1) * 0.88;
+          }
+        }
+      } else if (brush === 'pen' || brush === 'ink') {
+        // Authentic fine fountain / technical ink pen with organic tapering
+        for (let i = 1; i < points.length; i++) {
+          const p0 = points[i - 1];
+          const p1 = points[i];
+          const pressure = p1.p || 0.6;
+          ctx.lineWidth = Math.max(0.8, width * (0.6 + pressure * 0.8));
+          ctx.beginPath();
+          ctx.moveTo(p0.x, p0.y);
+          ctx.lineTo(p1.x, p1.y);
+          ctx.stroke();
+        }
+      } else if (brush === 'charcoal') {
+        // Rich velvety charcoal stick with powdery edge diffusion
+        ctx.shadowColor = color;
+        ctx.shadowBlur = width * 0.6;
+        ctx.globalAlpha = (opacity ?? 1) * 0.82;
+        for (let i = 1; i < points.length; i++) {
+          const p0 = points[i - 1];
+          const p1 = points[i];
+          const pressure = p1.p || 0.6;
+          ctx.lineWidth = Math.max(1.2, width * (0.75 + pressure * 0.65));
+          ctx.beginPath();
+          ctx.moveTo(p0.x, p0.y);
+          ctx.lineTo(p1.x, p1.y);
+          ctx.stroke();
+        }
+        ctx.shadowBlur = 0;
+      } else if (brush === 'brush') {
+        // Natural bristle brush: multi-hair organic spread responding to hand pressure
+        const hairs = 3;
+        for (let h = 0; h < hairs; h++) {
+          const offsetRatio = (h - (hairs - 1) / 2) * 0.28;
+          ctx.globalAlpha = (opacity ?? 1) * (0.7 + h * 0.1);
+          ctx.beginPath();
+          ctx.moveTo(points[0].x, points[0].y);
+          for (let i = 1; i < points.length; i++) {
+            const pt = points[i];
+            const p = pt.p || 0.6;
+            const hairOffset = width * offsetRatio * (0.5 + p * 0.8);
+            ctx.lineWidth = Math.max(0.6, width * 0.45 * (0.5 + p * 0.7));
+            ctx.lineTo(pt.x + hairOffset, pt.y + hairOffset);
+          }
+          ctx.stroke();
+        }
+      } else if (brush === 'marker') {
+        // Translucent chisel art marker with natural ink overlap
+        ctx.globalAlpha = (opacity ?? 1) * 0.68;
+        ctx.lineWidth = width * 1.15;
+        ctx.lineCap = 'butt';
         ctx.beginPath();
         ctx.moveTo(points[0].x, points[0].y);
-
+        for (let i = 1; i < points.length; i++) {
+          ctx.lineTo(points[i].x, points[i].y);
+        }
+        ctx.stroke();
+      } else if (brush === 'neon') {
+        ctx.shadowColor = color;
+        ctx.shadowBlur = width * 2.4;
+        ctx.lineWidth = width;
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
         for (let i = 1; i < points.length - 1; i++) {
           const xc = (points[i].x + points[i + 1].x) / 2;
           const yc = (points[i].y + points[i + 1].y) / 2;
           ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
         }
-        const last = points[points.length - 1];
-        ctx.lineTo(last.x, last.y);
+        ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
+        ctx.stroke();
+      } else {
+        // Smooth organic curve default
+        ctx.lineWidth = width;
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (let i = 1; i < points.length - 1; i++) {
+          const xc = (points[i].x + points[i + 1].x) / 2;
+          const yc = (points[i].y + points[i + 1].y) / 2;
+          ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+        }
+        ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
         ctx.stroke();
       }
 
@@ -370,20 +469,78 @@ const Canvas = forwardRef(({
       sound.playDing();
     },
     getCanvasElement: () => canvasRef.current,
-    toDataURL: (type = 'image/png', bg = canvasBg) => {
+    toDataURL: (type = 'image/png', bg = canvasBg, resolution = 'display') => {
       const canvas = canvasRef.current;
       if (!canvas) return '';
+      const displayW = canvas.width / (window.devicePixelRatio || 1);
+      const displayH = canvas.height / (window.devicePixelRatio || 1);
+
+      let targetW = canvas.width;
+      let targetH = canvas.height;
+      let scale = window.devicePixelRatio || 1;
+
+      if (resolution === '8k' || resolution === '4320p' || resolution === '8k-png' || resolution === 'transparent-8k-png') {
+        targetW = 7680;
+        targetH = Math.round((7680 * (displayH / displayW)) / 2) * 2;
+        scale = targetW / displayW;
+      } else if (resolution === '4k' || resolution === '2160p' || resolution === '4k-png') {
+        targetW = 3840;
+        targetH = Math.round((3840 * (displayH / displayW)) / 2) * 2;
+        scale = targetW / displayW;
+      }
+
       const exportCanvas = document.createElement('canvas');
-      exportCanvas.width = canvas.width;
-      exportCanvas.height = canvas.height;
+      exportCanvas.width = targetW;
+      exportCanvas.height = targetH;
       const expCtx = exportCanvas.getContext('2d');
+      if (!expCtx) return canvas.toDataURL(type);
 
       if (bg) {
         expCtx.fillStyle = bg;
         expCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
       }
-      expCtx.drawImage(canvas, 0, 0);
+
+      expCtx.save();
+      expCtx.scale(scale, scale);
+      strokesRef.current.forEach(stroke => {
+        renderSingleStroke(expCtx, stroke, scale);
+      });
+      expCtx.restore();
+
       return exportCanvas.toDataURL(type);
+    },
+    exportUltraHD: (resolution = '8k', bg = canvasBg) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return null;
+      const displayW = canvas.width / (window.devicePixelRatio || 1);
+      const displayH = canvas.height / (window.devicePixelRatio || 1);
+      const targetW = resolution === '8k' ? 7680 : 3840;
+      const targetH = Math.round((targetW * (displayH / displayW)) / 2) * 2;
+      const scale = targetW / displayW;
+
+      const exportCanvas = document.createElement('canvas');
+      exportCanvas.width = targetW;
+      exportCanvas.height = targetH;
+      const expCtx = exportCanvas.getContext('2d');
+      if (!expCtx) return null;
+
+      if (bg) {
+        expCtx.fillStyle = bg;
+        expCtx.fillRect(0, 0, targetW, targetH);
+      }
+      expCtx.save();
+      expCtx.scale(scale, scale);
+      strokesRef.current.forEach(stroke => {
+        renderSingleStroke(expCtx, stroke, scale);
+      });
+      expCtx.restore();
+
+      return {
+        width: targetW,
+        height: targetH,
+        dataUrl: exportCanvas.toDataURL('image/png'),
+        resolutionLabel: resolution === '8k' ? `8K Ultra-HD (${targetW}×${targetH})` : `4K Ultra-HD (${targetW}×${targetH})`
+      };
     },
     toSVG: () => {
       const canvas = canvasRef.current;

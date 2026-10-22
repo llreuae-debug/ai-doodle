@@ -14,16 +14,16 @@ import { traceImage } from '../pipeline/traceClient';
 import { loadPhotoHand } from './photoHand';
 import { toSketch } from './sketch';
 
-/** Longest side of an upload's art raster, in asset px. */
-const ART_MAX_SIDE = 1600;
-/** Library doodles (200×200 units) are rasterised at this many px. */
-const DOODLE_RASTER = 1200;
-/** Longest side the tracer works at. Bigger is slower and gives noisier strokes. */
-const TRACE_MAX_SIDE = 900;
+/** Longest side of an upload's art raster, in asset px (scaled for Ultra-HD 8K). */
+const ART_MAX_SIDE = 2400;
+/** Library doodles (200×200 units) are rasterised at this many px for ultra-sharp 8K fidelity. */
+const DOODLE_RASTER = 2400;
+/** Longest side the tracer works at. */
+const TRACE_MAX_SIDE = 1200;
 /** Distance between sampled points along SVG paths, in art px. */
-const SVG_SAMPLE_STEP = 3;
-/** Hands are rasterised above their display size so they stay sharp at 4K. */
-const HAND_RASTER_SCALE = 1.5;
+const SVG_SAMPLE_STEP = 2;
+/** Hands are rasterised above their display size so they stay ultra-sharp up to 8K. */
+const HAND_RASTER_SCALE = 2.0;
 /** Upload pixels lighter than this (0–255) fade towards transparent. */
 const WHITE_FROM = 235;
 const SVG_GEOMETRY = 'path, line, polyline, polygon, circle, ellipse, rect';

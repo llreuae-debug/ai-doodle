@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import {
-  Zap,
+  Pencil,
   PenTool,
-  Sparkles,
-  Highlighter,
   Feather,
+  Brush,
+  Highlighter,
+  Zap,
+  Sparkles,
   Eraser,
   Undo2,
   Redo2,
@@ -41,13 +43,15 @@ const COLOR_SWATCHES = [
 ];
 
 const BRUSHES = [
-  { id: 'neon', label: 'Neon Glow', icon: Zap },
-  { id: 'pen', label: 'Smooth Ink', icon: PenTool },
-  { id: 'sparkle', label: 'Stardust', icon: Sparkles },
-  { id: 'rainbow', label: 'Rainbow', icon: Palette },
-  { id: 'marker', label: 'Highlighter', icon: Highlighter },
-  { id: 'calligraphy', label: 'Chisel', icon: Feather },
-  { id: 'eraser', label: 'Eraser', icon: Eraser },
+  { id: 'pencil', label: 'Graphite Pencil (Textured)', icon: Pencil },
+  { id: 'pen', label: 'Fine Ink Pen (Hand-Drawn)', icon: PenTool },
+  { id: 'charcoal', label: 'Charcoal Stick (Smudged)', icon: Feather },
+  { id: 'brush', label: 'Bristle Brush (Organic)', icon: Brush },
+  { id: 'marker', label: 'Art Marker (Chisel)', icon: Highlighter },
+  { id: 'neon', label: 'Neon Cyber Glow', icon: Zap },
+  { id: 'sparkle', label: 'Stardust Glitter', icon: Sparkles },
+  { id: 'rainbow', label: 'Rainbow Ink Flow', icon: Palette },
+  { id: 'eraser', label: 'Precision Eraser', icon: Eraser },
 ];
 
 const SYMMETRY_OPTIONS = [
@@ -273,12 +277,40 @@ export default function Toolbar({
             <div className="popover-panel glass-panel export-menu-popover">
               <button
                 className="export-menu-item"
+                style={{ fontWeight: 700, color: 'var(--cyan, #00f3ff)' }}
+                onClick={() => {
+                  onExport('8k-png');
+                  setShowExportMenu(false);
+                }}
+              >
+                🎨 Ultra-HD 8K Hand-Drawn PNG (7680×4320)
+              </button>
+              <button
+                className="export-menu-item"
+                onClick={() => {
+                  onExport('4k-png');
+                  setShowExportMenu(false);
+                }}
+              >
+                🖼️ Ultra-HD 4K Hand-Drawn PNG (3840×2160)
+              </button>
+              <button
+                className="export-menu-item"
+                onClick={() => {
+                  onExport('transparent-8k-png');
+                  setShowExportMenu(false);
+                }}
+              >
+                ✨ Transparent 8K Hand-Drawn PNG
+              </button>
+              <button
+                className="export-menu-item"
                 onClick={() => {
                   onExport('png');
                   setShowExportMenu(false);
                 }}
               >
-                🖼️ Save as PNG
+                Standard Display PNG
               </button>
               <button
                 className="export-menu-item"
@@ -287,7 +319,7 @@ export default function Toolbar({
                   setShowExportMenu(false);
                 }}
               >
-                ✨ Transparent PNG
+                Transparent Display PNG
               </button>
               <button
                 className="export-menu-item"
@@ -296,7 +328,7 @@ export default function Toolbar({
                   setShowExportMenu(false);
                 }}
               >
-                📐 Vector SVG
+                📐 Vector Stroke Data (SVG)
               </button>
             </div>
           )}

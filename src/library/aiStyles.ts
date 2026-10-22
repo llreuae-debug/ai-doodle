@@ -22,14 +22,14 @@ export interface AiStyle {
 }
 
 export const AI_STYLES: AiStyle[] = [
-  { id: 'doodle', name: 'Doodle line art', vector: true, color: false, tier: 'free', preview: { def: 'c-bilal', lineWidth: 3.4, look: 'plain' } },
-  { id: 'colour-doodle', name: 'Colour doodle', vector: true, color: true, tier: 'free', preview: { def: 'c-bilal', lineWidth: 3.4, look: 'plain' } },
-  { id: '3d', name: '3D Animated', vector: false, color: true, tier: 'pro', preview: { def: 'c-bilal', lineWidth: 1.6, look: 'soft3d', ink: '#5A3E2B' } },
-  { id: 'flat', name: 'Flat vector', vector: false, color: true, tier: 'free', preview: { def: 'c-omar', lineWidth: 0, look: 'flat' } },
-  { id: 'watercolour', name: 'Watercolour', vector: false, color: true, tier: 'pro', preview: { def: 'c-mariam', lineWidth: 1.4, look: 'watercolor', ink: '#3E4A5A' } },
-  { id: 'charcoal', name: 'Charcoal sketch', vector: false, color: false, tier: 'free', preview: { def: 'c-zain', lineWidth: 4.5, look: 'charcoal' } },
-  { id: 'photo', name: 'Realistic photo', vector: false, color: true, tier: 'pro', preview: { def: 'c-ayesha', lineWidth: 1.4, look: 'soft3d', ink: '#4A3A30' } },
-  { id: 'anime', name: 'Anime', vector: false, color: true, tier: 'free', preview: { def: 'c-sara', lineWidth: 2.4, look: 'plain' } },
+  { id: 'doodle', name: 'Realistic pencil sketch (Ultra-HD)', vector: true, color: false, tier: 'free', preview: { def: 'c-bilal', lineWidth: 3.4, look: 'plain' } },
+  { id: 'colour-doodle', name: 'Hand-drawn ink & colour', vector: true, color: true, tier: 'free', preview: { def: 'c-bilal', lineWidth: 3.4, look: 'plain' } },
+  { id: 'charcoal', name: 'Charcoal drawing (Ultra-HD)', vector: false, color: false, tier: 'free', preview: { def: 'c-zain', lineWidth: 4.5, look: 'charcoal' } },
+  { id: 'watercolour', name: 'Watercolour on textured paper', vector: false, color: true, tier: 'pro', preview: { def: 'c-mariam', lineWidth: 1.4, look: 'watercolor', ink: '#3E4A5A' } },
+  { id: 'flat', name: 'Architectural ink lineart', vector: false, color: true, tier: 'free', preview: { def: 'c-omar', lineWidth: 0, look: 'flat' } },
+  { id: '3d', name: 'Realistic 3D depth study', vector: false, color: true, tier: 'pro', preview: { def: 'c-bilal', lineWidth: 1.6, look: 'soft3d', ink: '#5A3E2B' } },
+  { id: 'photo', name: 'Realistic master study', vector: false, color: true, tier: 'pro', preview: { def: 'c-ayesha', lineWidth: 1.4, look: 'soft3d', ink: '#4A3A30' } },
+  { id: 'anime', name: 'Hand-inked manga art', vector: false, color: true, tier: 'free', preview: { def: 'c-sara', lineWidth: 2.4, look: 'plain' } },
 ];
 
 export const aiStyle = (id: ElementStyle): AiStyle => AI_STYLES.find((s) => s.id === id)!;

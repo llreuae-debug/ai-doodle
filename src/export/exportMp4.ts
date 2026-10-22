@@ -18,14 +18,15 @@ import { STAGE_SIZE, type AspectRatio, type Project } from '../model/types';
 
 const UI_YIELD_EVERY = 10;
 
-export type Resolution = '720p' | '1080p' | '1440p' | '2160p';
+export type Resolution = '720p' | '1080p' | '1440p' | '2160p' | '4320p';
 
 /** 'pro' only shows a star until plans exist. */
 export const RESOLUTIONS: Record<Resolution, { label: string; shortSide: number; tier: 'free' | 'pro' }> = {
-  '720p': { label: '720p', shortSide: 720, tier: 'free' },
-  '1080p': { label: '1080p', shortSide: 1080, tier: 'free' },
-  '1440p': { label: '2k', shortSide: 1440, tier: 'pro' },
-  '2160p': { label: '4k', shortSide: 2160, tier: 'pro' },
+  '720p': { label: '720p HD', shortSide: 720, tier: 'free' },
+  '1080p': { label: '1080p Full HD', shortSide: 1080, tier: 'free' },
+  '1440p': { label: '2k Quad HD', shortSide: 1440, tier: 'pro' },
+  '2160p': { label: '4k Ultra HD', shortSide: 2160, tier: 'pro' },
+  '4320p': { label: '8k UHD (7680×4320)', shortSide: 4320, tier: 'pro' },
 };
 
 export function outputSize(ratio: AspectRatio, resolution: Resolution): { width: number; height: number } {

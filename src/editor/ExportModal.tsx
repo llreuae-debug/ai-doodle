@@ -1,7 +1,8 @@
-import { Download, Inbox, Play, Star, Video, X } from 'lucide-react';
+import { Download, Inbox, Play, Sparkles, Star, Video, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { mixSoundtrack } from '../audio/mix';
 import { projectTimeline } from '../engine/projectTiming';
+import { Renderer, FINISHED } from '../engine/renderer';
 import type { Resources } from '../engine/resources';
 import { exportMp4, outputSize, RESOLUTIONS, type Resolution } from '../export/exportMp4';
 import type { Project } from '../model/types';
@@ -21,7 +22,19 @@ type RowState = { kind: 'idle' } | { kind: 'rendering'; progress: number; stage:
 
 const errText = (err: unknown) => (err instanceof Error ? err.message : String(err));
 
-export function ExportModal({ project, resources, cache, onClose }: { project: Project; resources: Resources; cache: RenderCache; onClose: () => void }) {
+export function ExportModal({
+  project,
+  resources,
+  cache,
+  sceneIndex = 0,
+  onClose,
+}: {
+  project: Project;
+  resources: Resources;
+  cache: RenderCache;
+  sceneIndex?: number;
+  onClose: () => void;
+}) {
   const [rows, setRows] = useState<Partial<Record<Resolution, RowState>>>({});
   const [, force] = useState(0);
   const [playing, setPlaying] = useState<Resolution | null>(null);
@@ -76,10 +89,111 @@ export function ExportModal({ project, resources, cache, onClose }: { project: P
     }
   };
 
+  const [snapshotBusy, setSnapshotBusy] = useState(false);
+  const [snapshotDone, setSnapshotDone] = useState<{ url: string; size: string } | null>(null);
+  const { width: snapW, height: snapH } = outputSize(project.aspectRatio, '4320p');
+
+  const download8KSnapshot = async () => {
+    setSnapshotBusy(true);
+    try {
+      await ensureResources(project, resources, () => {});
+      const canvas = document.createElement('canvas');
+      canvas.width = snapW;
+      canvas.height = snapH;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) throw new Error('Could not create 8K export canvas context');
+      const tl = projectTimeline(project, resources);
+      const renderer = new Renderer(resources);
+      renderer.renderScene(ctx, project, tl, sceneIndex, FINISHED, snapW, snapH, { showHand: false });
+      canvas.toBlob((blob) => {
+        if (!blob) {
+          setSnapshotBusy(false);
+          return;
+        }
+        const url = URL.createObjectURL(blob);
+        const mb = (blob.size / 1048576).toFixed(1);
+        setSnapshotDone({ url, size: `${mb} MB` });
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${name}-slide${sceneIndex + 1}-8K-${snapW}x${snapH}.png`;
+        a.click();
+        setSnapshotBusy(false);
+      }, 'image/png');
+    } catch (err) {
+      console.error(err);
+      setSnapshotBusy(false);
+    }
+  };
+
   const playingResult = playing ? fresh(playing) : null;
 
   return (
-    <Modal title="Export" subtitle="Render and download your video" icon={<Inbox size={22} />} size="lg" onClose={onClose}>
+    <Modal title="Export" subtitle="Render and download in Ultra-HD 8K" icon={<Inbox size={22} />} size="lg" onClose={onClose}>
+      {/* 8K Ultra-HD Hand-Drawn Masterpiece Snapshot */}
+      <div
+        className="export-8k-panel"
+        style={{
+          margin: '0 0 1.25rem',
+          padding: '1.1rem 1.25rem',
+          background: 'linear-gradient(135deg, rgba(155, 92, 255, 0.15) 0%, rgba(0, 245, 255, 0.08) 100%)',
+          border: '1px solid rgba(0, 245, 255, 0.35)',
+          borderRadius: '14px',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.35)',
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '14px',
+        }}
+      >
+        <div style={{ flex: '1', minWidth: '240px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                padding: '3px 10px',
+                background: 'linear-gradient(135deg, #9B5CFF, #00F5FF)',
+                color: '#fff',
+                fontSize: '11px',
+                fontWeight: 800,
+                borderRadius: '99px',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+              }}
+            >
+              <Sparkles size={11} /> 8K Ultra-HD
+            </span>
+            <strong style={{ fontSize: '16px', color: '#fff' }}>Realistic Hand-Drawn Snapshot</strong>
+          </div>
+          <div style={{ fontSize: '13px', color: 'var(--muted)', lineHeight: '1.45' }}>
+            Render Slide #{sceneIndex + 1} at native <strong>{snapW}×{snapH} pixels</strong>. Preserves authentic organic strokes, fine pencil textures, and rich hand-drawn contours.
+          </div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <button
+            type="button"
+            className="btn primary"
+            style={{ minWidth: '180px' }}
+            disabled={snapshotBusy}
+            onClick={() => void download8KSnapshot()}
+          >
+            {snapshotBusy ? (
+              <>Rendering 8K…</>
+            ) : (
+              <>
+                <Download size={17} /> Download 8K PNG
+              </>
+            )}
+          </button>
+          {snapshotDone && (
+            <span style={{ fontSize: '12px', color: 'var(--cyan)', fontWeight: 600 }}>
+              ✓ Saved ({snapshotDone.size})
+            </span>
+          )}
+        </div>
+      </div>
       <div className="export-audio-summary" style={{ margin: '0 0 1rem', padding: '0.6rem 0.85rem', background: 'var(--surface-sunken)', borderRadius: 'var(--radius-sm)', fontSize: '13px', display: 'flex', flexDirection: 'column', gap: '0.4rem', border: '1px solid var(--border)' }}>
         <div style={{ color: 'var(--text-muted)' }}>
           Includes: voice {hasVoice ? '✓' : '—'} · music {hasMusic ? '✓' : '—'} · pen sound {penSoundIncluded ? `✓ (${penSoundVol}%)` : '—'}

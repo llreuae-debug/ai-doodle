@@ -1066,7 +1066,7 @@ export default function Editor() {
           onUse={useVoice}
         />
       )}
-      {modal?.kind === 'export' && <ExportModal project={project} resources={resources} cache={renderCache.current} onClose={() => setModal(null)} />}
+      {modal?.kind === 'export' && <ExportModal project={project} resources={resources} cache={renderCache.current} sceneIndex={sceneIndex} onClose={() => setModal(null)} />}
       {modal?.kind === 'story' && (
         <StoryWizard
           project={project}

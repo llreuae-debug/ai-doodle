@@ -9,12 +9,12 @@ export type ElementStyle = (typeof ELEMENT_STYLES)[number];
 export const VECTOR_STYLES: ElementStyle[] = ['doodle', 'colour-doodle'];
 
 const PICTURE_STYLES: Record<Exclude<ElementStyle, 'doodle' | 'colour-doodle'>, string> = {
-  '3d': '3D animated feature-film render: rounded appealing shapes, big expressive eyes, soft global illumination, vibrant colours',
-  flat: 'flat vector illustration: simple geometric shapes, a limited colour palette, no outlines, no gradients',
-  watercolour: 'loose watercolour illustration with fine ink outlines and soft colour washes',
-  charcoal: 'charcoal sketch on paper: bold expressive strokes, smudged shading, black and white',
-  photo: 'realistic photograph, natural light, sharp focus',
-  anime: 'anime illustration with clean line art and cel shading',
+  charcoal: 'authentic realistic charcoal drawing on textured paper: rich dark vine charcoal strokes, expressive smudged shading, organic paper tooth, fine artistic hatching, high resolution hand-drawn craftsmanship, never vector art, never flat illustration',
+  watercolour: 'authentic hand-drawn watercolour and ink artwork: fine natural dip-pen ink linework, organic translucent watercolour pigment bleeds on heavy cold-pressed cotton paper, genuine fine-art hand-drawn character, no flat vector shapes',
+  flat: 'detailed architectural fine-liner ink drawing: authentic hand-drawn drafting lines, organic cross-hatching, human hand linework variation, fine technical pen on paper, never corporate vector art, never Illustrator flat clipart',
+  '3d': 'sculptural hand-crafted clay and chiaroscuro pencil study: rich depth, tactile organic surfaces, realistic studio lighting, expressive hand details',
+  photo: 'realistic master life study: natural light, exquisite organic textures, razor-sharp focus and fine hand-crafted detail',
+  anime: 'authentic hand-inked manga lineart: organic G-pen ink strokes, fine hatching, expressive line weight, traditional paper drawing',
 };
 
 const ImageRef = z.object({ mimeType: z.enum(['image/png', 'image/jpeg', 'image/webp']), data: z.string().max(4_000_000) });
@@ -94,10 +94,10 @@ async function vectorOnce(r: ElementRequest, attempt: number): Promise<ElementRe
   const color = r.style === 'colour-doodle';
   const sheet = r.characterSheet;
   const subject = sheet ? `${sheet.name}: ${sheet.look}. Same character as before (match the reference drawing if given), now: ${r.prompt}` : r.prompt;
-  const text = `Draw "${subject}" as ${KIND_RULES[r.type]}, in a clean hand-drawn whiteboard doodle style.
-Rules: 200×200 viewBox, keep every point between 12 and 188. No text or letters.
-${r.type === 'scene' ? '30 to 70' : '12 to 50'} strokes, each a separate path string that starts with an absolute "M" and uses only absolute commands M L C Q A Z with numbers separated by spaces or commas. Order the strokes the way a person draws: big outlines first, then details.
-${color ? 'Add 3 to 10 fills: closed shapes drawn behind the strokes, each {d, c} with a #RRGGBB colour, covering the main areas.' : 'Return an empty fills array.'}
+  const text = `Draw "${subject}" as ${KIND_RULES[r.type]}, in an authentic realistic hand-drawn sketch style with organic contours and natural human stroke variation.
+Rules: 200×200 viewBox, keep every point between 12 and 188. No text or letters. STRICTLY FORBIDDEN: Adobe Illustrator-style geometric shapes, flat corporate clipart, or sterile vector icons.
+${r.type === 'scene' ? '30 to 70' : '12 to 50'} strokes, each a separate path string that starts with an absolute "M" and uses only absolute commands M L C Q A Z with numbers separated by spaces or commas. Order the strokes the way an artist draws: organic outer contours first, then rich interior details and hatching.
+${color ? 'Add 3 to 10 fills: soft hand-drawn wash shapes behind the strokes, each {d, c} with a #RRGGBB colour, covering the main areas.' : 'Return an empty fills array.'}
 "name" is a short title of at most 4 words.${attempt > 0 ? '\nYour last drawing had invalid path data. Double-check every path.' : ''}`;
   const parts: Part[] = sheet?.reference ? [{ inlineData: sheet.reference }, { text: `Reference drawing of ${sheet.name}.\n${text}` }] : [{ text }];
   // Drawing good path data needs the stronger Flash models (the lite ones draw crude shapes).
@@ -173,8 +173,8 @@ async function picture(r: ElementRequest): Promise<ElementResult> {
   const scene = r.type === 'scene';
   const subject = sheet ? `${sheet.name}, ${sheet.look}. Keep this exact character from the reference image (same face, hair, clothes and colours), now: ${r.prompt}` : r.prompt;
   const framing = scene
-    ? 'A complete background scene filling the whole frame. No text, letters or watermark.'
-    : `${r.type === 'character' ? 'One full-body character, head to feet' : 'A single object'}, centred with a clear margin, isolated on a plain pure white background (#FFFFFF), no ground shadow, no frame, no text, letters or watermark.`;
+    ? 'A complete background scene filling the whole frame, rendered with authentic realistic hand-drawn strokes, natural paper tooth, and organic fine-art textures. No text, letters or watermark. Strictly forbidden: flat vector art, Adobe Illustrator graphics, or generic clipart.'
+    : `${r.type === 'character' ? 'One full-body character, head to feet' : 'A single object'}, centred with a clear margin, rendered with realistic hand-drawn strokes on textured paper, isolated on a plain pure white background (#FFFFFF), no ground shadow, no frame, no text, letters or watermark. Strictly forbidden: flat vector art, Adobe Illustrator graphics, or generic clipart.`;
   const pic = await generatePicture(`${subject}. Style: ${style}. ${framing}`, sheet?.reference ? [sheet.reference] : [], scene ? ASPECT[r.aspect] : '1:1');
   if (scene) {
     const png = await sharp(pic.data).png().toBuffer({ resolveWithObject: true });
