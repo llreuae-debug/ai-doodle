@@ -1,6 +1,14 @@
 # Ai Doodle robots.txt
+User-agent: Google-adstxt
+Allow: /ads.txt
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
 User-agent: *
 Allow: /
+Allow: /ads.txt
 Allow: /how-it-works
 Allow: /blog
 Allow: /blog/*
