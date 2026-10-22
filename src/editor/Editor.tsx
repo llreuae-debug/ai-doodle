@@ -8,8 +8,7 @@ import { emptyResources } from '../engine/resources';
 import { sceneIndexAt } from '../engine/timeline';
 import { DEFAULT_HAND_ID, HANDS, loadHandCatalog, resolveHand } from '../hands/catalog';
 import type { DoodleCategory, DoodleDef } from '../library/doodles';
-import { exampleProject } from '../library/templates';
-import { cloneElement, cloneScene, newDoodle, newId, newImage, newScene, newText } from '../model/factories';
+import { cloneElement, cloneScene, newDoodle, newId, newImage, newProject, newScene, newText } from '../model/factories';
 import { STAGE_SIZE, type AspectRatio, type CharacterSheet, type Project, type SceneElement, type Voice } from '../model/types';
 import { doodleName, ensureResources, importImage, loadHand, readFont } from '../services/loaders';
 import { DEFAULT_FONT, FONT_UPLOAD_TYPES, MAX_FONT_BYTES } from '../library/fonts';
@@ -69,7 +68,7 @@ async function audioDurationMs(blob: Blob): Promise<number> {
 export default function Editor() {
   const user = useCurrentUser();
   const [resources] = useState(emptyResources);
-  const store = useProjectStore(() => exampleProject(DEFAULT_HAND_ID));
+  const store = useProjectStore(() => newProject('Untitled video', DEFAULT_HAND_ID));
   const { project, update, checkpoint, undo, redo, replace } = store;
   const [resVersion, bump] = useReducer((x: number) => x + 1, 0);
   // resources is mutable; resVersion is bumped whenever new art lands in it.
@@ -119,13 +118,10 @@ export default function Editor() {
     return () => document.body.classList.remove('editor-body');
   }, []);
 
-  // Reopen the last saved project.
+  // Reopen the last saved project if available; otherwise start on a clean blank canvas.
   useEffect(() => {
     const id = lastProjectId();
-    if (!id) {
-      setModal({ kind: 'gallery' });
-      return;
-    }
+    if (!id) return;
     loadProject(id)
       .then((p) => {
         if (!p) return;
