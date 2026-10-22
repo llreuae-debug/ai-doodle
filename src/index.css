@@ -3,41 +3,41 @@
    ========================================================================== */
 
 :root {
-  /* Dark Cyber-Creative Palette (Default) */
-  --bg-app: #080a11;
-  --bg-canvas: #0d0f17;
-  --bg-glass: rgba(18, 22, 34, 0.78);
-  --bg-glass-card: rgba(22, 27, 43, 0.85);
-  --bg-glass-hover: rgba(32, 40, 62, 0.9);
+  /* Futuristic 2030 Cyber Palette (Default) */
+  --bg-app: #080A12;
+  --bg-canvas: #0D101C;
+  --bg-glass: rgba(16, 22, 41, 0.82);
+  --bg-glass-card: rgba(16, 22, 41, 0.88);
+  --bg-glass-hover: rgba(22, 30, 56, 0.94);
   
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.14);
-  --border-glow-cyan: rgba(0, 243, 255, 0.45);
-  --border-glow-purple: rgba(168, 85, 247, 0.45);
+  --border-glass: rgba(0, 245, 255, 0.18);
+  --border-glow-cyan: rgba(0, 245, 255, 0.45);
+  --border-glow-purple: rgba(155, 92, 255, 0.45);
   
-  /* Vibrant Accents */
-  --cyan: #00f3ff;
-  --cyan-glow: 0 0 20px rgba(0, 243, 255, 0.4);
-  --purple: #a855f7;
-  --purple-glow: 0 0 20px rgba(168, 85, 247, 0.4);
-  --pink: #ec4899;
-  --pink-glow: 0 0 20px rgba(236, 72, 153, 0.4);
-  --amber: #f59e0b;
-  --emerald: #10b981;
+  /* Gen Z Neon & Fluorescent Accents */
+  --cyan: #00F5FF;
+  --cyan-glow: 0 0 20px rgba(0, 245, 255, 0.45);
+  --purple: #9B5CFF;
+  --purple-glow: 0 0 20px rgba(155, 92, 255, 0.45);
+  --pink: #FF3CAC;
+  --pink-glow: 0 0 20px rgba(255, 60, 172, 0.45);
+  --amber: #FFB800;
+  --emerald: #C6FF00;
   
   /* Text */
-  --text-main: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-main: #F5F7FF;
+  --text-secondary: #A4ADC4;
+  --text-muted: #687494;
   
   /* Typography */
-  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Space Grotesk', ui-monospace, monospace;
 
-  /* Glass Blur */
+  /* Glass Blur & Elevation */
   --blur-amt: blur(20px);
-  --shadow-dock: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.15);
-  --shadow-modal: 0 25px 60px -12px rgba(0, 0, 0, 0.8);
+  --shadow-dock: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(0, 245, 255, 0.25);
+  --shadow-modal: 0 25px 60px -12px rgba(0, 0, 0, 0.85);
 }
 
 .light-theme {

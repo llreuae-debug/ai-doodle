@@ -11,17 +11,27 @@ import { LANGUAGE_LABELS, languageProblem, useVoices, VoicePicker } from './Voic
 
 /** Dialog basics: focus moves inside when it opens and back to the opener when it closes; Escape closes it. */
 export function useDialog(ref: RefObject<HTMLElement | null>, onClose: () => void) {
+  // The opener is read on the first render: an autoFocus field inside the dialog takes focus before effects run.
+  const [opener] = useState(() => document.activeElement as HTMLElement | null);
   useEffect(() => {
-    const last = document.activeElement as HTMLElement | null;
-    ref.current?.querySelector<HTMLElement>('input, select, textarea, button:not([data-close])')?.focus();
-    return () => last?.focus?.();
-  }, [ref]);
+    if (!ref.current?.contains(document.activeElement)) ref.current?.querySelector<HTMLElement>('input, select, textarea, button:not([data-close])')?.focus();
+    return () => opener?.focus?.();
+  }, [ref, opener]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [onClose]);
 }
+
+/**
+ * Backdrop handlers: a click on the backdrop itself closes the dialog. The mouse-down is cancelled so the
+ * click doesn't move focus away from the opener that the dialog hands focus back to.
+ */
+export const outsideClose = (onClose: () => void) => ({
+  onMouseDown: (e: React.MouseEvent) => e.target === e.currentTarget && e.preventDefault(),
+  onClick: (e: React.MouseEvent) => e.target === e.currentTarget && onClose(),
+});
 
 export function Modal(props: {
   title: ReactNode;
@@ -37,7 +47,7 @@ export function Modal(props: {
   const ref = useRef<HTMLDivElement>(null);
   useDialog(ref, onClose);
   return (
-    <div className="scrim" onPointerDown={(e) => e.target === e.currentTarget && onClose()}>
+    <div className="scrim" {...outsideClose(onClose)}>
       <div className={`modal modal-${size}`} role="dialog" aria-modal="true" aria-label={typeof title === 'string' ? title : undefined} ref={ref}>
         <div className={hero ? 'modal-h hero' : 'modal-h'}>
           {icon && <span className="mh-icon">{icon}</span>}

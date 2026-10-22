@@ -1,7 +1,7 @@
 import { AlertCircle, CheckCircle2, ExternalLink, Eye, EyeOff, KeyRound, Loader2, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { AiError, getAiStatus, setAiApiKey } from '../services/ai';
-import { useDialog } from './modals';
+import { outsideClose, useDialog } from './modals';
 
 interface ApiKeyModalProps {
   onClose: () => void;
@@ -53,8 +53,8 @@ export function ApiKeyModal({ onClose, onSaved }: ApiKeyModalProps) {
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="api-key-title">
-      <div className="modal-card api-key-modal" ref={ref} onClick={(e) => e.stopPropagation()}>
+    <div className="modal-backdrop" {...outsideClose(onClose)} role="dialog" aria-modal="true" aria-labelledby="api-key-title">
+      <div className="modal-card api-key-modal" ref={ref}>
         <div className="modal-header">
           <div className="title-row">
             <div className="icon-badge">

@@ -5,7 +5,7 @@ import { loadLibraryManifest, type ManifestItem } from '../library/manifest';
 import { newId } from '../model/factories';
 import type { CharacterSheet } from '../model/types';
 import { AiError, fetchMedia, generateElements, type ElementResult } from '../services/ai';
-import { useDialog } from './modals';
+import { outsideClose, useDialog } from './modals';
 import './characterVariations.css';
 
 interface CharacterVariationsModalProps {
@@ -296,7 +296,7 @@ export function CharacterVariationsModal(props: CharacterVariationsModalProps) {
   }, [characterItems]);
 
   return (
-    <div className="char-vars-overlay" role="dialog" aria-modal="true" aria-labelledby="char-vars-title" onPointerDown={(e) => e.target === e.currentTarget && props.onClose()}>
+    <div className="char-vars-overlay" role="dialog" aria-modal="true" aria-labelledby="char-vars-title" {...outsideClose(props.onClose)}>
       <div className="char-vars-modal" ref={dialogRef}>
         {/* Header */}
         <header className="char-vars-header">
