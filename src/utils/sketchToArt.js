@@ -68,7 +68,7 @@ export async function renderMasterpiece({ sourceCanvas, styleId, promptText, det
       ctx.fillRect(0, 0, width, height);
 
       // Cyber grid on bottom half
-      ctx.strokeStyle = 'rgba(0, 243, 255, 0.15)';
+      ctx.strokeStyle = 'rgba(178, 199, 182, 0.2)';
       ctx.lineWidth = 1.5;
       const horizon = height * 0.65;
       for (let x = 0; x <= width; x += 40) {
@@ -84,13 +84,13 @@ export async function renderMasterpiece({ sourceCanvas, styleId, promptText, det
         ctx.stroke();
       }
 
-      // Neon bokeh lights
+      // Bokeh lights in 3-color palette
       for (let i = 0; i < 35; i++) {
         const bx = Math.random() * width;
         const by = Math.random() * horizon;
         const br = 4 + Math.random() * 25;
         const bGrad = ctx.createRadialGradient(bx, by, 0, bx, by, br);
-        const col = Math.random() > 0.5 ? 'rgba(0, 243, 255,' : 'rgba(236, 72, 153,';
+        const col = Math.random() > 0.5 ? 'rgba(183, 91, 72,' : 'rgba(178, 199, 182,';
         bGrad.addColorStop(0, col + '0.4)');
         bGrad.addColorStop(1, col + '0)');
         ctx.fillStyle = bGrad;

@@ -12,23 +12,23 @@
   --gray-700: #344054;
   --gray-900: #101828;
 
-  --brand-50: #f9f5ff;
-  --brand-100: #f4ebff;
-  --brand-200: #e9d7fe;
-  --brand-300: #d6bbfb;
-  --brand-600: #7f56d9;
-  --brand-700: #6941c6;
+  --brand-50: #fbf6f4;
+  --brand-100: #f6eae6;
+  --brand-200: #ebd3cd;
+  --brand-300: #dfb2a7;
+  --brand-600: #B75B48;
+  --brand-700: #9E4635;
 
   --error-50: #fef3f2;
   --error-300: #fda29b;
-  --error-600: #d92d20;
-  --error-700: #b42318;
-  --warning-600: #dc6803;
+  --error-600: #B75B48;
+  --error-700: #9E4635;
+  --warning-600: #B75B48;
 
   --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
   --shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.03);
-  --ring-brand: 0 0 0 4px rgba(158, 119, 237, 0.24);
-  --ring-error: 0 0 0 4px rgba(240, 68, 56, 0.24);
+  --ring-brand: 0 0 0 4px rgba(183, 91, 72, 0.24);
+  --ring-error: 0 0 0 4px rgba(183, 91, 72, 0.24);
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
