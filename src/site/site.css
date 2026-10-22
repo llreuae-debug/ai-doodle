@@ -820,6 +820,264 @@
 }
 
 /* ==========================================================================
+   GEO & AEO OPTIMIZATION COMPONENTS (Direct Answers, Key Takeaways, FAQs)
+   ========================================================================== */
+
+/* 1. Generative Engine Direct Answer Callout */
+.geo-direct-answer {
+  background: linear-gradient(135deg, rgba(183, 91, 72, 0.15) 0%, rgba(20, 26, 22, 0.95) 100%);
+  border: 1px solid rgba(183, 91, 72, 0.45);
+  border-left: 4px solid var(--site-terracotta);
+  border-radius: var(--site-radius-md);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.geo-direct-answer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--site-terracotta);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.geo-direct-answer-body {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--site-ivory);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* 2. Key Takeaways Summary Box */
+.key-takeaways-box {
+  background: rgba(20, 26, 22, 0.85);
+  border: 1px solid rgba(178, 199, 182, 0.25);
+  border-radius: var(--site-radius-md);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+}
+
+.key-takeaways-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--site-sage);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.key-takeaways-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.key-takeaways-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--site-text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.key-takeaways-list li svg {
+  color: var(--site-sage);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+/* 3. Table of Contents */
+.table-of-contents {
+  background: rgba(20, 26, 22, 0.6);
+  border: 1px solid rgba(178, 199, 182, 0.15);
+  border-radius: var(--site-radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.toc-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--site-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toc-list a {
+  color: var(--site-sage);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.toc-list a:hover {
+  color: var(--site-ivory);
+  transform: translateX(4px);
+}
+
+/* 4. Semantic Article Comparison Tables */
+.article-table-wrap {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: var(--site-radius-md);
+  border: 1px solid rgba(178, 199, 182, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+  background: rgba(14, 18, 16, 0.9);
+}
+
+.article-table th {
+  background: rgba(28, 36, 31, 0.95);
+  color: var(--site-ivory);
+  font-weight: 700;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 2px solid rgba(183, 91, 72, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.article-table td {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid rgba(178, 199, 182, 0.12);
+  color: var(--site-text);
+  line-height: 1.5;
+}
+
+.article-table tr:hover td {
+  background: rgba(178, 199, 182, 0.05);
+}
+
+/* 5. AEO FAQ Section & Accordion Cards */
+.faq-section {
+  margin: 3.5rem 0;
+  border-top: 1px solid rgba(178, 199, 182, 0.2);
+  padding-top: 2.5rem;
+}
+
+.faq-section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--site-ivory);
+  margin-bottom: 0.5rem;
+}
+
+.faq-section-desc {
+  color: var(--site-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-card {
+  background: rgba(20, 26, 22, 0.75);
+  border: 1px solid rgba(178, 199, 182, 0.18);
+  border-radius: var(--site-radius-md);
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.faq-card:hover {
+  border-color: rgba(178, 199, 182, 0.35);
+}
+
+.faq-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--site-ivory);
+  margin: 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-card p {
+  color: var(--site-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* 6. E-E-A-T Author Bio Card */
+.author-bio-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(20, 26, 22, 0.85);
+  border: 1px solid rgba(178, 199, 182, 0.2);
+  border-radius: var(--site-radius-lg);
+  padding: 1.5rem;
+  margin: 3rem 0;
+}
+
+.author-bio-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--site-radius-full);
+  background: linear-gradient(135deg, var(--site-terracotta), #7A3628);
+  color: var(--site-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.author-bio-content h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--site-ivory);
+  margin: 0 0 0.25rem;
+}
+
+.author-bio-role {
+  font-size: 0.85rem;
+  color: var(--site-sage);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.author-bio-text {
+  font-size: 0.88rem;
+  color: var(--site-text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ==========================================================================
    CONTACT FORM & INPUTS (Luminous Focus)
    ========================================================================== */
 
